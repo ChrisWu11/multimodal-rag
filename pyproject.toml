@@ -1,0 +1,29 @@
+[project]
+name = "multimodal-rag"
+version = "0.1.0"
+description = "FastAPI multimodal RAG backend for ultrasound and thermal imaging projects."
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "pydantic>=2.8.0",
+  "pydantic-settings>=2.4.0",
+  "python-dotenv>=1.0.1",
+  "python-multipart>=0.0.9",
+  "openai>=1.99.0",
+  "numpy>=1.26.0",
+  "pillow>=10.4.0",
+  "pypdf>=5.0.0",
+  "httpx>=0.27.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3.0", "ruff>=0.6.0"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

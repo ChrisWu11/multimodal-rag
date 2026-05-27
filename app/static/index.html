@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multimodal RAG Debug</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f8fb;
+        --panel: #ffffff;
+        --text: #1f2937;
+        --muted: #64748b;
+        --border: #d8dee9;
+        --accent: #0f766e;
+        --accent-2: #374151;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border);
+        background: var(--panel);
+      }
+      h1 { margin: 0; font-size: 22px; font-weight: 700; }
+      main {
+        display: grid;
+        grid-template-columns: minmax(280px, 390px) 1fr;
+        gap: 16px;
+        padding: 16px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      section {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 16px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 650;
+        margin: 12px 0 6px;
+      }
+      input, textarea, select, button {
+        width: 100%;
+        font: inherit;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 10px;
+      }
+      textarea { min-height: 116px; resize: vertical; }
+      button {
+        margin-top: 12px;
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+        cursor: pointer;
+        font-weight: 700;
+      }
+      button.secondary {
+        background: var(--accent-2);
+        border-color: var(--accent-2);
+      }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .muted { color: var(--muted); font-size: 13px; }
+      #messages {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        min-height: 520px;
+      }
+      .message {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .user { border-left: 4px solid #2563eb; }
+      .assistant { border-left: 4px solid var(--accent); }
+      .evidence {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+      }
+      @media (max-width: 840px) {
+        main { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Multimodal RAG Debug</h1>
+      <div class="muted">Local test UI for ingestion, search, and chat endpoints.</div>
+    </header>
+    <main>
+      <section>
+        <h2>Ingest</h2>
+        <label for="title">Title</label>
+        <input id="title" value="Manual test note" />
+        <label for="modality">Modality</label>
+        <select id="modality">
+          <option value="text">text</option>
+          <option value="thermal">thermal</option>
+          <option value="ultrasound">ultrasound</option>
+          <option value="unknown">unknown</option>
+        </select>
+        <label for="text">Text</label>
+        <textarea id="text">Thermal imaging can support research workflows by surfacing temperature-pattern asymmetry. The result depends on acquisition conditions, calibration, and source metadata.</textarea>
+        <button onclick="ingestText()">Ingest Text</button>
+        <label for="file">File</label>
+        <input id="file" type="file" />
+        <button class="secondary" onclick="ingestFile()">Upload File</button>
+        <p id="ingest-status" class="muted"></p>
+      </section>
+      <section>
+        <h2>Chat</h2>
+        <div id="messages"></div>
+        <label for="question">Question</label>
+        <textarea id="question">How can thermal imaging be used in a research RAG workflow?</textarea>
+        <div class="row">
+          <select id="chat-modality">
+            <option value="">all modalities</option>
+            <option value="text">text</option>
+            <option value="thermal">thermal</option>
+            <option value="ultrasound">ultrasound</option>
+          </select>
+          <input id="top-k" type="number" min="1" max="20" value="5" />
+        </div>
+        <button onclick="ask()">Ask</button>
+      </section>
+    </main>
+    <script>
+      async function ingestText() {
+        const payload = {
+          title: document.getElementById("title").value,
+          modality: document.getElementById("modality").value,
+          text: document.getElementById("text").value,
+          metadata: { source: "debug-ui" }
+        };
+        const res = await fetch("/api/ingest/text", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        document.getElementById("ingest-status").textContent = JSON.stringify(await res.json(), null, 2);
+      }
+
+      async function ingestFile() {
+        const input = document.getElementById("file");
+        if (!input.files.length) return;
+        const data = new FormData();
+        data.append("file", input.files[0]);
+        data.append("title", document.getElementById("title").value);
+        data.append("modality", document.getElementById("modality").value);
+        data.append("metadata_json", JSON.stringify({ source: "debug-ui" }));
+        const res = await fetch("/api/ingest/file", { method: "POST", body: data });
+        document.getElementById("ingest-status").textContent = JSON.stringify(await res.json(), null, 2);
+      }
+
+      async function ask() {
+        const question = document.getElementById("question").value;
+        addMessage("user", question);
+        const modality = document.getElementById("chat-modality").value || null;
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            question,
+            modality,
+            top_k: Number(document.getElementById("top-k").value),
+            use_openai: true
+          })
+        });
+        const body = await res.json();
+        addMessage("assistant", body.answer, body.evidence || []);
+      }
+
+      function addMessage(role, text, evidence) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "message " + role;
+        wrapper.textContent = text;
+        if (evidence && evidence.length) {
+          const ev = document.createElement("div");
+          ev.className = "evidence";
+          ev.textContent = evidence.map((item, idx) => `[${idx + 1}] ${item.title} (${item.score})`).join("\n");
+          wrapper.appendChild(ev);
+        }
+        document.getElementById("messages").appendChild(wrapper);
+      }
+    </script>
+  </body>
+</html>
