@@ -3,7 +3,7 @@ import math
 import re
 from typing import List, Optional
 
-from openai import OpenAI
+from google import genai
 
 from app.core.config import Settings
 
@@ -39,28 +39,28 @@ class HashEmbeddingProvider(EmbeddingProvider):
         return [value / norm for value in vector]
 
 
-class OpenAIEmbeddingProvider(EmbeddingProvider):
+class GeminiEmbeddingProvider(EmbeddingProvider):
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        self.client = OpenAI(api_key=settings.openai_api_key)
+        self.client = genai.Client(api_key=settings.gemini_api_key)
         self.fallback = HashEmbeddingProvider(settings.fallback_embedding_dimensions)
 
     def embed(self, text: str) -> List[float]:
-        if not self.settings.openai_api_key or not self.settings.enable_openai_embeddings:
+        if not self.settings.gemini_api_key or not self.settings.enable_gemini_embeddings:
             return self.fallback.embed(text)
 
-        response = self.client.embeddings.create(
-            model=self.settings.openai_embedding_model,
-            input=text,
+        response = self.client.models.embed_content(
+            model=self.settings.gemini_embedding_model,
+            contents=f"task: question answering | query: {text}",
         )
-        return list(response.data[0].embedding)
+        return list(response.embeddings[0].values)
 
 
 def get_embedding_provider(settings: Settings, force_local: Optional[bool] = None) -> EmbeddingProvider:
     if force_local is True:
         return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
-    if settings.openai_api_key and settings.enable_openai_embeddings:
-        return OpenAIEmbeddingProvider(settings)
+    if settings.gemini_api_key and settings.enable_gemini_embeddings:
+        return GeminiEmbeddingProvider(settings)
     return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
 
 

@@ -13,13 +13,13 @@ class Settings(BaseSettings):
     app_env: str = "local"
     api_prefix: str = "/api"
 
-    openai_api_key: Optional[str] = Field(default=None, validation_alias="OPENAI_API_KEY")
-    openai_chat_model: str = "gpt-5.4-mini"
-    openai_embedding_model: str = "text-embedding-3-small"
-    openai_reasoning_effort: str = "low"
-    enable_openai_embeddings: bool = True
-    enable_openai_generation: bool = True
-    enable_openai_vision: bool = True
+    gemini_api_key: Optional[str] = Field(default=None, validation_alias="GEMINI_API_KEY")
+    gemini_model: str = "gemini-3.5-flash"
+    gemini_embedding_model: str = "gemini-embedding-2"
+    gemini_thinking_level: str = "low"
+    enable_gemini_embeddings: bool = True
+    enable_gemini_generation: bool = True
+    enable_gemini_vision: bool = True
 
     data_dir: Path = Path("data")
     storage_dir: Path = Path("storage")

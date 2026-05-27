@@ -12,7 +12,7 @@ FastAPI
   |
   +-- Ingestion service
   |     +-- text/PDF extraction
-  |     +-- image metadata + optional OpenAI vision summary
+  |     +-- image metadata + optional Gemini vision summary
   |     +-- chunking
   |     +-- embeddings
   |
@@ -25,7 +25,7 @@ FastAPI
   |     +-- keyword overlap
   |
   +-- Answer generator
-        +-- OpenAI Responses API when configured
+        +-- Gemini API when configured
         +-- extractive fallback when not configured
 ```
 
@@ -61,7 +61,7 @@ For images, the MVP indexes a text representation:
 
 - local image metadata
 - local intensity summary
-- optional OpenAI vision description
+- optional Gemini vision description
 
 This is enough for the first RAG prototype. When actual image datasets arrive, add:
 
@@ -71,10 +71,10 @@ This is enough for the first RAG prototype. When actual image datasets arrive, a
 - similarity search over image vectors
 - dataset-specific annotation schema
 
-## OpenAI Use
+## Gemini Use
 
-- Embeddings: `OPENAI_EMBEDDING_MODEL`
-- Generation: `OPENAI_CHAT_MODEL`
-- Vision summary: same chat model with image input
+- Embeddings: `GEMINI_EMBEDDING_MODEL`
+- Generation: `GEMINI_MODEL`
+- Vision summary: same Gemini model with image input
 
-If `OPENAI_API_KEY` is missing, the system falls back to deterministic hash embeddings and a conservative extractive answer. This keeps local development and tests stable.
+If `GEMINI_API_KEY` is missing, the system falls back to deterministic hash embeddings and a conservative extractive answer. This keeps local development and tests stable.

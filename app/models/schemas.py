@@ -1,14 +1,14 @@
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import AliasChoices, BaseModel, Field
 
 
 class HealthResponse(BaseModel):
     status: str
     app: str
     environment: str
-    openai_configured: bool
+    gemini_configured: bool
 
 
 class EvidenceItem(BaseModel):
@@ -52,7 +52,10 @@ class ChatRequest(BaseModel):
     question: str
     top_k: int = Field(default=5, ge=1, le=20)
     modality: Optional[str] = None
-    use_openai: bool = True
+    use_llm: bool = Field(
+        default=True,
+        validation_alias=AliasChoices("use_llm", "use_gemini", "use_openai"),
+    )
 
 
 class ChatResponse(BaseModel):
@@ -60,7 +63,8 @@ class ChatResponse(BaseModel):
     evidence: List[EvidenceItem]
     safety_notice: str
     visual_summary: Optional[str] = None
-    used_openai: bool
+    used_llm: bool
+    provider: str
     model: Optional[str] = None
 
 

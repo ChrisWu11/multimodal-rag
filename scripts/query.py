@@ -14,14 +14,14 @@ def main() -> None:
     parser.add_argument("question")
     parser.add_argument("--modality", default=None)
     parser.add_argument("--top-k", type=int, default=5)
-    parser.add_argument("--no-openai", action="store_true")
+    parser.add_argument("--no-llm", action="store_true")
     args = parser.parse_args()
 
     response = get_container().pipeline.answer(
         question=args.question,
         top_k=args.top_k,
         modality=args.modality,
-        use_openai=not args.no_openai,
+        use_llm=not args.no_llm,
     )
     print(response.answer)
     print("\nEvidence:")

@@ -12,7 +12,7 @@ from app.services.image_analysis import ImageAnalyzer
 
 def build_test_pipeline(tmp_path: Path) -> tuple[DocumentIngestor, RagPipeline]:
     settings = Settings(
-        openai_api_key=None,
+        gemini_api_key=None,
         sqlite_path=tmp_path / "rag.db",
         data_dir=tmp_path,
         storage_dir=tmp_path / "storage",
@@ -30,7 +30,7 @@ def build_test_pipeline(tmp_path: Path) -> tuple[DocumentIngestor, RagPipeline]:
     return ingestor, RagPipeline(settings, retriever, generator, image_analyzer)
 
 
-def test_ingest_and_answer_without_openai(tmp_path: Path) -> None:
+def test_ingest_and_answer_without_llm(tmp_path: Path) -> None:
     ingestor, pipeline = build_test_pipeline(tmp_path)
     response = ingestor.ingest_text(
         title="Thermal note",
@@ -39,7 +39,8 @@ def test_ingest_and_answer_without_openai(tmp_path: Path) -> None:
     )
     assert response.chunks_indexed == 1
 
-    answer = pipeline.answer("What can thermal imaging identify?", modality="thermal", use_openai=False)
+    answer = pipeline.answer("What can thermal imaging identify?", modality="thermal", use_llm=False)
     assert answer.evidence
-    assert answer.used_openai is False
+    assert answer.used_llm is False
+    assert answer.provider == "local"
     assert "Thermal note" in answer.answer

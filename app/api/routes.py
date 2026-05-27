@@ -26,7 +26,7 @@ def health() -> HealthResponse:
         status="ok",
         app=settings.app_name,
         environment=settings.app_env,
-        openai_configured=bool(settings.openai_api_key),
+        gemini_configured=bool(settings.gemini_api_key),
     )
 
 
@@ -102,7 +102,7 @@ def chat(
         question=request.question,
         top_k=request.top_k,
         modality=request.modality,
-        use_openai=request.use_openai,
+        use_llm=request.use_llm,
     )
 
 
@@ -112,7 +112,7 @@ async def chat_with_image(
     question: str = Form(...),
     top_k: int = Form(default=5),
     modality: Optional[str] = Form(default=None),
-    use_openai: bool = Form(default=True),
+    use_llm: bool = Form(default=True),
     container: AppContainer = Depends(get_container),
 ) -> ChatResponse:
     data = await image.read()
@@ -120,7 +120,7 @@ async def chat_with_image(
         question=question,
         top_k=top_k,
         modality=modality,
-        use_openai=use_openai,
+        use_llm=use_llm,
         image_filename=image.filename or "uploaded-image",
         image_bytes=data,
     )

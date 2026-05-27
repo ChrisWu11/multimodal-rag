@@ -1,6 +1,7 @@
 from typing import List, Optional
 
-from openai import OpenAI
+from google import genai
+from google.genai import types
 
 from app.core.config import Settings
 from app.models.schemas import EvidenceItem
@@ -20,31 +21,31 @@ class AnswerGenerator:
         question: str,
         evidence: List[EvidenceItem],
         visual_summary: Optional[str] = None,
-        use_openai: bool = True,
-    ) -> tuple[str, bool, Optional[str]]:
+        use_llm: bool = True,
+    ) -> tuple[str, bool, Optional[str], str]:
         raise NotImplementedError
 
 
 class RagAnswerGenerator(AnswerGenerator):
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        self.client: Optional[OpenAI] = None
-        if settings.openai_api_key:
-            self.client = OpenAI(api_key=settings.openai_api_key)
+        self.client: Optional[genai.Client] = None
+        if settings.gemini_api_key:
+            self.client = genai.Client(api_key=settings.gemini_api_key)
 
     def generate(
         self,
         question: str,
         evidence: List[EvidenceItem],
         visual_summary: Optional[str] = None,
-        use_openai: bool = True,
-    ) -> tuple[str, bool, Optional[str]]:
-        if self.client and self.settings.enable_openai_generation and use_openai:
-            answer = self._generate_with_openai(question, evidence, visual_summary)
-            return answer, True, self.settings.openai_chat_model
-        return self._generate_fallback(question, evidence, visual_summary), False, None
+        use_llm: bool = True,
+    ) -> tuple[str, bool, Optional[str], str]:
+        if self.client and self.settings.enable_gemini_generation and use_llm:
+            answer = self._generate_with_gemini(question, evidence, visual_summary)
+            return answer, True, self.settings.gemini_model, "gemini"
+        return self._generate_fallback(question, evidence, visual_summary), False, None, "local"
 
-    def _generate_with_openai(
+    def _generate_with_gemini(
         self,
         question: str,
         evidence: List[EvidenceItem],
@@ -66,14 +67,17 @@ Answer in concise Chinese by default unless the user asks for another language. 
 2. evidence
 3. uncertainty / next data needed
 """
-        response = self.client.responses.create(
-            model=self.settings.openai_chat_model,
-            input=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": user_prompt},
-            ],
+        response = self.client.models.generate_content(
+            model=self.settings.gemini_model,
+            contents=user_prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=SYSTEM_PROMPT,
+                thinking_config=types.ThinkingConfig(
+                    thinking_level=self.settings.gemini_thinking_level
+                ),
+            ),
         )
-        return response.output_text.strip()
+        return (response.text or "").strip()
 
     @staticmethod
     def _generate_fallback(
@@ -88,7 +92,7 @@ Answer in concise Chinese by default unless the user asks for another language. 
             )
 
         lines = [
-            "本地 fallback 模式已根据检索证据生成一个保守回答；配置 OPENAI_API_KEY 后会切换到 LLM 生成。",
+            "本地 fallback 模式已根据检索证据生成一个保守回答；配置 GEMINI_API_KEY 后会切换到 Gemini 生成。",
             "",
             f"问题：{question}",
         ]

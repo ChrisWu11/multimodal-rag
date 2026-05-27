@@ -1,10 +1,10 @@
-import base64
 import io
 import statistics
 from pathlib import Path
 from typing import Any, Dict, Optional
 
-from openai import OpenAI
+from google import genai
+from google.genai import types
 from PIL import Image, ImageStat
 
 from app.core.config import Settings
@@ -66,42 +66,32 @@ def build_basic_image_summary(filename: str, data: bytes, modality: str = "unkno
 class ImageAnalyzer:
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        self.client: Optional[OpenAI] = None
-        if settings.openai_api_key:
-            self.client = OpenAI(api_key=settings.openai_api_key)
+        self.client: Optional[genai.Client] = None
+        if settings.gemini_api_key:
+            self.client = genai.Client(api_key=settings.gemini_api_key)
 
     def summarize(self, filename: str, data: bytes, modality: str = "unknown") -> tuple[str, Dict[str, Any]]:
         basic_summary, metadata = build_basic_image_summary(filename, data, modality)
-        if not self.client or not self.settings.enable_openai_vision:
+        if not self.client or not self.settings.enable_gemini_vision:
             return basic_summary, metadata
 
         media_type = _media_type(filename)
-        encoded = base64.b64encode(data).decode("ascii")
         prompt = (
             "You are helping build a research RAG system for ultrasound and thermal imaging. "
             "Describe observable visual features only. Do not diagnose. "
             "Return a concise structured summary with acquisition-quality notes, visible patterns, "
             "uncertainties, and metadata that would be useful for retrieval."
         )
-        response = self.client.responses.create(
-            model=self.settings.openai_chat_model,
-            input=[
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "input_text", "text": f"{prompt}\nModality: {modality}."},
-                        {
-                            "type": "input_image",
-                            "image_url": f"data:{media_type};base64,{encoded}",
-                            "detail": "high",
-                        },
-                    ],
-                }
+        response = self.client.models.generate_content(
+            model=self.settings.gemini_model,
+            contents=[
+                types.Part.from_bytes(data=data, mime_type=media_type),
+                f"{prompt}\nModality: {modality}.",
             ],
         )
-        openai_summary = response.output_text.strip()
-        metadata["openai_vision_used"] = True
-        return f"{basic_summary}\n\nVision model summary:\n{openai_summary}", metadata
+        gemini_summary = (response.text or "").strip()
+        metadata["gemini_vision_used"] = True
+        return f"{basic_summary}\n\nVision model summary:\n{gemini_summary}", metadata
 
 
 def _media_type(filename: str) -> str:

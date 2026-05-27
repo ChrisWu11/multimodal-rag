@@ -1,16 +1,16 @@
 # Multimodal RAG
 
-FastAPI backend for an ultrasound and thermal-imaging oriented multimodal RAG project. The current scope is deliberately simple: ingest text/PDF/image files, create searchable chunks, retrieve evidence, and answer through OpenAI when an API key is configured.
+FastAPI backend for an ultrasound and thermal-imaging oriented multimodal RAG project. The current scope is deliberately simple: ingest text/PDF/image files, create searchable chunks, retrieve evidence, and answer through Gemini when an API key is configured.
 
-The app also works without an OpenAI key by using a deterministic local embedding fallback and an extractive answer fallback. That makes it easy to test with Postman before real data arrives.
+The app also works without a Gemini key by using a deterministic local embedding fallback and an extractive answer fallback. That makes it easy to test with Postman before real data arrives.
 
 ## What Is Implemented
 
 - Text ingestion from raw text, `.txt`, `.md`, `.csv`, `.json`, and `.pdf`
 - Image ingestion for `.png`, `.jpg`, `.jpeg`, `.webp`, and `.gif`
 - Basic ultrasound/thermal image metadata extraction with Pillow
-- Optional OpenAI vision summary for uploaded images
-- Optional OpenAI embeddings with local fallback
+- Optional Gemini vision summary for uploaded images
+- Optional Gemini embeddings with local fallback
 - SQLite-backed local vector store
 - Hybrid retrieval: vector similarity plus keyword overlap
 - RAG chat endpoint with evidence citations
@@ -28,10 +28,10 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Add your OpenAI key to `.env` when you want real generation and OpenAI embeddings:
+Add your Gemini key to `.env` when you want real generation and Gemini embeddings:
 
 ```bash
-OPENAI_API_KEY=sk-...
+GEMINI_API_KEY=...
 ```
 
 Run the API:

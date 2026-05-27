@@ -32,7 +32,7 @@ class RagPipeline:
         question: str,
         top_k: int = 5,
         modality: Optional[str] = None,
-        use_openai: bool = True,
+        use_llm: bool = True,
         image_filename: Optional[str] = None,
         image_bytes: Optional[bytes] = None,
     ) -> ChatResponse:
@@ -52,17 +52,18 @@ class RagPipeline:
             top_k=top_k,
             modality=modality,
         )
-        answer, used_openai, model = self.generator.generate(
+        answer, used_llm, model, provider = self.generator.generate(
             question=question,
             evidence=evidence,
             visual_summary=visual_summary,
-            use_openai=use_openai,
+            use_llm=use_llm,
         )
         return ChatResponse(
             answer=answer,
             evidence=evidence,
             safety_notice=safety_notice(),
             visual_summary=visual_summary,
-            used_openai=used_openai,
+            used_llm=used_llm,
+            provider=provider,
             model=model,
         )
