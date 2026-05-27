@@ -1,10 +1,11 @@
 from typing import List, Optional
 
-from google import genai
-from google.genai import types
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
 
 from app.core.config import Settings
 from app.models.schemas import EvidenceItem
+from app.rag.langchain_providers import build_chat_model, normalize_provider
 from app.services.safety import safety_notice
 
 
@@ -29,35 +30,18 @@ class AnswerGenerator:
 class RagAnswerGenerator(AnswerGenerator):
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        self.client: Optional[genai.Client] = None
-        if settings.gemini_api_key:
-            self.client = genai.Client(api_key=settings.gemini_api_key)
-
-    def generate(
-        self,
-        question: str,
-        evidence: List[EvidenceItem],
-        visual_summary: Optional[str] = None,
-        use_llm: bool = True,
-    ) -> tuple[str, bool, Optional[str], str]:
-        if self.client and self.settings.enable_gemini_generation and use_llm:
-            answer = self._generate_with_gemini(question, evidence, visual_summary)
-            return answer, True, self.settings.gemini_model, "gemini"
-        return self._generate_fallback(question, evidence, visual_summary), False, None, "local"
-
-    def _generate_with_gemini(
-        self,
-        question: str,
-        evidence: List[EvidenceItem],
-        visual_summary: Optional[str],
-    ) -> str:
-        context = _format_context(evidence, self.settings.max_context_chars)
-        visual = visual_summary or "No image was provided for this question."
-        user_prompt = f"""Question:
+        self.provider = normalize_provider(settings.llm_provider)
+        self.chat_model = build_chat_model(settings)
+        self.prompt = ChatPromptTemplate.from_messages(
+            [
+                ("system", SYSTEM_PROMPT),
+                (
+                    "human",
+                    """Question:
 {question}
 
 Visual summary:
-{visual}
+{visual_summary}
 
 Retrieved evidence:
 {context}
@@ -66,18 +50,39 @@ Answer in concise Chinese by default unless the user asks for another language. 
 1. direct answer
 2. evidence
 3. uncertainty / next data needed
-"""
-        response = self.client.models.generate_content(
-            model=self.settings.gemini_model,
-            contents=user_prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT,
-                thinking_config=types.ThinkingConfig(
-                    thinking_level=self.settings.gemini_thinking_level
+""",
                 ),
-            ),
+            ]
         )
-        return (response.text or "").strip()
+        self.chain = self.prompt | self.chat_model | StrOutputParser() if self.chat_model else None
+
+    def generate(
+        self,
+        question: str,
+        evidence: List[EvidenceItem],
+        visual_summary: Optional[str] = None,
+        use_llm: bool = True,
+    ) -> tuple[str, bool, Optional[str], str]:
+        if self.chain and use_llm:
+            answer = self._generate_with_langchain(question, evidence, visual_summary)
+            return answer, True, _model_name(self.settings, self.provider), self.provider
+        return self._generate_fallback(question, evidence, visual_summary), False, None, "local"
+
+    def _generate_with_langchain(
+        self,
+        question: str,
+        evidence: List[EvidenceItem],
+        visual_summary: Optional[str],
+    ) -> str:
+        context = _format_context(evidence, self.settings.max_context_chars)
+        visual = visual_summary or "No image was provided for this question."
+        return self.chain.invoke(
+            {
+                "question": question,
+                "visual_summary": visual,
+                "context": context,
+            }
+        )
 
     @staticmethod
     def _generate_fallback(
@@ -92,7 +97,7 @@ Answer in concise Chinese by default unless the user asks for another language. 
             )
 
         lines = [
-            "本地 fallback 模式已根据检索证据生成一个保守回答；配置 GEMINI_API_KEY 后会切换到 Gemini 生成。",
+            "本地 fallback 模式已根据检索证据生成一个保守回答；配置所选 LLM_PROVIDER 的 API key 后会切换到模型生成。",
             "",
             f"问题：{question}",
         ]
@@ -126,3 +131,13 @@ def _format_context(evidence: List[EvidenceItem], max_chars: int) -> str:
         blocks.append(block[:remaining])
         total += len(block)
     return "\n\n".join(blocks)
+
+
+def _model_name(settings: Settings, provider: str) -> Optional[str]:
+    if provider == "gemini":
+        return settings.gemini_model
+    if provider == "openai":
+        return settings.openai_model
+    if provider == "qwen":
+        return settings.qwen_model
+    return None

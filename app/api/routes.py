@@ -14,6 +14,7 @@ from app.models.schemas import (
     SearchRequest,
     SearchResponse,
 )
+from app.rag.langchain_providers import configured_providers, provider_configured
 from app.services.file_extraction import ExtractionError, parse_metadata_json
 
 router = APIRouter()
@@ -26,6 +27,10 @@ def health() -> HealthResponse:
         status="ok",
         app=settings.app_name,
         environment=settings.app_env,
+        llm_provider=settings.llm_provider,
+        embedding_provider=settings.embedding_provider,
+        provider_configured=provider_configured(settings, settings.llm_provider),
+        configured_providers=configured_providers(settings),
         gemini_configured=bool(settings.gemini_api_key),
     )
 

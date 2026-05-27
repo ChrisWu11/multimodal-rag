@@ -36,13 +36,14 @@ class DocumentIngestor:
         if not chunks:
             raise ValueError("No text content could be indexed.")
 
+        embeddings = self.embeddings.embed_documents([chunk.content for chunk in chunks])
         chunk_rows = []
-        for chunk in chunks:
+        for chunk, embedding in zip(chunks, embeddings):
             chunk_rows.append(
                 {
                     "chunk_index": chunk.index,
                     "content": chunk.content,
-                    "embedding": self.embeddings.embed(chunk.content),
+                    "embedding": embedding,
                     "metadata": {"char_count": len(chunk.content)},
                 }
             )

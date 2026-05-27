@@ -1,6 +1,6 @@
 # Architecture
 
-The MVP is a local-first RAG backend. It is intentionally small so it can be validated before the team confirms the final ultrasound and thermal-imaging datasets.
+The MVP is a local-first RAG backend. This branch introduces LangChain as the model, embedding, text splitting, and prompt chaining layer while keeping storage and retrieval explicit.
 
 ## Runtime Components
 
@@ -12,9 +12,9 @@ FastAPI
   |
   +-- Ingestion service
   |     +-- text/PDF extraction
-  |     +-- image metadata + optional Gemini vision summary
-  |     +-- chunking
-  |     +-- embeddings
+  |     +-- image metadata + optional LangChain multimodal summary
+  |     +-- LangChain text splitter
+  |     +-- LangChain embedding provider
   |
   +-- SQLite RAG store
   |     +-- documents table
@@ -25,7 +25,7 @@ FastAPI
   |     +-- keyword overlap
   |
   +-- Answer generator
-        +-- Gemini API when configured
+        +-- LangChain chat model when configured
         +-- extractive fallback when not configured
 ```
 
@@ -61,7 +61,7 @@ For images, the MVP indexes a text representation:
 
 - local image metadata
 - local intensity summary
-- optional Gemini vision description
+- optional LangChain multimodal vision description
 
 This is enough for the first RAG prototype. When actual image datasets arrive, add:
 
@@ -71,10 +71,17 @@ This is enough for the first RAG prototype. When actual image datasets arrive, a
 - similarity search over image vectors
 - dataset-specific annotation schema
 
-## Gemini Use
+## Provider Use
 
-- Embeddings: `GEMINI_EMBEDDING_MODEL`
-- Generation: `GEMINI_MODEL`
-- Vision summary: same Gemini model with image input
+Choose providers with:
 
-If `GEMINI_API_KEY` is missing, the system falls back to deterministic hash embeddings and a conservative extractive answer. This keeps local development and tests stable.
+- `LLM_PROVIDER`: `gemini`, `openai`, or `qwen`
+- `EMBEDDING_PROVIDER`: `gemini`, `openai`, `qwen`, or local fallback
+
+Provider-specific variables:
+
+- Gemini: `GEMINI_API_KEY`, `GEMINI_MODEL`, `GEMINI_EMBEDDING_MODEL`
+- OpenAI: `OPENAI_API_KEY`, `OPENAI_MODEL`, `OPENAI_EMBEDDING_MODEL`
+- Qwen: `QWEN_API_KEY`, `QWEN_BASE_URL`, `QWEN_MODEL`, `QWEN_EMBEDDING_MODEL`
+
+If the chosen provider API key is missing, the system falls back to deterministic hash embeddings and a conservative extractive answer. This keeps local development and tests stable.

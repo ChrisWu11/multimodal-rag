@@ -1,16 +1,18 @@
 # Multimodal RAG
 
-FastAPI backend for an ultrasound and thermal-imaging oriented multimodal RAG project. The current scope is deliberately simple: ingest text/PDF/image files, create searchable chunks, retrieve evidence, and answer through Gemini when an API key is configured.
+FastAPI backend for an ultrasound and thermal-imaging oriented multimodal RAG project. This branch uses LangChain for text splitting, embedding providers, chat models, and prompt chaining while keeping the FastAPI API surface simple.
 
-The app also works without a Gemini key by using a deterministic local embedding fallback and an extractive answer fallback. That makes it easy to test with Postman before real data arrives.
+The app works without external API keys by using a deterministic local embedding fallback and an extractive answer fallback. That makes it easy to test with Postman before real data arrives.
 
 ## What Is Implemented
 
 - Text ingestion from raw text, `.txt`, `.md`, `.csv`, `.json`, and `.pdf`
 - Image ingestion for `.png`, `.jpg`, `.jpeg`, `.webp`, and `.gif`
 - Basic ultrasound/thermal image metadata extraction with Pillow
-- Optional Gemini vision summary for uploaded images
-- Optional Gemini embeddings with local fallback
+- LangChain text splitting and provider adapters
+- Optional Gemini, OpenAI, or Qwen model generation
+- Optional Gemini, OpenAI, or Qwen embeddings with local fallback
+- Optional LangChain multimodal image summary for uploaded images
 - SQLite-backed local vector store
 - Hybrid retrieval: vector similarity plus keyword overlap
 - RAG chat endpoint with evidence citations
@@ -28,10 +30,38 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Add your Gemini key to `.env` when you want real generation and Gemini embeddings:
+Choose providers in `.env`:
 
 ```bash
+LLM_PROVIDER=gemini
+EMBEDDING_PROVIDER=gemini
 GEMINI_API_KEY=...
+```
+
+Provider examples:
+
+```bash
+# Gemini
+LLM_PROVIDER=gemini
+EMBEDDING_PROVIDER=gemini
+GEMINI_API_KEY=...
+GEMINI_MODEL=gemini-2.5-flash
+GEMINI_EMBEDDING_MODEL=gemini-embedding-001
+
+# OpenAI
+LLM_PROVIDER=openai
+EMBEDDING_PROVIDER=openai
+OPENAI_API_KEY=...
+OPENAI_MODEL=gpt-4o-mini
+OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+
+# Qwen / DashScope OpenAI-compatible API
+LLM_PROVIDER=qwen
+EMBEDDING_PROVIDER=qwen
+QWEN_API_KEY=...
+QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+QWEN_MODEL=qwen-plus
+QWEN_EMBEDDING_MODEL=text-embedding-v4
 ```
 
 Run the API:
@@ -77,7 +107,8 @@ Content-Type: application/json
 {
   "question": "How can thermal imaging help with screening?",
   "modality": "thermal",
-  "top_k": 5
+  "top_k": 5,
+  "use_llm": true
 }
 ```
 

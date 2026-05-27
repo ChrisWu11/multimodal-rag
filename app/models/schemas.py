@@ -8,6 +8,10 @@ class HealthResponse(BaseModel):
     status: str
     app: str
     environment: str
+    llm_provider: str
+    embedding_provider: str
+    provider_configured: bool
+    configured_providers: Dict[str, bool]
     gemini_configured: bool
 
 

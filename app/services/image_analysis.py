@@ -1,13 +1,14 @@
+import base64
 import io
 import statistics
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
-from google import genai
-from google.genai import types
+from langchain_core.messages import HumanMessage, SystemMessage
 from PIL import Image, ImageStat
 
 from app.core.config import Settings
+from app.rag.langchain_providers import build_chat_model, normalize_provider
 
 
 def build_basic_image_summary(filename: str, data: bytes, modality: str = "unknown") -> tuple[str, Dict[str, Any]]:
@@ -66,32 +67,49 @@ def build_basic_image_summary(filename: str, data: bytes, modality: str = "unkno
 class ImageAnalyzer:
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        self.client: Optional[genai.Client] = None
-        if settings.gemini_api_key:
-            self.client = genai.Client(api_key=settings.gemini_api_key)
+        self.provider = normalize_provider(settings.llm_provider)
+        self.chat_model = build_chat_model(settings)
 
     def summarize(self, filename: str, data: bytes, modality: str = "unknown") -> tuple[str, Dict[str, Any]]:
         basic_summary, metadata = build_basic_image_summary(filename, data, modality)
-        if not self.client or not self.settings.enable_gemini_vision:
+        if not self.chat_model or not self._vision_enabled():
             return basic_summary, metadata
 
         media_type = _media_type(filename)
+        encoded = base64.b64encode(data).decode("ascii")
         prompt = (
             "You are helping build a research RAG system for ultrasound and thermal imaging. "
             "Describe observable visual features only. Do not diagnose. "
             "Return a concise structured summary with acquisition-quality notes, visible patterns, "
             "uncertainties, and metadata that would be useful for retrieval."
         )
-        response = self.client.models.generate_content(
-            model=self.settings.gemini_model,
-            contents=[
-                types.Part.from_bytes(data=data, mime_type=media_type),
-                f"{prompt}\nModality: {modality}.",
-            ],
-        )
-        gemini_summary = (response.text or "").strip()
-        metadata["gemini_vision_used"] = True
-        return f"{basic_summary}\n\nVision model summary:\n{gemini_summary}", metadata
+        try:
+            response = self.chat_model.invoke(
+                [
+                    SystemMessage(content=prompt),
+                    HumanMessage(
+                        content=[
+                            {"type": "text", "text": f"Modality: {modality}."},
+                            {
+                                "type": "image_url",
+                                "image_url": f"data:{media_type};base64,{encoded}",
+                            },
+                        ]
+                    ),
+                ]
+            )
+        except Exception as exc:
+            metadata["vision_error"] = str(exc)
+            return basic_summary, metadata
+
+        vision_summary = str(response.content).strip()
+        metadata["vision_provider"] = self.provider
+        return f"{basic_summary}\n\nVision model summary:\n{vision_summary}", metadata
+
+    def _vision_enabled(self) -> bool:
+        if self.provider == "gemini":
+            return self.settings.enable_gemini_vision
+        return self.settings.enable_llm_generation
 
 
 def _media_type(filename: str) -> str:

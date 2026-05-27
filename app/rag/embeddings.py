@@ -3,9 +3,10 @@ import math
 import re
 from typing import List, Optional
 
-from google import genai
+from langchain_core.embeddings import Embeddings
 
 from app.core.config import Settings
+from app.rag.langchain_providers import build_embeddings
 
 TOKEN_RE = re.compile(r"[\w\u4e00-\u9fff]+", re.UNICODE)
 
@@ -14,14 +15,17 @@ class EmbeddingProvider:
     def embed(self, text: str) -> List[float]:
         raise NotImplementedError
 
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return [self.embed(text) for text in texts]
 
-class HashEmbeddingProvider(EmbeddingProvider):
+
+class HashEmbeddings(Embeddings):
     """Deterministic local embedding fallback for development and tests."""
 
     def __init__(self, dimensions: int = 384) -> None:
         self.dimensions = dimensions
 
-    def embed(self, text: str) -> List[float]:
+    def embed_query(self, text: str) -> List[float]:
         vector = [0.0] * self.dimensions
         tokens = TOKEN_RE.findall(text.lower())
         if not tokens:
@@ -38,30 +42,37 @@ class HashEmbeddingProvider(EmbeddingProvider):
             return vector
         return [value / norm for value in vector]
 
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return [self.embed_query(text) for text in texts]
 
-class GeminiEmbeddingProvider(EmbeddingProvider):
-    def __init__(self, settings: Settings) -> None:
-        self.settings = settings
-        self.client = genai.Client(api_key=settings.gemini_api_key)
-        self.fallback = HashEmbeddingProvider(settings.fallback_embedding_dimensions)
+
+class HashEmbeddingProvider(EmbeddingProvider):
+    def __init__(self, dimensions: int = 384) -> None:
+        self.embeddings = HashEmbeddings(dimensions=dimensions)
 
     def embed(self, text: str) -> List[float]:
-        if not self.settings.gemini_api_key or not self.settings.enable_gemini_embeddings:
-            return self.fallback.embed(text)
+        return self.embeddings.embed_query(text)
 
-        response = self.client.models.embed_content(
-            model=self.settings.gemini_embedding_model,
-            contents=f"task: question answering | query: {text}",
-        )
-        return list(response.embeddings[0].values)
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return self.embeddings.embed_documents(texts)
+
+
+class LangChainEmbeddingProvider(EmbeddingProvider):
+    def __init__(self, embeddings: Embeddings) -> None:
+        self.embeddings = embeddings
+
+    def embed(self, text: str) -> List[float]:
+        return list(self.embeddings.embed_query(text))
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return [list(vector) for vector in self.embeddings.embed_documents(texts)]
 
 
 def get_embedding_provider(settings: Settings, force_local: Optional[bool] = None) -> EmbeddingProvider:
+    local = HashEmbeddings(settings.fallback_embedding_dimensions)
     if force_local is True:
-        return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
-    if settings.gemini_api_key and settings.enable_gemini_embeddings:
-        return GeminiEmbeddingProvider(settings)
-    return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
+        return LangChainEmbeddingProvider(local)
+    return LangChainEmbeddingProvider(build_embeddings(settings, local))
 
 
 def cosine_similarity(left: List[float], right: List[float]) -> float:
