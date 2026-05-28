@@ -70,6 +70,18 @@ Run the API:
 uvicorn app.main:app --reload
 ```
 
+Or use the quick debug launcher:
+
+```bash
+./scripts/dev_server.sh
+```
+
+On macOS, you can also double-click:
+
+```text
+start-debug.command
+```
+
 Open the debug UI:
 
 ```text
