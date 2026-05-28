@@ -88,6 +88,10 @@ Open the debug UI:
 http://127.0.0.1:8000
 ```
 
+The debug UI includes runtime model controls. You can switch `LLM_PROVIDER`, chat model,
+`EMBEDDING_PROVIDER`, and embedding model for a single ingest/chat request without editing `.env`.
+Use the same embedding provider/model for ingestion and chat when comparing retrieval quality.
+
 ## Postman Flow
 
 Health:

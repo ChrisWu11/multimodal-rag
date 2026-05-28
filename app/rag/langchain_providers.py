@@ -31,6 +31,43 @@ def provider_configured(settings: Settings, provider: Optional[str]) -> bool:
     return configured_providers(settings).get(normalize_provider(provider), False)
 
 
+def active_llm_model(settings: Settings, provider: Optional[str] = None) -> str:
+    provider_name = normalize_provider(provider or settings.llm_provider)
+    if provider_name == OPENAI_PROVIDER:
+        return settings.openai_model
+    if provider_name == QWEN_PROVIDER:
+        return settings.qwen_model
+    return settings.gemini_model
+
+
+def active_embedding_model(settings: Settings, provider: Optional[str] = None) -> str:
+    provider_name = normalize_provider(provider or settings.embedding_provider)
+    if provider_name == LOCAL_PROVIDER:
+        return "hash-embeddings"
+    if provider_name == OPENAI_PROVIDER:
+        return settings.openai_embedding_model
+    if provider_name == QWEN_PROVIDER:
+        return settings.qwen_embedding_model
+    return settings.gemini_embedding_model
+
+
+def model_options() -> dict[str, list[str]]:
+    return {
+        GEMINI_PROVIDER: ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-1.5-flash"],
+        OPENAI_PROVIDER: ["gpt-4o-mini", "gpt-4o", "gpt-4.1-mini"],
+        QWEN_PROVIDER: ["qwen-plus", "qwen-max", "qwen-turbo"],
+    }
+
+
+def embedding_model_options() -> dict[str, list[str]]:
+    return {
+        GEMINI_PROVIDER: ["gemini-embedding-001"],
+        OPENAI_PROVIDER: ["text-embedding-3-small", "text-embedding-3-large"],
+        QWEN_PROVIDER: ["text-embedding-v4", "text-embedding-v3"],
+        LOCAL_PROVIDER: ["hash-embeddings"],
+    }
+
+
 def provider_generation_enabled(settings: Settings, provider: Optional[str]) -> bool:
     provider_name = normalize_provider(provider)
     if not settings.enable_llm_generation:

@@ -61,6 +61,49 @@ class Settings(BaseSettings):
         self.upload_dir.mkdir(parents=True, exist_ok=True)
         self.sqlite_path.parent.mkdir(parents=True, exist_ok=True)
 
+    def with_runtime_models(
+        self,
+        llm_provider: Optional[str] = None,
+        llm_model: Optional[str] = None,
+        embedding_provider: Optional[str] = None,
+        embedding_model: Optional[str] = None,
+    ) -> "Settings":
+        updates: dict[str, object] = {}
+        active_llm_provider = _clean_provider(llm_provider or self.llm_provider)
+        active_embedding_provider = _clean_provider(embedding_provider or self.embedding_provider)
+
+        if llm_provider:
+            updates["llm_provider"] = active_llm_provider
+        if embedding_provider:
+            updates["embedding_provider"] = active_embedding_provider
+
+        if llm_model:
+            updates[_model_field(active_llm_provider)] = llm_model.strip()
+        if embedding_model and active_embedding_provider != "local":
+            updates[_embedding_model_field(active_embedding_provider)] = embedding_model.strip()
+
+        return self.model_copy(update=updates)
+
+
+def _clean_provider(provider: str) -> str:
+    return provider.strip().lower().replace("-", "_")
+
+
+def _model_field(provider: str) -> str:
+    if provider == "openai":
+        return "openai_model"
+    if provider == "qwen":
+        return "qwen_model"
+    return "gemini_model"
+
+
+def _embedding_model_field(provider: str) -> str:
+    if provider == "openai":
+        return "openai_embedding_model"
+    if provider == "qwen":
+        return "qwen_embedding_model"
+    return "gemini_embedding_model"
+
 
 @lru_cache
 def get_settings() -> Settings:
