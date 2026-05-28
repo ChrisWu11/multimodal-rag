@@ -4,6 +4,7 @@ from app.core.config import Settings, get_settings
 from app.rag.embeddings import get_embedding_provider
 from app.rag.generator import RagAnswerGenerator
 from app.rag.ingestion import DocumentIngestor
+from app.rag.model_providers import active_embedding_model
 from app.rag.pipeline import RagPipeline
 from app.rag.retriever import HybridRetriever
 from app.rag.storage import RagStore
@@ -23,13 +24,41 @@ class AppContainer:
             embeddings=self.embeddings,
             image_analyzer=self.image_analyzer,
         )
-        self.retriever = HybridRetriever(store=self.store, embeddings=self.embeddings)
+        self.retriever = HybridRetriever(
+            store=self.store,
+            embeddings=self.embeddings,
+            embedding_provider=settings.embedding_provider,
+            embedding_model=active_embedding_model(settings),
+        )
         self.generator = RagAnswerGenerator(settings=settings)
         self.pipeline = RagPipeline(
             settings=settings,
             retriever=self.retriever,
             generator=self.generator,
             image_analyzer=self.image_analyzer,
+        )
+
+    def create_pipeline(self, settings: Settings) -> RagPipeline:
+        embeddings = get_embedding_provider(settings)
+        image_analyzer = ImageAnalyzer(settings)
+        return RagPipeline(
+            settings=settings,
+            retriever=HybridRetriever(
+                store=self.store,
+                embeddings=embeddings,
+                embedding_provider=settings.embedding_provider,
+                embedding_model=active_embedding_model(settings),
+            ),
+            generator=RagAnswerGenerator(settings=settings),
+            image_analyzer=image_analyzer,
+        )
+
+    def create_ingestor(self, settings: Settings) -> DocumentIngestor:
+        return DocumentIngestor(
+            settings=settings,
+            store=self.store,
+            embeddings=get_embedding_provider(settings),
+            image_analyzer=ImageAnalyzer(settings),
         )
 
 

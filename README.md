@@ -1,16 +1,17 @@
 # Multimodal RAG
 
-FastAPI backend for an ultrasound and thermal-imaging oriented multimodal RAG project. The current scope is deliberately simple: ingest text/PDF/image files, create searchable chunks, retrieve evidence, and answer through Gemini when an API key is configured.
+FastAPI backend for an ultrasound and thermal-imaging oriented multimodal RAG project. The current scope is deliberately simple: ingest text/PDF/image files, create searchable chunks, retrieve evidence, and answer through Gemini, OpenAI, or Qwen when an API key is configured.
 
-The app also works without a Gemini key by using a deterministic local embedding fallback and an extractive answer fallback. That makes it easy to test with Postman before real data arrives.
+The app also works without external model keys by using a deterministic local embedding fallback and an extractive answer fallback. That makes it easy to test with Postman before real data arrives.
 
 ## What Is Implemented
 
 - Text ingestion from raw text, `.txt`, `.md`, `.csv`, `.json`, and `.pdf`
 - Image ingestion for `.png`, `.jpg`, `.jpeg`, `.webp`, and `.gif`
 - Basic ultrasound/thermal image metadata extraction with Pillow
-- Optional Gemini vision summary for uploaded images
-- Optional Gemini embeddings with local fallback
+- Optional Gemini/OpenAI/Qwen generation
+- Optional Gemini/OpenAI/Qwen embeddings with local fallback
+- Optional vision summary for uploaded images
 - SQLite-backed local vector store
 - Hybrid retrieval: vector similarity plus keyword overlap
 - RAG chat endpoint with evidence citations
@@ -28,11 +29,15 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Add your Gemini key to `.env` when you want real generation and Gemini embeddings:
+Choose providers in `.env` when you want real generation and external embeddings:
 
 ```bash
+LLM_PROVIDER=gemini
+EMBEDDING_PROVIDER=gemini
 GEMINI_API_KEY=...
 ```
+
+The debug UI also lets you switch `LLM_PROVIDER`, chat model, `EMBEDDING_PROVIDER`, and embedding model for a single ingest/chat request without editing `.env`. Use the same embedding provider/model for ingestion and chat when comparing retrieval quality.
 
 Run the API:
 
@@ -77,7 +82,10 @@ Content-Type: application/json
 {
   "question": "How can thermal imaging help with screening?",
   "modality": "thermal",
-  "top_k": 5
+  "top_k": 5,
+  "llm_provider": "gemini",
+  "embedding_provider": "gemini",
+  "use_llm": true
 }
 ```
 

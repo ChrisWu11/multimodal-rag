@@ -11,8 +11,17 @@ from app.models.schemas import (
     HealthResponse,
     IngestResponse,
     IngestTextRequest,
+    ModelConfigResponse,
     SearchRequest,
     SearchResponse,
+)
+from app.rag.model_providers import (
+    active_embedding_model,
+    active_llm_model,
+    configured_providers,
+    embedding_model_options,
+    model_options,
+    provider_configured,
 )
 from app.services.file_extraction import ExtractionError, parse_metadata_json
 
@@ -26,7 +35,25 @@ def health() -> HealthResponse:
         status="ok",
         app=settings.app_name,
         environment=settings.app_env,
+        llm_provider=settings.llm_provider,
+        embedding_provider=settings.embedding_provider,
+        provider_configured=provider_configured(settings, settings.llm_provider),
+        configured_providers=configured_providers(settings),
         gemini_configured=bool(settings.gemini_api_key),
+    )
+
+
+@router.get("/model-config", response_model=ModelConfigResponse)
+def model_config() -> ModelConfigResponse:
+    settings = get_settings()
+    return ModelConfigResponse(
+        llm_provider=settings.llm_provider,
+        embedding_provider=settings.embedding_provider,
+        llm_model=active_llm_model(settings),
+        embedding_model=active_embedding_model(settings),
+        configured_providers=configured_providers(settings),
+        model_options=model_options(),
+        embedding_model_options=embedding_model_options(),
     )
 
 
@@ -48,8 +75,12 @@ def ingest_text(
     request: IngestTextRequest,
     container: AppContainer = Depends(get_container),
 ) -> IngestResponse:
+    settings = get_settings().with_runtime_models(
+        embedding_provider=request.embedding_provider,
+        embedding_model=request.embedding_model,
+    )
     try:
-        return container.ingestor.ingest_text(
+        return container.create_ingestor(settings).ingest_text(
             title=request.title,
             text=request.text,
             modality=request.modality,
@@ -65,12 +96,18 @@ async def ingest_file(
     title: Optional[str] = Form(default=None),
     modality: str = Form(default="unknown"),
     metadata_json: Optional[str] = Form(default=None),
+    embedding_provider: Optional[str] = Form(default=None),
+    embedding_model: Optional[str] = Form(default=None),
     container: AppContainer = Depends(get_container),
 ) -> IngestResponse:
+    settings = get_settings().with_runtime_models(
+        embedding_provider=embedding_provider,
+        embedding_model=embedding_model,
+    )
     try:
         metadata = parse_metadata_json(metadata_json)
         data = await file.read()
-        return container.ingestor.ingest_file(
+        return container.create_ingestor(settings).ingest_file(
             filename=file.filename or "uploaded-file",
             data=data,
             title=title,
@@ -86,7 +123,11 @@ def search(
     request: SearchRequest,
     container: AppContainer = Depends(get_container),
 ) -> SearchResponse:
-    return container.pipeline.search(
+    settings = get_settings().with_runtime_models(
+        embedding_provider=request.embedding_provider,
+        embedding_model=request.embedding_model,
+    )
+    return container.create_pipeline(settings).search(
         query=request.query,
         top_k=request.top_k,
         modality=request.modality,
@@ -98,7 +139,13 @@ def chat(
     request: ChatRequest,
     container: AppContainer = Depends(get_container),
 ) -> ChatResponse:
-    return container.pipeline.answer(
+    settings = get_settings().with_runtime_models(
+        llm_provider=request.llm_provider,
+        llm_model=request.llm_model,
+        embedding_provider=request.embedding_provider,
+        embedding_model=request.embedding_model,
+    )
+    return container.create_pipeline(settings).answer(
         question=request.question,
         top_k=request.top_k,
         modality=request.modality,
@@ -113,10 +160,20 @@ async def chat_with_image(
     top_k: int = Form(default=5),
     modality: Optional[str] = Form(default=None),
     use_llm: bool = Form(default=True),
+    llm_provider: Optional[str] = Form(default=None),
+    llm_model: Optional[str] = Form(default=None),
+    embedding_provider: Optional[str] = Form(default=None),
+    embedding_model: Optional[str] = Form(default=None),
     container: AppContainer = Depends(get_container),
 ) -> ChatResponse:
+    settings = get_settings().with_runtime_models(
+        llm_provider=llm_provider,
+        llm_model=llm_model,
+        embedding_provider=embedding_provider,
+        embedding_model=embedding_model,
+    )
     data = await image.read()
-    return container.pipeline.answer(
+    return container.create_pipeline(settings).answer(
         question=question,
         top_k=top_k,
         modality=modality,

@@ -69,7 +69,17 @@
         border-color: var(--accent-2);
       }
       .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .config-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
       .muted { color: var(--muted); font-size: 13px; }
+      .inline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .inline input { width: auto; }
       #messages {
         display: flex;
         flex-direction: column;
@@ -94,6 +104,7 @@
       }
       @media (max-width: 840px) {
         main { grid-template-columns: 1fr; }
+        .config-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
@@ -120,10 +131,34 @@
         <label for="file">File</label>
         <input id="file" type="file" />
         <button class="secondary" onclick="ingestFile()">Upload File</button>
+        <p class="muted">Ingest uses the embedding provider selected in the chat panel.</p>
         <p id="ingest-status" class="muted"></p>
       </section>
       <section>
         <h2>Chat</h2>
+        <label>Model Settings</label>
+        <div class="config-grid">
+          <select id="llm-provider" onchange="syncModelDefaults()">
+            <option value="gemini">Gemini</option>
+            <option value="openai">OpenAI</option>
+            <option value="qwen">Qwen</option>
+          </select>
+          <input id="llm-model" list="llm-model-options" placeholder="LLM model" />
+          <select id="embedding-provider" onchange="syncModelDefaults()">
+            <option value="gemini">Gemini embeddings</option>
+            <option value="openai">OpenAI embeddings</option>
+            <option value="qwen">Qwen embeddings</option>
+            <option value="local">Local hash fallback</option>
+          </select>
+          <input id="embedding-model" list="embedding-model-options" placeholder="Embedding model" />
+        </div>
+        <datalist id="llm-model-options"></datalist>
+        <datalist id="embedding-model-options"></datalist>
+        <label class="inline">
+          <input id="use-llm" type="checkbox" checked />
+          Use selected LLM for answer generation
+        </label>
+        <p id="model-status" class="muted"></p>
         <div id="messages"></div>
         <label for="question">Question</label>
         <textarea id="question">How can thermal imaging be used in a research RAG workflow?</textarea>
@@ -140,12 +175,75 @@
       </section>
     </main>
     <script>
+      let modelConfig = null;
+
+      window.addEventListener("DOMContentLoaded", loadModelConfig);
+
+      async function loadModelConfig() {
+        const res = await fetch("/api/model-config");
+        modelConfig = await res.json();
+        document.getElementById("llm-provider").value = modelConfig.llm_provider || "gemini";
+        document.getElementById("embedding-provider").value = modelConfig.embedding_provider || "gemini";
+        document.getElementById("llm-model").value = modelConfig.llm_model || "";
+        document.getElementById("embedding-model").value = modelConfig.embedding_model || "";
+        syncModelDefaults(false);
+        updateModelStatus();
+      }
+
+      function providerPayload() {
+        return {
+          llm_provider: document.getElementById("llm-provider").value,
+          llm_model: document.getElementById("llm-model").value.trim() || null,
+          embedding_provider: document.getElementById("embedding-provider").value,
+          embedding_model: document.getElementById("embedding-model").value.trim() || null
+        };
+      }
+
+      function syncModelDefaults(resetValues = true) {
+        if (!modelConfig) return;
+        const llmProvider = document.getElementById("llm-provider").value;
+        const embeddingProvider = document.getElementById("embedding-provider").value;
+        populateDatalist("llm-model-options", modelConfig.model_options[llmProvider] || []);
+        populateDatalist("embedding-model-options", modelConfig.embedding_model_options[embeddingProvider] || []);
+        if (resetValues) {
+          const llmOptions = modelConfig.model_options[llmProvider] || [];
+          const embeddingOptions = modelConfig.embedding_model_options[embeddingProvider] || [];
+          if (llmOptions.length) document.getElementById("llm-model").value = llmOptions[0];
+          if (embeddingOptions.length) document.getElementById("embedding-model").value = embeddingOptions[0];
+        }
+        updateModelStatus();
+      }
+
+      function populateDatalist(id, values) {
+        const list = document.getElementById(id);
+        list.innerHTML = "";
+        values.forEach((value) => {
+          const option = document.createElement("option");
+          option.value = value;
+          list.appendChild(option);
+        });
+      }
+
+      function updateModelStatus() {
+        if (!modelConfig) return;
+        const providers = modelConfig.configured_providers || {};
+        const llmProvider = document.getElementById("llm-provider").value;
+        const embeddingProvider = document.getElementById("embedding-provider").value;
+        const llmState = providers[llmProvider] ? "configured" : "missing key";
+        const embeddingState = providers[embeddingProvider] ? "configured" : "fallback/missing key";
+        document.getElementById("model-status").textContent =
+          `LLM ${llmProvider}: ${llmState}; embeddings ${embeddingProvider}: ${embeddingState}.`;
+      }
+
       async function ingestText() {
+        const providers = providerPayload();
         const payload = {
           title: document.getElementById("title").value,
           modality: document.getElementById("modality").value,
           text: document.getElementById("text").value,
-          metadata: { source: "debug-ui" }
+          metadata: { source: "debug-ui" },
+          embedding_provider: providers.embedding_provider,
+          embedding_model: providers.embedding_model
         };
         const res = await fetch("/api/ingest/text", {
           method: "POST",
@@ -163,6 +261,9 @@
         data.append("title", document.getElementById("title").value);
         data.append("modality", document.getElementById("modality").value);
         data.append("metadata_json", JSON.stringify({ source: "debug-ui" }));
+        const providers = providerPayload();
+        data.append("embedding_provider", providers.embedding_provider);
+        if (providers.embedding_model) data.append("embedding_model", providers.embedding_model);
         const res = await fetch("/api/ingest/file", { method: "POST", body: data });
         document.getElementById("ingest-status").textContent = JSON.stringify(await res.json(), null, 2);
       }
@@ -171,6 +272,7 @@
         const question = document.getElementById("question").value;
         addMessage("user", question);
         const modality = document.getElementById("chat-modality").value || null;
+        const providers = providerPayload();
         const res = await fetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -178,11 +280,13 @@
             question,
             modality,
             top_k: Number(document.getElementById("top-k").value),
-            use_llm: true
+            use_llm: document.getElementById("use-llm").checked,
+            ...providers
           })
         });
         const body = await res.json();
-        addMessage("assistant", body.answer, body.evidence || []);
+        const providerLine = `Provider: ${body.provider || "unknown"}${body.model ? ` / ${body.model}` : ""}`;
+        addMessage("assistant", `${providerLine}\n\n${body.answer}`, body.evidence || []);
       }
 
       function addMessage(role, text, evidence) {

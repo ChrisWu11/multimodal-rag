@@ -8,7 +8,21 @@ class HealthResponse(BaseModel):
     status: str
     app: str
     environment: str
+    llm_provider: str
+    embedding_provider: str
+    provider_configured: bool
+    configured_providers: Dict[str, bool]
     gemini_configured: bool
+
+
+class ModelConfigResponse(BaseModel):
+    llm_provider: str
+    embedding_provider: str
+    llm_model: str
+    embedding_model: str
+    configured_providers: Dict[str, bool]
+    model_options: Dict[str, List[str]]
+    embedding_model_options: Dict[str, List[str]]
 
 
 class EvidenceItem(BaseModel):
@@ -27,6 +41,8 @@ class IngestTextRequest(BaseModel):
     text: str
     modality: str = "text"
     metadata: Dict[str, Any] = Field(default_factory=dict)
+    embedding_provider: Optional[str] = None
+    embedding_model: Optional[str] = None
 
 
 class IngestResponse(BaseModel):
@@ -41,6 +57,8 @@ class SearchRequest(BaseModel):
     query: str
     top_k: int = Field(default=5, ge=1, le=20)
     modality: Optional[str] = None
+    embedding_provider: Optional[str] = None
+    embedding_model: Optional[str] = None
 
 
 class SearchResponse(BaseModel):
@@ -52,6 +70,10 @@ class ChatRequest(BaseModel):
     question: str
     top_k: int = Field(default=5, ge=1, le=20)
     modality: Optional[str] = None
+    llm_provider: Optional[str] = None
+    llm_model: Optional[str] = None
+    embedding_provider: Optional[str] = None
+    embedding_model: Optional[str] = None
     use_llm: bool = Field(
         default=True,
         validation_alias=AliasChoices("use_llm", "use_gemini", "use_openai"),

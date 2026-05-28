@@ -1,3 +1,4 @@
+import base64
 import io
 import statistics
 from pathlib import Path
@@ -8,6 +9,12 @@ from google.genai import types
 from PIL import Image, ImageStat
 
 from app.core.config import Settings
+from app.rag.model_providers import (
+    GEMINI_PROVIDER,
+    active_llm_model,
+    normalize_provider,
+    openai_compatible_client,
+)
 
 
 def build_basic_image_summary(filename: str, data: bytes, modality: str = "unknown") -> tuple[str, Dict[str, Any]]:
@@ -66,13 +73,15 @@ def build_basic_image_summary(filename: str, data: bytes, modality: str = "unkno
 class ImageAnalyzer:
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        self.client: Optional[genai.Client] = None
-        if settings.gemini_api_key:
-            self.client = genai.Client(api_key=settings.gemini_api_key)
+        self.provider = normalize_provider(settings.llm_provider)
+        self.gemini_client: Optional[genai.Client] = None
+        self.openai_client = openai_compatible_client(settings, self.provider)
+        if self.provider == GEMINI_PROVIDER and settings.gemini_api_key:
+            self.gemini_client = genai.Client(api_key=settings.gemini_api_key)
 
     def summarize(self, filename: str, data: bytes, modality: str = "unknown") -> tuple[str, Dict[str, Any]]:
         basic_summary, metadata = build_basic_image_summary(filename, data, modality)
-        if not self.client or not self.settings.enable_gemini_vision:
+        if not self._vision_enabled():
             return basic_summary, metadata
 
         media_type = _media_type(filename)
@@ -82,16 +91,47 @@ class ImageAnalyzer:
             "Return a concise structured summary with acquisition-quality notes, visible patterns, "
             "uncertainties, and metadata that would be useful for retrieval."
         )
-        response = self.client.models.generate_content(
-            model=self.settings.gemini_model,
-            contents=[
-                types.Part.from_bytes(data=data, mime_type=media_type),
-                f"{prompt}\nModality: {modality}.",
-            ],
-        )
-        gemini_summary = (response.text or "").strip()
-        metadata["gemini_vision_used"] = True
-        return f"{basic_summary}\n\nVision model summary:\n{gemini_summary}", metadata
+        try:
+            if self.gemini_client:
+                response = self.gemini_client.models.generate_content(
+                    model=active_llm_model(self.settings),
+                    contents=[
+                        types.Part.from_bytes(data=data, mime_type=media_type),
+                        f"{prompt}\nModality: {modality}.",
+                    ],
+                )
+                summary = (response.text or "").strip()
+            else:
+                encoded = base64.b64encode(data).decode("ascii")
+                response = self.openai_client.chat.completions.create(
+                    model=active_llm_model(self.settings),
+                    messages=[
+                        {"role": "system", "content": prompt},
+                        {
+                            "role": "user",
+                            "content": [
+                                {"type": "text", "text": f"Modality: {modality}."},
+                                {
+                                    "type": "image_url",
+                                    "image_url": {"url": f"data:{media_type};base64,{encoded}"},
+                                },
+                            ],
+                        },
+                    ],
+                    temperature=0,
+                )
+                summary = (response.choices[0].message.content or "").strip()
+        except Exception as exc:
+            metadata["vision_error"] = str(exc)
+            return basic_summary, metadata
+
+        metadata["vision_provider"] = self.provider
+        return f"{basic_summary}\n\nVision model summary:\n{summary}", metadata
+
+    def _vision_enabled(self) -> bool:
+        if self.gemini_client:
+            return self.settings.enable_gemini_vision
+        return bool(self.openai_client and self.settings.enable_llm_generation)
 
 
 def _media_type(filename: str) -> str:

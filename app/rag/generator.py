@@ -5,6 +5,12 @@ from google.genai import types
 
 from app.core.config import Settings
 from app.models.schemas import EvidenceItem
+from app.rag.model_providers import (
+    GEMINI_PROVIDER,
+    active_llm_model,
+    normalize_provider,
+    openai_compatible_client,
+)
 from app.services.safety import safety_notice
 
 
@@ -29,9 +35,11 @@ class AnswerGenerator:
 class RagAnswerGenerator(AnswerGenerator):
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        self.client: Optional[genai.Client] = None
-        if settings.gemini_api_key:
-            self.client = genai.Client(api_key=settings.gemini_api_key)
+        self.provider = normalize_provider(settings.llm_provider)
+        self.gemini_client: Optional[genai.Client] = None
+        self.openai_client = openai_compatible_client(settings, self.provider)
+        if self.provider == GEMINI_PROVIDER and settings.gemini_api_key:
+            self.gemini_client = genai.Client(api_key=settings.gemini_api_key)
 
     def generate(
         self,
@@ -40,9 +48,12 @@ class RagAnswerGenerator(AnswerGenerator):
         visual_summary: Optional[str] = None,
         use_llm: bool = True,
     ) -> tuple[str, bool, Optional[str], str]:
-        if self.client and self.settings.enable_gemini_generation and use_llm:
+        if self.gemini_client and self.settings.enable_gemini_generation and use_llm:
             answer = self._generate_with_gemini(question, evidence, visual_summary)
-            return answer, True, self.settings.gemini_model, "gemini"
+            return answer, True, active_llm_model(self.settings), self.provider
+        if self.openai_client and self.settings.enable_llm_generation and use_llm:
+            answer = self._generate_with_openai_compatible(question, evidence, visual_summary)
+            return answer, True, active_llm_model(self.settings), self.provider
         return self._generate_fallback(question, evidence, visual_summary), False, None, "local"
 
     def _generate_with_gemini(
@@ -67,8 +78,8 @@ Answer in concise Chinese by default unless the user asks for another language. 
 2. evidence
 3. uncertainty / next data needed
 """
-        response = self.client.models.generate_content(
-            model=self.settings.gemini_model,
+        response = self.gemini_client.models.generate_content(
+            model=active_llm_model(self.settings),
             contents=user_prompt,
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_PROMPT,
@@ -78,6 +89,38 @@ Answer in concise Chinese by default unless the user asks for another language. 
             ),
         )
         return (response.text or "").strip()
+
+    def _generate_with_openai_compatible(
+        self,
+        question: str,
+        evidence: List[EvidenceItem],
+        visual_summary: Optional[str],
+    ) -> str:
+        context = _format_context(evidence, self.settings.max_context_chars)
+        visual = visual_summary or "No image was provided for this question."
+        user_prompt = f"""Question:
+{question}
+
+Visual summary:
+{visual}
+
+Retrieved evidence:
+{context}
+
+Answer in concise Chinese by default unless the user asks for another language. Structure the answer with:
+1. direct answer
+2. evidence
+3. uncertainty / next data needed
+"""
+        response = self.openai_client.chat.completions.create(
+            model=active_llm_model(self.settings),
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt},
+            ],
+            temperature=0,
+        )
+        return (response.choices[0].message.content or "").strip()
 
     @staticmethod
     def _generate_fallback(
@@ -92,7 +135,7 @@ Answer in concise Chinese by default unless the user asks for another language. 
             )
 
         lines = [
-            "本地 fallback 模式已根据检索证据生成一个保守回答；配置 GEMINI_API_KEY 后会切换到 Gemini 生成。",
+            "本地 fallback 模式已根据检索证据生成一个保守回答；配置所选 LLM_PROVIDER 的 API key 后会切换到模型生成。",
             "",
             f"问题：{question}",
         ]

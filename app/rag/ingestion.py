@@ -5,6 +5,7 @@ from app.core.config import Settings
 from app.models.schemas import IngestResponse
 from app.rag.chunking import chunk_text
 from app.rag.embeddings import EmbeddingProvider
+from app.rag.model_providers import active_embedding_model, normalize_provider
 from app.rag.storage import RagStore
 from app.services.file_extraction import extract_text, source_type_for_filename
 from app.services.image_analysis import ImageAnalyzer
@@ -36,23 +37,30 @@ class DocumentIngestor:
         if not chunks:
             raise ValueError("No text content could be indexed.")
 
+        embedding_metadata = {
+            "embedding_provider": normalize_provider(self.settings.embedding_provider),
+            "embedding_model": active_embedding_model(self.settings),
+        }
+        embeddings = self.embeddings.embed_documents([chunk.content for chunk in chunks])
         chunk_rows = []
-        for chunk in chunks:
+        for chunk, embedding in zip(chunks, embeddings):
             chunk_rows.append(
                 {
                     "chunk_index": chunk.index,
                     "content": chunk.content,
-                    "embedding": self.embeddings.embed(chunk.content),
-                    "metadata": {"char_count": len(chunk.content)},
+                    "embedding": embedding,
+                    "metadata": {"char_count": len(chunk.content), **embedding_metadata},
                 }
             )
+        document_metadata = dict(metadata or {})
+        document_metadata.update(embedding_metadata)
 
         document_id = self.store.add_document(
             title=title,
             source_type=source_type,
             modality=modality,
             source_path=source_path,
-            metadata=metadata or {},
+            metadata=document_metadata,
             chunks=chunk_rows,
         )
         return IngestResponse(

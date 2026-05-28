@@ -6,6 +6,13 @@ from typing import List, Optional
 from google import genai
 
 from app.core.config import Settings
+from app.rag.model_providers import (
+    GEMINI_PROVIDER,
+    LOCAL_PROVIDER,
+    active_embedding_model,
+    normalize_provider,
+    openai_compatible_client,
+)
 
 TOKEN_RE = re.compile(r"[\w\u4e00-\u9fff]+", re.UNICODE)
 
@@ -13,6 +20,9 @@ TOKEN_RE = re.compile(r"[\w\u4e00-\u9fff]+", re.UNICODE)
 class EmbeddingProvider:
     def embed(self, text: str) -> List[float]:
         raise NotImplementedError
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return [self.embed(text) for text in texts]
 
 
 class HashEmbeddingProvider(EmbeddingProvider):
@@ -56,11 +66,38 @@ class GeminiEmbeddingProvider(EmbeddingProvider):
         return list(response.embeddings[0].values)
 
 
+class OpenAICompatibleEmbeddingProvider(EmbeddingProvider):
+    def __init__(self, settings: Settings) -> None:
+        self.settings = settings
+        self.provider = normalize_provider(settings.embedding_provider)
+        self.client = openai_compatible_client(settings, self.provider)
+        self.fallback = HashEmbeddingProvider(settings.fallback_embedding_dimensions)
+
+    def embed(self, text: str) -> List[float]:
+        if not self.client:
+            return self.fallback.embed(text)
+        kwargs = {
+            "model": active_embedding_model(self.settings),
+            "input": text,
+        }
+        if self.provider == "qwen" and self.settings.qwen_embedding_dimensions:
+            kwargs["dimensions"] = self.settings.qwen_embedding_dimensions
+        response = self.client.embeddings.create(**kwargs)
+        return list(response.data[0].embedding)
+
+
 def get_embedding_provider(settings: Settings, force_local: Optional[bool] = None) -> EmbeddingProvider:
+    provider = normalize_provider(settings.embedding_provider)
     if force_local is True:
         return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
-    if settings.gemini_api_key and settings.enable_gemini_embeddings:
+    if provider == LOCAL_PROVIDER:
+        return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
+    if not settings.enable_embeddings:
+        return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
+    if provider == GEMINI_PROVIDER and settings.gemini_api_key and settings.enable_gemini_embeddings:
         return GeminiEmbeddingProvider(settings)
+    if provider in {"openai", "qwen"}:
+        return OpenAICompatibleEmbeddingProvider(settings)
     return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
 
 
