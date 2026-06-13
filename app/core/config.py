@@ -35,6 +35,17 @@ class Settings(BaseSettings):
     enable_gemini_generation: bool = True
     enable_gemini_vision: bool = True
 
+    sentence_transformer_model: str = Field(
+        default="sentence-transformers/all-MiniLM-L6-v2",
+        validation_alias=AliasChoices("SENTENCE_TRANSFORMER_MODEL", "SENTENCE_TRANSFORMERS_MODEL"),
+    )
+    sentence_transformer_device: Optional[str] = Field(
+        default=None,
+        validation_alias=AliasChoices("SENTENCE_TRANSFORMER_DEVICE", "SENTENCE_TRANSFORMERS_DEVICE"),
+    )
+    sentence_transformer_batch_size: int = 32
+    enable_sentence_transformer_embeddings: bool = True
+
     qwen_api_key: Optional[str] = Field(
         default=None,
         validation_alias=AliasChoices("QWEN_API_KEY", "DASHSCOPE_API_KEY"),
@@ -54,6 +65,18 @@ class Settings(BaseSettings):
     fallback_embedding_dimensions: int = 384
     max_context_chars: int = 12000
     default_top_k: int = 5
+    retrieval_candidate_k: int = 30
+    retrieval_fusion: str = "rrf"
+    retrieval_vector_weight: float = 0.78
+    retrieval_keyword_weight: float = 0.22
+    retrieval_rrf_k: int = 60
+
+    enable_reranker: bool = False
+    reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    reranker_device: Optional[str] = None
+    reranker_batch_size: int = 16
+    reranker_max_chars: int = 900
+    reranker_max_length: int = 384
 
     def ensure_directories(self) -> None:
         self.data_dir.mkdir(parents=True, exist_ok=True)
@@ -98,6 +121,8 @@ def _model_field(provider: str) -> str:
 
 
 def _embedding_model_field(provider: str) -> str:
+    if provider == "sentence_transformers":
+        return "sentence_transformer_model"
     if provider == "openai":
         return "openai_embedding_model"
     if provider == "qwen":

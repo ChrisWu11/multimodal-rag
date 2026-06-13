@@ -18,8 +18,9 @@
 ## Phase 3: Better Retrieval
 
 - Move vector storage from SQLite to Qdrant or pgvector
-- Add BM25
-- Add reranking
+- Add corpus-scale lexical retrieval with SQLite FTS/BM25 if the corpus grows beyond the current in-memory scan
+- Tune RRF/weighted fusion with the labelled evaluation set
+- Extend the optional CrossEncoder reranker with model comparison and latency measurements
 - Add modality-specific retrievers
 
 ## Phase 4: Multimodal Expansion

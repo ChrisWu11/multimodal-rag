@@ -6,7 +6,7 @@ from typing import List, Optional
 from langchain_core.embeddings import Embeddings
 
 from app.core.config import Settings
-from app.rag.langchain_providers import build_embeddings
+from app.rag.langchain_providers import build_embeddings, normalize_provider
 
 TOKEN_RE = re.compile(r"[\w\u4e00-\u9fff]+", re.UNICODE)
 
@@ -68,10 +68,50 @@ class LangChainEmbeddingProvider(EmbeddingProvider):
         return [list(vector) for vector in self.embeddings.embed_documents(texts)]
 
 
+class SentenceTransformerEmbeddingProvider(EmbeddingProvider):
+    def __init__(
+        self,
+        model_name: str,
+        device: Optional[str] = None,
+        batch_size: int = 32,
+    ) -> None:
+        try:
+            from sentence_transformers import SentenceTransformer
+        except ImportError as exc:
+            raise RuntimeError(
+                "sentence-transformers is not installed. Install requirements or choose another "
+                "EMBEDDING_PROVIDER."
+            ) from exc
+        self.model_name = model_name
+        self.batch_size = batch_size
+        self.model = SentenceTransformer(model_name, device=device)
+
+    def embed(self, text: str) -> List[float]:
+        return self.embed_documents([text])[0]
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        if not texts:
+            return []
+        vectors = self.model.encode(
+            texts,
+            batch_size=self.batch_size,
+            show_progress_bar=False,
+            convert_to_numpy=True,
+            normalize_embeddings=True,
+        )
+        return [list(map(float, vector)) for vector in vectors]
+
+
 def get_embedding_provider(settings: Settings, force_local: Optional[bool] = None) -> EmbeddingProvider:
     local = HashEmbeddings(settings.fallback_embedding_dimensions)
     if force_local is True:
         return LangChainEmbeddingProvider(local)
+    if normalize_provider(settings.embedding_provider) == "sentence_transformers":
+        return SentenceTransformerEmbeddingProvider(
+            model_name=settings.sentence_transformer_model,
+            device=settings.sentence_transformer_device,
+            batch_size=settings.sentence_transformer_batch_size,
+        )
     return LangChainEmbeddingProvider(build_embeddings(settings, local))
 
 

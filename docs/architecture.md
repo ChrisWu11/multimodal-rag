@@ -5,7 +5,7 @@ The MVP is a local-first RAG backend. This branch introduces LangChain as the mo
 ## Runtime Components
 
 ```text
-Client/Postman
+React demo UI / debug UI / Postman
   |
   v
 FastAPI
@@ -23,11 +23,15 @@ FastAPI
   +-- Hybrid retriever
   |     +-- cosine vector similarity
   |     +-- keyword overlap
+  |     +-- RRF or weighted score fusion
+  |     +-- optional local CrossEncoder reranker
   |
   +-- Answer generator
         +-- LangChain chat model when configured
         +-- extractive fallback when not configured
 ```
+
+The final local demo UI is a Vite + React app under `frontend/`. FastAPI serves the built React files at `/`, while the original lower-level debug page remains available at `/debug`.
 
 ## Why SQLite First
 
@@ -71,17 +75,31 @@ This is enough for the first RAG prototype. When actual image datasets arrive, a
 - similarity search over image vectors
 - dataset-specific annotation schema
 
+## Retrieval Pipeline
+
+The demo retrieval route follows the first RAG evaluation route:
+
+1. Embed the query with the selected embedding provider.
+2. Score all matching chunks with vector cosine similarity.
+3. Score lexical overlap against the same chunks.
+4. Fuse the two rankings with reciprocal rank fusion by default.
+5. Optionally rerank the candidate pool with `cross-encoder/ms-marco-MiniLM-L-6-v2`.
+6. Send the final evidence list to the answer generator with DOI, page, section, and chunk metadata.
+
+This keeps retrieval local and repeatable while still allowing Gemini, OpenAI, or Qwen to generate the final grounded answer.
+
 ## Provider Use
 
 Choose providers with:
 
 - `LLM_PROVIDER`: `gemini`, `openai`, or `qwen`
-- `EMBEDDING_PROVIDER`: `gemini`, `openai`, `qwen`, or local fallback
+- `EMBEDDING_PROVIDER`: `gemini`, `openai`, `qwen`, `sentence_transformers`, or local fallback
 
 Provider-specific variables:
 
 - Gemini: `GEMINI_API_KEY`, `GEMINI_MODEL`, `GEMINI_EMBEDDING_MODEL`
 - OpenAI: `OPENAI_API_KEY`, `OPENAI_MODEL`, `OPENAI_EMBEDDING_MODEL`
 - Qwen: `QWEN_API_KEY`, `QWEN_BASE_URL`, `QWEN_MODEL`, `QWEN_EMBEDDING_MODEL`
+- SentenceTransformers: `SENTENCE_TRANSFORMER_MODEL`, `SENTENCE_TRANSFORMER_DEVICE`
 
 If the chosen provider API key is missing, the system falls back to deterministic hash embeddings and a conservative extractive answer. This keeps local development and tests stable.

@@ -9,6 +9,8 @@ PORT="${PORT:-8000}"
 OPEN_BROWSER="${OPEN_BROWSER:-1}"
 VENV_DIR="$PROJECT_DIR/.venv"
 DEPS_MARKER="$VENV_DIR/.deps-installed"
+FRONTEND_DIR="$PROJECT_DIR/frontend"
+FRONTEND_DEPS_MARKER="$FRONTEND_DIR/node_modules/.deps-installed"
 
 if [[ ! -f ".env" ]]; then
   cp ".env.example" ".env"
@@ -33,10 +35,25 @@ if [[ ! -f "$DEPS_MARKER" || "requirements.txt" -nt "$DEPS_MARKER" ]]; then
   touch "$DEPS_MARKER"
 fi
 
+if [[ -f "$FRONTEND_DIR/package.json" ]]; then
+  if command -v npm >/dev/null 2>&1; then
+    if [[ ! -f "$FRONTEND_DEPS_MARKER" || "$FRONTEND_DIR/package.json" -nt "$FRONTEND_DEPS_MARKER" ]]; then
+      echo "Installing/updating frontend dependencies..."
+      (cd "$FRONTEND_DIR" && npm install)
+      touch "$FRONTEND_DEPS_MARKER"
+    fi
+    echo "Building React demo UI..."
+    (cd "$FRONTEND_DIR" && npm run build)
+  else
+    echo "npm was not found. The API will still run, but / needs a frontend build."
+  fi
+fi
+
 echo ""
-echo "Starting Multimodal RAG debug server"
+echo "Starting Multimodal RAG server"
 echo "Project: $PROJECT_DIR"
-echo "API:     http://$HOST:$PORT"
+echo "Chat:    http://$HOST:$PORT"
+echo "Debug:   http://$HOST:$PORT/debug"
 echo "Docs:    http://$HOST:$PORT/docs"
 echo ""
 echo "Press Ctrl+C to stop."

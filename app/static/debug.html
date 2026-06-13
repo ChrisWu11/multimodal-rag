@@ -138,16 +138,17 @@
         <h2>Chat</h2>
         <label>Model Settings</label>
         <div class="config-grid">
-          <select id="llm-provider" onchange="syncModelDefaults()">
+          <select id="llm-provider" onchange="syncLlmDefaults()">
             <option value="gemini">Gemini</option>
             <option value="openai">OpenAI</option>
             <option value="qwen">Qwen</option>
           </select>
           <input id="llm-model" list="llm-model-options" placeholder="LLM model" />
-          <select id="embedding-provider" onchange="syncModelDefaults()">
+          <select id="embedding-provider" onchange="syncEmbeddingDefaults()">
             <option value="gemini">Gemini embeddings</option>
             <option value="openai">OpenAI embeddings</option>
             <option value="qwen">Qwen embeddings</option>
+            <option value="sentence_transformers">SentenceTransformers</option>
             <option value="local">Local hash fallback</option>
           </select>
           <input id="embedding-model" list="embedding-model-options" placeholder="Embedding model" />
@@ -157,6 +158,10 @@
         <label class="inline">
           <input id="use-llm" type="checkbox" checked />
           Use selected LLM for answer generation
+        </label>
+        <label class="inline">
+          <input id="use-reranker" type="checkbox" />
+          Use cross-encoder reranker
         </label>
         <p id="model-status" class="muted"></p>
         <div id="messages"></div>
@@ -186,7 +191,8 @@
         document.getElementById("embedding-provider").value = modelConfig.embedding_provider || "gemini";
         document.getElementById("llm-model").value = modelConfig.llm_model || "";
         document.getElementById("embedding-model").value = modelConfig.embedding_model || "";
-        syncModelDefaults(false);
+        syncLlmDefaults(false);
+        syncEmbeddingDefaults(false);
         updateModelStatus();
       }
 
@@ -199,16 +205,23 @@
         };
       }
 
-      function syncModelDefaults(resetValues = true) {
+      function syncLlmDefaults(resetValues = true) {
         if (!modelConfig) return;
         const llmProvider = document.getElementById("llm-provider").value;
-        const embeddingProvider = document.getElementById("embedding-provider").value;
         populateDatalist("llm-model-options", modelConfig.model_options[llmProvider] || []);
-        populateDatalist("embedding-model-options", modelConfig.embedding_model_options[embeddingProvider] || []);
         if (resetValues) {
           const llmOptions = modelConfig.model_options[llmProvider] || [];
-          const embeddingOptions = modelConfig.embedding_model_options[embeddingProvider] || [];
           if (llmOptions.length) document.getElementById("llm-model").value = llmOptions[0];
+        }
+        updateModelStatus();
+      }
+
+      function syncEmbeddingDefaults(resetValues = true) {
+        if (!modelConfig) return;
+        const embeddingProvider = document.getElementById("embedding-provider").value;
+        populateDatalist("embedding-model-options", modelConfig.embedding_model_options[embeddingProvider] || []);
+        if (resetValues) {
+          const embeddingOptions = modelConfig.embedding_model_options[embeddingProvider] || [];
           if (embeddingOptions.length) document.getElementById("embedding-model").value = embeddingOptions[0];
         }
         updateModelStatus();
@@ -250,7 +263,7 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
-        document.getElementById("ingest-status").textContent = JSON.stringify(await res.json(), null, 2);
+        document.getElementById("ingest-status").textContent = JSON.stringify(await readResponse(res), null, 2);
       }
 
       async function ingestFile() {
@@ -265,7 +278,7 @@
         data.append("embedding_provider", providers.embedding_provider);
         if (providers.embedding_model) data.append("embedding_model", providers.embedding_model);
         const res = await fetch("/api/ingest/file", { method: "POST", body: data });
-        document.getElementById("ingest-status").textContent = JSON.stringify(await res.json(), null, 2);
+        document.getElementById("ingest-status").textContent = JSON.stringify(await readResponse(res), null, 2);
       }
 
       async function ask() {
@@ -281,10 +294,15 @@
             modality,
             top_k: Number(document.getElementById("top-k").value),
             use_llm: document.getElementById("use-llm").checked,
+            use_reranker: document.getElementById("use-reranker").checked,
             ...providers
           })
         });
-        const body = await res.json();
+        const body = await readResponse(res);
+        if (!res.ok) {
+          addMessage("assistant", `Request failed (${res.status})\n\n${formatError(body)}`);
+          return;
+        }
         const providerLine = `Provider: ${body.provider || "unknown"}${body.model ? ` / ${body.model}` : ""}`;
         addMessage("assistant", `${providerLine}\n\n${body.answer}`, body.evidence || []);
       }
@@ -296,10 +314,40 @@
         if (evidence && evidence.length) {
           const ev = document.createElement("div");
           ev.className = "evidence";
-          ev.textContent = evidence.map((item, idx) => `[${idx + 1}] ${item.title} (${item.score})`).join("\n");
+          ev.textContent = evidence.map((item, idx) => evidenceLine(item, idx)).join("\n");
           wrapper.appendChild(ev);
         }
         document.getElementById("messages").appendChild(wrapper);
+      }
+
+      function evidenceLine(item, idx) {
+        const meta = item.metadata || {};
+        const year = meta.year || "n.d.";
+        const doi = meta.doi || "no DOI";
+        const chunk = meta.source_chunk_id || item.chunk_id;
+        const hasStart = meta.page_start !== undefined && meta.page_start !== null && meta.page_start !== "";
+        const hasEnd = meta.page_end !== undefined && meta.page_end !== null && meta.page_end !== "";
+        const pages = hasStart && hasEnd
+          ? (meta.page_start === meta.page_end ? `p. ${meta.page_start}` : `pp. ${meta.page_start}-${meta.page_end}`)
+          : "page unknown";
+        const method = meta.retrieval_method || "retrieval";
+        return `[${idx + 1}] ${item.title} (${year}) score=${item.score} ${method}; DOI=${doi}; ${pages}; chunk=${chunk}`;
+      }
+
+      async function readResponse(res) {
+        const text = await res.text();
+        if (!text) return {};
+        try {
+          return JSON.parse(text);
+        } catch (_error) {
+          return { detail: text };
+        }
+      }
+
+      function formatError(body) {
+        if (!body) return "No response body.";
+        if (typeof body.detail === "string") return body.detail;
+        return JSON.stringify(body, null, 2);
       }
     </script>
   </body>

@@ -29,6 +29,7 @@ class AppContainer:
             embeddings=self.embeddings,
             embedding_provider=settings.embedding_provider,
             embedding_model=active_embedding_model(settings),
+            settings=settings,
         )
         self.generator = RagAnswerGenerator(settings=settings)
         self.pipeline = RagPipeline(
@@ -48,6 +49,7 @@ class AppContainer:
                 embeddings=embeddings,
                 embedding_provider=settings.embedding_provider,
                 embedding_model=active_embedding_model(settings),
+                settings=settings,
             ),
             generator=RagAnswerGenerator(settings=settings),
             image_analyzer=image_analyzer,

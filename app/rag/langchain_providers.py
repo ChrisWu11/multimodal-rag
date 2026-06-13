@@ -1,3 +1,4 @@
+import importlib.util
 from typing import Optional
 
 from langchain_core.embeddings import Embeddings
@@ -12,6 +13,7 @@ LOCAL_PROVIDER = "local"
 GEMINI_PROVIDER = "gemini"
 OPENAI_PROVIDER = "openai"
 QWEN_PROVIDER = "qwen"
+SENTENCE_TRANSFORMERS_PROVIDER = "sentence_transformers"
 
 
 def normalize_provider(provider: Optional[str]) -> str:
@@ -23,6 +25,7 @@ def configured_providers(settings: Settings) -> dict[str, bool]:
         GEMINI_PROVIDER: bool(settings.gemini_api_key),
         OPENAI_PROVIDER: bool(settings.openai_api_key),
         QWEN_PROVIDER: bool(settings.qwen_api_key),
+        SENTENCE_TRANSFORMERS_PROVIDER: _package_available("sentence_transformers"),
         LOCAL_PROVIDER: True,
     }
 
@@ -44,6 +47,8 @@ def active_embedding_model(settings: Settings, provider: Optional[str] = None) -
     provider_name = normalize_provider(provider or settings.embedding_provider)
     if provider_name == LOCAL_PROVIDER:
         return "hash-embeddings"
+    if provider_name == SENTENCE_TRANSFORMERS_PROVIDER:
+        return settings.sentence_transformer_model
     if provider_name == OPENAI_PROVIDER:
         return settings.openai_embedding_model
     if provider_name == QWEN_PROVIDER:
@@ -53,7 +58,12 @@ def active_embedding_model(settings: Settings, provider: Optional[str] = None) -
 
 def model_options() -> dict[str, list[str]]:
     return {
-        GEMINI_PROVIDER: ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-1.5-flash"],
+        GEMINI_PROVIDER: [
+            "gemini-3.5-flash",
+            "gemini-2.5-flash",
+            "gemini-2.5-pro",
+            "gemini-1.5-flash",
+        ],
         OPENAI_PROVIDER: ["gpt-4o-mini", "gpt-4o", "gpt-4.1-mini"],
         QWEN_PROVIDER: ["qwen-plus", "qwen-max", "qwen-turbo"],
     }
@@ -64,6 +74,10 @@ def embedding_model_options() -> dict[str, list[str]]:
         GEMINI_PROVIDER: ["gemini-embedding-001"],
         OPENAI_PROVIDER: ["text-embedding-3-small", "text-embedding-3-large"],
         QWEN_PROVIDER: ["text-embedding-v4", "text-embedding-v3"],
+        SENTENCE_TRANSFORMERS_PROVIDER: [
+            "sentence-transformers/all-MiniLM-L6-v2",
+            "sentence-transformers/all-mpnet-base-v2",
+        ],
         LOCAL_PROVIDER: ["hash-embeddings"],
     }
 
@@ -83,6 +97,8 @@ def provider_embedding_enabled(settings: Settings, provider: Optional[str]) -> b
         return False
     if provider_name == GEMINI_PROVIDER:
         return settings.enable_gemini_embeddings
+    if provider_name == SENTENCE_TRANSFORMERS_PROVIDER:
+        return settings.enable_sentence_transformer_embeddings
     return provider_name in {OPENAI_PROVIDER, QWEN_PROVIDER, LOCAL_PROVIDER}
 
 
@@ -92,12 +108,14 @@ def build_chat_model(settings: Settings) -> Optional[BaseChatModel]:
         return None
 
     if provider == GEMINI_PROVIDER and settings.gemini_api_key:
-        return ChatGoogleGenerativeAI(
-            model=settings.gemini_model,
-            api_key=settings.gemini_api_key,
-            temperature=0,
-            thinking_level=settings.gemini_thinking_level,
-        )
+        kwargs = {
+            "model": settings.gemini_model,
+            "api_key": settings.gemini_api_key,
+            "temperature": 0,
+        }
+        if _gemini_supports_thinking_level(settings.gemini_model, settings.gemini_thinking_level):
+            kwargs["thinking_level"] = settings.gemini_thinking_level
+        return ChatGoogleGenerativeAI(**kwargs)
     if provider == OPENAI_PROVIDER and settings.openai_api_key:
         return ChatOpenAI(
             model=settings.openai_model,
@@ -140,3 +158,14 @@ def build_embeddings(settings: Settings, local_embeddings: Embeddings) -> Embedd
             check_embedding_ctx_length=False,
         )
     return local_embeddings
+
+
+def _package_available(name: str) -> bool:
+    return importlib.util.find_spec(name) is not None
+
+
+def _gemini_supports_thinking_level(model: str, thinking_level: Optional[str]) -> bool:
+    if not thinking_level:
+        return False
+    normalized = model.strip().lower()
+    return normalized.startswith("gemini-3")

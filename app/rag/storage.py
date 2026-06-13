@@ -62,8 +62,9 @@ class RagStore:
         source_path: Optional[str],
         metadata: Dict[str, Any],
         chunks: Iterable[Dict[str, Any]],
+        document_id: Optional[str] = None,
     ) -> str:
-        document_id = str(uuid.uuid4())
+        document_id = document_id or str(uuid.uuid4())
         created_at = utc_now_iso()
         chunk_rows = list(chunks)
         with self.connect() as conn:
@@ -90,7 +91,7 @@ class RagStore:
                     VALUES (?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
-                        str(uuid.uuid4()),
+                        str(row.get("id") or row.get("chunk_id") or uuid.uuid4()),
                         document_id,
                         int(row["chunk_index"]),
                         row["content"],

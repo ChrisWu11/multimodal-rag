@@ -131,6 +131,7 @@ def search(
         query=request.query,
         top_k=request.top_k,
         modality=request.modality,
+        use_reranker=request.use_reranker,
     )
 
 
@@ -150,6 +151,7 @@ def chat(
         top_k=request.top_k,
         modality=request.modality,
         use_llm=request.use_llm,
+        use_reranker=request.use_reranker,
     )
 
 
@@ -164,6 +166,7 @@ async def chat_with_image(
     llm_model: Optional[str] = Form(default=None),
     embedding_provider: Optional[str] = Form(default=None),
     embedding_model: Optional[str] = Form(default=None),
+    use_reranker: Optional[bool] = Form(default=None),
     container: AppContainer = Depends(get_container),
 ) -> ChatResponse:
     settings = get_settings().with_runtime_models(
@@ -180,4 +183,5 @@ async def chat_with_image(
         use_llm=use_llm,
         image_filename=image.filename or "uploaded-image",
         image_bytes=data,
+        use_reranker=use_reranker,
     )
