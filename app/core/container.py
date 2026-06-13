@@ -4,7 +4,7 @@ from app.core.config import Settings, get_settings
 from app.rag.embeddings import get_embedding_provider
 from app.rag.generator import RagAnswerGenerator
 from app.rag.ingestion import DocumentIngestor
-from app.rag.model_providers import active_embedding_model
+from app.rag.langchain_providers import active_embedding_model
 from app.rag.pipeline import RagPipeline
 from app.rag.retriever import HybridRetriever
 from app.rag.storage import RagStore
@@ -29,6 +29,7 @@ class AppContainer:
             embeddings=self.embeddings,
             embedding_provider=settings.embedding_provider,
             embedding_model=active_embedding_model(settings),
+            settings=settings,
         )
         self.generator = RagAnswerGenerator(settings=settings)
         self.pipeline = RagPipeline(
@@ -48,6 +49,7 @@ class AppContainer:
                 embeddings=embeddings,
                 embedding_provider=settings.embedding_provider,
                 embedding_model=active_embedding_model(settings),
+                settings=settings,
             ),
             generator=RagAnswerGenerator(settings=settings),
             image_analyzer=image_analyzer,

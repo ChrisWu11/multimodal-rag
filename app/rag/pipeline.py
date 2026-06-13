@@ -21,10 +21,21 @@ class RagPipeline:
         self.generator = generator
         self.image_analyzer = image_analyzer
 
-    def search(self, query: str, top_k: int = 5, modality: Optional[str] = None) -> SearchResponse:
+    def search(
+        self,
+        query: str,
+        top_k: int = 5,
+        modality: Optional[str] = None,
+        use_reranker: Optional[bool] = None,
+    ) -> SearchResponse:
         return SearchResponse(
             query=query,
-            results=self.retriever.retrieve(query=query, top_k=top_k, modality=modality),
+            results=self.retriever.retrieve(
+                query=query,
+                top_k=top_k,
+                modality=modality,
+                use_reranker=use_reranker,
+            ),
         )
 
     def answer(
@@ -35,6 +46,7 @@ class RagPipeline:
         use_llm: bool = True,
         image_filename: Optional[str] = None,
         image_bytes: Optional[bytes] = None,
+        use_reranker: Optional[bool] = None,
     ) -> ChatResponse:
         visual_summary = None
         retrieval_query = question
@@ -51,6 +63,7 @@ class RagPipeline:
             query=retrieval_query,
             top_k=top_k,
             modality=modality,
+            use_reranker=use_reranker,
         )
         answer, used_llm, model, provider = self.generator.generate(
             question=question,

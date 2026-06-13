@@ -1,21 +1,25 @@
 # Multimodal RAG
 
-FastAPI backend for an ultrasound and thermal-imaging oriented multimodal RAG project. The current scope is deliberately simple: ingest text/PDF/image files, create searchable chunks, retrieve evidence, and answer through Gemini, OpenAI, or Qwen when an API key is configured.
+FastAPI backend for an ultrasound and thermal-imaging oriented multimodal RAG project. This branch uses LangChain for text splitting, embedding providers, chat models, and prompt chaining while keeping the FastAPI API surface simple.
 
-The app also works without external model keys by using a deterministic local embedding fallback and an extractive answer fallback. That makes it easy to test with Postman before real data arrives.
+The app works without external API keys by using a deterministic local embedding fallback and an extractive answer fallback. That makes it easy to test with Postman before real data arrives.
 
 ## What Is Implemented
 
 - Text ingestion from raw text, `.txt`, `.md`, `.csv`, `.json`, and `.pdf`
 - Image ingestion for `.png`, `.jpg`, `.jpeg`, `.webp`, and `.gif`
 - Basic ultrasound/thermal image metadata extraction with Pillow
-- Optional Gemini/OpenAI/Qwen generation
-- Optional Gemini/OpenAI/Qwen embeddings with local fallback
-- Optional vision summary for uploaded images
+- LangChain text splitting and provider adapters
+- Optional Gemini, OpenAI, or Qwen model generation
+- Optional Gemini, OpenAI, or Qwen embeddings with local fallback
+- Optional local SentenceTransformers embeddings for offline scientific-paper retrieval
+- Optional LangChain multimodal image summary for uploaded images
 - SQLite-backed local vector store
-- Hybrid retrieval: vector similarity plus keyword overlap
+- Hybrid retrieval: vector similarity plus keyword overlap with RRF/weighted fusion
+- Optional CrossEncoder reranking over the retrieved candidate pool
 - RAG chat endpoint with evidence citations
-- Minimal browser debug UI at `/`
+- React demo chat UI at `/`
+- Browser debug UI at `/debug`
 - CLI scripts for ingestion and querying
 - Unit tests for chunking, embedding, storage, retrieval, and API health
 
@@ -27,9 +31,13 @@ python3.10 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
+cd frontend
+npm install
+npm run build
+cd ..
 ```
 
-Choose providers in `.env` when you want real generation and external embeddings:
+Choose providers in `.env`:
 
 ```bash
 LLM_PROVIDER=gemini
@@ -37,7 +45,39 @@ EMBEDDING_PROVIDER=gemini
 GEMINI_API_KEY=...
 ```
 
-The debug UI also lets you switch `LLM_PROVIDER`, chat model, `EMBEDDING_PROVIDER`, and embedding model for a single ingest/chat request without editing `.env`. Use the same embedding provider/model for ingestion and chat when comparing retrieval quality.
+Provider examples:
+
+```bash
+# Gemini
+LLM_PROVIDER=gemini
+EMBEDDING_PROVIDER=gemini
+GEMINI_API_KEY=...
+GEMINI_MODEL=gemini-2.5-flash
+GEMINI_EMBEDDING_MODEL=gemini-embedding-001
+
+# OpenAI
+LLM_PROVIDER=openai
+EMBEDDING_PROVIDER=openai
+OPENAI_API_KEY=...
+OPENAI_MODEL=gpt-4o-mini
+OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+
+# Qwen / DashScope OpenAI-compatible API
+LLM_PROVIDER=qwen
+EMBEDDING_PROVIDER=qwen
+QWEN_API_KEY=...
+QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+QWEN_MODEL=qwen-plus
+QWEN_EMBEDDING_MODEL=text-embedding-v4
+
+# Local SentenceTransformers retrieval + Gemini answer generation
+LLM_PROVIDER=gemini
+EMBEDDING_PROVIDER=sentence_transformers
+GEMINI_API_KEY=...
+SENTENCE_TRANSFORMER_MODEL=sentence-transformers/all-MiniLM-L6-v2
+ENABLE_RERANKER=true
+RERANKER_MODEL=cross-encoder/ms-marco-MiniLM-L-6-v2
+```
 
 Run the API:
 
@@ -45,11 +85,49 @@ Run the API:
 uvicorn app.main:app --reload
 ```
 
+Or use the quick debug launcher:
+
+```bash
+./scripts/dev_server.sh
+```
+
+On macOS, you can also double-click:
+
+```text
+start-debug.command
+```
+
 Open the debug UI:
+
+```text
+http://127.0.0.1:8000/debug
+```
+
+Open the final demo chat UI:
 
 ```text
 http://127.0.0.1:8000
 ```
+
+The demo UI is built with Vite + React and is served by FastAPI after `npm run build`.
+The debug UI keeps the lower-level runtime model controls for ingestion, search, and API checks.
+Use the same embedding provider/model for ingestion and chat when comparing retrieval quality.
+
+## Import The RAG V1 Paper Corpus
+
+The final demo can reuse the curated ultrasound/thermal paper chunks produced during the first RAG route. If the precomputed SentenceTransformers vectors are available, import them directly:
+
+```bash
+python scripts/ingest_rag_v1_chunks.py \
+  --chunks /Users/apple/Documents/LLM\&RAG/data/ultrasound_heat_papers/rag_v1/chunks.jsonl \
+  --documents /Users/apple/Documents/LLM\&RAG/data/ultrasound_heat_papers/rag_v1/documents.jsonl \
+  --vectors /Users/apple/Documents/LLM\&RAG/data/ultrasound_heat_papers/rag_v1/st_all_minilm_l6_v2_embeddings.npy \
+  --embedding-provider sentence_transformers \
+  --embedding-model sentence-transformers/all-MiniLM-L6-v2 \
+  --reset-source
+```
+
+This preserves the original paper `doc_id`, `chunk_id`, DOI, year, section, and page metadata in `data/rag.db`. In the debug UI, choose `SentenceTransformers` for embeddings and keep Gemini as the LLM provider to run the demo as: local scientific retrieval + Gemini grounded answer generation.
 
 ## Postman Flow
 
@@ -83,8 +161,6 @@ Content-Type: application/json
   "question": "How can thermal imaging help with screening?",
   "modality": "thermal",
   "top_k": 5,
-  "llm_provider": "gemini",
-  "embedding_provider": "gemini",
   "use_llm": true
 }
 ```
@@ -119,6 +195,7 @@ app/
   rag/          chunking, embeddings, retrieval, generation, storage
   services/     file and image extraction services
   static/       minimal debug UI
+frontend/       Vite + React demo chat UI
 scripts/        local CLI helpers
 tests/          pytest coverage
 docs/           architecture and data notes

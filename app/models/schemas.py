@@ -59,6 +59,7 @@ class SearchRequest(BaseModel):
     modality: Optional[str] = None
     embedding_provider: Optional[str] = None
     embedding_model: Optional[str] = None
+    use_reranker: Optional[bool] = None
 
 
 class SearchResponse(BaseModel):
@@ -78,6 +79,7 @@ class ChatRequest(BaseModel):
         default=True,
         validation_alias=AliasChoices("use_llm", "use_gemini", "use_openai"),
     )
+    use_reranker: Optional[bool] = None
 
 
 class ChatResponse(BaseModel):

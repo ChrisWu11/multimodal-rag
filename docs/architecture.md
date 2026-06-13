@@ -1,20 +1,20 @@
 # Architecture
 
-The MVP is a local-first RAG backend. It is intentionally small so it can be validated before the team confirms the final ultrasound and thermal-imaging datasets.
+The MVP is a local-first RAG backend. This branch introduces LangChain as the model, embedding, text splitting, and prompt chaining layer while keeping storage and retrieval explicit.
 
 ## Runtime Components
 
 ```text
-Client/Postman
+React demo UI / debug UI / Postman
   |
   v
 FastAPI
   |
   +-- Ingestion service
   |     +-- text/PDF extraction
-  |     +-- image metadata + optional Gemini vision summary
-  |     +-- chunking
-  |     +-- embeddings
+  |     +-- image metadata + optional LangChain multimodal summary
+  |     +-- LangChain text splitter
+  |     +-- LangChain embedding provider
   |
   +-- SQLite RAG store
   |     +-- documents table
@@ -23,11 +23,15 @@ FastAPI
   +-- Hybrid retriever
   |     +-- cosine vector similarity
   |     +-- keyword overlap
+  |     +-- RRF or weighted score fusion
+  |     +-- optional local CrossEncoder reranker
   |
   +-- Answer generator
-        +-- Gemini API when configured
+        +-- LangChain chat model when configured
         +-- extractive fallback when not configured
 ```
+
+The final local demo UI is a Vite + React app under `frontend/`. FastAPI serves the built React files at `/`, while the original lower-level debug page remains available at `/debug`.
 
 ## Why SQLite First
 
@@ -61,7 +65,7 @@ For images, the MVP indexes a text representation:
 
 - local image metadata
 - local intensity summary
-- optional Gemini vision description
+- optional LangChain multimodal vision description
 
 This is enough for the first RAG prototype. When actual image datasets arrive, add:
 
@@ -71,10 +75,31 @@ This is enough for the first RAG prototype. When actual image datasets arrive, a
 - similarity search over image vectors
 - dataset-specific annotation schema
 
-## Gemini Use
+## Retrieval Pipeline
 
-- Embeddings: `GEMINI_EMBEDDING_MODEL`
-- Generation: `GEMINI_MODEL`
-- Vision summary: same Gemini model with image input
+The demo retrieval route follows the first RAG evaluation route:
 
-If `GEMINI_API_KEY` is missing, the system falls back to deterministic hash embeddings and a conservative extractive answer. This keeps local development and tests stable.
+1. Embed the query with the selected embedding provider.
+2. Score all matching chunks with vector cosine similarity.
+3. Score lexical overlap against the same chunks.
+4. Fuse the two rankings with reciprocal rank fusion by default.
+5. Optionally rerank the candidate pool with `cross-encoder/ms-marco-MiniLM-L-6-v2`.
+6. Send the final evidence list to the answer generator with DOI, page, section, and chunk metadata.
+
+This keeps retrieval local and repeatable while still allowing Gemini, OpenAI, or Qwen to generate the final grounded answer.
+
+## Provider Use
+
+Choose providers with:
+
+- `LLM_PROVIDER`: `gemini`, `openai`, or `qwen`
+- `EMBEDDING_PROVIDER`: `gemini`, `openai`, `qwen`, `sentence_transformers`, or local fallback
+
+Provider-specific variables:
+
+- Gemini: `GEMINI_API_KEY`, `GEMINI_MODEL`, `GEMINI_EMBEDDING_MODEL`
+- OpenAI: `OPENAI_API_KEY`, `OPENAI_MODEL`, `OPENAI_EMBEDDING_MODEL`
+- Qwen: `QWEN_API_KEY`, `QWEN_BASE_URL`, `QWEN_MODEL`, `QWEN_EMBEDDING_MODEL`
+- SentenceTransformers: `SENTENCE_TRANSFORMER_MODEL`, `SENTENCE_TRANSFORMER_DEVICE`
+
+If the chosen provider API key is missing, the system falls back to deterministic hash embeddings and a conservative extractive answer. This keeps local development and tests stable.

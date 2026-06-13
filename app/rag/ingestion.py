@@ -5,7 +5,7 @@ from app.core.config import Settings
 from app.models.schemas import IngestResponse
 from app.rag.chunking import chunk_text
 from app.rag.embeddings import EmbeddingProvider
-from app.rag.model_providers import active_embedding_model, normalize_provider
+from app.rag.langchain_providers import active_embedding_model, normalize_provider
 from app.rag.storage import RagStore
 from app.services.file_extraction import extract_text, source_type_for_filename
 from app.services.image_analysis import ImageAnalyzer

@@ -3,16 +3,10 @@ import math
 import re
 from typing import List, Optional
 
-from google import genai
+from langchain_core.embeddings import Embeddings
 
 from app.core.config import Settings
-from app.rag.model_providers import (
-    GEMINI_PROVIDER,
-    LOCAL_PROVIDER,
-    active_embedding_model,
-    normalize_provider,
-    openai_compatible_client,
-)
+from app.rag.langchain_providers import build_embeddings, normalize_provider
 
 TOKEN_RE = re.compile(r"[\w\u4e00-\u9fff]+", re.UNICODE)
 
@@ -25,13 +19,13 @@ class EmbeddingProvider:
         return [self.embed(text) for text in texts]
 
 
-class HashEmbeddingProvider(EmbeddingProvider):
+class HashEmbeddings(Embeddings):
     """Deterministic local embedding fallback for development and tests."""
 
     def __init__(self, dimensions: int = 384) -> None:
         self.dimensions = dimensions
 
-    def embed(self, text: str) -> List[float]:
+    def embed_query(self, text: str) -> List[float]:
         vector = [0.0] * self.dimensions
         tokens = TOKEN_RE.findall(text.lower())
         if not tokens:
@@ -48,57 +42,77 @@ class HashEmbeddingProvider(EmbeddingProvider):
             return vector
         return [value / norm for value in vector]
 
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return [self.embed_query(text) for text in texts]
 
-class GeminiEmbeddingProvider(EmbeddingProvider):
-    def __init__(self, settings: Settings) -> None:
-        self.settings = settings
-        self.client = genai.Client(api_key=settings.gemini_api_key)
-        self.fallback = HashEmbeddingProvider(settings.fallback_embedding_dimensions)
+
+class HashEmbeddingProvider(EmbeddingProvider):
+    def __init__(self, dimensions: int = 384) -> None:
+        self.embeddings = HashEmbeddings(dimensions=dimensions)
 
     def embed(self, text: str) -> List[float]:
-        if not self.settings.gemini_api_key or not self.settings.enable_gemini_embeddings:
-            return self.fallback.embed(text)
+        return self.embeddings.embed_query(text)
 
-        response = self.client.models.embed_content(
-            model=self.settings.gemini_embedding_model,
-            contents=f"task: question answering | query: {text}",
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return self.embeddings.embed_documents(texts)
+
+
+class LangChainEmbeddingProvider(EmbeddingProvider):
+    def __init__(self, embeddings: Embeddings) -> None:
+        self.embeddings = embeddings
+
+    def embed(self, text: str) -> List[float]:
+        return list(self.embeddings.embed_query(text))
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return [list(vector) for vector in self.embeddings.embed_documents(texts)]
+
+
+class SentenceTransformerEmbeddingProvider(EmbeddingProvider):
+    def __init__(
+        self,
+        model_name: str,
+        device: Optional[str] = None,
+        batch_size: int = 32,
+    ) -> None:
+        try:
+            from sentence_transformers import SentenceTransformer
+        except ImportError as exc:
+            raise RuntimeError(
+                "sentence-transformers is not installed. Install requirements or choose another "
+                "EMBEDDING_PROVIDER."
+            ) from exc
+        self.model_name = model_name
+        self.batch_size = batch_size
+        self.model = SentenceTransformer(model_name, device=device)
+
+    def embed(self, text: str) -> List[float]:
+        return self.embed_documents([text])[0]
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        if not texts:
+            return []
+        vectors = self.model.encode(
+            texts,
+            batch_size=self.batch_size,
+            show_progress_bar=False,
+            convert_to_numpy=True,
+            normalize_embeddings=True,
         )
-        return list(response.embeddings[0].values)
-
-
-class OpenAICompatibleEmbeddingProvider(EmbeddingProvider):
-    def __init__(self, settings: Settings) -> None:
-        self.settings = settings
-        self.provider = normalize_provider(settings.embedding_provider)
-        self.client = openai_compatible_client(settings, self.provider)
-        self.fallback = HashEmbeddingProvider(settings.fallback_embedding_dimensions)
-
-    def embed(self, text: str) -> List[float]:
-        if not self.client:
-            return self.fallback.embed(text)
-        kwargs = {
-            "model": active_embedding_model(self.settings),
-            "input": text,
-        }
-        if self.provider == "qwen" and self.settings.qwen_embedding_dimensions:
-            kwargs["dimensions"] = self.settings.qwen_embedding_dimensions
-        response = self.client.embeddings.create(**kwargs)
-        return list(response.data[0].embedding)
+        return [list(map(float, vector)) for vector in vectors]
 
 
 def get_embedding_provider(settings: Settings, force_local: Optional[bool] = None) -> EmbeddingProvider:
-    provider = normalize_provider(settings.embedding_provider)
+    local = HashEmbeddings(settings.fallback_embedding_dimensions)
     if force_local is True:
-        return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
-    if provider == LOCAL_PROVIDER:
-        return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
-    if not settings.enable_embeddings:
-        return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
-    if provider == GEMINI_PROVIDER and settings.gemini_api_key and settings.enable_gemini_embeddings:
-        return GeminiEmbeddingProvider(settings)
-    if provider in {"openai", "qwen"}:
-        return OpenAICompatibleEmbeddingProvider(settings)
-    return HashEmbeddingProvider(settings.fallback_embedding_dimensions)
+        return LangChainEmbeddingProvider(local)
+    if normalize_provider(settings.embedding_provider) == "sentence_transformers":
+        return SentenceTransformerEmbeddingProvider(
+            model_name=settings.sentence_transformer_model,
+            device=settings.sentence_transformer_device,
+            batch_size=settings.sentence_transformer_batch_size,
+        )
+    return LangChainEmbeddingProvider(build_embeddings(settings, local))
 
 
 def cosine_similarity(left: List[float], right: List[float]) -> float:
