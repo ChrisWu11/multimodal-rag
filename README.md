@@ -13,7 +13,8 @@ The app works without external API keys by using a deterministic local embedding
 - Optional Gemini, OpenAI, or Qwen model generation
 - Optional Gemini, OpenAI, or Qwen embeddings with local fallback
 - Optional local SentenceTransformers embeddings for offline scientific-paper retrieval
-- Optional LangChain multimodal image summary for uploaded images
+- Question-aware Gemini Vision summaries for uploaded images
+- Image-grounded chat with separate visual observations and literature citations
 - SQLite-backed local vector store
 - Hybrid retrieval: vector similarity plus keyword overlap with RRF/weighted fusion
 - Optional CrossEncoder reranking over the retrieved candidate pool
@@ -113,6 +114,11 @@ The demo UI is built with Vite + React and is served by FastAPI after `npm run b
 The debug UI keeps the lower-level runtime model controls for ingestion, search, and API checks.
 Use the same embedding provider/model for ingestion and chat when comparing retrieval quality.
 
+In the demo composer, attach a PNG, JPEG, or WebP image (maximum 10 MB), select its
+type, and ask a question. The image is converted into a question-aware visual summary,
+which expands the literature retrieval query. The answer keeps visual observations
+labelled as `[Image]` and reserves numbered citations such as `[1]` for retrieved papers.
+
 ## Import The RAG V1 Paper Corpus
 
 The final demo can reuse the curated ultrasound/thermal paper chunks produced during the first RAG route. If the precomputed SentenceTransformers vectors are available, import them directly:
@@ -181,8 +187,10 @@ Ask with image:
 POST http://127.0.0.1:8000/api/chat-with-image
 form-data:
   image: thermal.jpg
-  question: What visual cues should I pay attention to?
-  modality: thermal
+  question: What features are visible, and what does the literature say about them?
+  image_modality: thermal
+  top_k: 5
+  use_llm: true
 ```
 
 ## Project Layout

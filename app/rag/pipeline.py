@@ -46,6 +46,7 @@ class RagPipeline:
         use_llm: bool = True,
         image_filename: Optional[str] = None,
         image_bytes: Optional[bytes] = None,
+        image_modality: Optional[str] = None,
         use_reranker: Optional[bool] = None,
     ) -> ChatResponse:
         visual_summary = None
@@ -55,7 +56,8 @@ class RagPipeline:
             visual_summary, _metadata = self.image_analyzer.summarize(
                 image_filename,
                 image_bytes,
-                modality or "unknown",
+                image_modality or modality or "unknown",
+                question=question,
             )
             retrieval_query = f"{question}\n\nVisual summary:\n{visual_summary}"
 

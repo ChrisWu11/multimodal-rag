@@ -8,6 +8,7 @@ import {
   ClipboardList,
   ExternalLink,
   FileText,
+  ImagePlus,
   Loader2,
   MessageSquareText,
   RotateCcw,
@@ -37,6 +38,9 @@ const DEMO_QUESTIONS = [
   "Which evidence mentions spectral CT for in vivo thermometry during thermal ablation?"
 ];
 
+const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
+const SUPPORTED_IMAGE_TYPES = ["image/png", "image/jpeg", "image/webp"];
+
 function App() {
   const [messages, setMessages] = useState([
     {
@@ -58,8 +62,13 @@ function App() {
   const [selectedMessageId, setSelectedMessageId] = useState("welcome");
   const [selectedEvidenceIndex, setSelectedEvidenceIndex] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isImageLoading, setIsImageLoading] = useState(false);
   const [error, setError] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImagePreview, setSelectedImagePreview] = useState("");
+  const [imageModality, setImageModality] = useState("thermal");
   const messagesEndRef = useRef(null);
+  const imageInputRef = useRef(null);
 
   useEffect(() => {
     refreshRuntimeState();
@@ -110,28 +119,58 @@ function App() {
     const trimmed = nextQuestion.trim();
     if (!trimmed || isLoading) return;
 
+    const attachedImage = selectedImage;
+    const attachedImagePreview = selectedImagePreview;
+    const attachedImageModality = imageModality;
     setError("");
     const userMessage = {
       id: crypto.randomUUID(),
       role: "user",
       answer: trimmed,
-      evidence: []
+      evidence: [],
+      image: attachedImage
+        ? {
+            name: attachedImage.name,
+            preview: attachedImagePreview,
+            modality: attachedImageModality,
+            size: attachedImage.size
+          }
+        : null
     };
     setMessages((current) => [...current, userMessage]);
     setSelectedMessageId(userMessage.id);
     setSelectedEvidenceIndex(null);
+    setSelectedImage(null);
+    setSelectedImagePreview("");
+    if (imageInputRef.current) imageInputRef.current.value = "";
     setIsLoading(true);
+    setIsImageLoading(Boolean(attachedImage));
 
     try {
-      const body = await postJson("/api/chat", {
-        question: trimmed,
-        top_k: Number(settings.top_k),
-        llm_provider: settings.llm_provider,
-        embedding_provider: settings.embedding_provider,
-        embedding_model: settings.embedding_model,
-        use_reranker: settings.use_reranker,
-        use_llm: settings.use_llm
-      });
+      let body;
+      if (attachedImage) {
+        const formData = new FormData();
+        formData.append("image", attachedImage);
+        formData.append("question", trimmed);
+        formData.append("image_modality", attachedImageModality);
+        formData.append("top_k", String(Number(settings.top_k)));
+        formData.append("llm_provider", settings.llm_provider);
+        formData.append("embedding_provider", settings.embedding_provider);
+        formData.append("embedding_model", settings.embedding_model);
+        formData.append("use_reranker", String(settings.use_reranker));
+        formData.append("use_llm", String(settings.use_llm));
+        body = await postForm("/api/chat-with-image", formData);
+      } else {
+        body = await postJson("/api/chat", {
+          question: trimmed,
+          top_k: Number(settings.top_k),
+          llm_provider: settings.llm_provider,
+          embedding_provider: settings.embedding_provider,
+          embedding_model: settings.embedding_model,
+          use_reranker: settings.use_reranker,
+          use_llm: settings.use_llm
+        });
+      }
       const assistantMessage = {
         id: crypto.randomUUID(),
         role: "assistant",
@@ -140,7 +179,8 @@ function App() {
         provider: body.provider,
         model: body.model,
         used_llm: body.used_llm,
-        safety_notice: body.safety_notice
+        safety_notice: body.safety_notice,
+        visual_summary: body.visual_summary
       };
       setMessages((current) => [...current, assistantMessage]);
       setSelectedMessageId(assistantMessage.id);
@@ -160,10 +200,15 @@ function App() {
       setSelectedMessageId(failureMessage.id);
     } finally {
       setIsLoading(false);
+      setIsImageLoading(false);
     }
   }
 
   function resetConversation() {
+    messages.forEach((message) => {
+      if (message.image?.preview) URL.revokeObjectURL(message.image.preview);
+    });
+    if (selectedImagePreview) URL.revokeObjectURL(selectedImagePreview);
     const welcome = {
       id: crypto.randomUUID(),
       role: "assistant",
@@ -176,7 +221,37 @@ function App() {
     setMessages([welcome]);
     setSelectedMessageId(welcome.id);
     setSelectedEvidenceIndex(null);
+    setSelectedImage(null);
+    setSelectedImagePreview("");
+    setImageModality("thermal");
+    if (imageInputRef.current) imageInputRef.current.value = "";
     setError("");
+  }
+
+  function chooseImage(event) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    if (!SUPPORTED_IMAGE_TYPES.includes(file.type)) {
+      setError("Supported image formats are PNG, JPEG, and WebP.");
+      event.target.value = "";
+      return;
+    }
+    if (file.size > MAX_IMAGE_BYTES) {
+      setError("Image must be no larger than 10 MB.");
+      event.target.value = "";
+      return;
+    }
+    if (selectedImagePreview) URL.revokeObjectURL(selectedImagePreview);
+    setSelectedImage(file);
+    setSelectedImagePreview(URL.createObjectURL(file));
+    setError("");
+  }
+
+  function removeSelectedImage() {
+    if (selectedImagePreview) URL.revokeObjectURL(selectedImagePreview);
+    setSelectedImage(null);
+    setSelectedImagePreview("");
+    if (imageInputRef.current) imageInputRef.current.value = "";
   }
 
   return (
@@ -345,7 +420,7 @@ function App() {
               }}
             />
           ))}
-          {isLoading ? <ThinkingBubble /> : null}
+          {isLoading ? <ThinkingBubble isImage={isImageLoading} /> : null}
           <div ref={messagesEndRef} />
         </section>
 
@@ -356,22 +431,76 @@ function App() {
             askQuestion();
           }}
         >
-          <textarea
-            value={question}
-            onChange={(event) => setQuestion(event.target.value)}
-            placeholder="Ask a question about HIFU, thermometry, thermal ablation, or evidence limitations..."
-            rows={3}
-            onKeyDown={(event) => {
-              if (event.key === "Enter" && !event.shiftKey) {
-                event.preventDefault();
-                askQuestion();
+          {selectedImage ? (
+            <div className="image-attachment">
+              <img src={selectedImagePreview} alt="Selected upload preview" />
+              <div className="image-attachment-details">
+                <strong>{selectedImage.name}</strong>
+                <span>{formatFileSize(selectedImage.size)}</span>
+              </div>
+              <label className="image-modality-label" htmlFor="image-modality">
+                Image type
+                <select
+                  id="image-modality"
+                  value={imageModality}
+                  onChange={(event) => setImageModality(event.target.value)}
+                >
+                  <option value="thermal">Thermal image</option>
+                  <option value="ultrasound">Ultrasound image</option>
+                  <option value="scientific_figure">Scientific figure</option>
+                  <option value="unknown">Other image</option>
+                </select>
+              </label>
+              <button
+                className="remove-image-button"
+                type="button"
+                onClick={removeSelectedImage}
+                aria-label="Remove selected image"
+                title="Remove selected image"
+              >
+                <X size={17} />
+              </button>
+            </div>
+          ) : null}
+          <div className="composer-main">
+            <input
+              ref={imageInputRef}
+              className="visually-hidden"
+              type="file"
+              accept=".png,.jpg,.jpeg,.webp,image/png,image/jpeg,image/webp"
+              onChange={chooseImage}
+            />
+            <button
+              className="attach-image-button"
+              type="button"
+              onClick={() => imageInputRef.current?.click()}
+              aria-label="Attach an image"
+              title="Attach an image"
+              disabled={isLoading}
+            >
+              <ImagePlus size={20} />
+            </button>
+            <textarea
+              value={question}
+              onChange={(event) => setQuestion(event.target.value)}
+              placeholder={
+                selectedImage
+                  ? "Ask a question about the uploaded image and the scientific literature..."
+                  : "Ask a question about HIFU, thermometry, thermal ablation, or evidence limitations..."
               }
-            }}
-          />
-          <button className="send-button" type="submit" disabled={isLoading || !question.trim()}>
-            {isLoading ? <Loader2 className="spin" size={19} /> : <Send size={19} />}
-            <span>Ask</span>
-          </button>
+              rows={3}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" && !event.shiftKey) {
+                  event.preventDefault();
+                  askQuestion();
+                }
+              }}
+            />
+            <button className="send-button" type="submit" disabled={isLoading || !question.trim()}>
+              {isLoading ? <Loader2 className="spin" size={19} /> : <Send size={19} />}
+              <span>Ask</span>
+            </button>
+          </div>
         </form>
       </main>
 
@@ -443,8 +572,23 @@ function MessageBubble({ message, isSelected, onSelect, onCitationClick }) {
         ) : null}
       </div>
       <div className="message-content">
+        {message.image ? (
+          <div className="message-image">
+            <img src={message.image.preview} alt={message.image.name} />
+            <div>
+              <strong>{message.image.name}</strong>
+              <span>{imageModalityLabel(message.image.modality)}</span>
+            </div>
+          </div>
+        ) : null}
         <AnswerText text={message.answer} onCitationClick={onCitationClick} />
       </div>
+      {isAssistant && message.visual_summary ? (
+        <details className="visual-summary">
+          <summary>Image analysis used for retrieval</summary>
+          <p>{message.visual_summary}</p>
+        </details>
+      ) : null}
       {message.evidence?.length ? (
         <div className="citation-row">
           {message.evidence.map((item, index) => (
@@ -511,7 +655,7 @@ function renderInline(text, onCitationClick) {
   });
 }
 
-function ThinkingBubble() {
+function ThinkingBubble({ isImage }) {
   return (
     <article className="message-bubble assistant thinking">
       <div className="message-meta">
@@ -522,7 +666,11 @@ function ThinkingBubble() {
       </div>
       <div className="thinking-line">
         <Loader2 className="spin" size={18} />
-        <span>Retrieving evidence and generating answer...</span>
+        <span>
+          {isImage
+            ? "Analysing image, retrieving evidence, and generating answer..."
+            : "Retrieving evidence and generating answer..."}
+        </span>
       </div>
     </article>
   );
@@ -617,6 +765,16 @@ async function postJson(url, payload) {
   return body;
 }
 
+async function postForm(url, formData) {
+  const response = await fetch(url, {
+    method: "POST",
+    body: formData
+  });
+  const body = await readBody(response);
+  if (!response.ok) throw new Error(formatApiError(body, response.status));
+  return body;
+}
+
 async function readBody(response) {
   const text = await response.text();
   if (!text) return {};
@@ -655,6 +813,18 @@ function asText(value) {
 
 function formatNumber(value) {
   return new Intl.NumberFormat("en-US").format(Number(value || 0));
+}
+
+function formatFileSize(bytes) {
+  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function imageModalityLabel(value) {
+  if (value === "thermal") return "Thermal image";
+  if (value === "ultrasound") return "Ultrasound image";
+  if (value === "scientific_figure") return "Scientific figure";
+  return "Other image";
 }
 
 createRoot(document.getElementById("root")).render(<App />);

@@ -112,6 +112,8 @@ def build_chat_model(settings: Settings) -> Optional[BaseChatModel]:
             "model": settings.gemini_model,
             "api_key": settings.gemini_api_key,
             "temperature": 0,
+            "request_timeout": settings.llm_request_timeout_seconds,
+            "retries": settings.llm_max_retries,
         }
         if _gemini_supports_thinking_level(settings.gemini_model, settings.gemini_thinking_level):
             kwargs["thinking_level"] = settings.gemini_thinking_level
@@ -121,6 +123,8 @@ def build_chat_model(settings: Settings) -> Optional[BaseChatModel]:
             model=settings.openai_model,
             api_key=settings.openai_api_key,
             temperature=0,
+            timeout=settings.llm_request_timeout_seconds,
+            max_retries=settings.llm_max_retries,
         )
     if provider == QWEN_PROVIDER and settings.qwen_api_key:
         return ChatOpenAI(
@@ -129,6 +133,8 @@ def build_chat_model(settings: Settings) -> Optional[BaseChatModel]:
             base_url=settings.qwen_base_url,
             temperature=0,
             use_responses_api=False,
+            timeout=settings.llm_request_timeout_seconds,
+            max_retries=settings.llm_max_retries,
         )
     return None
 

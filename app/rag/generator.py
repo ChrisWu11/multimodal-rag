@@ -13,7 +13,10 @@ SYSTEM_PROMPT = """You are a research assistant for a multimodal RAG project abo
 Use only the supplied retrieved evidence and visual summary.
 Do not provide definitive diagnosis or treatment instructions.
 If evidence is weak or missing, say so directly.
-Every factual claim must include short source references like [1], [2] that map to the evidence list.
+Treat the visual summary as observations from the uploaded image, not as literature evidence.
+Mark statements based directly on the image with [Image].
+Every literature-supported factual claim must include short source references like [1], [2] that map to the evidence list.
+Never claim that image brightness, colour, or grayscale represents a calibrated temperature unless calibration or radiometric metadata is supplied.
 Finish with a short "Sources used" list containing title, year, DOI, page(s), and chunk id when available."""
 
 
@@ -49,11 +52,7 @@ Retrieved evidence:
 
 Answer in English by default. Only answer in Chinese if the user explicitly asks for Chinese.
 Use a concise academic tone and separate mature methods from experimental or proof-of-concept evidence.
-Structure the answer with:
-1. Direct answer
-2. Evidence
-3. Limitations / uncertainty
-4. Sources used
+{answer_structure}
 """,
                 ),
             ]
@@ -89,11 +88,25 @@ Structure the answer with:
     ) -> str:
         context = _format_context(evidence, self.settings.max_context_chars)
         visual = visual_summary or "No image was provided for this question."
+        if visual_summary:
+            answer_structure = """Structure the answer with:
+1. Direct answer
+2. Image observations — describe only visible features and mark them [Image]
+3. Literature evidence — explain the observations using retrieved sources [1], [2]
+4. Limitations / uncertainty
+5. Sources used"""
+        else:
+            answer_structure = """Structure the answer with:
+1. Direct answer
+2. Evidence
+3. Limitations / uncertainty
+4. Sources used"""
         return self.chain.invoke(
             {
                 "question": question,
                 "visual_summary": visual,
                 "context": context,
+                "answer_structure": answer_structure,
             }
         )
 
@@ -117,7 +130,7 @@ Structure the answer with:
             f"Question: {question}",
         ]
         if visual_summary:
-            lines.extend(["", f"Visual summary: {visual_summary}"])
+            lines.extend(["", "Image observations [Image]:", visual_summary])
         lines.append("")
         lines.append("Retrieved evidence:")
         for idx, item in enumerate(evidence, start=1):

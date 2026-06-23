@@ -1,6 +1,7 @@
 from typing import Optional
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from starlette.concurrency import run_in_threadpool
 
 from app.core.config import get_settings
 from app.core.container import AppContainer, get_container
@@ -24,6 +25,7 @@ from app.rag.langchain_providers import (
     provider_configured,
 )
 from app.services.file_extraction import ExtractionError, parse_metadata_json
+from app.services.image_analysis import ImageValidationError, validate_image_upload
 
 router = APIRouter()
 
@@ -161,6 +163,7 @@ async def chat_with_image(
     question: str = Form(...),
     top_k: int = Form(default=5),
     modality: Optional[str] = Form(default=None),
+    image_modality: str = Form(default="unknown"),
     use_llm: bool = Form(default=True),
     llm_provider: Optional[str] = Form(default=None),
     llm_model: Optional[str] = Form(default=None),
@@ -175,13 +178,38 @@ async def chat_with_image(
         embedding_provider=embedding_provider,
         embedding_model=embedding_model,
     )
-    data = await image.read()
-    return container.create_pipeline(settings).answer(
-        question=question,
+    clean_question = question.strip()
+    if not clean_question:
+        raise HTTPException(status_code=400, detail="Question is required.")
+    if top_k < 1 or top_k > 20:
+        raise HTTPException(status_code=400, detail="top_k must be between 1 and 20.")
+    clean_image_modality = image_modality.strip().lower()
+    if clean_image_modality not in {"thermal", "ultrasound", "scientific_figure", "unknown"}:
+        raise HTTPException(status_code=400, detail="Unsupported image modality.")
+
+    filename = image.filename or "uploaded-image"
+    data = await image.read(settings.max_image_upload_bytes + 1)
+    try:
+        validate_image_upload(
+            filename=filename,
+            data=data,
+            content_type=image.content_type,
+            max_bytes=settings.max_image_upload_bytes,
+            max_pixels=settings.max_image_pixels,
+        )
+    except ImageValidationError as exc:
+        status_code = 413 if len(data) > settings.max_image_upload_bytes else 400
+        raise HTTPException(status_code=status_code, detail=str(exc)) from exc
+
+    pipeline = container.create_pipeline(settings)
+    return await run_in_threadpool(
+        pipeline.answer,
+        question=clean_question,
         top_k=top_k,
         modality=modality,
+        image_modality=clean_image_modality,
         use_llm=use_llm,
-        image_filename=image.filename or "uploaded-image",
+        image_filename=filename,
         image_bytes=data,
         use_reranker=use_reranker,
     )

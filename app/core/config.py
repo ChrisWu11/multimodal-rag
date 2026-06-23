@@ -22,6 +22,8 @@ class Settings(BaseSettings):
     embedding_provider: str = Field(default="gemini", validation_alias="EMBEDDING_PROVIDER")
     enable_llm_generation: bool = True
     enable_embeddings: bool = True
+    llm_request_timeout_seconds: float = 45.0
+    llm_max_retries: int = 1
 
     openai_api_key: Optional[str] = Field(default=None, validation_alias="OPENAI_API_KEY")
     openai_model: str = "gpt-4o-mini"
@@ -64,6 +66,8 @@ class Settings(BaseSettings):
     chunk_overlap: int = 150
     fallback_embedding_dimensions: int = 384
     max_context_chars: int = 12000
+    max_image_upload_bytes: int = 10 * 1024 * 1024
+    max_image_pixels: int = 20_000_000
     default_top_k: int = 5
     retrieval_candidate_k: int = 30
     retrieval_fusion: str = "rrf"

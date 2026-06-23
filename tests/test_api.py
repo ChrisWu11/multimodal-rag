@@ -17,3 +17,15 @@ def test_model_config() -> None:
     body = response.json()
     assert "llm_provider" in body
     assert "model_options" in body
+
+
+def test_chat_with_image_rejects_invalid_image() -> None:
+    client = TestClient(app)
+    response = client.post(
+        "/api/chat-with-image",
+        data={"question": "What is visible?", "image_modality": "thermal"},
+        files={"image": ("thermal.png", b"not-an-image", "image/png")},
+    )
+
+    assert response.status_code == 400
+    assert "valid readable image" in response.json()["detail"]

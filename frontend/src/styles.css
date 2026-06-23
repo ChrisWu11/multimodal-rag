@@ -620,6 +620,64 @@ textarea:focus {
   margin: 0 0 8px;
 }
 
+.message-image {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-soft);
+}
+
+.message-image img {
+  width: 88px;
+  height: 68px;
+  flex: 0 0 auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.message-image strong,
+.message-image span {
+  display: block;
+}
+
+.message-image strong {
+  max-width: 360px;
+  overflow: hidden;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.message-image span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.visual-summary {
+  margin-top: 11px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.visual-summary summary {
+  color: var(--brick);
+  cursor: pointer;
+  font-weight: 780;
+}
+
+.visual-summary p {
+  margin: 9px 0 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
 .answer-heading {
   margin: 13px 0 7px;
   font-size: 15px;
@@ -685,9 +743,6 @@ textarea:focus {
 }
 
 .composer {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 116px;
-  gap: 10px;
   padding: 14px 18px 18px;
   border-top: 1px solid var(--line);
   background:
@@ -695,9 +750,111 @@ textarea:focus {
     var(--stone);
 }
 
+.composer-main {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 116px;
+  gap: 10px;
+  align-items: stretch;
+}
+
 .composer textarea {
   min-height: 72px;
   max-height: 150px;
+}
+
+.attach-image-button,
+.remove-image-button {
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: white;
+  color: var(--brick);
+}
+
+.attach-image-button {
+  width: 44px;
+  height: auto;
+  min-height: 72px;
+}
+
+.attach-image-button:hover:not(:disabled),
+.remove-image-button:hover {
+  border-color: var(--gold);
+  background: #fff9e9;
+}
+
+.attach-image-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.image-attachment {
+  display: grid;
+  grid-template-columns: 66px minmax(0, 1fr) 190px 34px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.image-attachment img {
+  width: 66px;
+  height: 52px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.image-attachment-details {
+  min-width: 0;
+}
+
+.image-attachment-details strong,
+.image-attachment-details span {
+  display: block;
+}
+
+.image-attachment-details strong {
+  overflow: hidden;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.image-attachment-details span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.image-modality-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 720;
+}
+
+.image-modality-label select {
+  height: 34px;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.remove-image-button {
+  width: 34px;
+  height: 34px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  clip-path: inset(50%) !important;
 }
 
 .send-button {
@@ -705,7 +862,8 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 72px;
+  height: auto;
+  min-height: 72px;
   border: 0;
   border-radius: 8px;
   background:
@@ -887,7 +1045,23 @@ textarea:focus {
   }
 
   .composer {
-    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .composer-main {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .composer-main .send-button {
+    grid-column: 1 / -1;
+  }
+
+  .image-attachment {
+    grid-template-columns: 58px minmax(0, 1fr) 34px;
+  }
+
+  .image-modality-label {
+    grid-column: 1 / -1;
   }
 
   .send-button {
