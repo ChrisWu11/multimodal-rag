@@ -1,0 +1,97 @@
+{
+  "checks": [
+    {
+      "expected_fragment": "272 papers, 3,904 page records and 4,243 chunks",
+      "label": "corpus counts",
+      "present": true
+    },
+    {
+      "expected_fragment": "82.94\\% of chunks and 5.28\\% had an unknown section",
+      "label": "corpus metadata rates",
+      "present": true
+    },
+    {
+      "expected_fragment": "32 were approved and 18 corrected",
+      "label": "silver-label decisions",
+      "present": true
+    },
+    {
+      "expected_fragment": "Lexical MRR and Recall@5 were 0.489 and 0.56",
+      "label": "lexical retrieval",
+      "present": true
+    },
+    {
+      "expected_fragment": "dense retrieval reached 0.433 and 0.52",
+      "label": "dense retrieval",
+      "present": true
+    },
+    {
+      "expected_fragment": "MRR 0.523",
+      "label": "RRF retrieval",
+      "present": true
+    },
+    {
+      "expected_fragment": "Lexical reranking raised MRR to 0.605",
+      "label": "lexical reranking",
+      "present": true
+    },
+    {
+      "expected_fragment": "The 350/50 condition created 6,997 chunks and achieved the best MRR (0.574), Recall@5 (0.74)",
+      "label": "chunk ablation",
+      "present": true
+    },
+    {
+      "expected_fragment": "Production 650/90 created 4,243 chunks and reached 0.523, 0.62",
+      "label": "production chunks",
+      "present": true
+    },
+    {
+      "expected_fragment": "LLM only & 1.467 & 1.633 & 1.400 & 0.269 & 0.700",
+      "label": "generation row: llm_only",
+      "present": true
+    },
+    {
+      "expected_fragment": "Dense RAG & 1.767 & 1.867 & 1.833 & 0.020 & 1.000",
+      "label": "generation row: dense_rag",
+      "present": true
+    },
+    {
+      "expected_fragment": "Hybrid reranked RAG & 1.867 & 1.867 & 1.933 & 0.020 & 1.000",
+      "label": "generation row: hybrid_reranked_rag",
+      "present": true
+    },
+    {
+      "expected_fragment": "Text only & 0.917 & 1.583 & 1.833 & 1.917 & 0",
+      "label": "image row: text_only",
+      "present": true
+    },
+    {
+      "expected_fragment": "Basic metadata & 0.917 & 1.750 & 1.833 & 2.000 & 0",
+      "label": "image row: basic_metadata",
+      "present": true
+    },
+    {
+      "expected_fragment": "Vision summary & 0.917 & 1.750 & 1.917 & 2.000 & 0",
+      "label": "image row: vision_summary",
+      "present": true
+    },
+    {
+      "expected_fragment": "three unsupported visual inferences for text-only answers, one with basic metadata and none with the vision summary",
+      "label": "visual inference counts",
+      "present": true
+    },
+    {
+      "expected_fragment": "all 524 physical pages from 30 PDFs",
+      "label": "PDF page audit",
+      "present": true
+    },
+    {
+      "expected_fragment": "5 approved, 21 minor, and 4 rebuild",
+      "label": "PDF decisions",
+      "present": true
+    }
+  ],
+  "failed": 0,
+  "passed": 18,
+  "status": "passed"
+}

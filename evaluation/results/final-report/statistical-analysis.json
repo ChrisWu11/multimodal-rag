@@ -1,0 +1,2234 @@
+{
+  "bootstrap_resamples": 10000,
+  "generation": {
+    "citation_scope": "Citation precision is not applicable to the no-evidence baseline.",
+    "diagnostic_counts": {
+      "citation_support_gap": 7,
+      "correctness_below_maximum": 23,
+      "failed_abstention": 3,
+      "faithfulness_below_maximum": 15,
+      "unsupported_claim": 17
+    },
+    "judge_models": {
+      "gemini-3.6-flash": 240
+    },
+    "judge_repeat_agreement": [
+      {
+        "exact_agreement": 1.0,
+        "metric": "correctness",
+        "mode": "dense_rag",
+        "pair_count": 40,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "faithfulness",
+        "mode": "dense_rag",
+        "pair_count": 40,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "completeness",
+        "mode": "dense_rag",
+        "pair_count": 40,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "abstention",
+        "mode": "dense_rag",
+        "pair_count": 10,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "correctness",
+        "mode": "hybrid_reranked_rag",
+        "pair_count": 40,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "faithfulness",
+        "mode": "hybrid_reranked_rag",
+        "pair_count": 40,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "completeness",
+        "mode": "hybrid_reranked_rag",
+        "pair_count": 40,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "abstention",
+        "mode": "hybrid_reranked_rag",
+        "pair_count": 10,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "correctness",
+        "mode": "llm_only",
+        "pair_count": 40,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "faithfulness",
+        "mode": "llm_only",
+        "pair_count": 40,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "completeness",
+        "mode": "llm_only",
+        "pair_count": 40,
+        "quadratic_weighted_kappa": 1.0
+      },
+      {
+        "exact_agreement": 1.0,
+        "metric": "abstention",
+        "mode": "llm_only",
+        "pair_count": 10,
+        "quadratic_weighted_kappa": 1.0
+      }
+    ],
+    "paired_randomisation_tests": [
+      {
+        "comparison": "Dense RAG versus LLM only",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "dense_rag",
+        "mean_difference": 0.3,
+        "metric": "correctness",
+        "p_value": 0.108138,
+        "resamples": 50000,
+        "right_mode": "llm_only",
+        "sample_size": 30
+      },
+      {
+        "comparison": "Dense RAG versus LLM only",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "dense_rag",
+        "mean_difference": 0.2333,
+        "metric": "faithfulness",
+        "p_value": 0.196716,
+        "resamples": 50000,
+        "right_mode": "llm_only",
+        "sample_size": 30
+      },
+      {
+        "comparison": "Dense RAG versus LLM only",
+        "interpretation": "statistically_detectable",
+        "left_mode": "dense_rag",
+        "mean_difference": 0.4333,
+        "metric": "completeness",
+        "p_value": 0.02156,
+        "resamples": 50000,
+        "right_mode": "llm_only",
+        "sample_size": 30
+      },
+      {
+        "comparison": "Hybrid reranked RAG versus dense RAG",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "hybrid_reranked_rag",
+        "mean_difference": 0.1,
+        "metric": "correctness",
+        "p_value": 0.568189,
+        "resamples": 50000,
+        "right_mode": "dense_rag",
+        "sample_size": 30
+      },
+      {
+        "comparison": "Hybrid reranked RAG versus dense RAG",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "hybrid_reranked_rag",
+        "mean_difference": 0.0,
+        "metric": "faithfulness",
+        "p_value": 1.0,
+        "resamples": 50000,
+        "right_mode": "dense_rag",
+        "sample_size": 30
+      },
+      {
+        "comparison": "Hybrid reranked RAG versus dense RAG",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "hybrid_reranked_rag",
+        "mean_difference": 0.1,
+        "metric": "completeness",
+        "p_value": 0.50095,
+        "resamples": 50000,
+        "right_mode": "dense_rag",
+        "sample_size": 30
+      },
+      {
+        "comparison": "Hybrid reranked RAG versus LLM only",
+        "interpretation": "statistically_detectable",
+        "left_mode": "hybrid_reranked_rag",
+        "mean_difference": 0.4,
+        "metric": "correctness",
+        "p_value": 0.01002,
+        "resamples": 50000,
+        "right_mode": "llm_only",
+        "sample_size": 30
+      },
+      {
+        "comparison": "Hybrid reranked RAG versus LLM only",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "hybrid_reranked_rag",
+        "mean_difference": 0.2333,
+        "metric": "faithfulness",
+        "p_value": 0.216676,
+        "resamples": 50000,
+        "right_mode": "llm_only",
+        "sample_size": 30
+      },
+      {
+        "comparison": "Hybrid reranked RAG versus LLM only",
+        "interpretation": "statistically_detectable",
+        "left_mode": "hybrid_reranked_rag",
+        "mean_difference": 0.5333,
+        "metric": "completeness",
+        "p_value": 0.00012,
+        "resamples": 50000,
+        "right_mode": "llm_only",
+        "sample_size": 30
+      }
+    ],
+    "quality_scope": "Answerable questions only for correctness, faithfulness and completeness.",
+    "safety_scope": "All cases for unsupported claims; unanswerable cases for abstention.",
+    "summaries": {
+      "dense_rag": {
+        "abstention_accuracy": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "confidence": 0.95,
+          "estimate": 1.0,
+          "resamples": 10000,
+          "sample_size": 10
+        },
+        "answer_count": 40,
+        "answerable_count": 30,
+        "citation_precision": {
+          "ci_high": 1.0,
+          "ci_low": 0.9602,
+          "confidence": 0.95,
+          "estimate": 0.9819,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "completeness": {
+          "ci_high": 2.0,
+          "ci_low": 1.6333,
+          "confidence": 0.95,
+          "estimate": 1.8333,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "correctness": {
+          "ci_high": 1.9333,
+          "ci_low": 1.5667,
+          "confidence": 0.95,
+          "estimate": 1.7667,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "faithfulness": {
+          "ci_high": 1.9667,
+          "ci_low": 1.7333,
+          "confidence": 0.95,
+          "estimate": 1.8667,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "invalid_citation_count": 0,
+        "unanswerable_count": 10,
+        "unsupported_claim_rate": {
+          "ci_high": 0.0402,
+          "ci_low": 0.0047,
+          "confidence": 0.95,
+          "estimate": 0.0199,
+          "resamples": 10000,
+          "sample_size": 40
+        }
+      },
+      "hybrid_reranked_rag": {
+        "abstention_accuracy": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "confidence": 0.95,
+          "estimate": 1.0,
+          "resamples": 10000,
+          "sample_size": 10
+        },
+        "answer_count": 40,
+        "answerable_count": 30,
+        "citation_precision": {
+          "ci_high": 0.9942,
+          "ci_low": 0.9516,
+          "confidence": 0.95,
+          "estimate": 0.9758,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "completeness": {
+          "ci_high": 2.0,
+          "ci_low": 1.8333,
+          "confidence": 0.95,
+          "estimate": 1.9333,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "correctness": {
+          "ci_high": 1.9667,
+          "ci_low": 1.7333,
+          "confidence": 0.95,
+          "estimate": 1.8667,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "faithfulness": {
+          "ci_high": 1.9667,
+          "ci_low": 1.7333,
+          "confidence": 0.95,
+          "estimate": 1.8667,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "invalid_citation_count": 0,
+        "unanswerable_count": 10,
+        "unsupported_claim_rate": {
+          "ci_high": 0.0405,
+          "ci_low": 0.0048,
+          "confidence": 0.95,
+          "estimate": 0.0201,
+          "resamples": 10000,
+          "sample_size": 40
+        }
+      },
+      "llm_only": {
+        "abstention_accuracy": {
+          "ci_high": 1.0,
+          "ci_low": 0.4,
+          "confidence": 0.95,
+          "estimate": 0.7,
+          "resamples": 10000,
+          "sample_size": 10
+        },
+        "answer_count": 40,
+        "answerable_count": 30,
+        "citation_precision": null,
+        "completeness": {
+          "ci_high": 1.6333,
+          "ci_low": 1.1667,
+          "confidence": 0.95,
+          "estimate": 1.4,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "correctness": {
+          "ci_high": 1.6667,
+          "ci_low": 1.2333,
+          "confidence": 0.95,
+          "estimate": 1.4667,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "faithfulness": {
+          "ci_high": 1.8667,
+          "ci_low": 1.3667,
+          "confidence": 0.95,
+          "estimate": 1.6333,
+          "resamples": 10000,
+          "sample_size": 30
+        },
+        "invalid_citation_count": 0,
+        "unanswerable_count": 10,
+        "unsupported_claim_rate": {
+          "ci_high": 0.4381,
+          "ci_low": 0.1089,
+          "confidence": 0.95,
+          "estimate": 0.2685,
+          "resamples": 10000,
+          "sample_size": 40
+        }
+      }
+    }
+  },
+  "git_sha": "e416772e84d9eaffa2ab46e8dd03e4780cdc072c",
+  "human_review_boundary": "The labels received AI-assisted primary-source review but not independent clinical expert validation. Scientific claim review and the 30-document parser sample remain explicitly assigned to a person.",
+  "image_qa": {
+    "diagnostic_counts": {
+      "caption_coverage_below_maximum": 9,
+      "citation_quality_below_maximum": 5,
+      "source_retrieval_failure": 3,
+      "unsupported_visual_inference": 3
+    },
+    "paired_randomisation_tests": [
+      {
+        "comparison": "Vision summary versus text only",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "vision_summary",
+        "mean_difference": 0.1667,
+        "metric": "caption_coverage",
+        "p_value": 0.751205,
+        "resamples": 50000,
+        "right_mode": "text_only",
+        "sample_size": 12
+      },
+      {
+        "comparison": "Vision summary versus text only",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "vision_summary",
+        "mean_difference": 0.0833,
+        "metric": "citation_quality",
+        "p_value": 1.0,
+        "resamples": 50000,
+        "right_mode": "text_only",
+        "sample_size": 12
+      },
+      {
+        "comparison": "Vision summary versus text only",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "vision_summary",
+        "mean_difference": 0.0833,
+        "metric": "response_structure",
+        "p_value": 1.0,
+        "resamples": 50000,
+        "right_mode": "text_only",
+        "sample_size": 12
+      },
+      {
+        "comparison": "Vision summary versus text only",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "vision_summary",
+        "mean_difference": 0.0,
+        "metric": "source_recall_at_5",
+        "p_value": 1.0,
+        "resamples": 50000,
+        "right_mode": "text_only",
+        "sample_size": 12
+      },
+      {
+        "comparison": "Vision summary versus basic metadata",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "vision_summary",
+        "mean_difference": 0.0,
+        "metric": "caption_coverage",
+        "p_value": 1.0,
+        "resamples": 50000,
+        "right_mode": "basic_metadata",
+        "sample_size": 12
+      },
+      {
+        "comparison": "Vision summary versus basic metadata",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "vision_summary",
+        "mean_difference": 0.0833,
+        "metric": "citation_quality",
+        "p_value": 1.0,
+        "resamples": 50000,
+        "right_mode": "basic_metadata",
+        "sample_size": 12
+      },
+      {
+        "comparison": "Vision summary versus basic metadata",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "vision_summary",
+        "mean_difference": 0.0,
+        "metric": "response_structure",
+        "p_value": 1.0,
+        "resamples": 50000,
+        "right_mode": "basic_metadata",
+        "sample_size": 12
+      },
+      {
+        "comparison": "Vision summary versus basic metadata",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "vision_summary",
+        "mean_difference": 0.0,
+        "metric": "source_recall_at_5",
+        "p_value": 1.0,
+        "resamples": 50000,
+        "right_mode": "basic_metadata",
+        "sample_size": 12
+      }
+    ],
+    "scope_warning": "Caption-derived exploratory questions are not independent clinical labels.",
+    "summaries": {
+      "basic_metadata": {
+        "caption_coverage": {
+          "ci_high": 2.0,
+          "ci_low": 1.5,
+          "confidence": 0.95,
+          "estimate": 1.75,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "citation_quality": {
+          "ci_high": 2.0,
+          "ci_low": 1.5833,
+          "confidence": 0.95,
+          "estimate": 1.8333,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "image_count": 12,
+        "invalid_citation_count": 0,
+        "response_structure": {
+          "ci_high": 2.0,
+          "ci_low": 2.0,
+          "confidence": 0.95,
+          "estimate": 2.0,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "source_recall_at_5": {
+          "ci_high": 1.0,
+          "ci_low": 0.75,
+          "confidence": 0.95,
+          "estimate": 0.9167,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "unsupported_visual_inference_rate": {
+          "ci_high": 0.25,
+          "ci_low": 0.0,
+          "confidence": 0.95,
+          "estimate": 0.0833,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "visual_contradiction_count": 0
+      },
+      "text_only": {
+        "caption_coverage": {
+          "ci_high": 1.9167,
+          "ci_low": 1.1667,
+          "confidence": 0.95,
+          "estimate": 1.5833,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "citation_quality": {
+          "ci_high": 2.0,
+          "ci_low": 1.5833,
+          "confidence": 0.95,
+          "estimate": 1.8333,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "image_count": 12,
+        "invalid_citation_count": 0,
+        "response_structure": {
+          "ci_high": 2.0,
+          "ci_low": 1.75,
+          "confidence": 0.95,
+          "estimate": 1.9167,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "source_recall_at_5": {
+          "ci_high": 1.0,
+          "ci_low": 0.75,
+          "confidence": 0.95,
+          "estimate": 0.9167,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "unsupported_visual_inference_rate": {
+          "ci_high": 0.4167,
+          "ci_low": 0.0,
+          "confidence": 0.95,
+          "estimate": 0.1667,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "visual_contradiction_count": 0
+      },
+      "vision_summary": {
+        "caption_coverage": {
+          "ci_high": 2.0,
+          "ci_low": 1.3333,
+          "confidence": 0.95,
+          "estimate": 1.75,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "citation_quality": {
+          "ci_high": 2.0,
+          "ci_low": 1.75,
+          "confidence": 0.95,
+          "estimate": 1.9167,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "image_count": 12,
+        "invalid_citation_count": 0,
+        "response_structure": {
+          "ci_high": 2.0,
+          "ci_low": 2.0,
+          "confidence": 0.95,
+          "estimate": 2.0,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "source_recall_at_5": {
+          "ci_high": 1.0,
+          "ci_low": 0.75,
+          "confidence": 0.95,
+          "estimate": 0.9167,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "unsupported_visual_inference_rate": {
+          "ci_high": 0.0,
+          "ci_low": 0.0,
+          "confidence": 0.95,
+          "estimate": 0.0,
+          "resamples": 10000,
+          "sample_size": 12
+        },
+        "visual_contradiction_count": 0
+      }
+    }
+  },
+  "permutation_resamples": 50000,
+  "retrieval": {
+    "confidence_intervals": {
+      "fts_bm25": {
+        "mrr": {
+          "ci_high": 0.6109,
+          "ci_low": 0.3694,
+          "confidence": 0.95,
+          "estimate": 0.4886,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_10": {
+          "ci_high": 0.6471,
+          "ci_low": 0.4097,
+          "confidence": 0.95,
+          "estimate": 0.5296,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_5": {
+          "ci_high": 0.6173,
+          "ci_low": 0.3605,
+          "confidence": 0.95,
+          "estimate": 0.4894,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_10": {
+          "ci_high": 0.8,
+          "ci_low": 0.54,
+          "confidence": 0.95,
+          "estimate": 0.68,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_20": {
+          "ci_high": 0.88,
+          "ci_low": 0.64,
+          "confidence": 0.95,
+          "estimate": 0.76,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_5": {
+          "ci_high": 0.7,
+          "ci_low": 0.42,
+          "confidence": 0.95,
+          "estimate": 0.56,
+          "resamples": 10000,
+          "sample_size": 50
+        }
+      },
+      "rerank_dense_top30": {
+        "mrr": {
+          "ci_high": 0.6835,
+          "ci_low": 0.4366,
+          "confidence": 0.95,
+          "estimate": 0.5622,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_10": {
+          "ci_high": 0.7161,
+          "ci_low": 0.4805,
+          "confidence": 0.95,
+          "estimate": 0.6002,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_5": {
+          "ci_high": 0.7018,
+          "ci_low": 0.4536,
+          "confidence": 0.95,
+          "estimate": 0.5812,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_10": {
+          "ci_high": 0.84,
+          "ci_low": 0.6,
+          "confidence": 0.95,
+          "estimate": 0.72,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_20": {
+          "ci_high": 0.84,
+          "ci_low": 0.6,
+          "confidence": 0.95,
+          "estimate": 0.72,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_5": {
+          "ci_high": 0.78,
+          "ci_low": 0.52,
+          "confidence": 0.95,
+          "estimate": 0.66,
+          "resamples": 10000,
+          "sample_size": 50
+        }
+      },
+      "rerank_fts_top30": {
+        "mrr": {
+          "ci_high": 0.7282,
+          "ci_low": 0.4789,
+          "confidence": 0.95,
+          "estimate": 0.6052,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_10": {
+          "ci_high": 0.747,
+          "ci_low": 0.5018,
+          "confidence": 0.95,
+          "estimate": 0.6257,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_5": {
+          "ci_high": 0.733,
+          "ci_low": 0.473,
+          "confidence": 0.95,
+          "estimate": 0.6056,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_10": {
+          "ci_high": 0.82,
+          "ci_low": 0.58,
+          "confidence": 0.95,
+          "estimate": 0.7,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_20": {
+          "ci_high": 0.86,
+          "ci_low": 0.62,
+          "confidence": 0.95,
+          "estimate": 0.74,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_5": {
+          "ci_high": 0.76,
+          "ci_low": 0.5,
+          "confidence": 0.95,
+          "estimate": 0.64,
+          "resamples": 10000,
+          "sample_size": 50
+        }
+      },
+      "rerank_hybrid_rrf_top30": {
+        "mrr": {
+          "ci_high": 0.7064,
+          "ci_low": 0.4592,
+          "confidence": 0.95,
+          "estimate": 0.5842,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_10": {
+          "ci_high": 0.7314,
+          "ci_low": 0.4944,
+          "confidence": 0.95,
+          "estimate": 0.6165,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_5": {
+          "ci_high": 0.7209,
+          "ci_low": 0.4717,
+          "confidence": 0.95,
+          "estimate": 0.5969,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_10": {
+          "ci_high": 0.84,
+          "ci_low": 0.6,
+          "confidence": 0.95,
+          "estimate": 0.72,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_20": {
+          "ci_high": 0.86,
+          "ci_low": 0.62,
+          "confidence": 0.95,
+          "estimate": 0.74,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_5": {
+          "ci_high": 0.78,
+          "ci_low": 0.52,
+          "confidence": 0.95,
+          "estimate": 0.66,
+          "resamples": 10000,
+          "sample_size": 50
+        }
+      },
+      "st_dense": {
+        "mrr": {
+          "ci_high": 0.5555,
+          "ci_low": 0.3092,
+          "confidence": 0.95,
+          "estimate": 0.4326,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_10": {
+          "ci_high": 0.6001,
+          "ci_low": 0.3636,
+          "confidence": 0.95,
+          "estimate": 0.4791,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_5": {
+          "ci_high": 0.5688,
+          "ci_low": 0.315,
+          "confidence": 0.95,
+          "estimate": 0.4402,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_10": {
+          "ci_high": 0.76,
+          "ci_low": 0.5,
+          "confidence": 0.95,
+          "estimate": 0.64,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_20": {
+          "ci_high": 0.8,
+          "ci_low": 0.54,
+          "confidence": 0.95,
+          "estimate": 0.68,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_5": {
+          "ci_high": 0.66,
+          "ci_low": 0.38,
+          "confidence": 0.95,
+          "estimate": 0.52,
+          "resamples": 10000,
+          "sample_size": 50
+        }
+      },
+      "st_hybrid_rrf": {
+        "mrr": {
+          "ci_high": 0.6487,
+          "ci_low": 0.4012,
+          "confidence": 0.95,
+          "estimate": 0.523,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_10": {
+          "ci_high": 0.6817,
+          "ci_low": 0.4408,
+          "confidence": 0.95,
+          "estimate": 0.5632,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_5": {
+          "ci_high": 0.6643,
+          "ci_low": 0.4112,
+          "confidence": 0.95,
+          "estimate": 0.5377,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_10": {
+          "ci_high": 0.82,
+          "ci_low": 0.58,
+          "confidence": 0.95,
+          "estimate": 0.7,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_20": {
+          "ci_high": 0.86,
+          "ci_low": 0.62,
+          "confidence": 0.95,
+          "estimate": 0.74,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_5": {
+          "ci_high": 0.7405,
+          "ci_low": 0.48,
+          "confidence": 0.95,
+          "estimate": 0.62,
+          "resamples": 10000,
+          "sample_size": 50
+        }
+      },
+      "st_hybrid_weighted_v0.50": {
+        "mrr": {
+          "ci_high": 0.6246,
+          "ci_low": 0.3806,
+          "confidence": 0.95,
+          "estimate": 0.5012,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_10": {
+          "ci_high": 0.6656,
+          "ci_low": 0.4281,
+          "confidence": 0.95,
+          "estimate": 0.5465,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_5": {
+          "ci_high": 0.6416,
+          "ci_low": 0.3867,
+          "confidence": 0.95,
+          "estimate": 0.5149,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_10": {
+          "ci_high": 0.82,
+          "ci_low": 0.56,
+          "confidence": 0.95,
+          "estimate": 0.7,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_20": {
+          "ci_high": 0.84,
+          "ci_low": 0.6,
+          "confidence": 0.95,
+          "estimate": 0.72,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_5": {
+          "ci_high": 0.74,
+          "ci_low": 0.46,
+          "confidence": 0.95,
+          "estimate": 0.6,
+          "resamples": 10000,
+          "sample_size": 50
+        }
+      },
+      "st_hybrid_weighted_v0.75": {
+        "mrr": {
+          "ci_high": 0.5877,
+          "ci_low": 0.3396,
+          "confidence": 0.95,
+          "estimate": 0.4629,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_10": {
+          "ci_high": 0.6201,
+          "ci_low": 0.3788,
+          "confidence": 0.95,
+          "estimate": 0.5017,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "ndcg_at_5": {
+          "ci_high": 0.6043,
+          "ci_low": 0.3572,
+          "confidence": 0.95,
+          "estimate": 0.4814,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_10": {
+          "ci_high": 0.78,
+          "ci_low": 0.5,
+          "confidence": 0.95,
+          "estimate": 0.64,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_20": {
+          "ci_high": 0.84,
+          "ci_low": 0.6,
+          "confidence": 0.95,
+          "estimate": 0.72,
+          "resamples": 10000,
+          "sample_size": 50
+        },
+        "recall_at_5": {
+          "ci_high": 0.72,
+          "ci_low": 0.44,
+          "confidence": 0.95,
+          "estimate": 0.58,
+          "resamples": 10000,
+          "sample_size": 50
+        }
+      }
+    },
+    "diagnostic_counts": {
+      "candidate_omission": 13,
+      "fusion_rescue": 2,
+      "lexical_strength": 3,
+      "relevant_evidence_below_context_cutoff": 2,
+      "reranker_demotion": 2,
+      "reranker_promotion": 4,
+      "semantic_strength": 4,
+      "shared_success": 20
+    },
+    "paired_randomisation_tests": [
+      {
+        "comparison": "Hybrid RRF versus lexical",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "st_hybrid_rrf",
+        "mean_difference": 0.0344,
+        "metric": "mrr",
+        "p_value": 0.51017,
+        "resamples": 50000,
+        "right_mode": "fts_bm25",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Hybrid RRF versus lexical",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "st_hybrid_rrf",
+        "mean_difference": 0.06,
+        "metric": "recall_at_5",
+        "p_value": 0.547029,
+        "resamples": 50000,
+        "right_mode": "fts_bm25",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Hybrid RRF versus lexical",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "st_hybrid_rrf",
+        "mean_difference": 0.0336,
+        "metric": "ndcg_at_10",
+        "p_value": 0.442671,
+        "resamples": 50000,
+        "right_mode": "fts_bm25",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Hybrid RRF versus dense",
+        "interpretation": "statistically_detectable",
+        "left_mode": "st_hybrid_rrf",
+        "mean_difference": 0.0904,
+        "metric": "mrr",
+        "p_value": 6e-05,
+        "resamples": 50000,
+        "right_mode": "st_dense",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Hybrid RRF versus dense",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "st_hybrid_rrf",
+        "mean_difference": 0.1,
+        "metric": "recall_at_5",
+        "p_value": 0.062459,
+        "resamples": 50000,
+        "right_mode": "st_dense",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Hybrid RRF versus dense",
+        "interpretation": "statistically_detectable",
+        "left_mode": "st_hybrid_rrf",
+        "mean_difference": 0.0841,
+        "metric": "ndcg_at_10",
+        "p_value": 0.00014,
+        "resamples": 50000,
+        "right_mode": "st_dense",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Hybrid reranking versus Hybrid RRF",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "rerank_hybrid_rrf_top30",
+        "mean_difference": 0.0613,
+        "metric": "mrr",
+        "p_value": 0.179556,
+        "resamples": 50000,
+        "right_mode": "st_hybrid_rrf",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Hybrid reranking versus Hybrid RRF",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "rerank_hybrid_rrf_top30",
+        "mean_difference": 0.04,
+        "metric": "recall_at_5",
+        "p_value": 0.687566,
+        "resamples": 50000,
+        "right_mode": "st_hybrid_rrf",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Hybrid reranking versus Hybrid RRF",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "rerank_hybrid_rrf_top30",
+        "mean_difference": 0.0533,
+        "metric": "ndcg_at_10",
+        "p_value": 0.157597,
+        "resamples": 50000,
+        "right_mode": "st_hybrid_rrf",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Lexical reranking versus lexical",
+        "interpretation": "statistically_detectable",
+        "left_mode": "rerank_fts_top30",
+        "mean_difference": 0.1166,
+        "metric": "mrr",
+        "p_value": 0.031959,
+        "resamples": 50000,
+        "right_mode": "fts_bm25",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Lexical reranking versus lexical",
+        "interpretation": "not_detected_at_0.05",
+        "left_mode": "rerank_fts_top30",
+        "mean_difference": 0.08,
+        "metric": "recall_at_5",
+        "p_value": 0.287294,
+        "resamples": 50000,
+        "right_mode": "fts_bm25",
+        "sample_size": 50
+      },
+      {
+        "comparison": "Lexical reranking versus lexical",
+        "interpretation": "statistically_detectable",
+        "left_mode": "rerank_fts_top30",
+        "mean_difference": 0.0961,
+        "metric": "ndcg_at_10",
+        "p_value": 0.034299,
+        "resamples": 50000,
+        "right_mode": "fts_bm25",
+        "sample_size": 50
+      }
+    ],
+    "question_count": 50
+  },
+  "seed": 20260723,
+  "sensitivity": {
+    "chunk": {
+      "confidence_intervals": {
+        "w350_o50": {
+          "mrr": {
+            "ci_high": 0.6943,
+            "ci_low": 0.4507,
+            "confidence": 0.95,
+            "estimate": 0.5736,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.7327,
+            "ci_low": 0.5002,
+            "confidence": 0.95,
+            "estimate": 0.6177,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.728,
+            "ci_low": 0.4922,
+            "confidence": 0.95,
+            "estimate": 0.6117,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.88,
+            "ci_low": 0.64,
+            "confidence": 0.95,
+            "estimate": 0.76,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.88,
+            "ci_low": 0.66,
+            "confidence": 0.95,
+            "estimate": 0.78,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.86,
+            "ci_low": 0.62,
+            "confidence": 0.95,
+            "estimate": 0.74,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "w650_o0": {
+          "mrr": {
+            "ci_high": 0.6448,
+            "ci_low": 0.3968,
+            "confidence": 0.95,
+            "estimate": 0.5225,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.6771,
+            "ci_low": 0.4403,
+            "confidence": 0.95,
+            "estimate": 0.5607,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.663,
+            "ci_low": 0.4066,
+            "confidence": 0.95,
+            "estimate": 0.5341,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.82,
+            "ci_low": 0.58,
+            "confidence": 0.95,
+            "estimate": 0.7,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.88,
+            "ci_low": 0.66,
+            "confidence": 0.95,
+            "estimate": 0.78,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.76,
+            "ci_low": 0.48,
+            "confidence": 0.95,
+            "estimate": 0.62,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "w650_o90": {
+          "mrr": {
+            "ci_high": 0.6429,
+            "ci_low": 0.3985,
+            "confidence": 0.95,
+            "estimate": 0.523,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.6802,
+            "ci_low": 0.4433,
+            "confidence": 0.95,
+            "estimate": 0.5632,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.6625,
+            "ci_low": 0.4105,
+            "confidence": 0.95,
+            "estimate": 0.5377,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.82,
+            "ci_low": 0.56,
+            "confidence": 0.95,
+            "estimate": 0.7,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.86,
+            "ci_low": 0.62,
+            "confidence": 0.95,
+            "estimate": 0.74,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.76,
+            "ci_low": 0.48,
+            "confidence": 0.95,
+            "estimate": 0.62,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "w900_o150": {
+          "mrr": {
+            "ci_high": 0.6303,
+            "ci_low": 0.3814,
+            "confidence": 0.95,
+            "estimate": 0.5058,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.6554,
+            "ci_low": 0.4087,
+            "confidence": 0.95,
+            "estimate": 0.5331,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.6414,
+            "ci_low": 0.3863,
+            "confidence": 0.95,
+            "estimate": 0.5133,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.76,
+            "ci_low": 0.5,
+            "confidence": 0.95,
+            "estimate": 0.64,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.84,
+            "ci_low": 0.6,
+            "confidence": 0.95,
+            "estimate": 0.72,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.72,
+            "ci_low": 0.44,
+            "confidence": 0.95,
+            "estimate": 0.58,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        }
+      },
+      "kind": "chunk",
+      "latency": {
+        "w350_o50": {
+          "mean_latency_ms": 53.74,
+          "question_count": 50
+        },
+        "w650_o0": {
+          "mean_latency_ms": 35.42,
+          "question_count": 50
+        },
+        "w650_o90": {
+          "mean_latency_ms": 63.28,
+          "question_count": 50
+        },
+        "w900_o150": {
+          "mean_latency_ms": 57.79,
+          "question_count": 50
+        }
+      },
+      "paired_randomisation_tests": [
+        {
+          "comparison": "350/50 versus production 650/90",
+          "interpretation": "statistically_detectable",
+          "left_mode": "w350_o50",
+          "mean_difference": 0.0506,
+          "metric": "mrr",
+          "p_value": 0.043599,
+          "resamples": 50000,
+          "right_mode": "w650_o90",
+          "sample_size": 50
+        },
+        {
+          "comparison": "350/50 versus production 650/90",
+          "interpretation": "statistically_detectable",
+          "left_mode": "w350_o50",
+          "mean_difference": 0.12,
+          "metric": "recall_at_5",
+          "p_value": 0.031219,
+          "resamples": 50000,
+          "right_mode": "w650_o90",
+          "sample_size": 50
+        },
+        {
+          "comparison": "350/50 versus production 650/90",
+          "interpretation": "statistically_detectable",
+          "left_mode": "w350_o50",
+          "mean_difference": 0.0545,
+          "metric": "ndcg_at_10",
+          "p_value": 0.0199,
+          "resamples": 50000,
+          "right_mode": "w650_o90",
+          "sample_size": 50
+        },
+        {
+          "comparison": "No overlap versus production 650/90",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "w650_o0",
+          "mean_difference": -0.0005,
+          "metric": "mrr",
+          "p_value": 0.98662,
+          "resamples": 50000,
+          "right_mode": "w650_o90",
+          "sample_size": 50
+        },
+        {
+          "comparison": "No overlap versus production 650/90",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "w650_o0",
+          "mean_difference": 0.0,
+          "metric": "recall_at_5",
+          "p_value": 1.0,
+          "resamples": 50000,
+          "right_mode": "w650_o90",
+          "sample_size": 50
+        },
+        {
+          "comparison": "No overlap versus production 650/90",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "w650_o0",
+          "mean_difference": -0.0024,
+          "metric": "ndcg_at_10",
+          "p_value": 0.934461,
+          "resamples": 50000,
+          "right_mode": "w650_o90",
+          "sample_size": 50
+        },
+        {
+          "comparison": "900/150 versus production 650/90",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "w900_o150",
+          "mean_difference": -0.0172,
+          "metric": "mrr",
+          "p_value": 0.531229,
+          "resamples": 50000,
+          "right_mode": "w650_o90",
+          "sample_size": 50
+        },
+        {
+          "comparison": "900/150 versus production 650/90",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "w900_o150",
+          "mean_difference": -0.04,
+          "metric": "recall_at_5",
+          "p_value": 0.50487,
+          "resamples": 50000,
+          "right_mode": "w650_o90",
+          "sample_size": 50
+        },
+        {
+          "comparison": "900/150 versus production 650/90",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "w900_o150",
+          "mean_difference": -0.03,
+          "metric": "ndcg_at_10",
+          "p_value": 0.212676,
+          "resamples": 50000,
+          "right_mode": "w650_o90",
+          "sample_size": 50
+        }
+      ]
+    },
+    "metadata": {
+      "confidence_intervals": {
+        "text_only:dense": {
+          "mrr": {
+            "ci_high": 0.5933,
+            "ci_low": 0.3487,
+            "confidence": 0.95,
+            "estimate": 0.4698,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.6241,
+            "ci_low": 0.3782,
+            "confidence": 0.95,
+            "estimate": 0.5019,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.5931,
+            "ci_low": 0.3342,
+            "confidence": 0.95,
+            "estimate": 0.4642,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.76,
+            "ci_low": 0.5,
+            "confidence": 0.95,
+            "estimate": 0.64,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.88,
+            "ci_low": 0.64,
+            "confidence": 0.95,
+            "estimate": 0.76,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.66,
+            "ci_low": 0.38,
+            "confidence": 0.95,
+            "estimate": 0.52,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "text_only:hybrid_rrf": {
+          "mrr": {
+            "ci_high": 0.6523,
+            "ci_low": 0.4052,
+            "confidence": 0.95,
+            "estimate": 0.529,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.6911,
+            "ci_low": 0.4508,
+            "confidence": 0.95,
+            "estimate": 0.5715,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.6726,
+            "ci_low": 0.4204,
+            "confidence": 0.95,
+            "estimate": 0.5466,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.84,
+            "ci_low": 0.6,
+            "confidence": 0.95,
+            "estimate": 0.72,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.88,
+            "ci_low": 0.64,
+            "confidence": 0.95,
+            "estimate": 0.76,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.78,
+            "ci_low": 0.5,
+            "confidence": 0.95,
+            "estimate": 0.64,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "title_section_text:dense": {
+          "mrr": {
+            "ci_high": 0.5572,
+            "ci_low": 0.3122,
+            "confidence": 0.95,
+            "estimate": 0.4326,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.5961,
+            "ci_low": 0.3605,
+            "confidence": 0.95,
+            "estimate": 0.4791,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.5649,
+            "ci_low": 0.3153,
+            "confidence": 0.95,
+            "estimate": 0.4402,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.76,
+            "ci_low": 0.5,
+            "confidence": 0.95,
+            "estimate": 0.64,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.8,
+            "ci_low": 0.56,
+            "confidence": 0.95,
+            "estimate": 0.68,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.66,
+            "ci_low": 0.38,
+            "confidence": 0.95,
+            "estimate": 0.52,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "title_section_text:hybrid_rrf": {
+          "mrr": {
+            "ci_high": 0.6419,
+            "ci_low": 0.3963,
+            "confidence": 0.95,
+            "estimate": 0.523,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.684,
+            "ci_low": 0.4458,
+            "confidence": 0.95,
+            "estimate": 0.5632,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.6629,
+            "ci_low": 0.4103,
+            "confidence": 0.95,
+            "estimate": 0.5377,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.82,
+            "ci_low": 0.58,
+            "confidence": 0.95,
+            "estimate": 0.7,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.86,
+            "ci_low": 0.62,
+            "confidence": 0.95,
+            "estimate": 0.74,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.76,
+            "ci_low": 0.48,
+            "confidence": 0.95,
+            "estimate": 0.62,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "title_text:dense": {
+          "mrr": {
+            "ci_high": 0.5544,
+            "ci_low": 0.3101,
+            "confidence": 0.95,
+            "estimate": 0.431,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.5931,
+            "ci_low": 0.3514,
+            "confidence": 0.95,
+            "estimate": 0.4719,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.5684,
+            "ci_low": 0.3152,
+            "confidence": 0.95,
+            "estimate": 0.4411,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.74,
+            "ci_low": 0.48,
+            "confidence": 0.95,
+            "estimate": 0.62,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.8,
+            "ci_low": 0.54,
+            "confidence": 0.95,
+            "estimate": 0.68,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.66,
+            "ci_low": 0.38,
+            "confidence": 0.95,
+            "estimate": 0.52,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "title_text:hybrid_rrf": {
+          "mrr": {
+            "ci_high": 0.6283,
+            "ci_low": 0.3846,
+            "confidence": 0.95,
+            "estimate": 0.5055,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.6658,
+            "ci_low": 0.4295,
+            "confidence": 0.95,
+            "estimate": 0.5489,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.6537,
+            "ci_low": 0.4079,
+            "confidence": 0.95,
+            "estimate": 0.5306,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.82,
+            "ci_low": 0.56,
+            "confidence": 0.95,
+            "estimate": 0.7,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.88,
+            "ci_low": 0.64,
+            "confidence": 0.95,
+            "estimate": 0.76,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.78,
+            "ci_low": 0.5,
+            "confidence": 0.95,
+            "estimate": 0.64,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        }
+      },
+      "kind": "metadata",
+      "latency": {
+        "text_only:dense": {
+          "mean_latency_ms": 11.65,
+          "question_count": 50
+        },
+        "text_only:hybrid_rrf": {
+          "mean_latency_ms": 44.0,
+          "question_count": 50
+        },
+        "title_section_text:dense": {
+          "mean_latency_ms": 23.06,
+          "question_count": 50
+        },
+        "title_section_text:hybrid_rrf": {
+          "mean_latency_ms": 55.44,
+          "question_count": 50
+        },
+        "title_text:dense": {
+          "mean_latency_ms": 10.64,
+          "question_count": 50
+        },
+        "title_text:hybrid_rrf": {
+          "mean_latency_ms": 42.97,
+          "question_count": 50
+        }
+      },
+      "paired_randomisation_tests": [
+        {
+          "comparison": "Production metadata versus text-only hybrid",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "title_section_text:hybrid_rrf",
+          "mean_difference": -0.006,
+          "metric": "mrr",
+          "p_value": 0.869243,
+          "resamples": 50000,
+          "right_mode": "text_only:hybrid_rrf",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Production metadata versus text-only hybrid",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "title_section_text:hybrid_rrf",
+          "mean_difference": -0.02,
+          "metric": "recall_at_5",
+          "p_value": 1.0,
+          "resamples": 50000,
+          "right_mode": "text_only:hybrid_rrf",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Production metadata versus text-only hybrid",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "title_section_text:hybrid_rrf",
+          "mean_difference": -0.0084,
+          "metric": "ndcg_at_10",
+          "p_value": 0.686326,
+          "resamples": 50000,
+          "right_mode": "text_only:hybrid_rrf",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Production metadata versus text-only dense",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "title_section_text:dense",
+          "mean_difference": -0.0372,
+          "metric": "mrr",
+          "p_value": 0.169097,
+          "resamples": 50000,
+          "right_mode": "text_only:dense",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Production metadata versus text-only dense",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "title_section_text:dense",
+          "mean_difference": 0.0,
+          "metric": "recall_at_5",
+          "p_value": 1.0,
+          "resamples": 50000,
+          "right_mode": "text_only:dense",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Production metadata versus text-only dense",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "title_section_text:dense",
+          "mean_difference": -0.0228,
+          "metric": "ndcg_at_10",
+          "p_value": 0.350873,
+          "resamples": 50000,
+          "right_mode": "text_only:dense",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Title and section versus title-only hybrid",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "title_section_text:hybrid_rrf",
+          "mean_difference": 0.0175,
+          "metric": "mrr",
+          "p_value": 0.105938,
+          "resamples": 50000,
+          "right_mode": "title_text:hybrid_rrf",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Title and section versus title-only hybrid",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "title_section_text:hybrid_rrf",
+          "mean_difference": -0.02,
+          "metric": "recall_at_5",
+          "p_value": 1.0,
+          "resamples": 50000,
+          "right_mode": "title_text:hybrid_rrf",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Title and section versus title-only hybrid",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "title_section_text:hybrid_rrf",
+          "mean_difference": 0.0143,
+          "metric": "ndcg_at_10",
+          "p_value": 0.063619,
+          "resamples": 50000,
+          "right_mode": "title_text:hybrid_rrf",
+          "sample_size": 50
+        }
+      ]
+    },
+    "reranker_pool": {
+      "confidence_intervals": {
+        "top_10": {
+          "mrr": {
+            "ci_high": 0.7153,
+            "ci_low": 0.4613,
+            "confidence": 0.95,
+            "estimate": 0.5907,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.7373,
+            "ci_low": 0.495,
+            "confidence": 0.95,
+            "estimate": 0.618,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.733,
+            "ci_low": 0.483,
+            "confidence": 0.95,
+            "estimate": 0.6108,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.82,
+            "ci_low": 0.58,
+            "confidence": 0.95,
+            "estimate": 0.7,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.82,
+            "ci_low": 0.58,
+            "confidence": 0.95,
+            "estimate": 0.7,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.8,
+            "ci_low": 0.54,
+            "confidence": 0.95,
+            "estimate": 0.68,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "top_20": {
+          "mrr": {
+            "ci_high": 0.719,
+            "ci_low": 0.471,
+            "confidence": 0.95,
+            "estimate": 0.597,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.7461,
+            "ci_low": 0.5053,
+            "confidence": 0.95,
+            "estimate": 0.6265,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.7403,
+            "ci_low": 0.4991,
+            "confidence": 0.95,
+            "estimate": 0.6207,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.84,
+            "ci_low": 0.6,
+            "confidence": 0.95,
+            "estimate": 0.72,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.86,
+            "ci_low": 0.62,
+            "confidence": 0.95,
+            "estimate": 0.74,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.82,
+            "ci_low": 0.58,
+            "confidence": 0.95,
+            "estimate": 0.7,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "top_30": {
+          "mrr": {
+            "ci_high": 0.7049,
+            "ci_low": 0.462,
+            "confidence": 0.95,
+            "estimate": 0.5842,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.7355,
+            "ci_low": 0.4926,
+            "confidence": 0.95,
+            "estimate": 0.6165,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.7237,
+            "ci_low": 0.4705,
+            "confidence": 0.95,
+            "estimate": 0.5969,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.84,
+            "ci_low": 0.6,
+            "confidence": 0.95,
+            "estimate": 0.72,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.86,
+            "ci_low": 0.62,
+            "confidence": 0.95,
+            "estimate": 0.74,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.78,
+            "ci_low": 0.52,
+            "confidence": 0.95,
+            "estimate": 0.66,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        },
+        "top_50": {
+          "mrr": {
+            "ci_high": 0.6973,
+            "ci_low": 0.4519,
+            "confidence": 0.95,
+            "estimate": 0.5762,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_10": {
+            "ci_high": 0.7255,
+            "ci_low": 0.4895,
+            "confidence": 0.95,
+            "estimate": 0.6095,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "ndcg_at_5": {
+            "ci_high": 0.7157,
+            "ci_low": 0.4631,
+            "confidence": 0.95,
+            "estimate": 0.5908,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_10": {
+            "ci_high": 0.84,
+            "ci_low": 0.6,
+            "confidence": 0.95,
+            "estimate": 0.72,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_20": {
+            "ci_high": 0.86,
+            "ci_low": 0.62,
+            "confidence": 0.95,
+            "estimate": 0.74,
+            "resamples": 10000,
+            "sample_size": 50
+          },
+          "recall_at_5": {
+            "ci_high": 0.78,
+            "ci_low": 0.52,
+            "confidence": 0.95,
+            "estimate": 0.66,
+            "resamples": 10000,
+            "sample_size": 50
+          }
+        }
+      },
+      "kind": "reranker_pool",
+      "latency": {
+        "top_10": {
+          "mean_latency_ms": 157.9,
+          "question_count": 50
+        },
+        "top_20": {
+          "mean_latency_ms": 265.64,
+          "question_count": 50
+        },
+        "top_30": {
+          "mean_latency_ms": 349.82,
+          "question_count": 50
+        },
+        "top_50": {
+          "mean_latency_ms": 571.25,
+          "question_count": 50
+        }
+      },
+      "paired_randomisation_tests": [
+        {
+          "comparison": "Top-20 versus top-10 candidate pool",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "top_20",
+          "mean_difference": 0.0063,
+          "metric": "mrr",
+          "p_value": 0.847363,
+          "resamples": 50000,
+          "right_mode": "top_10",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Top-20 versus top-10 candidate pool",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "top_20",
+          "mean_difference": 0.02,
+          "metric": "recall_at_5",
+          "p_value": 1.0,
+          "resamples": 50000,
+          "right_mode": "top_10",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Top-20 versus top-10 candidate pool",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "top_20",
+          "mean_difference": 0.0085,
+          "metric": "ndcg_at_10",
+          "p_value": 0.813284,
+          "resamples": 50000,
+          "right_mode": "top_10",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Top-30 versus top-20 candidate pool",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "top_30",
+          "mean_difference": -0.0128,
+          "metric": "mrr",
+          "p_value": 0.250375,
+          "resamples": 50000,
+          "right_mode": "top_20",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Top-30 versus top-20 candidate pool",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "top_30",
+          "mean_difference": -0.04,
+          "metric": "recall_at_5",
+          "p_value": 0.49705,
+          "resamples": 50000,
+          "right_mode": "top_20",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Top-30 versus top-20 candidate pool",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "top_30",
+          "mean_difference": -0.0099,
+          "metric": "ndcg_at_10",
+          "p_value": 0.253435,
+          "resamples": 50000,
+          "right_mode": "top_20",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Top-50 versus top-20 candidate pool",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "top_50",
+          "mean_difference": -0.0208,
+          "metric": "mrr",
+          "p_value": 0.091838,
+          "resamples": 50000,
+          "right_mode": "top_20",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Top-50 versus top-20 candidate pool",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "top_50",
+          "mean_difference": -0.04,
+          "metric": "recall_at_5",
+          "p_value": 0.49763,
+          "resamples": 50000,
+          "right_mode": "top_20",
+          "sample_size": 50
+        },
+        {
+          "comparison": "Top-50 versus top-20 candidate pool",
+          "interpretation": "not_detected_at_0.05",
+          "left_mode": "top_50",
+          "mean_difference": -0.017,
+          "metric": "ndcg_at_10",
+          "p_value": 0.250935,
+          "resamples": 50000,
+          "right_mode": "top_20",
+          "sample_size": 50
+        }
+      ]
+    }
+  },
+  "task": "statistical_and_failure_analysis"
+}

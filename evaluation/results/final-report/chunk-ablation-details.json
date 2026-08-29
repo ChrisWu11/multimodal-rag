@@ -1,0 +1,3602 @@
+[
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q001",
+    "latency_ms": 110.84,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0017",
+      "doc_0032_d8e0f6ced1cc_c0011",
+      "doc_0032_d8e0f6ced1cc_c0019",
+      "doc_0032_d8e0f6ced1cc_c0022",
+      "doc_0064_091d6814a8e2_c0004",
+      "doc_0032_d8e0f6ced1cc_c0015",
+      "doc_0232_48c905ce8c55_c0015",
+      "doc_0083_1c7b3a89d532_c0005",
+      "doc_0032_d8e0f6ced1cc_c0026",
+      "doc_0229_2fef8e360a32_c0003"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 5,
+    "id": "q002",
+    "latency_ms": 62.13,
+    "top_chunk_ids": [
+      "doc_0032_d8e0f6ced1cc_c0004",
+      "doc_0032_d8e0f6ced1cc_c0002",
+      "doc_0032_d8e0f6ced1cc_c0005",
+      "doc_0032_d8e0f6ced1cc_c0001",
+      "doc_0003_361dd2ec6116_c0006",
+      "doc_0024_d7ef043830f5_c0006",
+      "doc_0044_442b21b5f179_c0011",
+      "doc_0032_d8e0f6ced1cc_c0008",
+      "doc_0032_d8e0f6ced1cc_c0010",
+      "doc_0024_d7ef043830f5_c0003"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 3,
+    "id": "q003",
+    "latency_ms": 43.63,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0005",
+      "doc_0219_8c4617ac7235_c0004",
+      "doc_0111_bccf1133ecd7_c0009",
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0115_03129e2fda6b_c0021",
+      "doc_0226_b677f76d005b_c0003",
+      "doc_0270_df860c02a246_c0002",
+      "doc_0270_df860c02a246_c0001",
+      "doc_0270_df860c02a246_c0004"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 9,
+    "id": "q004",
+    "latency_ms": 40.22,
+    "top_chunk_ids": [
+      "doc_0064_091d6814a8e2_c0004",
+      "doc_0232_48c905ce8c55_c0017",
+      "doc_0162_52cdb9bd782f_c0006",
+      "doc_0003_361dd2ec6116_c0006",
+      "doc_0083_1c7b3a89d532_c0013",
+      "doc_0032_d8e0f6ced1cc_c0011",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0156_5f9a68461daf_c0023",
+      "doc_0112_33cdaadd4451_c0023",
+      "doc_0226_b677f76d005b_c0005"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q005",
+    "latency_ms": 68.57,
+    "top_chunk_ids": [
+      "doc_0140_1754d6c2e414_c0010",
+      "doc_0003_361dd2ec6116_c0005",
+      "doc_0140_1754d6c2e414_c0008",
+      "doc_0140_1754d6c2e414_c0011",
+      "doc_0140_1754d6c2e414_c0004",
+      "doc_0140_1754d6c2e414_c0013",
+      "doc_0140_1754d6c2e414_c0006",
+      "doc_0210_31ed2b49a4f3_c0005",
+      "doc_0083_1c7b3a89d532_c0007",
+      "doc_0030_f7fe718b012c_c0006"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q006",
+    "latency_ms": 40.94,
+    "top_chunk_ids": [
+      "doc_0141_440b981f9c81_c0002",
+      "doc_0141_440b981f9c81_c0001",
+      "doc_0141_440b981f9c81_c0005",
+      "doc_0141_440b981f9c81_c0004",
+      "doc_0001_143c50ae5989_c0001",
+      "doc_0108_13bf804baf60_c0002",
+      "doc_0138_312674743840_c0008",
+      "doc_0101_852b5b0e08f1_c0004",
+      "doc_0001_143c50ae5989_c0014",
+      "doc_0141_440b981f9c81_c0010"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q007",
+    "latency_ms": 63.63,
+    "top_chunk_ids": [
+      "doc_0002_e2eaa961a507_c0016",
+      "doc_0002_e2eaa961a507_c0024",
+      "doc_0002_e2eaa961a507_c0001",
+      "doc_0002_e2eaa961a507_c0015",
+      "doc_0002_e2eaa961a507_c0006",
+      "doc_0002_e2eaa961a507_c0014",
+      "doc_0002_e2eaa961a507_c0004",
+      "doc_0002_e2eaa961a507_c0019",
+      "doc_0002_e2eaa961a507_c0003",
+      "doc_0002_e2eaa961a507_c0020"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q008",
+    "latency_ms": 40.75,
+    "top_chunk_ids": [
+      "doc_0249_48e75e157f54_c0001",
+      "doc_0249_48e75e157f54_c0003",
+      "doc_0018_df4e8e1b4d03_c0003",
+      "doc_0249_48e75e157f54_c0002",
+      "doc_0018_df4e8e1b4d03_c0015",
+      "doc_0249_48e75e157f54_c0004",
+      "doc_0018_df4e8e1b4d03_c0004",
+      "doc_0018_df4e8e1b4d03_c0001",
+      "doc_0249_48e75e157f54_c0011",
+      "doc_0018_df4e8e1b4d03_c0002"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q009",
+    "latency_ms": 42.81,
+    "top_chunk_ids": [
+      "doc_0003_361dd2ec6116_c0042",
+      "doc_0040_9bb11353ea00_c0023",
+      "doc_0234_205b14d53f94_c0001",
+      "doc_0030_f7fe718b012c_c0002",
+      "doc_0003_361dd2ec6116_c0018",
+      "doc_0030_f7fe718b012c_c0001",
+      "doc_0080_7a533eaeffd1_c0016",
+      "doc_0030_f7fe718b012c_c0007",
+      "doc_0234_205b14d53f94_c0002",
+      "doc_0030_f7fe718b012c_c0004"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 3,
+    "id": "q010",
+    "latency_ms": 70.85,
+    "top_chunk_ids": [
+      "doc_0249_48e75e157f54_c0001",
+      "doc_0249_48e75e157f54_c0011",
+      "doc_0020_e257002ed120_c0010",
+      "doc_0018_df4e8e1b4d03_c0002",
+      "doc_0018_df4e8e1b4d03_c0001",
+      "doc_0011_665a2386ba69_c0011",
+      "doc_0020_e257002ed120_c0003",
+      "doc_0107_f0314c536957_c0028",
+      "doc_0018_df4e8e1b4d03_c0012",
+      "doc_0113_4e7198732f41_c0033"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q011",
+    "latency_ms": 73.68,
+    "top_chunk_ids": [
+      "doc_0020_e257002ed120_c0002",
+      "doc_0020_e257002ed120_c0001",
+      "doc_0214_5d9a2fccda72_c0015",
+      "doc_0020_e257002ed120_c0004",
+      "doc_0020_e257002ed120_c0009",
+      "doc_0020_e257002ed120_c0010",
+      "doc_0020_e257002ed120_c0011",
+      "doc_0199_1522ffc0a553_c0018",
+      "doc_0020_e257002ed120_c0006",
+      "doc_0020_e257002ed120_c0003"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q012",
+    "latency_ms": 61.01,
+    "top_chunk_ids": [
+      "doc_0114_0dfe9186d94e_c0006",
+      "doc_0114_0dfe9186d94e_c0009",
+      "doc_0114_0dfe9186d94e_c0014",
+      "doc_0114_0dfe9186d94e_c0018",
+      "doc_0114_0dfe9186d94e_c0004",
+      "doc_0114_0dfe9186d94e_c0001",
+      "doc_0114_0dfe9186d94e_c0007",
+      "doc_0114_0dfe9186d94e_c0022",
+      "doc_0114_0dfe9186d94e_c0017",
+      "doc_0114_0dfe9186d94e_c0021"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 3,
+    "id": "q013",
+    "latency_ms": 39.93,
+    "top_chunk_ids": [
+      "doc_0085_51fd45b055b3_c0002",
+      "doc_0187_2f9fc0c23ee8_c0018",
+      "doc_0039_13579593089f_c0006",
+      "doc_0085_51fd45b055b3_c0003",
+      "doc_0039_13579593089f_c0001",
+      "doc_0039_13579593089f_c0025",
+      "doc_0052_0bf0833054bf_c0004",
+      "doc_0003_361dd2ec6116_c0041",
+      "doc_0066_c476bfc3d220_c0005",
+      "doc_0039_13579593089f_c0030"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 2,
+    "id": "q014",
+    "latency_ms": 39.7,
+    "top_chunk_ids": [
+      "doc_0040_9bb11353ea00_c0004",
+      "doc_0052_0bf0833054bf_c0004",
+      "doc_0040_9bb11353ea00_c0006",
+      "doc_0039_13579593089f_c0012",
+      "doc_0039_13579593089f_c0001",
+      "doc_0039_13579593089f_c0006",
+      "doc_0187_2f9fc0c23ee8_c0021",
+      "doc_0085_51fd45b055b3_c0002",
+      "doc_0052_0bf0833054bf_c0001",
+      "doc_0039_13579593089f_c0031"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q015",
+    "latency_ms": 94.04,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0005",
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0115_03129e2fda6b_c0008",
+      "doc_0115_03129e2fda6b_c0001",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0115_03129e2fda6b_c0012",
+      "doc_0115_03129e2fda6b_c0017",
+      "doc_0115_03129e2fda6b_c0010",
+      "doc_0228_e019f3484bd0_c0002"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q016",
+    "latency_ms": 99.27,
+    "top_chunk_ids": [
+      "doc_0208_075a0ad7c2f5_c0027",
+      "doc_0208_075a0ad7c2f5_c0002",
+      "doc_0208_075a0ad7c2f5_c0032",
+      "doc_0208_075a0ad7c2f5_c0031",
+      "doc_0208_075a0ad7c2f5_c0026",
+      "doc_0208_075a0ad7c2f5_c0025",
+      "doc_0208_075a0ad7c2f5_c0016",
+      "doc_0044_442b21b5f179_c0001",
+      "doc_0208_075a0ad7c2f5_c0001",
+      "doc_0208_075a0ad7c2f5_c0019"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q017",
+    "latency_ms": 38.62,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0017",
+      "doc_0066_c476bfc3d220_c0014",
+      "doc_0228_e019f3484bd0_c0005",
+      "doc_0051_4bb12c2575bb_c0010",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0025_e97ed3def3b4_c0028",
+      "doc_0223_58b4c63c5fee_c0022",
+      "doc_0250_e8697aca16f5_c0007",
+      "doc_0161_6080a6bc3d5b_c0027",
+      "doc_0250_e8697aca16f5_c0004"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q018",
+    "latency_ms": 69.83,
+    "top_chunk_ids": [
+      "doc_0083_1c7b3a89d532_c0007",
+      "doc_0046_780da1481d7e_c0032",
+      "doc_0152_1044fb625bcf_c0016",
+      "doc_0253_1cc3124dbfb1_c0015",
+      "doc_0025_e97ed3def3b4_c0006",
+      "doc_0044_442b21b5f179_c0015",
+      "doc_0152_1044fb625bcf_c0019",
+      "doc_0094_159eb167506a_c0022",
+      "doc_0092_50e999b554b6_c0038",
+      "doc_0019_f73a5135b7e3_c0013"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q019",
+    "latency_ms": 60.38,
+    "top_chunk_ids": [
+      "doc_0156_5f9a68461daf_c0018",
+      "doc_0156_5f9a68461daf_c0023",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0156_5f9a68461daf_c0022",
+      "doc_0156_5f9a68461daf_c0019",
+      "doc_0156_5f9a68461daf_c0020",
+      "doc_0156_5f9a68461daf_c0021",
+      "doc_0156_5f9a68461daf_c0024",
+      "doc_0156_5f9a68461daf_c0017",
+      "doc_0156_5f9a68461daf_c0012"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q020",
+    "latency_ms": 90.95,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0115_03129e2fda6b_c0008",
+      "doc_0115_03129e2fda6b_c0017",
+      "doc_0115_03129e2fda6b_c0022",
+      "doc_0115_03129e2fda6b_c0028",
+      "doc_0115_03129e2fda6b_c0018",
+      "doc_0115_03129e2fda6b_c0015",
+      "doc_0115_03129e2fda6b_c0034",
+      "doc_0115_03129e2fda6b_c0024"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 4,
+    "id": "q021",
+    "latency_ms": 49.31,
+    "top_chunk_ids": [
+      "doc_0224_84438341c3d2_c0004",
+      "doc_0224_84438341c3d2_c0023",
+      "doc_0224_84438341c3d2_c0028",
+      "doc_0150_4731780ae890_c0004",
+      "doc_0224_84438341c3d2_c0020",
+      "doc_0254_ddc76ce8a139_c0006",
+      "doc_0161_6080a6bc3d5b_c0044",
+      "doc_0224_84438341c3d2_c0026",
+      "doc_0224_84438341c3d2_c0024",
+      "doc_0254_ddc76ce8a139_c0010"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q022",
+    "latency_ms": 46.5,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0015",
+      "doc_0226_b677f76d005b_c0005",
+      "doc_0064_091d6814a8e2_c0004",
+      "doc_0083_1c7b3a89d532_c0001",
+      "doc_0232_48c905ce8c55_c0016",
+      "doc_0212_6e516d77c148_c0004",
+      "doc_0032_d8e0f6ced1cc_c0022",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0064_091d6814a8e2_c0003",
+      "doc_0003_361dd2ec6116_c0036"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 20,
+    "id": "q023",
+    "latency_ms": 46.4,
+    "top_chunk_ids": [
+      "doc_0170_a81d06bd505b_c0002",
+      "doc_0170_a81d06bd505b_c0003",
+      "doc_0170_a81d06bd505b_c0019",
+      "doc_0030_f7fe718b012c_c0001",
+      "doc_0030_f7fe718b012c_c0012",
+      "doc_0170_a81d06bd505b_c0021",
+      "doc_0170_a81d06bd505b_c0014",
+      "doc_0170_a81d06bd505b_c0022",
+      "doc_0030_f7fe718b012c_c0002",
+      "doc_0030_f7fe718b012c_c0007"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q024",
+    "latency_ms": 44.24,
+    "top_chunk_ids": [
+      "doc_0262_60e4e9a6450a_c0011",
+      "doc_0253_1cc3124dbfb1_c0015",
+      "doc_0253_1cc3124dbfb1_c0014",
+      "doc_0200_7da0f2c81486_c0003",
+      "doc_0253_1cc3124dbfb1_c0026",
+      "doc_0253_1cc3124dbfb1_c0029",
+      "doc_0253_1cc3124dbfb1_c0001",
+      "doc_0253_1cc3124dbfb1_c0004",
+      "doc_0253_1cc3124dbfb1_c0007",
+      "doc_0253_1cc3124dbfb1_c0002"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 5,
+    "id": "q025",
+    "latency_ms": 40.96,
+    "top_chunk_ids": [
+      "doc_0153_3deec4abd745_c0017",
+      "doc_0097_25d00336d09d_c0001",
+      "doc_0097_25d00336d09d_c0002",
+      "doc_0257_064d8f3c7547_c0001",
+      "doc_0046_780da1481d7e_c0004",
+      "doc_0257_064d8f3c7547_c0022",
+      "doc_0257_064d8f3c7547_c0015",
+      "doc_0093_4d38a5da2b7d_c0015",
+      "doc_0153_3deec4abd745_c0019",
+      "doc_0214_5d9a2fccda72_c0004"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q026",
+    "latency_ms": 45.57,
+    "top_chunk_ids": [
+      "doc_0057_2f9abb4f4e54_c0001",
+      "doc_0061_b1f40797d393_c0007",
+      "doc_0057_2f9abb4f4e54_c0018",
+      "doc_0061_b1f40797d393_c0001",
+      "doc_0061_b1f40797d393_c0008",
+      "doc_0061_b1f40797d393_c0002",
+      "doc_0061_b1f40797d393_c0039",
+      "doc_0212_6e516d77c148_c0004",
+      "doc_0057_2f9abb4f4e54_c0033",
+      "doc_0061_b1f40797d393_c0006"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q027",
+    "latency_ms": 47.5,
+    "top_chunk_ids": [
+      "doc_0233_9e2805239e9d_c0003",
+      "doc_0233_9e2805239e9d_c0001",
+      "doc_0233_9e2805239e9d_c0010",
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0125_2ef1b292a465_c0022",
+      "doc_0233_9e2805239e9d_c0002",
+      "doc_0125_2ef1b292a465_c0003",
+      "doc_0233_9e2805239e9d_c0006",
+      "doc_0003_361dd2ec6116_c0009",
+      "doc_0125_2ef1b292a465_c0007"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q028",
+    "latency_ms": 40.16,
+    "top_chunk_ids": [
+      "doc_0130_a41db94ce525_c0002",
+      "doc_0130_a41db94ce525_c0007",
+      "doc_0130_a41db94ce525_c0004",
+      "doc_0130_a41db94ce525_c0003",
+      "doc_0130_a41db94ce525_c0026",
+      "doc_0181_2cdb38abbd6d_c0007",
+      "doc_0130_a41db94ce525_c0001",
+      "doc_0130_a41db94ce525_c0005",
+      "doc_0130_a41db94ce525_c0016",
+      "doc_0181_2cdb38abbd6d_c0009"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q029",
+    "latency_ms": 67.96,
+    "top_chunk_ids": [
+      "doc_0063_4c53af31e2dc_c0001",
+      "doc_0063_4c53af31e2dc_c0038",
+      "doc_0063_4c53af31e2dc_c0002",
+      "doc_0063_4c53af31e2dc_c0031",
+      "doc_0063_4c53af31e2dc_c0029",
+      "doc_0133_5022680911bd_c0022",
+      "doc_0161_6080a6bc3d5b_c0019",
+      "doc_0063_4c53af31e2dc_c0005",
+      "doc_0161_6080a6bc3d5b_c0005",
+      "doc_0161_6080a6bc3d5b_c0044"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q030",
+    "latency_ms": 47.69,
+    "top_chunk_ids": [
+      "doc_0111_bccf1133ecd7_c0002",
+      "doc_0111_bccf1133ecd7_c0011",
+      "doc_0111_bccf1133ecd7_c0001",
+      "doc_0111_bccf1133ecd7_c0004",
+      "doc_0111_bccf1133ecd7_c0010",
+      "doc_0111_bccf1133ecd7_c0013",
+      "doc_0111_bccf1133ecd7_c0012",
+      "doc_0111_bccf1133ecd7_c0020",
+      "doc_0111_bccf1133ecd7_c0008",
+      "doc_0111_bccf1133ecd7_c0018"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q031",
+    "latency_ms": 52.49,
+    "top_chunk_ids": [
+      "doc_0057_2f9abb4f4e54_c0004",
+      "doc_0061_b1f40797d393_c0006",
+      "doc_0061_b1f40797d393_c0001",
+      "doc_0057_2f9abb4f4e54_c0018",
+      "doc_0061_b1f40797d393_c0002",
+      "doc_0057_2f9abb4f4e54_c0003",
+      "doc_0061_b1f40797d393_c0039",
+      "doc_0061_b1f40797d393_c0007",
+      "doc_0057_2f9abb4f4e54_c0002",
+      "doc_0061_b1f40797d393_c0005"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 3,
+    "id": "q032",
+    "latency_ms": 38.16,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0028",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0156_5f9a68461daf_c0027",
+      "doc_0156_5f9a68461daf_c0015",
+      "doc_0115_03129e2fda6b_c0016",
+      "doc_0156_5f9a68461daf_c0019",
+      "doc_0163_e8452f0e90fb_c0018",
+      "doc_0156_5f9a68461daf_c0022",
+      "doc_0076_029d989819aa_c0004",
+      "doc_0156_5f9a68461daf_c0017"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 5,
+    "id": "q033",
+    "latency_ms": 47.9,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0219_8c4617ac7235_c0005",
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0156_5f9a68461daf_c0024",
+      "doc_0219_8c4617ac7235_c0009",
+      "doc_0219_8c4617ac7235_c0010",
+      "doc_0219_8c4617ac7235_c0008"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q034",
+    "latency_ms": 67.0,
+    "top_chunk_ids": [
+      "doc_0083_1c7b3a89d532_c0016",
+      "doc_0089_c1a3c43311b0_c0006",
+      "doc_0004_bd32c55a71b8_c0009",
+      "doc_0257_064d8f3c7547_c0023",
+      "doc_0207_098c4f72c58d_c0031",
+      "doc_0207_098c4f72c58d_c0030",
+      "doc_0041_75abd6c3ff81_c0003",
+      "doc_0003_361dd2ec6116_c0013",
+      "doc_0003_361dd2ec6116_c0008",
+      "doc_0207_098c4f72c58d_c0005"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q035",
+    "latency_ms": 44.46,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0232_48c905ce8c55_c0004",
+      "doc_0232_48c905ce8c55_c0020",
+      "doc_0232_48c905ce8c55_c0010",
+      "doc_0232_48c905ce8c55_c0018",
+      "doc_0232_48c905ce8c55_c0011",
+      "doc_0232_48c905ce8c55_c0002",
+      "doc_0083_1c7b3a89d532_c0011",
+      "doc_0232_48c905ce8c55_c0021",
+      "doc_0232_48c905ce8c55_c0003"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q036",
+    "latency_ms": 61.32,
+    "top_chunk_ids": [
+      "doc_0156_5f9a68461daf_c0017",
+      "doc_0232_48c905ce8c55_c0016",
+      "doc_0232_48c905ce8c55_c0017",
+      "doc_0156_5f9a68461daf_c0023",
+      "doc_0003_361dd2ec6116_c0043",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0003_361dd2ec6116_c0042",
+      "doc_0032_d8e0f6ced1cc_c0018",
+      "doc_0192_ef6834fdda9e_c0015",
+      "doc_0156_5f9a68461daf_c0003"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 4,
+    "id": "q037",
+    "latency_ms": 40.35,
+    "top_chunk_ids": [
+      "doc_0253_1cc3124dbfb1_c0015",
+      "doc_0092_50e999b554b6_c0038",
+      "doc_0025_e97ed3def3b4_c0006",
+      "doc_0127_e109e81596d8_c0013",
+      "doc_0025_e97ed3def3b4_c0002",
+      "doc_0149_7ef8e2bdd0a0_c0002",
+      "doc_0025_e97ed3def3b4_c0004",
+      "doc_0047_9353e223521a_c0005",
+      "doc_0025_e97ed3def3b4_c0003",
+      "doc_0143_42b90b009452_c0003"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q038",
+    "latency_ms": 48.14,
+    "top_chunk_ids": [
+      "doc_0210_31ed2b49a4f3_c0016",
+      "doc_0210_31ed2b49a4f3_c0006",
+      "doc_0210_31ed2b49a4f3_c0007",
+      "doc_0210_31ed2b49a4f3_c0003",
+      "doc_0210_31ed2b49a4f3_c0002",
+      "doc_0210_31ed2b49a4f3_c0017",
+      "doc_0044_442b21b5f179_c0016",
+      "doc_0210_31ed2b49a4f3_c0001",
+      "doc_0210_31ed2b49a4f3_c0013",
+      "doc_0210_31ed2b49a4f3_c0005"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q039",
+    "latency_ms": 36.75,
+    "top_chunk_ids": [
+      "doc_0225_66a3add4208b_c0023",
+      "doc_0009_781c46b648e3_c0004",
+      "doc_0009_781c46b648e3_c0003",
+      "doc_0009_781c46b648e3_c0020",
+      "doc_0009_781c46b648e3_c0025",
+      "doc_0009_781c46b648e3_c0008",
+      "doc_0009_781c46b648e3_c0009",
+      "doc_0264_7c18830cdf2f_c0058",
+      "doc_0025_e97ed3def3b4_c0024",
+      "doc_0264_7c18830cdf2f_c0060"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": null,
+    "id": "q040",
+    "latency_ms": 42.29,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0017",
+      "doc_0083_1c7b3a89d532_c0009",
+      "doc_0064_091d6814a8e2_c0018",
+      "doc_0232_48c905ce8c55_c0016",
+      "doc_0059_8944ab96fe88_c0002",
+      "doc_0059_8944ab96fe88_c0026",
+      "doc_0059_8944ab96fe88_c0008",
+      "doc_0032_d8e0f6ced1cc_c0026",
+      "doc_0032_d8e0f6ced1cc_c0019",
+      "doc_0059_8944ab96fe88_c0017"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q041",
+    "latency_ms": 41.92,
+    "top_chunk_ids": [
+      "doc_0045_080530c76b9f_c0017",
+      "doc_0045_080530c76b9f_c0019",
+      "doc_0045_080530c76b9f_c0001",
+      "doc_0045_080530c76b9f_c0003",
+      "doc_0045_080530c76b9f_c0012",
+      "doc_0045_080530c76b9f_c0011",
+      "doc_0045_080530c76b9f_c0007",
+      "doc_0045_080530c76b9f_c0006",
+      "doc_0045_080530c76b9f_c0016",
+      "doc_0187_2f9fc0c23ee8_c0012"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q042",
+    "latency_ms": 44.23,
+    "top_chunk_ids": [
+      "doc_0151_8c239849551f_c0033",
+      "doc_0151_8c239849551f_c0001",
+      "doc_0151_8c239849551f_c0023",
+      "doc_0151_8c239849551f_c0027",
+      "doc_0151_8c239849551f_c0034",
+      "doc_0151_8c239849551f_c0025",
+      "doc_0151_8c239849551f_c0028",
+      "doc_0151_8c239849551f_c0004",
+      "doc_0151_8c239849551f_c0026",
+      "doc_0151_8c239849551f_c0024"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 4,
+    "id": "q043",
+    "latency_ms": 42.02,
+    "top_chunk_ids": [
+      "doc_0235_3e8818f38594_c0005",
+      "doc_0010_12273d2ffc1c_c0005",
+      "doc_0140_1754d6c2e414_c0008",
+      "doc_0096_cb7a1432bd79_c0006",
+      "doc_0152_1044fb625bcf_c0022",
+      "doc_0269_8c3612f98773_c0021",
+      "doc_0030_f7fe718b012c_c0001",
+      "doc_0100_6da952266d52_c0005",
+      "doc_0030_f7fe718b012c_c0002",
+      "doc_0179_81021b59419e_c0003"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q044",
+    "latency_ms": 38.55,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0008",
+      "doc_0115_03129e2fda6b_c0023",
+      "doc_0115_03129e2fda6b_c0034",
+      "doc_0115_03129e2fda6b_c0032",
+      "doc_0115_03129e2fda6b_c0033",
+      "doc_0115_03129e2fda6b_c0017",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0115_03129e2fda6b_c0010",
+      "doc_0115_03129e2fda6b_c0025",
+      "doc_0115_03129e2fda6b_c0030"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 3,
+    "id": "q045",
+    "latency_ms": 69.88,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0111_bccf1133ecd7_c0009",
+      "doc_0219_8c4617ac7235_c0003",
+      "doc_0219_8c4617ac7235_c0005",
+      "doc_0219_8c4617ac7235_c0008",
+      "doc_0219_8c4617ac7235_c0007",
+      "doc_0219_8c4617ac7235_c0020",
+      "doc_0219_8c4617ac7235_c0016",
+      "doc_0219_8c4617ac7235_c0009"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q046",
+    "latency_ms": 68.81,
+    "top_chunk_ids": [
+      "doc_0152_1044fb625bcf_c0001",
+      "doc_0152_1044fb625bcf_c0002",
+      "doc_0191_f9273688d706_c0017",
+      "doc_0152_1044fb625bcf_c0022",
+      "doc_0152_1044fb625bcf_c0020",
+      "doc_0161_6080a6bc3d5b_c0048",
+      "doc_0161_6080a6bc3d5b_c0030",
+      "doc_0010_12273d2ffc1c_c0038",
+      "doc_0161_6080a6bc3d5b_c0011",
+      "doc_0191_f9273688d706_c0002"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q047",
+    "latency_ms": 42.26,
+    "top_chunk_ids": [
+      "doc_0101_852b5b0e08f1_c0005",
+      "doc_0101_852b5b0e08f1_c0003",
+      "doc_0101_852b5b0e08f1_c0032",
+      "doc_0101_852b5b0e08f1_c0013",
+      "doc_0101_852b5b0e08f1_c0033",
+      "doc_0101_852b5b0e08f1_c0025",
+      "doc_0101_852b5b0e08f1_c0006",
+      "doc_0101_852b5b0e08f1_c0002",
+      "doc_0101_852b5b0e08f1_c0004",
+      "doc_0101_852b5b0e08f1_c0007"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q048",
+    "latency_ms": 41.35,
+    "top_chunk_ids": [
+      "doc_0222_b2005c9a776e_c0001",
+      "doc_0222_b2005c9a776e_c0002",
+      "doc_0003_361dd2ec6116_c0007",
+      "doc_0083_1c7b3a89d532_c0022",
+      "doc_0083_1c7b3a89d532_c0014",
+      "doc_0003_361dd2ec6116_c0045",
+      "doc_0032_d8e0f6ced1cc_c0026",
+      "doc_0003_361dd2ec6116_c0018",
+      "doc_0032_d8e0f6ced1cc_c0018",
+      "doc_0032_d8e0f6ced1cc_c0022"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q049",
+    "latency_ms": 43.36,
+    "top_chunk_ids": [
+      "doc_0139_1e608a2fd159_c0004",
+      "doc_0139_1e608a2fd159_c0001",
+      "doc_0139_1e608a2fd159_c0003",
+      "doc_0139_1e608a2fd159_c0002",
+      "doc_0139_1e608a2fd159_c0006",
+      "doc_0192_ef6834fdda9e_c0018",
+      "doc_0143_42b90b009452_c0002",
+      "doc_0192_ef6834fdda9e_c0002",
+      "doc_0143_42b90b009452_c0010",
+      "doc_0143_42b90b009452_c0003"
+    ]
+  },
+  {
+    "configuration": "w350_o50",
+    "hit_rank": 1,
+    "id": "q050",
+    "latency_ms": 47.51,
+    "top_chunk_ids": [
+      "doc_0218_59ec6601066c_c0002",
+      "doc_0218_59ec6601066c_c0023",
+      "doc_0218_59ec6601066c_c0018",
+      "doc_0218_59ec6601066c_c0024",
+      "doc_0218_59ec6601066c_c0020",
+      "doc_0218_59ec6601066c_c0001",
+      "doc_0218_59ec6601066c_c0021",
+      "doc_0218_59ec6601066c_c0004",
+      "doc_0218_59ec6601066c_c0015",
+      "doc_0218_59ec6601066c_c0006"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q001",
+    "latency_ms": 225.7,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0010",
+      "doc_0032_d8e0f6ced1cc_c0012",
+      "doc_0232_48c905ce8c55_c0011",
+      "doc_0032_d8e0f6ced1cc_c0007",
+      "doc_0064_091d6814a8e2_c0003",
+      "doc_0064_091d6814a8e2_c0012",
+      "doc_0032_d8e0f6ced1cc_c0014",
+      "doc_0112_33cdaadd4451_c0015",
+      "doc_0083_1c7b3a89d532_c0006",
+      "doc_0162_52cdb9bd782f_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 8,
+    "id": "q002",
+    "latency_ms": 92.54,
+    "top_chunk_ids": [
+      "doc_0032_d8e0f6ced1cc_c0002",
+      "doc_0083_1c7b3a89d532_c0006",
+      "doc_0057_2f9abb4f4e54_c0010",
+      "doc_0032_d8e0f6ced1cc_c0001",
+      "doc_0032_d8e0f6ced1cc_c0004",
+      "doc_0024_d7ef043830f5_c0005",
+      "doc_0057_2f9abb4f4e54_c0011",
+      "doc_0003_361dd2ec6116_c0004",
+      "doc_0032_d8e0f6ced1cc_c0003",
+      "doc_0057_2f9abb4f4e54_c0018"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 2,
+    "id": "q003",
+    "latency_ms": 93.17,
+    "top_chunk_ids": [
+      "doc_0270_df860c02a246_c0002",
+      "doc_0111_bccf1133ecd7_c0006",
+      "doc_0219_8c4617ac7235_c0003",
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0270_df860c02a246_c0003",
+      "doc_0270_df860c02a246_c0001",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0115_03129e2fda6b_c0011",
+      "doc_0262_60e4e9a6450a_c0008"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 9,
+    "id": "q004",
+    "latency_ms": 77.58,
+    "top_chunk_ids": [
+      "doc_0064_091d6814a8e2_c0003",
+      "doc_0003_361dd2ec6116_c0005",
+      "doc_0232_48c905ce8c55_c0011",
+      "doc_0162_52cdb9bd782f_c0004",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0032_d8e0f6ced1cc_c0007",
+      "doc_0156_5f9a68461daf_c0013",
+      "doc_0064_091d6814a8e2_c0002",
+      "doc_0112_33cdaadd4451_c0015",
+      "doc_0083_1c7b3a89d532_c0013"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q005",
+    "latency_ms": 93.71,
+    "top_chunk_ids": [
+      "doc_0140_1754d6c2e414_c0003",
+      "doc_0140_1754d6c2e414_c0007",
+      "doc_0140_1754d6c2e414_c0006",
+      "doc_0140_1754d6c2e414_c0008",
+      "doc_0140_1754d6c2e414_c0002",
+      "doc_0140_1754d6c2e414_c0005",
+      "doc_0080_7a533eaeffd1_c0010",
+      "doc_0130_a41db94ce525_c0007",
+      "doc_0235_3e8818f38594_c0003",
+      "doc_0235_3e8818f38594_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q006",
+    "latency_ms": 66.94,
+    "top_chunk_ids": [
+      "doc_0141_440b981f9c81_c0002",
+      "doc_0141_440b981f9c81_c0001",
+      "doc_0141_440b981f9c81_c0003",
+      "doc_0108_13bf804baf60_c0002",
+      "doc_0141_440b981f9c81_c0008",
+      "doc_0101_852b5b0e08f1_c0003",
+      "doc_0001_143c50ae5989_c0010",
+      "doc_0001_143c50ae5989_c0001",
+      "doc_0141_440b981f9c81_c0013",
+      "doc_0101_852b5b0e08f1_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q007",
+    "latency_ms": 70.0,
+    "top_chunk_ids": [
+      "doc_0002_e2eaa961a507_c0011",
+      "doc_0002_e2eaa961a507_c0015",
+      "doc_0002_e2eaa961a507_c0001",
+      "doc_0002_e2eaa961a507_c0010",
+      "doc_0002_e2eaa961a507_c0013",
+      "doc_0002_e2eaa961a507_c0004",
+      "doc_0002_e2eaa961a507_c0003",
+      "doc_0002_e2eaa961a507_c0012",
+      "doc_0002_e2eaa961a507_c0009",
+      "doc_0002_e2eaa961a507_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 2,
+    "id": "q008",
+    "latency_ms": 62.36,
+    "top_chunk_ids": [
+      "doc_0018_df4e8e1b4d03_c0011",
+      "doc_0249_48e75e157f54_c0002",
+      "doc_0249_48e75e157f54_c0001",
+      "doc_0249_48e75e157f54_c0007",
+      "doc_0018_df4e8e1b4d03_c0010",
+      "doc_0018_df4e8e1b4d03_c0001",
+      "doc_0249_48e75e157f54_c0003",
+      "doc_0018_df4e8e1b4d03_c0003",
+      "doc_0018_df4e8e1b4d03_c0002",
+      "doc_0018_df4e8e1b4d03_c0006"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q009",
+    "latency_ms": 57.02,
+    "top_chunk_ids": [
+      "doc_0235_3e8818f38594_c0004",
+      "doc_0003_361dd2ec6116_c0026",
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0234_205b14d53f94_c0001",
+      "doc_0030_f7fe718b012c_c0002",
+      "doc_0234_205b14d53f94_c0002",
+      "doc_0030_f7fe718b012c_c0003",
+      "doc_0080_7a533eaeffd1_c0010",
+      "doc_0030_f7fe718b012c_c0001",
+      "doc_0262_60e4e9a6450a_c0028"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 4,
+    "id": "q010",
+    "latency_ms": 60.23,
+    "top_chunk_ids": [
+      "doc_0249_48e75e157f54_c0001",
+      "doc_0018_df4e8e1b4d03_c0001",
+      "doc_0249_48e75e157f54_c0007",
+      "doc_0020_e257002ed120_c0002",
+      "doc_0249_48e75e157f54_c0002",
+      "doc_0132_0822ef358235_c0009",
+      "doc_0020_e257002ed120_c0006",
+      "doc_0107_f0314c536957_c0015",
+      "doc_0018_df4e8e1b4d03_c0007",
+      "doc_0018_df4e8e1b4d03_c0008"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q011",
+    "latency_ms": 60.17,
+    "top_chunk_ids": [
+      "doc_0020_e257002ed120_c0006",
+      "doc_0020_e257002ed120_c0002",
+      "doc_0020_e257002ed120_c0001",
+      "doc_0020_e257002ed120_c0003",
+      "doc_0020_e257002ed120_c0007",
+      "doc_0199_1522ffc0a553_c0010",
+      "doc_0020_e257002ed120_c0004",
+      "doc_0020_e257002ed120_c0005",
+      "doc_0142_67192983e13d_c0022",
+      "doc_0153_3deec4abd745_c0011"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q012",
+    "latency_ms": 63.76,
+    "top_chunk_ids": [
+      "doc_0114_0dfe9186d94e_c0003",
+      "doc_0114_0dfe9186d94e_c0004",
+      "doc_0114_0dfe9186d94e_c0012",
+      "doc_0114_0dfe9186d94e_c0010",
+      "doc_0114_0dfe9186d94e_c0006",
+      "doc_0114_0dfe9186d94e_c0008",
+      "doc_0114_0dfe9186d94e_c0001",
+      "doc_0114_0dfe9186d94e_c0009",
+      "doc_0114_0dfe9186d94e_c0005",
+      "doc_0114_0dfe9186d94e_c0007"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 2,
+    "id": "q013",
+    "latency_ms": 49.53,
+    "top_chunk_ids": [
+      "doc_0085_51fd45b055b3_c0002",
+      "doc_0039_13579593089f_c0004",
+      "doc_0187_2f9fc0c23ee8_c0011",
+      "doc_0039_13579593089f_c0001",
+      "doc_0052_0bf0833054bf_c0002",
+      "doc_0003_361dd2ec6116_c0026",
+      "doc_0040_9bb11353ea00_c0017",
+      "doc_0052_0bf0833054bf_c0003",
+      "doc_0066_c476bfc3d220_c0009",
+      "doc_0085_51fd45b055b3_c0001"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 3,
+    "id": "q014",
+    "latency_ms": 57.84,
+    "top_chunk_ids": [
+      "doc_0040_9bb11353ea00_c0003",
+      "doc_0040_9bb11353ea00_c0004",
+      "doc_0052_0bf0833054bf_c0003",
+      "doc_0040_9bb11353ea00_c0017",
+      "doc_0085_51fd45b055b3_c0003",
+      "doc_0039_13579593089f_c0001",
+      "doc_0052_0bf0833054bf_c0002",
+      "doc_0040_9bb11353ea00_c0016",
+      "doc_0035_4ae7452238df_c0003",
+      "doc_0085_51fd45b055b3_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q015",
+    "latency_ms": 61.31,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0001",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0115_03129e2fda6b_c0003",
+      "doc_0228_e019f3484bd0_c0002",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0115_03129e2fda6b_c0005",
+      "doc_0115_03129e2fda6b_c0007",
+      "doc_0152_1044fb625bcf_c0004",
+      "doc_0115_03129e2fda6b_c0010"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q016",
+    "latency_ms": 68.11,
+    "top_chunk_ids": [
+      "doc_0208_075a0ad7c2f5_c0002",
+      "doc_0208_075a0ad7c2f5_c0017",
+      "doc_0208_075a0ad7c2f5_c0020",
+      "doc_0208_075a0ad7c2f5_c0016",
+      "doc_0208_075a0ad7c2f5_c0001",
+      "doc_0044_442b21b5f179_c0001",
+      "doc_0208_075a0ad7c2f5_c0019",
+      "doc_0208_075a0ad7c2f5_c0003",
+      "doc_0208_075a0ad7c2f5_c0018",
+      "doc_0208_075a0ad7c2f5_c0015"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q017",
+    "latency_ms": 54.45,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0115_03129e2fda6b_c0009",
+      "doc_0070_ba3343f03379_c0018",
+      "doc_0051_4bb12c2575bb_c0007",
+      "doc_0115_03129e2fda6b_c0014",
+      "doc_0025_e97ed3def3b4_c0018",
+      "doc_0250_e8697aca16f5_c0001",
+      "doc_0172_2577e066082e_c0004",
+      "doc_0009_781c46b648e3_c0014",
+      "doc_0264_7c18830cdf2f_c0024"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q018",
+    "latency_ms": 66.21,
+    "top_chunk_ids": [
+      "doc_0152_1044fb625bcf_c0015",
+      "doc_0044_442b21b5f179_c0010",
+      "doc_0046_780da1481d7e_c0020",
+      "doc_0025_e97ed3def3b4_c0005",
+      "doc_0092_50e999b554b6_c0007",
+      "doc_0110_64f0613af41a_c0007",
+      "doc_0038_af2d7383d5a4_c0003",
+      "doc_0152_1044fb625bcf_c0012",
+      "doc_0140_1754d6c2e414_c0006",
+      "doc_0179_81021b59419e_c0005"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q019",
+    "latency_ms": 68.66,
+    "top_chunk_ids": [
+      "doc_0156_5f9a68461daf_c0010",
+      "doc_0156_5f9a68461daf_c0011",
+      "doc_0156_5f9a68461daf_c0013",
+      "doc_0156_5f9a68461daf_c0012",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0156_5f9a68461daf_c0015",
+      "doc_0156_5f9a68461daf_c0014",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0156_5f9a68461daf_c0008",
+      "doc_0226_b677f76d005b_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q020",
+    "latency_ms": 56.03,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0115_03129e2fda6b_c0009",
+      "doc_0115_03129e2fda6b_c0012",
+      "doc_0115_03129e2fda6b_c0015",
+      "doc_0115_03129e2fda6b_c0003",
+      "doc_0115_03129e2fda6b_c0013",
+      "doc_0115_03129e2fda6b_c0005",
+      "doc_0115_03129e2fda6b_c0008",
+      "doc_0115_03129e2fda6b_c0014"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q021",
+    "latency_ms": 53.53,
+    "top_chunk_ids": [
+      "doc_0224_84438341c3d2_c0014",
+      "doc_0224_84438341c3d2_c0003",
+      "doc_0224_84438341c3d2_c0004",
+      "doc_0224_84438341c3d2_c0015",
+      "doc_0161_6080a6bc3d5b_c0026",
+      "doc_0243_7be9d1dc9ebd_c0006",
+      "doc_0224_84438341c3d2_c0017",
+      "doc_0224_84438341c3d2_c0013",
+      "doc_0224_84438341c3d2_c0012",
+      "doc_0031_4bda51361ba6_c0003"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q022",
+    "latency_ms": 48.18,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0010",
+      "doc_0064_091d6814a8e2_c0003",
+      "doc_0083_1c7b3a89d532_c0001",
+      "doc_0003_361dd2ec6116_c0005",
+      "doc_0032_d8e0f6ced1cc_c0007",
+      "doc_0064_091d6814a8e2_c0002",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0003_361dd2ec6116_c0004",
+      "doc_0003_361dd2ec6116_c0028",
+      "doc_0032_d8e0f6ced1cc_c0014"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q023",
+    "latency_ms": 53.45,
+    "top_chunk_ids": [
+      "doc_0170_a81d06bd505b_c0002",
+      "doc_0030_f7fe718b012c_c0009",
+      "doc_0170_a81d06bd505b_c0013",
+      "doc_0030_f7fe718b012c_c0001",
+      "doc_0030_f7fe718b012c_c0004",
+      "doc_0030_f7fe718b012c_c0008",
+      "doc_0170_a81d06bd505b_c0008",
+      "doc_0170_a81d06bd505b_c0009",
+      "doc_0170_a81d06bd505b_c0001",
+      "doc_0030_f7fe718b012c_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q024",
+    "latency_ms": 52.13,
+    "top_chunk_ids": [
+      "doc_0140_1754d6c2e414_c0006",
+      "doc_0253_1cc3124dbfb1_c0003",
+      "doc_0253_1cc3124dbfb1_c0009",
+      "doc_0211_6c0c1f66571b_c0011",
+      "doc_0253_1cc3124dbfb1_c0001",
+      "doc_0200_7da0f2c81486_c0002",
+      "doc_0253_1cc3124dbfb1_c0005",
+      "doc_0253_1cc3124dbfb1_c0016",
+      "doc_0262_60e4e9a6450a_c0033",
+      "doc_0253_1cc3124dbfb1_c0015"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 9,
+    "id": "q025",
+    "latency_ms": 46.63,
+    "top_chunk_ids": [
+      "doc_0093_4d38a5da2b7d_c0010",
+      "doc_0011_665a2386ba69_c0004",
+      "doc_0257_064d8f3c7547_c0012",
+      "doc_0097_25d00336d09d_c0002",
+      "doc_0097_25d00336d09d_c0001",
+      "doc_0257_064d8f3c7547_c0001",
+      "doc_0257_064d8f3c7547_c0010",
+      "doc_0153_3deec4abd745_c0012",
+      "doc_0046_780da1481d7e_c0003",
+      "doc_0257_064d8f3c7547_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q026",
+    "latency_ms": 49.37,
+    "top_chunk_ids": [
+      "doc_0057_2f9abb4f4e54_c0001",
+      "doc_0061_b1f40797d393_c0005",
+      "doc_0061_b1f40797d393_c0001",
+      "doc_0057_2f9abb4f4e54_c0013",
+      "doc_0057_2f9abb4f4e54_c0021",
+      "doc_0061_b1f40797d393_c0002",
+      "doc_0057_2f9abb4f4e54_c0018",
+      "doc_0057_2f9abb4f4e54_c0026",
+      "doc_0061_b1f40797d393_c0004",
+      "doc_0061_b1f40797d393_c0023"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q027",
+    "latency_ms": 42.66,
+    "top_chunk_ids": [
+      "doc_0233_9e2805239e9d_c0001",
+      "doc_0003_361dd2ec6116_c0007",
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0233_9e2805239e9d_c0005",
+      "doc_0233_9e2805239e9d_c0003",
+      "doc_0233_9e2805239e9d_c0002",
+      "doc_0233_9e2805239e9d_c0004",
+      "doc_0125_2ef1b292a465_c0002",
+      "doc_0003_361dd2ec6116_c0001",
+      "doc_0125_2ef1b292a465_c0005"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 17,
+    "id": "q028",
+    "latency_ms": 40.7,
+    "top_chunk_ids": [
+      "doc_0181_2cdb38abbd6d_c0005",
+      "doc_0130_a41db94ce525_c0002",
+      "doc_0130_a41db94ce525_c0003",
+      "doc_0130_a41db94ce525_c0027",
+      "doc_0130_a41db94ce525_c0012",
+      "doc_0130_a41db94ce525_c0005",
+      "doc_0111_bccf1133ecd7_c0002",
+      "doc_0130_a41db94ce525_c0001",
+      "doc_0181_2cdb38abbd6d_c0010",
+      "doc_0130_a41db94ce525_c0026"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q029",
+    "latency_ms": 51.27,
+    "top_chunk_ids": [
+      "doc_0063_4c53af31e2dc_c0001",
+      "doc_0063_4c53af31e2dc_c0002",
+      "doc_0063_4c53af31e2dc_c0023",
+      "doc_0161_6080a6bc3d5b_c0012",
+      "doc_0133_5022680911bd_c0010",
+      "doc_0161_6080a6bc3d5b_c0018",
+      "doc_0063_4c53af31e2dc_c0019",
+      "doc_0063_4c53af31e2dc_c0018",
+      "doc_0063_4c53af31e2dc_c0004",
+      "doc_0161_6080a6bc3d5b_c0026"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q030",
+    "latency_ms": 42.04,
+    "top_chunk_ids": [
+      "doc_0111_bccf1133ecd7_c0002",
+      "doc_0111_bccf1133ecd7_c0007",
+      "doc_0111_bccf1133ecd7_c0001",
+      "doc_0111_bccf1133ecd7_c0003",
+      "doc_0111_bccf1133ecd7_c0006",
+      "doc_0111_bccf1133ecd7_c0008",
+      "doc_0119_53a5923604ff_c0005",
+      "doc_0173_3dbbc6c6025e_c0004",
+      "doc_0140_1754d6c2e414_c0006",
+      "doc_0210_31ed2b49a4f3_c0011"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 3,
+    "id": "q031",
+    "latency_ms": 130.55,
+    "top_chunk_ids": [
+      "doc_0061_b1f40797d393_c0004",
+      "doc_0061_b1f40797d393_c0001",
+      "doc_0057_2f9abb4f4e54_c0003",
+      "doc_0061_b1f40797d393_c0002",
+      "doc_0057_2f9abb4f4e54_c0013",
+      "doc_0057_2f9abb4f4e54_c0002",
+      "doc_0057_2f9abb4f4e54_c0004",
+      "doc_0057_2f9abb4f4e54_c0001",
+      "doc_0061_b1f40797d393_c0006",
+      "doc_0061_b1f40797d393_c0016"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 3,
+    "id": "q032",
+    "latency_ms": 51.45,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0009",
+      "doc_0115_03129e2fda6b_c0015",
+      "doc_0156_5f9a68461daf_c0014",
+      "doc_0115_03129e2fda6b_c0005",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0156_5f9a68461daf_c0010",
+      "doc_0156_5f9a68461daf_c0011",
+      "doc_0156_5f9a68461daf_c0012",
+      "doc_0156_5f9a68461daf_c0009",
+      "doc_0115_03129e2fda6b_c0011"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 4,
+    "id": "q033",
+    "latency_ms": 53.56,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0219_8c4617ac7235_c0005",
+      "doc_0219_8c4617ac7235_c0011",
+      "doc_0219_8c4617ac7235_c0006",
+      "doc_0156_5f9a68461daf_c0010",
+      "doc_0219_8c4617ac7235_c0003"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 6,
+    "id": "q034",
+    "latency_ms": 58.46,
+    "top_chunk_ids": [
+      "doc_0004_bd32c55a71b8_c0006",
+      "doc_0257_064d8f3c7547_c0012",
+      "doc_0207_098c4f72c58d_c0018",
+      "doc_0089_c1a3c43311b0_c0005",
+      "doc_0268_ef3c13a767de_c0006",
+      "doc_0083_1c7b3a89d532_c0012",
+      "doc_0207_098c4f72c58d_c0019",
+      "doc_0041_75abd6c3ff81_c0010",
+      "doc_0003_361dd2ec6116_c0028",
+      "doc_0083_1c7b3a89d532_c0008"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q035",
+    "latency_ms": 41.22,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0006",
+      "doc_0232_48c905ce8c55_c0003",
+      "doc_0232_48c905ce8c55_c0012",
+      "doc_0232_48c905ce8c55_c0014",
+      "doc_0232_48c905ce8c55_c0007",
+      "doc_0083_1c7b3a89d532_c0007",
+      "doc_0232_48c905ce8c55_c0013",
+      "doc_0232_48c905ce8c55_c0002",
+      "doc_0232_48c905ce8c55_c0001",
+      "doc_0232_48c905ce8c55_c0011"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q036",
+    "latency_ms": 46.66,
+    "top_chunk_ids": [
+      "doc_0156_5f9a68461daf_c0010",
+      "doc_0003_361dd2ec6116_c0027",
+      "doc_0232_48c905ce8c55_c0011",
+      "doc_0232_48c905ce8c55_c0010",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0003_361dd2ec6116_c0026",
+      "doc_0003_361dd2ec6116_c0021",
+      "doc_0156_5f9a68461daf_c0013",
+      "doc_0064_091d6814a8e2_c0005",
+      "doc_0112_33cdaadd4451_c0017"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 13,
+    "id": "q037",
+    "latency_ms": 47.0,
+    "top_chunk_ids": [
+      "doc_0044_442b21b5f179_c0010",
+      "doc_0044_442b21b5f179_c0011",
+      "doc_0249_48e75e157f54_c0007",
+      "doc_0025_e97ed3def3b4_c0002",
+      "doc_0092_50e999b554b6_c0021",
+      "doc_0025_e97ed3def3b4_c0005",
+      "doc_0143_42b90b009452_c0002",
+      "doc_0140_1754d6c2e414_c0006",
+      "doc_0143_42b90b009452_c0003",
+      "doc_0025_e97ed3def3b4_c0003"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q038",
+    "latency_ms": 44.25,
+    "top_chunk_ids": [
+      "doc_0210_31ed2b49a4f3_c0011",
+      "doc_0210_31ed2b49a4f3_c0009",
+      "doc_0210_31ed2b49a4f3_c0004",
+      "doc_0210_31ed2b49a4f3_c0002",
+      "doc_0210_31ed2b49a4f3_c0008",
+      "doc_0210_31ed2b49a4f3_c0006",
+      "doc_0210_31ed2b49a4f3_c0001",
+      "doc_0044_442b21b5f179_c0010",
+      "doc_0210_31ed2b49a4f3_c0005",
+      "doc_0044_442b21b5f179_c0011"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q039",
+    "latency_ms": 42.13,
+    "top_chunk_ids": [
+      "doc_0009_781c46b648e3_c0003",
+      "doc_0009_781c46b648e3_c0014",
+      "doc_0009_781c46b648e3_c0006",
+      "doc_0009_781c46b648e3_c0002",
+      "doc_0009_781c46b648e3_c0005",
+      "doc_0264_7c18830cdf2f_c0036",
+      "doc_0250_e8697aca16f5_c0001",
+      "doc_0264_7c18830cdf2f_c0035",
+      "doc_0212_6e516d77c148_c0003",
+      "doc_0264_7c18830cdf2f_c0022"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q040",
+    "latency_ms": 38.08,
+    "top_chunk_ids": [
+      "doc_0114_0dfe9186d94e_c0012",
+      "doc_0064_091d6814a8e2_c0012",
+      "doc_0114_0dfe9186d94e_c0010",
+      "doc_0083_1c7b3a89d532_c0006",
+      "doc_0232_48c905ce8c55_c0011",
+      "doc_0059_8944ab96fe88_c0015",
+      "doc_0232_48c905ce8c55_c0010",
+      "doc_0032_d8e0f6ced1cc_c0012",
+      "doc_0114_0dfe9186d94e_c0004",
+      "doc_0206_b3b609e5e14b_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q041",
+    "latency_ms": 78.36,
+    "top_chunk_ids": [
+      "doc_0045_080530c76b9f_c0010",
+      "doc_0045_080530c76b9f_c0011",
+      "doc_0045_080530c76b9f_c0008",
+      "doc_0045_080530c76b9f_c0001",
+      "doc_0045_080530c76b9f_c0005",
+      "doc_0187_2f9fc0c23ee8_c0009",
+      "doc_0045_080530c76b9f_c0007",
+      "doc_0045_080530c76b9f_c0004",
+      "doc_0115_03129e2fda6b_c0010",
+      "doc_0115_03129e2fda6b_c0012"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q042",
+    "latency_ms": 71.75,
+    "top_chunk_ids": [
+      "doc_0151_8c239849551f_c0001",
+      "doc_0151_8c239849551f_c0020",
+      "doc_0151_8c239849551f_c0016",
+      "doc_0151_8c239849551f_c0014",
+      "doc_0151_8c239849551f_c0015",
+      "doc_0151_8c239849551f_c0002",
+      "doc_0151_8c239849551f_c0018",
+      "doc_0151_8c239849551f_c0013",
+      "doc_0151_8c239849551f_c0004",
+      "doc_0151_8c239849551f_c0003"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": null,
+    "id": "q043",
+    "latency_ms": 50.09,
+    "top_chunk_ids": [
+      "doc_0140_1754d6c2e414_c0005",
+      "doc_0140_1754d6c2e414_c0024",
+      "doc_0010_12273d2ffc1c_c0004",
+      "doc_0136_97a582e4fc68_c0005",
+      "doc_0269_8c3612f98773_c0012",
+      "doc_0030_f7fe718b012c_c0003",
+      "doc_0100_6da952266d52_c0004",
+      "doc_0030_f7fe718b012c_c0001",
+      "doc_0266_c83ed5994951_c0017",
+      "doc_0140_1754d6c2e414_c0003"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q044",
+    "latency_ms": 44.67,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0018",
+      "doc_0115_03129e2fda6b_c0017",
+      "doc_0115_03129e2fda6b_c0005",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0115_03129e2fda6b_c0016",
+      "doc_0115_03129e2fda6b_c0014",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0012",
+      "doc_0115_03129e2fda6b_c0010"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 2,
+    "id": "q045",
+    "latency_ms": 82.3,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0111_bccf1133ecd7_c0006",
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0219_8c4617ac7235_c0005",
+      "doc_0219_8c4617ac7235_c0006",
+      "doc_0219_8c4617ac7235_c0007",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0219_8c4617ac7235_c0011",
+      "doc_0009_781c46b648e3_c0001",
+      "doc_0270_df860c02a246_c0003"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q046",
+    "latency_ms": 68.75,
+    "top_chunk_ids": [
+      "doc_0152_1044fb625bcf_c0014",
+      "doc_0152_1044fb625bcf_c0002",
+      "doc_0152_1044fb625bcf_c0001",
+      "doc_0152_1044fb625bcf_c0015",
+      "doc_0191_f9273688d706_c0011",
+      "doc_0161_6080a6bc3d5b_c0007",
+      "doc_0191_f9273688d706_c0004",
+      "doc_0191_f9273688d706_c0002",
+      "doc_0152_1044fb625bcf_c0009",
+      "doc_0152_1044fb625bcf_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q047",
+    "latency_ms": 57.26,
+    "top_chunk_ids": [
+      "doc_0101_852b5b0e08f1_c0004",
+      "doc_0101_852b5b0e08f1_c0003",
+      "doc_0101_852b5b0e08f1_c0020",
+      "doc_0101_852b5b0e08f1_c0002",
+      "doc_0101_852b5b0e08f1_c0001",
+      "doc_0101_852b5b0e08f1_c0005",
+      "doc_0101_852b5b0e08f1_c0016",
+      "doc_0101_852b5b0e08f1_c0014",
+      "doc_0101_852b5b0e08f1_c0018",
+      "doc_0101_852b5b0e08f1_c0012"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q048",
+    "latency_ms": 50.5,
+    "top_chunk_ids": [
+      "doc_0222_b2005c9a776e_c0001",
+      "doc_0222_b2005c9a776e_c0002",
+      "doc_0003_361dd2ec6116_c0005",
+      "doc_0003_361dd2ec6116_c0028",
+      "doc_0083_1c7b3a89d532_c0012",
+      "doc_0003_361dd2ec6116_c0027",
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0032_d8e0f6ced1cc_c0014",
+      "doc_0003_361dd2ec6116_c0016",
+      "doc_0113_4e7198732f41_c0003"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q049",
+    "latency_ms": 56.25,
+    "top_chunk_ids": [
+      "doc_0139_1e608a2fd159_c0003",
+      "doc_0139_1e608a2fd159_c0001",
+      "doc_0139_1e608a2fd159_c0002",
+      "doc_0143_42b90b009452_c0002",
+      "doc_0139_1e608a2fd159_c0004",
+      "doc_0143_42b90b009452_c0003",
+      "doc_0143_42b90b009452_c0009",
+      "doc_0192_ef6834fdda9e_c0010",
+      "doc_0139_1e608a2fd159_c0005",
+      "doc_0143_42b90b009452_c0007"
+    ]
+  },
+  {
+    "configuration": "w650_o90",
+    "hit_rank": 1,
+    "id": "q050",
+    "latency_ms": 65.48,
+    "top_chunk_ids": [
+      "doc_0218_59ec6601066c_c0002",
+      "doc_0218_59ec6601066c_c0001",
+      "doc_0218_59ec6601066c_c0012",
+      "doc_0218_59ec6601066c_c0015",
+      "doc_0218_59ec6601066c_c0011",
+      "doc_0218_59ec6601066c_c0003",
+      "doc_0218_59ec6601066c_c0009",
+      "doc_0218_59ec6601066c_c0006",
+      "doc_0218_59ec6601066c_c0010",
+      "doc_0218_59ec6601066c_c0014"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q001",
+    "latency_ms": 40.45,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0032_d8e0f6ced1cc_c0007",
+      "doc_0032_d8e0f6ced1cc_c0010",
+      "doc_0032_d8e0f6ced1cc_c0011",
+      "doc_0226_b677f76d005b_c0004",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0112_33cdaadd4451_c0011",
+      "doc_0032_d8e0f6ced1cc_c0008",
+      "doc_0083_1c7b3a89d532_c0006",
+      "doc_0226_b677f76d005b_c0001"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q002",
+    "latency_ms": 30.36,
+    "top_chunk_ids": [
+      "doc_0032_d8e0f6ced1cc_c0002",
+      "doc_0024_d7ef043830f5_c0003",
+      "doc_0032_d8e0f6ced1cc_c0001",
+      "doc_0032_d8e0f6ced1cc_c0004",
+      "doc_0057_2f9abb4f4e54_c0008",
+      "doc_0036_57a612184066_c0002",
+      "doc_0032_d8e0f6ced1cc_c0006",
+      "doc_0006_552d83d537b2_c0002",
+      "doc_0036_57a612184066_c0004",
+      "doc_0057_2f9abb4f4e54_c0015"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 10,
+    "id": "q003",
+    "latency_ms": 32.04,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0003",
+      "doc_0270_df860c02a246_c0002",
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0270_df860c02a246_c0001",
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0270_df860c02a246_c0003",
+      "doc_0009_781c46b648e3_c0003",
+      "doc_0219_8c4617ac7235_c0004",
+      "doc_0111_bccf1133ecd7_c0005"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q004",
+    "latency_ms": 29.23,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0003_361dd2ec6116_c0004",
+      "doc_0032_d8e0f6ced1cc_c0007",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0064_091d6814a8e2_c0002",
+      "doc_0032_d8e0f6ced1cc_c0011",
+      "doc_0083_1c7b3a89d532_c0007",
+      "doc_0226_b677f76d005b_c0005",
+      "doc_0003_361dd2ec6116_c0020",
+      "doc_0196_1e63c05d8389_c0014"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 2,
+    "id": "q005",
+    "latency_ms": 38.51,
+    "top_chunk_ids": [
+      "doc_0235_3e8818f38594_c0004",
+      "doc_0140_1754d6c2e414_c0003",
+      "doc_0262_60e4e9a6450a_c0007",
+      "doc_0140_1754d6c2e414_c0006",
+      "doc_0140_1754d6c2e414_c0005",
+      "doc_0083_1c7b3a89d532_c0004",
+      "doc_0140_1754d6c2e414_c0002",
+      "doc_0140_1754d6c2e414_c0004",
+      "doc_0140_1754d6c2e414_c0007",
+      "doc_0083_1c7b3a89d532_c0005"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q006",
+    "latency_ms": 32.31,
+    "top_chunk_ids": [
+      "doc_0141_440b981f9c81_c0002",
+      "doc_0141_440b981f9c81_c0003",
+      "doc_0141_440b981f9c81_c0001",
+      "doc_0141_440b981f9c81_c0010",
+      "doc_0108_13bf804baf60_c0002",
+      "doc_0141_440b981f9c81_c0006",
+      "doc_0001_143c50ae5989_c0001",
+      "doc_0141_440b981f9c81_c0005",
+      "doc_0141_440b981f9c81_c0007",
+      "doc_0001_143c50ae5989_c0008"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q007",
+    "latency_ms": 33.07,
+    "top_chunk_ids": [
+      "doc_0002_e2eaa961a507_c0009",
+      "doc_0002_e2eaa961a507_c0003",
+      "doc_0002_e2eaa961a507_c0001",
+      "doc_0002_e2eaa961a507_c0014",
+      "doc_0002_e2eaa961a507_c0004",
+      "doc_0002_e2eaa961a507_c0011",
+      "doc_0002_e2eaa961a507_c0006",
+      "doc_0002_e2eaa961a507_c0010",
+      "doc_0002_e2eaa961a507_c0005",
+      "doc_0002_e2eaa961a507_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q008",
+    "latency_ms": 32.54,
+    "top_chunk_ids": [
+      "doc_0249_48e75e157f54_c0002",
+      "doc_0249_48e75e157f54_c0001",
+      "doc_0018_df4e8e1b4d03_c0008",
+      "doc_0018_df4e8e1b4d03_c0001",
+      "doc_0018_df4e8e1b4d03_c0002",
+      "doc_0123_03b8eb6879ec_c0003",
+      "doc_0134_11b860641d48_c0001",
+      "doc_0249_48e75e157f54_c0003",
+      "doc_0018_df4e8e1b4d03_c0005",
+      "doc_0018_df4e8e1b4d03_c0003"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q009",
+    "latency_ms": 32.23,
+    "top_chunk_ids": [
+      "doc_0080_7a533eaeffd1_c0009",
+      "doc_0262_60e4e9a6450a_c0007",
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0040_9bb11353ea00_c0010",
+      "doc_0030_f7fe718b012c_c0006",
+      "doc_0107_f0314c536957_c0005",
+      "doc_0234_205b14d53f94_c0001",
+      "doc_0030_f7fe718b012c_c0002",
+      "doc_0234_205b14d53f94_c0002",
+      "doc_0030_f7fe718b012c_c0001"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 6,
+    "id": "q010",
+    "latency_ms": 36.3,
+    "top_chunk_ids": [
+      "doc_0249_48e75e157f54_c0001",
+      "doc_0249_48e75e157f54_c0007",
+      "doc_0018_df4e8e1b4d03_c0001",
+      "doc_0140_1754d6c2e414_c0021",
+      "doc_0262_60e4e9a6450a_c0032",
+      "doc_0020_e257002ed120_c0002",
+      "doc_0012_a4c341b46a3a_c0003",
+      "doc_0018_df4e8e1b4d03_c0002",
+      "doc_0123_03b8eb6879ec_c0008",
+      "doc_0132_0822ef358235_c0008"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 19,
+    "id": "q011",
+    "latency_ms": 37.6,
+    "top_chunk_ids": [
+      "doc_0020_e257002ed120_c0006",
+      "doc_0020_e257002ed120_c0001",
+      "doc_0020_e257002ed120_c0002",
+      "doc_0020_e257002ed120_c0003",
+      "doc_0020_e257002ed120_c0007",
+      "doc_0072_dadd5f22f3c1_c0007",
+      "doc_0020_e257002ed120_c0004",
+      "doc_0020_e257002ed120_c0005",
+      "doc_0203_0439458c505c_c0003",
+      "doc_0199_1522ffc0a553_c0010"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q012",
+    "latency_ms": 33.74,
+    "top_chunk_ids": [
+      "doc_0114_0dfe9186d94e_c0003",
+      "doc_0114_0dfe9186d94e_c0001",
+      "doc_0114_0dfe9186d94e_c0004",
+      "doc_0114_0dfe9186d94e_c0012",
+      "doc_0114_0dfe9186d94e_c0010",
+      "doc_0114_0dfe9186d94e_c0008",
+      "doc_0114_0dfe9186d94e_c0007",
+      "doc_0024_d7ef043830f5_c0003",
+      "doc_0114_0dfe9186d94e_c0011",
+      "doc_0114_0dfe9186d94e_c0006"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 4,
+    "id": "q013",
+    "latency_ms": 30.3,
+    "top_chunk_ids": [
+      "doc_0085_51fd45b055b3_c0002",
+      "doc_0003_361dd2ec6116_c0023",
+      "doc_0052_0bf0833054bf_c0003",
+      "doc_0039_13579593089f_c0001",
+      "doc_0052_0bf0833054bf_c0002",
+      "doc_0039_13579593089f_c0004",
+      "doc_0039_13579593089f_c0015",
+      "doc_0066_c476bfc3d220_c0002",
+      "doc_0039_13579593089f_c0016",
+      "doc_0066_c476bfc3d220_c0006"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 3,
+    "id": "q014",
+    "latency_ms": 33.14,
+    "top_chunk_ids": [
+      "doc_0040_9bb11353ea00_c0003",
+      "doc_0040_9bb11353ea00_c0004",
+      "doc_0052_0bf0833054bf_c0003",
+      "doc_0040_9bb11353ea00_c0015",
+      "doc_0039_13579593089f_c0001",
+      "doc_0035_4ae7452238df_c0003",
+      "doc_0040_9bb11353ea00_c0016",
+      "doc_0039_13579593089f_c0004",
+      "doc_0052_0bf0833054bf_c0002",
+      "doc_0052_0bf0833054bf_c0007"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 16,
+    "id": "q015",
+    "latency_ms": 33.79,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0001",
+      "doc_0115_03129e2fda6b_c0003",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0115_03129e2fda6b_c0005",
+      "doc_0115_03129e2fda6b_c0007",
+      "doc_0152_1044fb625bcf_c0003",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0258_77d634df6b75_c0012",
+      "doc_0115_03129e2fda6b_c0012"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q016",
+    "latency_ms": 43.97,
+    "top_chunk_ids": [
+      "doc_0208_075a0ad7c2f5_c0002",
+      "doc_0208_075a0ad7c2f5_c0014",
+      "doc_0208_075a0ad7c2f5_c0016",
+      "doc_0208_075a0ad7c2f5_c0013",
+      "doc_0208_075a0ad7c2f5_c0001",
+      "doc_0044_442b21b5f179_c0001",
+      "doc_0208_075a0ad7c2f5_c0015",
+      "doc_0208_075a0ad7c2f5_c0010",
+      "doc_0044_442b21b5f179_c0005",
+      "doc_0044_442b21b5f179_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q017",
+    "latency_ms": 36.25,
+    "top_chunk_ids": [
+      "doc_0054_74a331bd1b8e_c0005",
+      "doc_0054_74a331bd1b8e_c0003",
+      "doc_0115_03129e2fda6b_c0014",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0250_e8697aca16f5_c0004",
+      "doc_0223_58b4c63c5fee_c0012",
+      "doc_0250_e8697aca16f5_c0001",
+      "doc_0010_12273d2ffc1c_c0014",
+      "doc_0009_781c46b648e3_c0014",
+      "doc_0172_2577e066082e_c0014"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 4,
+    "id": "q018",
+    "latency_ms": 37.84,
+    "top_chunk_ids": [
+      "doc_0046_780da1481d7e_c0018",
+      "doc_0025_e97ed3def3b4_c0004",
+      "doc_0092_50e999b554b6_c0006",
+      "doc_0175_84221497fbf2_c0008",
+      "doc_0044_442b21b5f179_c0008",
+      "doc_0025_e97ed3def3b4_c0002",
+      "doc_0092_50e999b554b6_c0020",
+      "doc_0250_e8697aca16f5_c0006",
+      "doc_0094_159eb167506a_c0013",
+      "doc_0175_84221497fbf2_c0012"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q019",
+    "latency_ms": 40.28,
+    "top_chunk_ids": [
+      "doc_0156_5f9a68461daf_c0009",
+      "doc_0156_5f9a68461daf_c0011",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0156_5f9a68461daf_c0014",
+      "doc_0156_5f9a68461daf_c0007",
+      "doc_0156_5f9a68461daf_c0012",
+      "doc_0156_5f9a68461daf_c0013",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0156_5f9a68461daf_c0010",
+      "doc_0156_5f9a68461daf_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q020",
+    "latency_ms": 38.09,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0115_03129e2fda6b_c0012",
+      "doc_0115_03129e2fda6b_c0003",
+      "doc_0115_03129e2fda6b_c0015",
+      "doc_0115_03129e2fda6b_c0014",
+      "doc_0115_03129e2fda6b_c0008",
+      "doc_0115_03129e2fda6b_c0001",
+      "doc_0115_03129e2fda6b_c0005",
+      "doc_0115_03129e2fda6b_c0013"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 2,
+    "id": "q021",
+    "latency_ms": 35.84,
+    "top_chunk_ids": [
+      "doc_0197_d3b779859a58_c0007",
+      "doc_0150_4731780ae890_c0003",
+      "doc_0224_84438341c3d2_c0012",
+      "doc_0224_84438341c3d2_c0016",
+      "doc_0224_84438341c3d2_c0003",
+      "doc_0224_84438341c3d2_c0002",
+      "doc_0255_ce2381aacafe_c0008",
+      "doc_0255_ce2381aacafe_c0005",
+      "doc_0224_84438341c3d2_c0013",
+      "doc_0254_ddc76ce8a139_c0007"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 2,
+    "id": "q022",
+    "latency_ms": 33.31,
+    "top_chunk_ids": [
+      "doc_0217_ad20d5020155_c0003",
+      "doc_0232_48c905ce8c55_c0008",
+      "doc_0083_1c7b3a89d532_c0003",
+      "doc_0032_d8e0f6ced1cc_c0007",
+      "doc_0226_b677f76d005b_c0004",
+      "doc_0083_1c7b3a89d532_c0001",
+      "doc_0003_361dd2ec6116_c0020",
+      "doc_0064_091d6814a8e2_c0002",
+      "doc_0064_091d6814a8e2_c0012",
+      "doc_0114_0dfe9186d94e_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q023",
+    "latency_ms": 36.58,
+    "top_chunk_ids": [
+      "doc_0030_f7fe718b012c_c0004",
+      "doc_0170_a81d06bd505b_c0002",
+      "doc_0170_a81d06bd505b_c0011",
+      "doc_0030_f7fe718b012c_c0001",
+      "doc_0030_f7fe718b012c_c0007",
+      "doc_0030_f7fe718b012c_c0008",
+      "doc_0170_a81d06bd505b_c0012",
+      "doc_0170_a81d06bd505b_c0008",
+      "doc_0170_a81d06bd505b_c0001",
+      "doc_0170_a81d06bd505b_c0009"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q024",
+    "latency_ms": 35.85,
+    "top_chunk_ids": [
+      "doc_0253_1cc3124dbfb1_c0003",
+      "doc_0140_1754d6c2e414_c0005",
+      "doc_0253_1cc3124dbfb1_c0008",
+      "doc_0253_1cc3124dbfb1_c0015",
+      "doc_0235_3e8818f38594_c0004",
+      "doc_0140_1754d6c2e414_c0011",
+      "doc_0253_1cc3124dbfb1_c0004",
+      "doc_0211_6c0c1f66571b_c0010",
+      "doc_0211_6c0c1f66571b_c0011",
+      "doc_0200_7da0f2c81486_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 7,
+    "id": "q025",
+    "latency_ms": 34.69,
+    "top_chunk_ids": [
+      "doc_0153_3deec4abd745_c0011",
+      "doc_0097_25d00336d09d_c0002",
+      "doc_0097_25d00336d09d_c0001",
+      "doc_0093_4d38a5da2b7d_c0009",
+      "doc_0257_064d8f3c7547_c0001",
+      "doc_0153_3deec4abd745_c0012",
+      "doc_0046_780da1481d7e_c0003",
+      "doc_0257_064d8f3c7547_c0002",
+      "doc_0257_064d8f3c7547_c0015",
+      "doc_0257_064d8f3c7547_c0009"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q026",
+    "latency_ms": 37.26,
+    "top_chunk_ids": [
+      "doc_0057_2f9abb4f4e54_c0001",
+      "doc_0061_b1f40797d393_c0001",
+      "doc_0057_2f9abb4f4e54_c0018",
+      "doc_0061_b1f40797d393_c0004",
+      "doc_0057_2f9abb4f4e54_c0010",
+      "doc_0061_b1f40797d393_c0002",
+      "doc_0061_b1f40797d393_c0005",
+      "doc_0061_b1f40797d393_c0020",
+      "doc_0217_ad20d5020155_c0003",
+      "doc_0057_2f9abb4f4e54_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q027",
+    "latency_ms": 35.89,
+    "top_chunk_ids": [
+      "doc_0233_9e2805239e9d_c0001",
+      "doc_0003_361dd2ec6116_c0005",
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0003_361dd2ec6116_c0001",
+      "doc_0125_2ef1b292a465_c0002",
+      "doc_0233_9e2805239e9d_c0002",
+      "doc_0125_2ef1b292a465_c0014",
+      "doc_0233_9e2805239e9d_c0003",
+      "doc_0262_60e4e9a6450a_c0023",
+      "doc_0064_091d6814a8e2_c0001"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q028",
+    "latency_ms": 33.01,
+    "top_chunk_ids": [
+      "doc_0130_a41db94ce525_c0019",
+      "doc_0130_a41db94ce525_c0002",
+      "doc_0130_a41db94ce525_c0004",
+      "doc_0181_2cdb38abbd6d_c0004",
+      "doc_0111_bccf1133ecd7_c0002",
+      "doc_0130_a41db94ce525_c0009",
+      "doc_0181_2cdb38abbd6d_c0006",
+      "doc_0130_a41db94ce525_c0003",
+      "doc_0130_a41db94ce525_c0001",
+      "doc_0181_2cdb38abbd6d_c0005"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q029",
+    "latency_ms": 45.04,
+    "top_chunk_ids": [
+      "doc_0063_4c53af31e2dc_c0001",
+      "doc_0063_4c53af31e2dc_c0002",
+      "doc_0063_4c53af31e2dc_c0019",
+      "doc_0063_4c53af31e2dc_c0018",
+      "doc_0063_4c53af31e2dc_c0023",
+      "doc_0161_6080a6bc3d5b_c0005",
+      "doc_0161_6080a6bc3d5b_c0021",
+      "doc_0063_4c53af31e2dc_c0017",
+      "doc_0161_6080a6bc3d5b_c0028",
+      "doc_0161_6080a6bc3d5b_c0022"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q030",
+    "latency_ms": 37.3,
+    "top_chunk_ids": [
+      "doc_0111_bccf1133ecd7_c0002",
+      "doc_0111_bccf1133ecd7_c0006",
+      "doc_0111_bccf1133ecd7_c0001",
+      "doc_0111_bccf1133ecd7_c0003",
+      "doc_0111_bccf1133ecd7_c0010",
+      "doc_0111_bccf1133ecd7_c0008",
+      "doc_0111_bccf1133ecd7_c0007",
+      "doc_0111_bccf1133ecd7_c0005",
+      "doc_0111_bccf1133ecd7_c0009",
+      "doc_0140_1754d6c2e414_c0006"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 6,
+    "id": "q031",
+    "latency_ms": 36.7,
+    "top_chunk_ids": [
+      "doc_0061_b1f40797d393_c0004",
+      "doc_0061_b1f40797d393_c0001",
+      "doc_0061_b1f40797d393_c0002",
+      "doc_0061_b1f40797d393_c0023",
+      "doc_0061_b1f40797d393_c0006",
+      "doc_0057_2f9abb4f4e54_c0003",
+      "doc_0057_2f9abb4f4e54_c0001",
+      "doc_0057_2f9abb4f4e54_c0018",
+      "doc_0057_2f9abb4f4e54_c0002",
+      "doc_0061_b1f40797d393_c0018"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 2,
+    "id": "q032",
+    "latency_ms": 33.8,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0009",
+      "doc_0156_5f9a68461daf_c0014",
+      "doc_0115_03129e2fda6b_c0015",
+      "doc_0156_5f9a68461daf_c0009",
+      "doc_0076_029d989819aa_c0003",
+      "doc_0156_5f9a68461daf_c0008",
+      "doc_0156_5f9a68461daf_c0011",
+      "doc_0140_1754d6c2e414_c0005",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0115_03129e2fda6b_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 5,
+    "id": "q033",
+    "latency_ms": 34.5,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0219_8c4617ac7235_c0003",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0219_8c4617ac7235_c0004",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0219_8c4617ac7235_c0005",
+      "doc_0156_5f9a68461daf_c0014",
+      "doc_0226_b677f76d005b_c0005"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q034",
+    "latency_ms": 39.33,
+    "top_chunk_ids": [
+      "doc_0083_1c7b3a89d532_c0009",
+      "doc_0083_1c7b3a89d532_c0012",
+      "doc_0207_098c4f72c58d_c0015",
+      "doc_0257_064d8f3c7547_c0004",
+      "doc_0207_098c4f72c58d_c0016",
+      "doc_0257_064d8f3c7547_c0012",
+      "doc_0207_098c4f72c58d_c0003",
+      "doc_0089_c1a3c43311b0_c0005",
+      "doc_0257_064d8f3c7547_c0003",
+      "doc_0041_75abd6c3ff81_c0008"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q035",
+    "latency_ms": 36.91,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0005",
+      "doc_0232_48c905ce8c55_c0003",
+      "doc_0232_48c905ce8c55_c0007",
+      "doc_0232_48c905ce8c55_c0010",
+      "doc_0232_48c905ce8c55_c0002",
+      "doc_0232_48c905ce8c55_c0011",
+      "doc_0232_48c905ce8c55_c0001",
+      "doc_0083_1c7b3a89d532_c0007",
+      "doc_0232_48c905ce8c55_c0006",
+      "doc_0232_48c905ce8c55_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q036",
+    "latency_ms": 37.25,
+    "top_chunk_ids": [
+      "doc_0156_5f9a68461daf_c0010",
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0003_361dd2ec6116_c0023",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0156_5f9a68461daf_c0006",
+      "doc_0112_33cdaadd4451_c0012",
+      "doc_0156_5f9a68461daf_c0013",
+      "doc_0064_091d6814a8e2_c0004",
+      "doc_0003_361dd2ec6116_c0021",
+      "doc_0083_1c7b3a89d532_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 13,
+    "id": "q037",
+    "latency_ms": 36.24,
+    "top_chunk_ids": [
+      "doc_0044_442b21b5f179_c0009",
+      "doc_0209_14aea767df6c_c0005",
+      "doc_0179_81021b59419e_c0005",
+      "doc_0025_e97ed3def3b4_c0002",
+      "doc_0249_48e75e157f54_c0007",
+      "doc_0025_e97ed3def3b4_c0003",
+      "doc_0092_50e999b554b6_c0020",
+      "doc_0009_781c46b648e3_c0014",
+      "doc_0143_42b90b009452_c0002",
+      "doc_0025_e97ed3def3b4_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q038",
+    "latency_ms": 34.81,
+    "top_chunk_ids": [
+      "doc_0210_31ed2b49a4f3_c0011",
+      "doc_0210_31ed2b49a4f3_c0004",
+      "doc_0210_31ed2b49a4f3_c0009",
+      "doc_0208_075a0ad7c2f5_c0016",
+      "doc_0210_31ed2b49a4f3_c0002",
+      "doc_0210_31ed2b49a4f3_c0001",
+      "doc_0210_31ed2b49a4f3_c0008",
+      "doc_0210_31ed2b49a4f3_c0005",
+      "doc_0210_31ed2b49a4f3_c0003",
+      "doc_0044_442b21b5f179_c0001"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q039",
+    "latency_ms": 28.83,
+    "top_chunk_ids": [
+      "doc_0009_781c46b648e3_c0014",
+      "doc_0006_552d83d537b2_c0008",
+      "doc_0009_781c46b648e3_c0002",
+      "doc_0009_781c46b648e3_c0005",
+      "doc_0264_7c18830cdf2f_c0034",
+      "doc_0250_e8697aca16f5_c0001",
+      "doc_0025_e97ed3def3b4_c0013",
+      "doc_0264_7c18830cdf2f_c0022",
+      "doc_0025_e97ed3def3b4_c0003",
+      "doc_0264_7c18830cdf2f_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 14,
+    "id": "q040",
+    "latency_ms": 31.73,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0032_d8e0f6ced1cc_c0006",
+      "doc_0064_091d6814a8e2_c0009",
+      "doc_0059_8944ab96fe88_c0002",
+      "doc_0032_d8e0f6ced1cc_c0010",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0059_8944ab96fe88_c0011",
+      "doc_0061_b1f40797d393_c0021",
+      "doc_0059_8944ab96fe88_c0015",
+      "doc_0059_8944ab96fe88_c0014"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q041",
+    "latency_ms": 31.95,
+    "top_chunk_ids": [
+      "doc_0045_080530c76b9f_c0008",
+      "doc_0045_080530c76b9f_c0001",
+      "doc_0045_080530c76b9f_c0004",
+      "doc_0045_080530c76b9f_c0006",
+      "doc_0187_2f9fc0c23ee8_c0006",
+      "doc_0187_2f9fc0c23ee8_c0008",
+      "doc_0152_1044fb625bcf_c0007",
+      "doc_0045_080530c76b9f_c0002",
+      "doc_0115_03129e2fda6b_c0012",
+      "doc_0115_03129e2fda6b_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q042",
+    "latency_ms": 36.23,
+    "top_chunk_ids": [
+      "doc_0151_8c239849551f_c0001",
+      "doc_0151_8c239849551f_c0013",
+      "doc_0151_8c239849551f_c0015",
+      "doc_0151_8c239849551f_c0002",
+      "doc_0151_8c239849551f_c0003",
+      "doc_0151_8c239849551f_c0004",
+      "doc_0151_8c239849551f_c0014",
+      "doc_0151_8c239849551f_c0012",
+      "doc_0151_8c239849551f_c0016",
+      "doc_0151_8c239849551f_c0011"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": null,
+    "id": "q043",
+    "latency_ms": 32.43,
+    "top_chunk_ids": [
+      "doc_0191_f9273688d706_c0003",
+      "doc_0152_1044fb625bcf_c0012",
+      "doc_0213_642b561c3861_c0004",
+      "doc_0010_12273d2ffc1c_c0004",
+      "doc_0136_97a582e4fc68_c0008",
+      "doc_0140_1754d6c2e414_c0004",
+      "doc_0179_81021b59419e_c0005",
+      "doc_0030_f7fe718b012c_c0001",
+      "doc_0269_8c3612f98773_c0011",
+      "doc_0030_f7fe718b012c_c0002"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q044",
+    "latency_ms": 32.98,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0017",
+      "doc_0115_03129e2fda6b_c0012",
+      "doc_0115_03129e2fda6b_c0018",
+      "doc_0115_03129e2fda6b_c0014",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0115_03129e2fda6b_c0016",
+      "doc_0115_03129e2fda6b_c0010",
+      "doc_0115_03129e2fda6b_c0013"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 4,
+    "id": "q045",
+    "latency_ms": 39.12,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0219_8c4617ac7235_c0004",
+      "doc_0111_bccf1133ecd7_c0005",
+      "doc_0219_8c4617ac7235_c0003",
+      "doc_0111_bccf1133ecd7_c0003",
+      "doc_0219_8c4617ac7235_c0005",
+      "doc_0219_8c4617ac7235_c0010",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0270_df860c02a246_c0003"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q046",
+    "latency_ms": 40.22,
+    "top_chunk_ids": [
+      "doc_0152_1044fb625bcf_c0002",
+      "doc_0152_1044fb625bcf_c0001",
+      "doc_0161_6080a6bc3d5b_c0005",
+      "doc_0152_1044fb625bcf_c0012",
+      "doc_0191_f9273688d706_c0010",
+      "doc_0161_6080a6bc3d5b_c0006",
+      "doc_0191_f9273688d706_c0002",
+      "doc_0152_1044fb625bcf_c0011",
+      "doc_0152_1044fb625bcf_c0003",
+      "doc_0161_6080a6bc3d5b_c0026"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q047",
+    "latency_ms": 32.93,
+    "top_chunk_ids": [
+      "doc_0101_852b5b0e08f1_c0004",
+      "doc_0101_852b5b0e08f1_c0003",
+      "doc_0101_852b5b0e08f1_c0013",
+      "doc_0101_852b5b0e08f1_c0005",
+      "doc_0101_852b5b0e08f1_c0002",
+      "doc_0101_852b5b0e08f1_c0011",
+      "doc_0101_852b5b0e08f1_c0016",
+      "doc_0101_852b5b0e08f1_c0009",
+      "doc_0101_852b5b0e08f1_c0010",
+      "doc_0101_852b5b0e08f1_c0001"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q048",
+    "latency_ms": 35.47,
+    "top_chunk_ids": [
+      "doc_0222_b2005c9a776e_c0001",
+      "doc_0222_b2005c9a776e_c0002",
+      "doc_0003_361dd2ec6116_c0004",
+      "doc_0003_361dd2ec6116_c0025",
+      "doc_0032_d8e0f6ced1cc_c0012",
+      "doc_0083_1c7b3a89d532_c0012",
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0032_d8e0f6ced1cc_c0011",
+      "doc_0113_4e7198732f41_c0001",
+      "doc_0003_361dd2ec6116_c0018"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q049",
+    "latency_ms": 36.65,
+    "top_chunk_ids": [
+      "doc_0139_1e608a2fd159_c0003",
+      "doc_0139_1e608a2fd159_c0001",
+      "doc_0139_1e608a2fd159_c0002",
+      "doc_0143_42b90b009452_c0002",
+      "doc_0143_42b90b009452_c0009",
+      "doc_0143_42b90b009452_c0008",
+      "doc_0139_1e608a2fd159_c0004",
+      "doc_0192_ef6834fdda9e_c0003",
+      "doc_0139_1e608a2fd159_c0005",
+      "doc_0120_1e921f46dc74_c0004"
+    ]
+  },
+  {
+    "configuration": "w650_o0",
+    "hit_rank": 1,
+    "id": "q050",
+    "latency_ms": 36.31,
+    "top_chunk_ids": [
+      "doc_0218_59ec6601066c_c0002",
+      "doc_0218_59ec6601066c_c0001",
+      "doc_0218_59ec6601066c_c0009",
+      "doc_0218_59ec6601066c_c0003",
+      "doc_0218_59ec6601066c_c0012",
+      "doc_0218_59ec6601066c_c0004",
+      "doc_0218_59ec6601066c_c0010",
+      "doc_0218_59ec6601066c_c0011",
+      "doc_0218_59ec6601066c_c0006",
+      "doc_0218_59ec6601066c_c0008"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q001",
+    "latency_ms": 65.61,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0032_d8e0f6ced1cc_c0009",
+      "doc_0032_d8e0f6ced1cc_c0006",
+      "doc_0083_1c7b3a89d532_c0003",
+      "doc_0156_5f9a68461daf_c0003",
+      "doc_0083_1c7b3a89d532_c0002",
+      "doc_0156_5f9a68461daf_c0004",
+      "doc_0064_091d6814a8e2_c0003",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0226_b677f76d005b_c0002"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q002",
+    "latency_ms": 59.03,
+    "top_chunk_ids": [
+      "doc_0032_d8e0f6ced1cc_c0002",
+      "doc_0057_2f9abb4f4e54_c0008",
+      "doc_0032_d8e0f6ced1cc_c0001",
+      "doc_0083_1c7b3a89d532_c0005",
+      "doc_0032_d8e0f6ced1cc_c0003",
+      "doc_0024_d7ef043830f5_c0002",
+      "doc_0036_57a612184066_c0002",
+      "doc_0006_552d83d537b2_c0002",
+      "doc_0006_552d83d537b2_c0003",
+      "doc_0057_2f9abb4f4e54_c0009"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q003",
+    "latency_ms": 53.86,
+    "top_chunk_ids": [
+      "doc_0270_df860c02a246_c0002",
+      "doc_0219_8c4617ac7235_c0003",
+      "doc_0115_03129e2fda6b_c0011",
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0270_df860c02a246_c0001",
+      "doc_0270_df860c02a246_c0003",
+      "doc_0115_03129e2fda6b_c0010",
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0156_5f9a68461daf_c0004"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 15,
+    "id": "q004",
+    "latency_ms": 55.97,
+    "top_chunk_ids": [
+      "doc_0003_361dd2ec6116_c0004",
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0064_091d6814a8e2_c0003",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0162_52cdb9bd782f_c0005",
+      "doc_0162_52cdb9bd782f_c0003",
+      "doc_0003_361dd2ec6116_c0015",
+      "doc_0064_091d6814a8e2_c0002",
+      "doc_0083_1c7b3a89d532_c0007",
+      "doc_0226_b677f76d005b_c0002"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q005",
+    "latency_ms": 67.45,
+    "top_chunk_ids": [
+      "doc_0140_1754d6c2e414_c0005",
+      "doc_0140_1754d6c2e414_c0007",
+      "doc_0140_1754d6c2e414_c0002",
+      "doc_0140_1754d6c2e414_c0006",
+      "doc_0140_1754d6c2e414_c0003",
+      "doc_0262_60e4e9a6450a_c0006",
+      "doc_0211_6c0c1f66571b_c0010",
+      "doc_0130_a41db94ce525_c0005",
+      "doc_0235_3e8818f38594_c0003",
+      "doc_0235_3e8818f38594_c0004"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q006",
+    "latency_ms": 54.06,
+    "top_chunk_ids": [
+      "doc_0141_440b981f9c81_c0002",
+      "doc_0141_440b981f9c81_c0001",
+      "doc_0141_440b981f9c81_c0003",
+      "doc_0108_13bf804baf60_c0002",
+      "doc_0141_440b981f9c81_c0009",
+      "doc_0101_852b5b0e08f1_c0003",
+      "doc_0141_440b981f9c81_c0005",
+      "doc_0001_143c50ae5989_c0001",
+      "doc_0141_440b981f9c81_c0006",
+      "doc_0141_440b981f9c81_c0010"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q007",
+    "latency_ms": 54.78,
+    "top_chunk_ids": [
+      "doc_0002_e2eaa961a507_c0001",
+      "doc_0002_e2eaa961a507_c0007",
+      "doc_0002_e2eaa961a507_c0008",
+      "doc_0002_e2eaa961a507_c0009",
+      "doc_0002_e2eaa961a507_c0006",
+      "doc_0002_e2eaa961a507_c0002",
+      "doc_0002_e2eaa961a507_c0003",
+      "doc_0002_e2eaa961a507_c0011",
+      "doc_0002_e2eaa961a507_c0004",
+      "doc_0002_e2eaa961a507_c0005"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q008",
+    "latency_ms": 50.82,
+    "top_chunk_ids": [
+      "doc_0249_48e75e157f54_c0001",
+      "doc_0249_48e75e157f54_c0002",
+      "doc_0018_df4e8e1b4d03_c0003",
+      "doc_0249_48e75e157f54_c0007",
+      "doc_0249_48e75e157f54_c0003",
+      "doc_0123_03b8eb6879ec_c0003",
+      "doc_0123_03b8eb6879ec_c0007",
+      "doc_0018_df4e8e1b4d03_c0007",
+      "doc_0018_df4e8e1b4d03_c0001",
+      "doc_0018_df4e8e1b4d03_c0002"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 16,
+    "id": "q009",
+    "latency_ms": 47.81,
+    "top_chunk_ids": [
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0262_60e4e9a6450a_c0004",
+      "doc_0003_361dd2ec6116_c0012",
+      "doc_0107_f0314c536957_c0005",
+      "doc_0040_9bb11353ea00_c0002",
+      "doc_0234_205b14d53f94_c0001",
+      "doc_0030_f7fe718b012c_c0002",
+      "doc_0234_205b14d53f94_c0002",
+      "doc_0030_f7fe718b012c_c0003",
+      "doc_0080_7a533eaeffd1_c0007"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 3,
+    "id": "q010",
+    "latency_ms": 54.23,
+    "top_chunk_ids": [
+      "doc_0249_48e75e157f54_c0001",
+      "doc_0018_df4e8e1b4d03_c0001",
+      "doc_0020_e257002ed120_c0002",
+      "doc_0249_48e75e157f54_c0002",
+      "doc_0132_0822ef358235_c0007",
+      "doc_0137_7233024ddd22_c0002",
+      "doc_0107_f0314c536957_c0015",
+      "doc_0018_df4e8e1b4d03_c0006",
+      "doc_0249_48e75e157f54_c0007",
+      "doc_0020_e257002ed120_c0001"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q011",
+    "latency_ms": 59.08,
+    "top_chunk_ids": [
+      "doc_0020_e257002ed120_c0006",
+      "doc_0020_e257002ed120_c0002",
+      "doc_0020_e257002ed120_c0001",
+      "doc_0199_1522ffc0a553_c0009",
+      "doc_0020_e257002ed120_c0007",
+      "doc_0020_e257002ed120_c0003",
+      "doc_0020_e257002ed120_c0004",
+      "doc_0072_dadd5f22f3c1_c0006",
+      "doc_0020_e257002ed120_c0005",
+      "doc_0142_67192983e13d_c0019"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q012",
+    "latency_ms": 55.14,
+    "top_chunk_ids": [
+      "doc_0114_0dfe9186d94e_c0004",
+      "doc_0114_0dfe9186d94e_c0010",
+      "doc_0114_0dfe9186d94e_c0012",
+      "doc_0114_0dfe9186d94e_c0005",
+      "doc_0114_0dfe9186d94e_c0008",
+      "doc_0114_0dfe9186d94e_c0006",
+      "doc_0114_0dfe9186d94e_c0001",
+      "doc_0114_0dfe9186d94e_c0003",
+      "doc_0114_0dfe9186d94e_c0009",
+      "doc_0114_0dfe9186d94e_c0002"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q013",
+    "latency_ms": 49.96,
+    "top_chunk_ids": [
+      "doc_0039_13579593089f_c0003",
+      "doc_0085_51fd45b055b3_c0002",
+      "doc_0039_13579593089f_c0001",
+      "doc_0052_0bf0833054bf_c0002",
+      "doc_0040_9bb11353ea00_c0014",
+      "doc_0039_13579593089f_c0015",
+      "doc_0039_13579593089f_c0011",
+      "doc_0085_51fd45b055b3_c0001",
+      "doc_0066_c476bfc3d220_c0008",
+      "doc_0085_51fd45b055b3_c0007"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 5,
+    "id": "q014",
+    "latency_ms": 50.78,
+    "top_chunk_ids": [
+      "doc_0040_9bb11353ea00_c0005",
+      "doc_0040_9bb11353ea00_c0004",
+      "doc_0085_51fd45b055b3_c0003",
+      "doc_0039_13579593089f_c0001",
+      "doc_0052_0bf0833054bf_c0002",
+      "doc_0085_51fd45b055b3_c0002",
+      "doc_0040_9bb11353ea00_c0014",
+      "doc_0040_9bb11353ea00_c0015",
+      "doc_0052_0bf0833054bf_c0001",
+      "doc_0052_0bf0833054bf_c0006"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q015",
+    "latency_ms": 54.89,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0003",
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0001",
+      "doc_0152_1044fb625bcf_c0003",
+      "doc_0228_e019f3484bd0_c0001",
+      "doc_0115_03129e2fda6b_c0009",
+      "doc_0101_852b5b0e08f1_c0013",
+      "doc_0115_03129e2fda6b_c0006",
+      "doc_0115_03129e2fda6b_c0005",
+      "doc_0115_03129e2fda6b_c0017"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q016",
+    "latency_ms": 77.31,
+    "top_chunk_ids": [
+      "doc_0208_075a0ad7c2f5_c0012",
+      "doc_0208_075a0ad7c2f5_c0002",
+      "doc_0208_075a0ad7c2f5_c0001",
+      "doc_0208_075a0ad7c2f5_c0011",
+      "doc_0044_442b21b5f179_c0001",
+      "doc_0208_075a0ad7c2f5_c0008",
+      "doc_0208_075a0ad7c2f5_c0010",
+      "doc_0044_442b21b5f179_c0002",
+      "doc_0208_075a0ad7c2f5_c0009",
+      "doc_0208_075a0ad7c2f5_c0003"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q017",
+    "latency_ms": 50.08,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0008",
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0081_f0366dec9296_c0005",
+      "doc_0115_03129e2fda6b_c0003",
+      "doc_0024_d7ef043830f5_c0006",
+      "doc_0036_57a612184066_c0009",
+      "doc_0172_2577e066082e_c0003",
+      "doc_0115_03129e2fda6b_c0009",
+      "doc_0172_2577e066082e_c0011",
+      "doc_0250_e8697aca16f5_c0001"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q018",
+    "latency_ms": 54.6,
+    "top_chunk_ids": [
+      "doc_0044_442b21b5f179_c0007",
+      "doc_0046_780da1481d7e_c0014",
+      "doc_0109_89662bd246e5_c0006",
+      "doc_0092_50e999b554b6_c0005",
+      "doc_0253_1cc3124dbfb1_c0010",
+      "doc_0025_e97ed3def3b4_c0002",
+      "doc_0092_50e999b554b6_c0019",
+      "doc_0025_e97ed3def3b4_c0001",
+      "doc_0037_891ac50d7bbb_c0008",
+      "doc_0009_781c46b648e3_c0007"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q019",
+    "latency_ms": 59.09,
+    "top_chunk_ids": [
+      "doc_0156_5f9a68461daf_c0010",
+      "doc_0156_5f9a68461daf_c0012",
+      "doc_0156_5f9a68461daf_c0011",
+      "doc_0156_5f9a68461daf_c0014",
+      "doc_0156_5f9a68461daf_c0013",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0156_5f9a68461daf_c0008",
+      "doc_0156_5f9a68461daf_c0009",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0156_5f9a68461daf_c0003"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q020",
+    "latency_ms": 53.26,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0011",
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0014",
+      "doc_0115_03129e2fda6b_c0008",
+      "doc_0115_03129e2fda6b_c0009",
+      "doc_0115_03129e2fda6b_c0010",
+      "doc_0115_03129e2fda6b_c0003",
+      "doc_0115_03129e2fda6b_c0004",
+      "doc_0115_03129e2fda6b_c0012",
+      "doc_0115_03129e2fda6b_c0016"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q021",
+    "latency_ms": 49.72,
+    "top_chunk_ids": [
+      "doc_0224_84438341c3d2_c0003",
+      "doc_0224_84438341c3d2_c0011",
+      "doc_0255_ce2381aacafe_c0004",
+      "doc_0224_84438341c3d2_c0010",
+      "doc_0243_7be9d1dc9ebd_c0005",
+      "doc_0224_84438341c3d2_c0002",
+      "doc_0031_4bda51361ba6_c0003",
+      "doc_0224_84438341c3d2_c0013",
+      "doc_0161_6080a6bc3d5b_c0020",
+      "doc_0255_ce2381aacafe_c0007"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 2,
+    "id": "q022",
+    "latency_ms": 48.4,
+    "top_chunk_ids": [
+      "doc_0003_361dd2ec6116_c0004",
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0064_091d6814a8e2_c0003",
+      "doc_0064_091d6814a8e2_c0009",
+      "doc_0003_361dd2ec6116_c0015",
+      "doc_0083_1c7b3a89d532_c0001",
+      "doc_0064_091d6814a8e2_c0002",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0003_361dd2ec6116_c0016",
+      "doc_0032_d8e0f6ced1cc_c0006"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q023",
+    "latency_ms": 50.14,
+    "top_chunk_ids": [
+      "doc_0170_a81d06bd505b_c0010",
+      "doc_0170_a81d06bd505b_c0002",
+      "doc_0030_f7fe718b012c_c0001",
+      "doc_0170_a81d06bd505b_c0003",
+      "doc_0030_f7fe718b012c_c0002",
+      "doc_0170_a81d06bd505b_c0001",
+      "doc_0170_a81d06bd505b_c0007",
+      "doc_0170_a81d06bd505b_c0009",
+      "doc_0170_a81d06bd505b_c0011",
+      "doc_0030_f7fe718b012c_c0008"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q024",
+    "latency_ms": 51.9,
+    "top_chunk_ids": [
+      "doc_0140_1754d6c2e414_c0005",
+      "doc_0262_60e4e9a6450a_c0006",
+      "doc_0175_84221497fbf2_c0003",
+      "doc_0253_1cc3124dbfb1_c0015",
+      "doc_0253_1cc3124dbfb1_c0003",
+      "doc_0092_50e999b554b6_c0018",
+      "doc_0253_1cc3124dbfb1_c0008",
+      "doc_0211_6c0c1f66571b_c0010",
+      "doc_0200_7da0f2c81486_c0002",
+      "doc_0253_1cc3124dbfb1_c0007"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 9,
+    "id": "q025",
+    "latency_ms": 52.67,
+    "top_chunk_ids": [
+      "doc_0257_064d8f3c7547_c0011",
+      "doc_0093_4d38a5da2b7d_c0009",
+      "doc_0097_25d00336d09d_c0001",
+      "doc_0097_25d00336d09d_c0002",
+      "doc_0153_3deec4abd745_c0011",
+      "doc_0257_064d8f3c7547_c0001",
+      "doc_0257_064d8f3c7547_c0013",
+      "doc_0257_064d8f3c7547_c0002",
+      "doc_0046_780da1481d7e_c0002",
+      "doc_0139_1e608a2fd159_c0004"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q026",
+    "latency_ms": 55.68,
+    "top_chunk_ids": [
+      "doc_0057_2f9abb4f4e54_c0001",
+      "doc_0061_b1f40797d393_c0004",
+      "doc_0061_b1f40797d393_c0001",
+      "doc_0057_2f9abb4f4e54_c0003",
+      "doc_0061_b1f40797d393_c0002",
+      "doc_0057_2f9abb4f4e54_c0015",
+      "doc_0061_b1f40797d393_c0003",
+      "doc_0057_2f9abb4f4e54_c0012",
+      "doc_0061_b1f40797d393_c0013",
+      "doc_0061_b1f40797d393_c0019"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q027",
+    "latency_ms": 52.99,
+    "top_chunk_ids": [
+      "doc_0233_9e2805239e9d_c0001",
+      "doc_0003_361dd2ec6116_c0005",
+      "doc_0233_9e2805239e9d_c0002",
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0233_9e2805239e9d_c0005",
+      "doc_0125_2ef1b292a465_c0003",
+      "doc_0003_361dd2ec6116_c0001",
+      "doc_0125_2ef1b292a465_c0004",
+      "doc_0008_1e40d28261e6_c0008",
+      "doc_0125_2ef1b292a465_c0002"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 12,
+    "id": "q028",
+    "latency_ms": 50.25,
+    "top_chunk_ids": [
+      "doc_0181_2cdb38abbd6d_c0004",
+      "doc_0181_2cdb38abbd6d_c0005",
+      "doc_0130_a41db94ce525_c0017",
+      "doc_0130_a41db94ce525_c0016",
+      "doc_0130_a41db94ce525_c0003",
+      "doc_0181_2cdb38abbd6d_c0009",
+      "doc_0130_a41db94ce525_c0002",
+      "doc_0130_a41db94ce525_c0001",
+      "doc_0111_bccf1133ecd7_c0002",
+      "doc_0181_2cdb38abbd6d_c0010"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q029",
+    "latency_ms": 66.2,
+    "top_chunk_ids": [
+      "doc_0063_4c53af31e2dc_c0001",
+      "doc_0063_4c53af31e2dc_c0018",
+      "doc_0063_4c53af31e2dc_c0015",
+      "doc_0063_4c53af31e2dc_c0002",
+      "doc_0161_6080a6bc3d5b_c0020",
+      "doc_0133_5022680911bd_c0008",
+      "doc_0161_6080a6bc3d5b_c0010",
+      "doc_0133_5022680911bd_c0004",
+      "doc_0063_4c53af31e2dc_c0003",
+      "doc_0211_6c0c1f66571b_c0004"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q030",
+    "latency_ms": 55.35,
+    "top_chunk_ids": [
+      "doc_0111_bccf1133ecd7_c0002",
+      "doc_0111_bccf1133ecd7_c0003",
+      "doc_0111_bccf1133ecd7_c0001",
+      "doc_0111_bccf1133ecd7_c0006",
+      "doc_0111_bccf1133ecd7_c0005",
+      "doc_0111_bccf1133ecd7_c0007",
+      "doc_0119_53a5923604ff_c0005",
+      "doc_0080_7a533eaeffd1_c0006",
+      "doc_0140_1754d6c2e414_c0005",
+      "doc_0150_4731780ae890_c0003"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 2,
+    "id": "q031",
+    "latency_ms": 54.53,
+    "top_chunk_ids": [
+      "doc_0061_b1f40797d393_c0001",
+      "doc_0057_2f9abb4f4e54_c0004",
+      "doc_0061_b1f40797d393_c0003",
+      "doc_0061_b1f40797d393_c0002",
+      "doc_0057_2f9abb4f4e54_c0003",
+      "doc_0057_2f9abb4f4e54_c0002",
+      "doc_0057_2f9abb4f4e54_c0001",
+      "doc_0061_b1f40797d393_c0013",
+      "doc_0057_2f9abb4f4e54_c0015",
+      "doc_0057_2f9abb4f4e54_c0020"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 2,
+    "id": "q032",
+    "latency_ms": 50.57,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0014",
+      "doc_0156_5f9a68461daf_c0012",
+      "doc_0156_5f9a68461daf_c0010",
+      "doc_0156_5f9a68461daf_c0013",
+      "doc_0029_00a7c9f344b5_c0018",
+      "doc_0262_60e4e9a6450a_c0006",
+      "doc_0115_03129e2fda6b_c0008",
+      "doc_0156_5f9a68461daf_c0014",
+      "doc_0115_03129e2fda6b_c0010",
+      "doc_0156_5f9a68461daf_c0008"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 5,
+    "id": "q033",
+    "latency_ms": 151.94,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0163_e8452f0e90fb_c0011",
+      "doc_0226_b677f76d005b_c0001",
+      "doc_0156_5f9a68461daf_c0003",
+      "doc_0219_8c4617ac7235_c0004",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0219_8c4617ac7235_c0005",
+      "doc_0226_b677f76d005b_c0004"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 6,
+    "id": "q034",
+    "latency_ms": 77.0,
+    "top_chunk_ids": [
+      "doc_0004_bd32c55a71b8_c0005",
+      "doc_0257_064d8f3c7547_c0011",
+      "doc_0089_c1a3c43311b0_c0004",
+      "doc_0207_098c4f72c58d_c0015",
+      "doc_0041_75abd6c3ff81_c0005",
+      "doc_0083_1c7b3a89d532_c0008",
+      "doc_0207_098c4f72c58d_c0016",
+      "doc_0003_361dd2ec6116_c0007",
+      "doc_0257_064d8f3c7547_c0004",
+      "doc_0268_ef3c13a767de_c0010"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q035",
+    "latency_ms": 53.26,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0004",
+      "doc_0232_48c905ce8c55_c0005",
+      "doc_0232_48c905ce8c55_c0010",
+      "doc_0083_1c7b3a89d532_c0006",
+      "doc_0232_48c905ce8c55_c0011",
+      "doc_0232_48c905ce8c55_c0006",
+      "doc_0232_48c905ce8c55_c0002",
+      "doc_0232_48c905ce8c55_c0001",
+      "doc_0232_48c905ce8c55_c0003",
+      "doc_0232_48c905ce8c55_c0008"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 3,
+    "id": "q036",
+    "latency_ms": 54.22,
+    "top_chunk_ids": [
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0003_361dd2ec6116_c0015",
+      "doc_0156_5f9a68461daf_c0010",
+      "doc_0064_091d6814a8e2_c0003",
+      "doc_0156_5f9a68461daf_c0001",
+      "doc_0192_ef6834fdda9e_c0008",
+      "doc_0156_5f9a68461daf_c0012",
+      "doc_0156_5f9a68461daf_c0013",
+      "doc_0003_361dd2ec6116_c0017",
+      "doc_0156_5f9a68461daf_c0003"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 11,
+    "id": "q037",
+    "latency_ms": 54.15,
+    "top_chunk_ids": [
+      "doc_0044_442b21b5f179_c0007",
+      "doc_0044_442b21b5f179_c0008",
+      "doc_0092_50e999b554b6_c0019",
+      "doc_0025_e97ed3def3b4_c0002",
+      "doc_0249_48e75e157f54_c0007",
+      "doc_0009_781c46b648e3_c0003",
+      "doc_0047_9353e223521a_c0004",
+      "doc_0250_e8697aca16f5_c0004",
+      "doc_0143_42b90b009452_c0002",
+      "doc_0133_5022680911bd_c0009"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q038",
+    "latency_ms": 51.78,
+    "top_chunk_ids": [
+      "doc_0210_31ed2b49a4f3_c0007",
+      "doc_0210_31ed2b49a4f3_c0003",
+      "doc_0210_31ed2b49a4f3_c0009",
+      "doc_0210_31ed2b49a4f3_c0004",
+      "doc_0044_442b21b5f179_c0007",
+      "doc_0210_31ed2b49a4f3_c0002",
+      "doc_0210_31ed2b49a4f3_c0006",
+      "doc_0210_31ed2b49a4f3_c0001",
+      "doc_0210_31ed2b49a4f3_c0005",
+      "doc_0044_442b21b5f179_c0001"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q039",
+    "latency_ms": 51.64,
+    "top_chunk_ids": [
+      "doc_0009_781c46b648e3_c0003",
+      "doc_0009_781c46b648e3_c0002",
+      "doc_0025_e97ed3def3b4_c0012",
+      "doc_0264_7c18830cdf2f_c0031",
+      "doc_0250_e8697aca16f5_c0001",
+      "doc_0009_781c46b648e3_c0013",
+      "doc_0264_7c18830cdf2f_c0030",
+      "doc_0009_781c46b648e3_c0007",
+      "doc_0264_7c18830cdf2f_c0032",
+      "doc_0025_e97ed3def3b4_c0005"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q040",
+    "latency_ms": 49.93,
+    "top_chunk_ids": [
+      "doc_0114_0dfe9186d94e_c0012",
+      "doc_0059_8944ab96fe88_c0012",
+      "doc_0232_48c905ce8c55_c0009",
+      "doc_0083_1c7b3a89d532_c0005",
+      "doc_0114_0dfe9186d94e_c0010",
+      "doc_0032_d8e0f6ced1cc_c0009",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0059_8944ab96fe88_c0009",
+      "doc_0059_8944ab96fe88_c0002",
+      "doc_0032_d8e0f6ced1cc_c0008"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q041",
+    "latency_ms": 53.22,
+    "top_chunk_ids": [
+      "doc_0045_080530c76b9f_c0008",
+      "doc_0045_080530c76b9f_c0004",
+      "doc_0045_080530c76b9f_c0009",
+      "doc_0045_080530c76b9f_c0006",
+      "doc_0045_080530c76b9f_c0001",
+      "doc_0115_03129e2fda6b_c0009",
+      "doc_0115_03129e2fda6b_c0017",
+      "doc_0115_03129e2fda6b_c0011",
+      "doc_0045_080530c76b9f_c0005",
+      "doc_0187_2f9fc0c23ee8_c0007"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q042",
+    "latency_ms": 56.89,
+    "top_chunk_ids": [
+      "doc_0151_8c239849551f_c0001",
+      "doc_0151_8c239849551f_c0012",
+      "doc_0151_8c239849551f_c0003",
+      "doc_0151_8c239849551f_c0015",
+      "doc_0151_8c239849551f_c0002",
+      "doc_0151_8c239849551f_c0004",
+      "doc_0151_8c239849551f_c0011",
+      "doc_0151_8c239849551f_c0010",
+      "doc_0151_8c239849551f_c0013",
+      "doc_0151_8c239849551f_c0014"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": null,
+    "id": "q043",
+    "latency_ms": 55.83,
+    "top_chunk_ids": [
+      "doc_0010_12273d2ffc1c_c0003",
+      "doc_0136_97a582e4fc68_c0005",
+      "doc_0140_1754d6c2e414_c0005",
+      "doc_0140_1754d6c2e414_c0020",
+      "doc_0010_12273d2ffc1c_c0001",
+      "doc_0140_1754d6c2e414_c0004",
+      "doc_0136_97a582e4fc68_c0001",
+      "doc_0269_8c3612f98773_c0010",
+      "doc_0030_f7fe718b012c_c0003",
+      "doc_0100_6da952266d52_c0004"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q044",
+    "latency_ms": 52.56,
+    "top_chunk_ids": [
+      "doc_0115_03129e2fda6b_c0017",
+      "doc_0115_03129e2fda6b_c0011",
+      "doc_0115_03129e2fda6b_c0009",
+      "doc_0115_03129e2fda6b_c0008",
+      "doc_0115_03129e2fda6b_c0016",
+      "doc_0115_03129e2fda6b_c0010",
+      "doc_0115_03129e2fda6b_c0002",
+      "doc_0115_03129e2fda6b_c0015",
+      "doc_0115_03129e2fda6b_c0012",
+      "doc_0115_03129e2fda6b_c0013"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 7,
+    "id": "q045",
+    "latency_ms": 64.93,
+    "top_chunk_ids": [
+      "doc_0219_8c4617ac7235_c0001",
+      "doc_0219_8c4617ac7235_c0002",
+      "doc_0219_8c4617ac7235_c0004",
+      "doc_0219_8c4617ac7235_c0005",
+      "doc_0270_df860c02a246_c0003",
+      "doc_0219_8c4617ac7235_c0008",
+      "doc_0111_bccf1133ecd7_c0005",
+      "doc_0226_b677f76d005b_c0002",
+      "doc_0219_8c4617ac7235_c0006",
+      "doc_0219_8c4617ac7235_c0010"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q046",
+    "latency_ms": 66.25,
+    "top_chunk_ids": [
+      "doc_0152_1044fb625bcf_c0002",
+      "doc_0152_1044fb625bcf_c0010",
+      "doc_0152_1044fb625bcf_c0001",
+      "doc_0152_1044fb625bcf_c0003",
+      "doc_0152_1044fb625bcf_c0007",
+      "doc_0191_f9273688d706_c0003",
+      "doc_0191_f9273688d706_c0002",
+      "doc_0161_6080a6bc3d5b_c0004",
+      "doc_0161_6080a6bc3d5b_c0006",
+      "doc_0161_6080a6bc3d5b_c0005"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q047",
+    "latency_ms": 52.95,
+    "top_chunk_ids": [
+      "doc_0101_852b5b0e08f1_c0003",
+      "doc_0101_852b5b0e08f1_c0002",
+      "doc_0101_852b5b0e08f1_c0004",
+      "doc_0101_852b5b0e08f1_c0001",
+      "doc_0101_852b5b0e08f1_c0009",
+      "doc_0101_852b5b0e08f1_c0010",
+      "doc_0101_852b5b0e08f1_c0014",
+      "doc_0101_852b5b0e08f1_c0011",
+      "doc_0101_852b5b0e08f1_c0015",
+      "doc_0101_852b5b0e08f1_c0012"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q048",
+    "latency_ms": 52.07,
+    "top_chunk_ids": [
+      "doc_0222_b2005c9a776e_c0001",
+      "doc_0222_b2005c9a776e_c0002",
+      "doc_0222_b2005c9a776e_c0006",
+      "doc_0032_d8e0f6ced1cc_c0009",
+      "doc_0003_361dd2ec6116_c0004",
+      "doc_0083_1c7b3a89d532_c0011",
+      "doc_0003_361dd2ec6116_c0009",
+      "doc_0129_49da321a78c8_c0007",
+      "doc_0003_361dd2ec6116_c0002",
+      "doc_0003_361dd2ec6116_c0003"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q049",
+    "latency_ms": 56.86,
+    "top_chunk_ids": [
+      "doc_0139_1e608a2fd159_c0002",
+      "doc_0143_42b90b009452_c0003",
+      "doc_0139_1e608a2fd159_c0003",
+      "doc_0139_1e608a2fd159_c0001",
+      "doc_0143_42b90b009452_c0002",
+      "doc_0139_1e608a2fd159_c0004",
+      "doc_0192_ef6834fdda9e_c0008",
+      "doc_0143_42b90b009452_c0007",
+      "doc_0143_42b90b009452_c0006",
+      "doc_0235_3e8818f38594_c0004"
+    ]
+  },
+  {
+    "configuration": "w900_o150",
+    "hit_rank": 1,
+    "id": "q050",
+    "latency_ms": 67.87,
+    "top_chunk_ids": [
+      "doc_0218_59ec6601066c_c0002",
+      "doc_0218_59ec6601066c_c0001",
+      "doc_0218_59ec6601066c_c0003",
+      "doc_0218_59ec6601066c_c0007",
+      "doc_0218_59ec6601066c_c0004",
+      "doc_0218_59ec6601066c_c0009",
+      "doc_0218_59ec6601066c_c0006",
+      "doc_0218_59ec6601066c_c0008",
+      "doc_0218_59ec6601066c_c0010",
+      "doc_0218_59ec6601066c_c0005"
+    ]
+  }
+]

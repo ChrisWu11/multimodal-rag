@@ -1,0 +1,51 @@
+{
+  "answer_model": "gemini-3.5-flash-lite",
+  "git_sha": "e416772e84d9eaffa2ab46e8dd03e4780cdc072c",
+  "image_count": 12,
+  "judge_model": "gemini-3-flash-preview",
+  "licence_statement": "All selected figures are from corpus papers labelled CC BY.",
+  "scope_warning": "Exploratory research evaluation; no clinical validation is claimed.",
+  "summaries": [
+    {
+      "image_count": 12,
+      "invalid_citation_count": 0,
+      "mean_answer_latency_ms": 656.73,
+      "mean_caption_coverage_0_2": 1.583,
+      "mean_citation_quality_0_2": 1.833,
+      "mean_response_structure_0_2": 1.917,
+      "mean_retrieval_latency_ms": 543.3,
+      "mode": "text_only",
+      "source_recall_at_5": 0.917,
+      "unsupported_visual_inferences": 3,
+      "visual_contradictions": 0
+    },
+    {
+      "image_count": 12,
+      "invalid_citation_count": 0,
+      "mean_answer_latency_ms": 658.05,
+      "mean_caption_coverage_0_2": 1.75,
+      "mean_citation_quality_0_2": 1.833,
+      "mean_response_structure_0_2": 2.0,
+      "mean_retrieval_latency_ms": 634.89,
+      "mode": "basic_metadata",
+      "source_recall_at_5": 0.917,
+      "unsupported_visual_inferences": 1,
+      "visual_contradictions": 0
+    },
+    {
+      "image_count": 12,
+      "invalid_citation_count": 0,
+      "mean_answer_latency_ms": 654.67,
+      "mean_caption_coverage_0_2": 1.75,
+      "mean_citation_quality_0_2": 1.917,
+      "mean_response_structure_0_2": 2.0,
+      "mean_retrieval_latency_ms": 562.64,
+      "mode": "vision_summary",
+      "source_recall_at_5": 0.917,
+      "unsupported_visual_inferences": 0,
+      "visual_contradictions": 0
+    }
+  ],
+  "task": "exploratory_image_qa",
+  "vision_model": "gemini-3-flash-preview"
+}

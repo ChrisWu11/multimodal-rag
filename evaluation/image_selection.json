@@ -1,0 +1,74 @@
+[
+  {
+    "candidate_id": "doc_0009_781c46b648e3_p010_f02",
+    "category": "ultrasound",
+    "image_modality": "ultrasound",
+    "question": "How do the delay maps change as sample temperature increases, and which ultrasound thermometry concept explains this pattern?"
+  },
+  {
+    "candidate_id": "doc_0150_4731780ae890_p009_f01",
+    "category": "ultrasound",
+    "image_modality": "ultrasound",
+    "question": "What changes are visible across the Doppler image sequence during and after HIFU exposure?"
+  },
+  {
+    "candidate_id": "doc_0116_be106c5827df_p018_f01",
+    "category": "ultrasound",
+    "image_modality": "scientific_figure",
+    "question": "How are the ablation-zone estimates from thermoacoustic monitoring, ultrasound tomography and photographs compared in this figure?"
+  },
+  {
+    "candidate_id": "doc_0150_4731780ae890_p011_f01",
+    "category": "ultrasound",
+    "image_modality": "ultrasound",
+    "question": "What relationship between HIFU exposure power, constructed Doppler images and visible lesion size is presented?"
+  },
+  {
+    "candidate_id": "doc_0156_5f9a68461daf_p010_f01",
+    "category": "thermal",
+    "image_modality": "thermal",
+    "question": "What spatial change in the PRFS thermal maps is visible between the early and later HIFU hyperthermia time points?"
+  },
+  {
+    "candidate_id": "doc_0115_03129e2fda6b_p024_f01",
+    "category": "thermal",
+    "image_modality": "thermal",
+    "question": "How are temperature rise and thermal-dose distribution related in the simulated liver tissue?"
+  },
+  {
+    "candidate_id": "doc_0115_03129e2fda6b_p026_f01",
+    "category": "thermal",
+    "image_modality": "thermal",
+    "question": "What does the figure show about temperature evolution and spatial distribution under mild hyperthermia?"
+  },
+  {
+    "candidate_id": "doc_0115_03129e2fda6b_p027_f01",
+    "category": "thermal",
+    "image_modality": "thermal",
+    "question": "Which temperature and tissue-property maps are compared, and why are these properties relevant to thermal modelling?"
+  },
+  {
+    "candidate_id": "doc_0161_6080a6bc3d5b_p006_f01",
+    "category": "setup_or_plot",
+    "image_modality": "scientific_figure",
+    "question": "Which components and anatomical target are represented in this schematic of HIFU breast-tumour ablation?"
+  },
+  {
+    "candidate_id": "doc_0116_be106c5827df_p015_f01",
+    "category": "setup_or_plot",
+    "image_modality": "scientific_figure",
+    "question": "What are the principal signal-generation, amplification, acquisition and computing components in the thermoacoustic monitoring system?"
+  },
+  {
+    "candidate_id": "doc_0010_12273d2ffc1c_p007_f01",
+    "category": "setup_or_plot",
+    "image_modality": "scientific_figure",
+    "question": "How does the schematic connect focused-ultrasound hyperthermia with thermosensitive-liposome drug transport?"
+  },
+  {
+    "candidate_id": "doc_0115_03129e2fda6b_p030_f01",
+    "category": "setup_or_plot",
+    "image_modality": "scientific_figure",
+    "question": "How do temperature-dependent acoustic properties affect the simulated temperature distribution and time curve?"
+  }
+]

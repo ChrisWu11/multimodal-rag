@@ -1,0 +1,135 @@
+{
+  "created_at_utc": "2026-08-20T16:24:00.705948+00:00",
+  "evaluated_git_sha": "e416772e84d9eaffa2ab46e8dd03e4780cdc072c",
+  "files": [
+    {
+      "bytes": 982,
+      "file": "corpus-summary.json",
+      "sha256": "74ef50bba8651cb4d2d95a16b0728d1f844291eb72239318ebf5afe88013dd29"
+    },
+    {
+      "bytes": 3009,
+      "file": "retrieval-summary.json",
+      "sha256": "d1ca0681782c8ca4793b75d2b0d016497f5756a213ace0d47cd73c7ff834d5e2"
+    },
+    {
+      "bytes": 270346,
+      "file": "retrieval-details.json",
+      "sha256": "4b8d253f4ee41b633d8a7f2c9883c15e3a063eeb8492dbf6a1b482110e11edaa"
+    },
+    {
+      "bytes": 2056,
+      "file": "chunk-ablation-summary.json",
+      "sha256": "a8ed8cc2e9b74afc5c3d69958c448edaa337e91bd7b9e16f9eff863c44c05d2f"
+    },
+    {
+      "bytes": 100542,
+      "file": "chunk-ablation-details.json",
+      "sha256": "61a86f430a1b6e708ebb133fd02825364673103f2cefe65d5ddf7045f97bb91e"
+    },
+    {
+      "bytes": 2620,
+      "file": "metadata-ablation-summary.json",
+      "sha256": "38bb4d33adeaf65a2f51361e142d5073dffc56a4dd733d4c9edcccb35ad4a2a0"
+    },
+    {
+      "bytes": 190966,
+      "file": "metadata-ablation-details.json",
+      "sha256": "dcbd82b2cc183ec2640bcf7c384975792ff545ac67eac2f7f9e582075fc748aa"
+    },
+    {
+      "bytes": 1702,
+      "file": "reranker-pool-ablation-summary.json",
+      "sha256": "ebbbc1974c6f3b565e324bce20bdc8fe84b8cf9ba79a54cca66d50e217858ae1"
+    },
+    {
+      "bytes": 119537,
+      "file": "reranker-pool-ablation-details.json",
+      "sha256": "79720f3356b137e0b821eae6b2201d17941b027633d68005d0c1b7cbbdd6c76a"
+    },
+    {
+      "bytes": 1462,
+      "file": "generation-summary.json",
+      "sha256": "87083296da8d088eaf1b3af182de404bd93c2860d4365a3235ae5cd74d6834cf"
+    },
+    {
+      "bytes": 1708,
+      "file": "image-qa-summary.json",
+      "sha256": "f0d872df4dba1a9043636aa897dfb3606c929f194e1a8beeac2aff88bd1b08bc"
+    },
+    {
+      "bytes": 63437,
+      "file": "statistical-analysis.json",
+      "sha256": "721ba7a6883ef47f514da2e7fc142b44f940a3ed029eb09b76494bacd589ba96"
+    },
+    {
+      "bytes": 11453,
+      "file": "confidence-intervals.csv",
+      "sha256": "582255280a60d718064290b5130a4180540a29a503c8d121bf5dcb82f876deac"
+    },
+    {
+      "bytes": 6707,
+      "file": "paired-tests.csv",
+      "sha256": "99701175a364ce411bd095945daf98ce9ab8b23f319c4c5929ba00fb8c676cf0"
+    },
+    {
+      "bytes": 512,
+      "file": "judge-agreement.csv",
+      "sha256": "6644c85d33d873b335dbcf35e16ddc3149c20405b27395ea0d02634e823166ad"
+    },
+    {
+      "bytes": 32747,
+      "file": "error-analysis.csv",
+      "sha256": "8614a4788e1ffd5e833167cd32e4837e3fcd2742c27f9100872a8ec9da3e887b"
+    },
+    {
+      "bytes": 29087,
+      "file": "sensitivity-analysis.json",
+      "sha256": "261abbf6ed3d0d6facd18a519d270bd9c1e80e70a6bf8edb8e556dce56c82531"
+    },
+    {
+      "bytes": 41486,
+      "file": "reference-audit.json",
+      "sha256": "047d29c118326446ec3687d8daaecffcb9bfbd0e5e87c0b1311e604f89f7bcfd"
+    },
+    {
+      "bytes": 14367,
+      "file": "image-licence-audit.json",
+      "sha256": "889855dc487195a463fca24bb86aaa9bb6fac48c9b9232c534d7d1402ebe7841"
+    },
+    {
+      "bytes": 5285,
+      "file": "image-rights-ai-precheck.csv",
+      "sha256": "7225cc96b42da6f3bc21a479debb81fe3967c29a00e5e4ce845a423e2fb4ab94"
+    },
+    {
+      "bytes": 4170,
+      "file": "image-rights-ai-disposition.csv",
+      "sha256": "ed649faa4f5a7739435bd99720ca6fe78eda7f9f493271219fa7a2502d40b09a"
+    },
+    {
+      "bytes": 16617,
+      "file": "claim-citation-ai-review.csv",
+      "sha256": "41a71bfd98dbe5cde5c25a92b7651bf526a738dabdbd7532df3aaa5a44ce7f02"
+    },
+    {
+      "bytes": 796,
+      "file": "pdf-technical-audit-summary.json",
+      "sha256": "867c7c62e7ec5b1d129aaf55ef49f5cf9ddcb1cae98925222c100babb76e52bd"
+    },
+    {
+      "bytes": 7100,
+      "file": "pdf-technical-ai-review.csv",
+      "sha256": "a08c143ce5dea85eef4d1c653e6631acec9c5e2f16411334a1cff32b09ae476f"
+    },
+    {
+      "bytes": 2858,
+      "file": "report-result-claims-audit.json",
+      "sha256": "08b579cb155d3de6ffc440c44b718ad076473b842a12594b7b545a20652c5b57"
+    }
+  ],
+  "privacy_boundary": {
+    "excluded": "Private PDFs, extracted evidence text, source figures, embeddings, databases, local paths, generated answers, raw judge payloads and API keys.",
+    "included": "Aggregate metrics, per-question ranks and identifiers, statistical outputs, bibliographic verification, article-level licence records and author-led claim-citation, source-page rights, publication disposition and PDF parsing audits with subsequent Codex cross-checking."
+  }
+}

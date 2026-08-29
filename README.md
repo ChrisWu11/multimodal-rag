@@ -4,6 +4,8 @@ FastAPI backend for an ultrasound and thermal-imaging oriented multimodal RAG pr
 
 The app works without external API keys by using a deterministic local embedding fallback and an extractive answer fallback. That makes it easy to test with Postman before real data arrives.
 
+The reviewed report, LaTeX source, and privacy-safe evaluation summaries are available in [`docs/final-report/`](docs/final-report/README.md).
+
 ## What Is Implemented
 
 - Text ingestion from raw text, `.txt`, `.md`, `.csv`, `.json`, and `.pdf`
@@ -27,7 +29,7 @@ The app works without external API keys by using a deterministic local embedding
 ## Quick Start
 
 ```bash
-cd /Users/apple/Desktop/uob/Final-Project/multimodal-rag
+cd multimodal-rag
 python3.10 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -124,10 +126,11 @@ labelled as `[Image]` and reserves numbered citations such as `[1]` for retrieve
 The final demo can reuse the curated ultrasound/thermal paper chunks produced during the first RAG route. If the precomputed SentenceTransformers vectors are available, import them directly:
 
 ```bash
+export RAG_V1_DIR=/path/to/private/rag_v1
 python scripts/ingest_rag_v1_chunks.py \
-  --chunks /Users/apple/Documents/LLM\&RAG/data/ultrasound_heat_papers/rag_v1/chunks.jsonl \
-  --documents /Users/apple/Documents/LLM\&RAG/data/ultrasound_heat_papers/rag_v1/documents.jsonl \
-  --vectors /Users/apple/Documents/LLM\&RAG/data/ultrasound_heat_papers/rag_v1/st_all_minilm_l6_v2_embeddings.npy \
+  --chunks "$RAG_V1_DIR/chunks.jsonl" \
+  --documents "$RAG_V1_DIR/documents.jsonl" \
+  --vectors "$RAG_V1_DIR/st_all_minilm_l6_v2_embeddings.npy" \
   --embedding-provider sentence_transformers \
   --embedding-model sentence-transformers/all-MiniLM-L6-v2 \
   --reset-source

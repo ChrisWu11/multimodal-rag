@@ -8,6 +8,8 @@ __pycache__/
 .mypy_cache/
 .coverage
 htmlcov/
+.tmp/
+tmp/
 
 node_modules/
 frontend/dist/
@@ -18,6 +20,21 @@ storage/uploads/*
 !storage/uploads/.gitkeep
 
 *.log
+outputs/
+evaluation/manual-review/*.csv
+evaluation/results/*.zip
+
+# Local final-report working files; only the reviewed LaTeX source and canonical
+# PDF are published.
+docs/final-report/AI-USE-DECLARATION-DRAFT.md
+docs/final-report/MSc-Final-Report-Draft-*
+docs/final-report/MSc-Final-Report-Template-*
+docs/final-report/Multimodal-RAG-Final-Report.pdf
+docs/final-report/final-report-requirements-and-100-mark-strategy-zh.md
+docs/final-report/*.zip
+docs/final-report/figures/
+docs/final-report/latex/*.pdf
+docs/final-report/latex/*.zip
 dist/
 build/
 *.egg-info/

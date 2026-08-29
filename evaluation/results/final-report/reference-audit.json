@@ -1,0 +1,1312 @@
+{
+  "records": [
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": null,
+      "decision_note": "Official proceedings record; this paper has no DOI in the bibliography.",
+      "discrepancies": [],
+      "doi": null,
+      "key": "lewis2020rag",
+      "number": null,
+      "pages": "9459--9474",
+      "source_http_status": 200,
+      "source_url": "https://papers.nips.cc/paper_files/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html",
+      "title": "Retrieval-augmented generation for knowledge-intensive {NLP} tasks",
+      "title_similarity_to_crossref": null,
+      "verified": true,
+      "verifier": "NeurIPS proceedings",
+      "volume": "33",
+      "year": "2020"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Li",
+            "given": "Junyi"
+          },
+          {
+            "family": "Cheng",
+            "given": "Xiaoxue"
+          },
+          {
+            "family": "Zhao",
+            "given": "Xin"
+          },
+          {
+            "family": "Nie",
+            "given": "Jian-Yun"
+          },
+          {
+            "family": "Wen",
+            "given": "Ji-Rong"
+          }
+        ],
+        "authors": [
+          "Junyi Li",
+          "Xiaoxue Cheng",
+          "Xin Zhao",
+          "Jian-Yun Nie",
+          "Ji-Rong Wen"
+        ],
+        "container_title": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+        "number": "",
+        "pages": "6449-6464",
+        "title": "HaluEval: A Large-Scale Hallucination Evaluation Benchmark for Large Language Models",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/2023.emnlp-main.397",
+        "verified": true,
+        "volume": "",
+        "year": "2023"
+      },
+      "decision_note": "The proceedings PDF identifies the third author as Wayne Xin Zhao; the Crossref deposit shortens this to Xin Zhao.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/2023.emnlp-main.397",
+      "key": "li2023halueval",
+      "number": null,
+      "pages": "6449--6464",
+      "source_http_status": 200,
+      "source_url": "https://aclanthology.org/2023.emnlp-main.397.pdf",
+      "title": "{HaluEval}: A large-scale hallucination evaluation benchmark for large language models",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "ACL Anthology proceedings PDF",
+      "volume": null,
+      "year": "2023"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Bouyamourn",
+            "given": "Adam"
+          }
+        ],
+        "authors": [
+          "Adam Bouyamourn"
+        ],
+        "container_title": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+        "number": "",
+        "pages": "3181-3193",
+        "title": "Why LLMs Hallucinate, and How to Get (Evidential) Closure: Perceptual, Intensional, and Extensional Learning for Faithful Natural Language Generation",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/2023.emnlp-main.192",
+        "verified": true,
+        "volume": "",
+        "year": "2023"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/2023.emnlp-main.192",
+      "key": "bouyamourn2023hallucinate",
+      "number": null,
+      "pages": "3181--3193",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.18653/v1/2023.emnlp-main.192",
+      "title": "Why {LLMs} hallucinate, and how to get (evidential) closure: Perceptual, intensional, and extensional learning for faithful natural language generation",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": null,
+      "year": "2023"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Robertson",
+            "given": "Stephen"
+          },
+          {
+            "family": "Zaragoza",
+            "given": "Hugo"
+          }
+        ],
+        "authors": [
+          "Stephen Robertson",
+          "Hugo Zaragoza"
+        ],
+        "container_title": "Foundations and Trends® in Information Retrieval",
+        "number": "1-2",
+        "pages": "1-174",
+        "title": "The Probabilistic Relevance Framework: BM25 and Beyond",
+        "type": "journal-article",
+        "url": "https://doi.org/10.1561/1500000019",
+        "verified": true,
+        "volume": "4",
+        "year": "2009"
+      },
+      "decision_note": "The official article and DBLP record supersede an erroneous Crossref deposit that reports volume 4(1-2), pages 1-174.",
+      "discrepancies": [],
+      "doi": "10.1561/1500000019",
+      "key": "robertson2009bm25",
+      "number": "4",
+      "pages": "333--389",
+      "source_http_status": 200,
+      "source_url": "https://dblp.org/rec/journals/ftir/RobertsonZ09.html",
+      "title": "The probabilistic relevance framework: {BM25} and beyond",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "DBLP record and publisher PDF",
+      "volume": "3",
+      "year": "2009"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Karpukhin",
+            "given": "Vladimir"
+          },
+          {
+            "family": "Oguz",
+            "given": "Barlas"
+          },
+          {
+            "family": "Min",
+            "given": "Sewon"
+          },
+          {
+            "family": "Lewis",
+            "given": "Patrick"
+          },
+          {
+            "family": "Wu",
+            "given": "Ledell"
+          },
+          {
+            "family": "Edunov",
+            "given": "Sergey"
+          },
+          {
+            "family": "Chen",
+            "given": "Danqi"
+          },
+          {
+            "family": "Yih",
+            "given": "Wen-tau"
+          }
+        ],
+        "authors": [
+          "Vladimir Karpukhin",
+          "Barlas Oguz",
+          "Sewon Min",
+          "Patrick Lewis",
+          "Ledell Wu",
+          "Sergey Edunov",
+          "Danqi Chen",
+          "Wen-tau Yih"
+        ],
+        "container_title": "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+        "number": "",
+        "pages": "6769-6781",
+        "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/2020.emnlp-main.550",
+        "verified": true,
+        "volume": "",
+        "year": "2020"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/2020.emnlp-main.550",
+      "key": "karpukhin2020dpr",
+      "number": null,
+      "pages": "6769--6781",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.18653/v1/2020.emnlp-main.550",
+      "title": "Dense passage retrieval for open-domain question answering",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": null,
+      "year": "2020"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Reimers",
+            "given": "Nils"
+          },
+          {
+            "family": "Gurevych",
+            "given": "Iryna"
+          }
+        ],
+        "authors": [
+          "Nils Reimers",
+          "Iryna Gurevych"
+        ],
+        "container_title": "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)",
+        "number": "",
+        "pages": "3980-3990",
+        "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/d19-1410",
+        "verified": true,
+        "volume": "",
+        "year": "2019"
+      },
+      "decision_note": "ACL Anthology and the proceedings PDF supersede an erroneous Crossref page range of 3980-3990.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/d19-1410",
+      "key": "reimers2019sbert",
+      "number": null,
+      "pages": "3982--3992",
+      "source_http_status": 200,
+      "source_url": "https://aclanthology.org/D19-1410/",
+      "title": "Sentence-{BERT}: Sentence embeddings using {Siamese BERT}-networks",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "ACL Anthology",
+      "volume": null,
+      "year": "2019"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Cormack",
+            "given": "Gordon V."
+          },
+          {
+            "family": "Clarke",
+            "given": "Charles L A"
+          },
+          {
+            "family": "Buettcher",
+            "given": "Stefan"
+          }
+        ],
+        "authors": [
+          "Gordon V. Cormack",
+          "Charles L A Clarke",
+          "Stefan Buettcher"
+        ],
+        "container_title": "Proceedings of the 32nd international ACM SIGIR conference on Research and development in information retrieval",
+        "number": "",
+        "pages": "758-759",
+        "title": "Reciprocal rank fusion outperforms condorcet and individual rank learning methods",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.1145/1571941.1572114",
+        "verified": true,
+        "volume": "",
+        "year": "2009"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.1145/1571941.1572114",
+      "key": "cormack2009rrf",
+      "number": null,
+      "pages": "758--759",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.1145/1571941.1572114",
+      "title": "Reciprocal rank fusion outperforms {Condorcet} and individual rank learning methods",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": null,
+      "year": "2009"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Shen",
+            "given": "Zejiang"
+          },
+          {
+            "family": "Lo",
+            "given": "Kyle"
+          },
+          {
+            "family": "Wang",
+            "given": "Lucy Lu"
+          },
+          {
+            "family": "Kuehl",
+            "given": "Bailey"
+          },
+          {
+            "family": "Weld",
+            "given": "Daniel S."
+          },
+          {
+            "family": "Downey",
+            "given": "Doug"
+          }
+        ],
+        "authors": [
+          "Zejiang Shen",
+          "Kyle Lo",
+          "Lucy Lu Wang",
+          "Bailey Kuehl",
+          "Daniel S. Weld",
+          "Doug Downey"
+        ],
+        "container_title": "Transactions of the Association for Computational Linguistics",
+        "number": "",
+        "pages": "376-392",
+        "title": "VILA: Improving Structured Content Extraction from Scientific PDFs Using Visual Layout Groups",
+        "type": "journal-article",
+        "url": "https://doi.org/10.1162/tacl_a_00466",
+        "verified": true,
+        "volume": "10",
+        "year": "2022"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.1162/tacl_a_00466",
+      "key": "shen2022vila",
+      "number": null,
+      "pages": "376--392",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.1162/tacl_a_00466",
+      "title": "{VILA}: Improving structured content extraction from scientific {PDFs} using visual layout groups",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": "10",
+      "year": "2022"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": null,
+      "decision_note": "Official ICLR 2024 proceedings paper; no DOI is assigned.",
+      "discrepancies": [],
+      "doi": null,
+      "key": "blecher2023nougat",
+      "number": null,
+      "pages": null,
+      "source_http_status": 200,
+      "source_url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/a39a9aceda771cded859ae7560530e09-Paper-Conference.pdf",
+      "title": "Nougat: Neural optical understanding for academic documents",
+      "title_similarity_to_crossref": null,
+      "verified": true,
+      "verifier": "ICLR proceedings",
+      "volume": null,
+      "year": "2024"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Liu",
+            "given": "Ye"
+          },
+          {
+            "family": "Hashimoto",
+            "given": "Kazuma"
+          },
+          {
+            "family": "Zhou",
+            "given": "Yingbo"
+          },
+          {
+            "family": "Yavuz",
+            "given": "Semih"
+          },
+          {
+            "family": "Xiong",
+            "given": "Caiming"
+          },
+          {
+            "family": "Yu",
+            "given": "Philip"
+          }
+        ],
+        "authors": [
+          "Ye Liu",
+          "Kazuma Hashimoto",
+          "Yingbo Zhou",
+          "Semih Yavuz",
+          "Caiming Xiong",
+          "Philip Yu"
+        ],
+        "container_title": "Findings of the Association for Computational Linguistics: EMNLP 2021",
+        "number": "",
+        "pages": "188-200",
+        "title": "Dense Hierarchical Retrieval for Open-domain Question Answering",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/2021.findings-emnlp.19",
+        "verified": true,
+        "volume": "",
+        "year": "2021"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/2021.findings-emnlp.19",
+      "key": "liu2021dense",
+      "number": null,
+      "pages": "188--200",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.18653/v1/2021.findings-emnlp.19",
+      "title": "Dense hierarchical retrieval for open-domain question answering",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": null,
+      "year": "2021"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Liu",
+            "given": "Nelson F."
+          },
+          {
+            "family": "Lin",
+            "given": "Kevin"
+          },
+          {
+            "family": "Hewitt",
+            "given": "John"
+          },
+          {
+            "family": "Paranjape",
+            "given": "Ashwin"
+          },
+          {
+            "family": "Bevilacqua",
+            "given": "Michele"
+          },
+          {
+            "family": "Petroni",
+            "given": "Fabio"
+          },
+          {
+            "family": "Liang",
+            "given": "Percy"
+          }
+        ],
+        "authors": [
+          "Nelson F. Liu",
+          "Kevin Lin",
+          "John Hewitt",
+          "Ashwin Paranjape",
+          "Michele Bevilacqua",
+          "Fabio Petroni",
+          "Percy Liang"
+        ],
+        "container_title": "Transactions of the Association for Computational Linguistics",
+        "number": "",
+        "pages": "157-173",
+        "title": "Lost in the Middle: How Language Models Use Long Contexts",
+        "type": "journal-article",
+        "url": "https://doi.org/10.1162/tacl_a_00638",
+        "verified": true,
+        "volume": "12",
+        "year": "2024"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.1162/tacl_a_00638",
+      "key": "liu2024lost",
+      "number": null,
+      "pages": "157--173",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.1162/tacl_a_00638",
+      "title": "Lost in the middle: How language models use long contexts",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": "12",
+      "year": "2024"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Singh",
+            "given": "Amanpreet"
+          },
+          {
+            "family": "D’Arcy",
+            "given": "Mike"
+          },
+          {
+            "family": "Cohan",
+            "given": "Arman"
+          },
+          {
+            "family": "Downey",
+            "given": "Doug"
+          },
+          {
+            "family": "Feldman",
+            "given": "Sergey"
+          }
+        ],
+        "authors": [
+          "Amanpreet Singh",
+          "Mike D’Arcy",
+          "Arman Cohan",
+          "Doug Downey",
+          "Sergey Feldman"
+        ],
+        "container_title": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+        "number": "",
+        "pages": "5548-5566",
+        "title": "SciRepEval: A Multi-Format Benchmark for Scientific Document Representations",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/2023.emnlp-main.338",
+        "verified": true,
+        "volume": "",
+        "year": "2023"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/2023.emnlp-main.338",
+      "key": "singh2023scirepeval",
+      "number": null,
+      "pages": "5548--5566",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.18653/v1/2023.emnlp-main.338",
+      "title": "{SciRepEval}: A multi-format benchmark for scientific document representations",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": null,
+      "year": "2023"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Es",
+            "given": "Shahul"
+          },
+          {
+            "family": "James",
+            "given": "Jithin"
+          },
+          {
+            "family": "Espinosa Anke",
+            "given": "Luis"
+          },
+          {
+            "family": "Schockaert",
+            "given": "Steven"
+          }
+        ],
+        "authors": [
+          "Shahul Es",
+          "Jithin James",
+          "Luis Espinosa Anke",
+          "Steven Schockaert"
+        ],
+        "container_title": "Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations",
+        "number": "",
+        "pages": "150-158",
+        "title": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/2024.eacl-demo.16",
+        "verified": true,
+        "volume": "",
+        "year": "2024"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/2024.eacl-demo.16",
+      "key": "es2024ragas",
+      "number": null,
+      "pages": "150--158",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.18653/v1/2024.eacl-demo.16",
+      "title": "{RAGAs}: Automated evaluation of retrieval augmented generation",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": null,
+      "year": "2024"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Saad-Falcon",
+            "given": "Jon"
+          },
+          {
+            "family": "Khattab",
+            "given": "Omar"
+          },
+          {
+            "family": "Potts",
+            "given": "Christopher"
+          },
+          {
+            "family": "Zaharia",
+            "given": "Matei"
+          }
+        ],
+        "authors": [
+          "Jon Saad-Falcon",
+          "Omar Khattab",
+          "Christopher Potts",
+          "Matei Zaharia"
+        ],
+        "container_title": "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+        "number": "",
+        "pages": "338-354",
+        "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/2024.naacl-long.20",
+        "verified": true,
+        "volume": "",
+        "year": "2024"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/2024.naacl-long.20",
+      "key": "saadfalcon2024ares",
+      "number": null,
+      "pages": "338--354",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.18653/v1/2024.naacl-long.20",
+      "title": "{ARES}: An automated evaluation framework for retrieval-augmented generation systems",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": null,
+      "year": "2024"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": null,
+      "decision_note": "Official PMLR proceedings record; no DOI is assigned.",
+      "discrepancies": [],
+      "doi": null,
+      "key": "radford2021clip",
+      "number": null,
+      "pages": "8748--8763",
+      "source_http_status": 200,
+      "source_url": "https://proceedings.mlr.press/v139/radford21a.html",
+      "title": "Learning transferable visual models from natural language supervision",
+      "title_similarity_to_crossref": null,
+      "verified": true,
+      "verifier": "Proceedings of Machine Learning Research",
+      "volume": "139",
+      "year": "2021"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": null,
+      "decision_note": "Official PMLR proceedings record; no DOI is assigned.",
+      "discrepancies": [],
+      "doi": null,
+      "key": "li2022blip",
+      "number": null,
+      "pages": "12888--12900",
+      "source_http_status": 200,
+      "source_url": "https://proceedings.mlr.press/v162/li22n.html",
+      "title": "{BLIP}: Bootstrapping language-image pre-training for unified vision-language understanding and generation",
+      "title_similarity_to_crossref": null,
+      "verified": true,
+      "verifier": "Proceedings of Machine Learning Research",
+      "volume": "162",
+      "year": "2022"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Wu",
+            "given": "Siwei"
+          },
+          {
+            "family": "Li",
+            "given": "Yizhi"
+          },
+          {
+            "family": "Zhu",
+            "given": "Kang"
+          },
+          {
+            "family": "Zhang",
+            "given": "Ge"
+          },
+          {
+            "family": "Liang",
+            "given": "Yiming"
+          },
+          {
+            "family": "Ma",
+            "given": "Kaijing"
+          },
+          {
+            "family": "Xiao",
+            "given": "Chenghao"
+          },
+          {
+            "family": "Zhang",
+            "given": "Haoran"
+          },
+          {
+            "family": "Yang",
+            "given": "Bohao"
+          },
+          {
+            "family": "Chen",
+            "given": "Wenhu"
+          },
+          {
+            "family": "Huang",
+            "given": "Wenhao"
+          },
+          {
+            "family": "Al Moubayed",
+            "given": "Noura"
+          },
+          {
+            "family": "Fu",
+            "given": "Jie"
+          },
+          {
+            "family": "Lin",
+            "given": "Chenghua"
+          }
+        ],
+        "authors": [
+          "Siwei Wu",
+          "Yizhi Li",
+          "Kang Zhu",
+          "Ge Zhang",
+          "Yiming Liang",
+          "Kaijing Ma",
+          "Chenghao Xiao",
+          "Haoran Zhang",
+          "Bohao Yang",
+          "Wenhu Chen",
+          "Wenhao Huang",
+          "Noura Al Moubayed",
+          "Jie Fu",
+          "Chenghua Lin"
+        ],
+        "container_title": "Findings of the Association for Computational Linguistics ACL 2024",
+        "number": "",
+        "pages": "12560-12574",
+        "title": "SciMMIR: Benchmarking Scientific Multi-modal Information Retrieval",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/2024.findings-acl.746",
+        "verified": true,
+        "volume": "",
+        "year": "2024"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/2024.findings-acl.746",
+      "key": "wu2024scimmir",
+      "number": null,
+      "pages": "12560--12574",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.18653/v1/2024.findings-acl.746",
+      "title": "{SciMMIR}: Benchmarking scientific multi-modal information retrieval",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": null,
+      "year": "2024"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Mattay",
+            "given": "Raghav R."
+          },
+          {
+            "family": "Kim",
+            "given": "Kisoo"
+          },
+          {
+            "family": "Shah",
+            "given": "Lubdha"
+          },
+          {
+            "family": "Shah",
+            "given": "Bhavya"
+          },
+          {
+            "family": "Sugrue",
+            "given": "Leo"
+          },
+          {
+            "family": "Safoora",
+            "given": "Fatima"
+          },
+          {
+            "family": "Ozhinsky",
+            "given": "Eugene"
+          },
+          {
+            "family": "Narsinh",
+            "given": "Kazim H."
+          }
+        ],
+        "authors": [
+          "Raghav R. Mattay",
+          "Kisoo Kim",
+          "Lubdha Shah",
+          "Bhavya Shah",
+          "Leo Sugrue",
+          "Fatima Safoora",
+          "Eugene Ozhinsky",
+          "Kazim H. Narsinh"
+        ],
+        "container_title": "American Journal of Neuroradiology",
+        "number": "1",
+        "pages": "1-8",
+        "title": "MR Thermometry during Transcranial MR Imaging–Guided Focused Ultrasound Procedures: A Review",
+        "type": "journal-article",
+        "url": "https://doi.org/10.3174/ajnr.a8038",
+        "verified": true,
+        "volume": "45",
+        "year": "2023"
+      },
+      "decision_note": "The article was electronically published on 29 December 2023 and assigned to volume 45 issue 1 (January 2024); the report consistently cites the issue year.",
+      "discrepancies": [],
+      "doi": "10.3174/ajnr.a8038",
+      "key": "mattay2024mr",
+      "number": "1",
+      "pages": "1--8",
+      "source_http_status": 203,
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38123912/",
+      "title": "{MR} thermometry during transcranial {MR} imaging-guided focused ultrasound procedures: A review",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "PubMed",
+      "volume": "45",
+      "year": "2024"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Rohfritsch",
+            "given": "Adrien"
+          },
+          {
+            "family": "Barrere",
+            "given": "Victor"
+          },
+          {
+            "family": "Estienne",
+            "given": "Laura"
+          },
+          {
+            "family": "Melodelima",
+            "given": "David"
+          }
+        ],
+        "authors": [
+          "Adrien Rohfritsch",
+          "Victor Barrere",
+          "Laura Estienne",
+          "David Melodelima"
+        ],
+        "container_title": "Ultrasonics",
+        "number": "",
+        "pages": "107372",
+        "title": "2D ultrasound thermometry during thermal ablation with high-intensity focused ultrasound",
+        "type": "journal-article",
+        "url": "https://doi.org/10.1016/j.ultras.2024.107372",
+        "verified": true,
+        "volume": "142",
+        "year": "2024"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.1016/j.ultras.2024.107372",
+      "key": "rohfritsch2024ultrasound",
+      "number": null,
+      "pages": "107372",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.1016/j.ultras.2024.107372",
+      "title": "2D ultrasound thermometry during thermal ablation with high-intensity focused ultrasound",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": "142",
+      "year": "2024"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Ring",
+            "given": "E F J"
+          },
+          {
+            "family": "Ammer",
+            "given": "K"
+          }
+        ],
+        "authors": [
+          "E F J Ring",
+          "K Ammer"
+        ],
+        "container_title": "Physiological Measurement",
+        "number": "3",
+        "pages": "R33-R46",
+        "title": "Infrared thermal imaging in medicine",
+        "type": "journal-article",
+        "url": "https://doi.org/10.1088/0967-3334/33/3/r33",
+        "verified": true,
+        "volume": "33",
+        "year": "2012"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.1088/0967-3334/33/3/r33",
+      "key": "ring2012infrared",
+      "number": "3",
+      "pages": "R33--R46",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.1088/0967-3334/33/3/r33",
+      "title": "Infrared thermal imaging in medicine",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": "33",
+      "year": "2012"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Lahiri",
+            "given": "B.B."
+          },
+          {
+            "family": "Bagavathiappan",
+            "given": "S."
+          },
+          {
+            "family": "Jayakumar",
+            "given": "T."
+          },
+          {
+            "family": "Philip",
+            "given": "John"
+          }
+        ],
+        "authors": [
+          "B.B. Lahiri",
+          "S. Bagavathiappan",
+          "T. Jayakumar",
+          "John Philip"
+        ],
+        "container_title": "Infrared Physics &amp; Technology",
+        "number": "4",
+        "pages": "221-235",
+        "title": "Medical applications of infrared thermography: A review",
+        "type": "journal-article",
+        "url": "https://doi.org/10.1016/j.infrared.2012.03.007",
+        "verified": true,
+        "volume": "55",
+        "year": "2012"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.1016/j.infrared.2012.03.007",
+      "key": "lahiri2012medical",
+      "number": "4",
+      "pages": "221--235",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.1016/j.infrared.2012.03.007",
+      "title": "Medical applications of infrared thermography: A review",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": "55",
+      "year": "2012"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Amugongo",
+            "given": "Lameck Mbangula"
+          },
+          {
+            "family": "Mascheroni",
+            "given": "Pietro"
+          },
+          {
+            "family": "Brooks",
+            "given": "Steven"
+          },
+          {
+            "family": "Doering",
+            "given": "Stefan"
+          },
+          {
+            "family": "Seidel",
+            "given": "Jan"
+          }
+        ],
+        "authors": [
+          "Lameck Mbangula Amugongo",
+          "Pietro Mascheroni",
+          "Steven Brooks",
+          "Stefan Doering",
+          "Jan Seidel"
+        ],
+        "container_title": "PLOS Digital Health",
+        "number": "6",
+        "pages": "e0000877",
+        "title": "Retrieval augmented generation for large language models in healthcare: A systematic review",
+        "type": "journal-article",
+        "url": "https://doi.org/10.1371/journal.pdig.0000877",
+        "verified": true,
+        "volume": "4",
+        "year": "2025"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.1371/journal.pdig.0000877",
+      "key": "amugongo2025healthcare",
+      "number": "6",
+      "pages": "e0000877",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.1371/journal.pdig.0000877",
+      "title": "Retrieval augmented generation for large language models in healthcare: A systematic review",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": "4",
+      "year": "2025"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Stanley",
+            "given": "Sophie A."
+          },
+          {
+            "family": "Divall",
+            "given": "Pip"
+          },
+          {
+            "family": "Thompson",
+            "given": "Jonathan P."
+          },
+          {
+            "family": "Charlton",
+            "given": "Matthew"
+          }
+        ],
+        "authors": [
+          "Sophie A. Stanley",
+          "Pip Divall",
+          "Jonathan P. Thompson",
+          "Matthew Charlton"
+        ],
+        "container_title": "Frontiers in Medicine",
+        "number": "",
+        "pages": "",
+        "title": "Uses of infrared thermography in acute illness: a systematic review",
+        "type": "journal-article",
+        "url": "https://doi.org/10.3389/fmed.2024.1412854",
+        "verified": true,
+        "volume": "11",
+        "year": "2024"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.3389/fmed.2024.1412854",
+      "key": "stanley2024acute",
+      "number": null,
+      "pages": "1412854",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.3389/fmed.2024.1412854",
+      "title": "Uses of infrared thermography in acute illness: A systematic review",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": "11",
+      "year": "2024"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Lena",
+            "given": "Beatrice"
+          },
+          {
+            "family": "Bartels",
+            "given": "Lambertus W."
+          },
+          {
+            "family": "Ferrer",
+            "given": "Cyril J."
+          },
+          {
+            "family": "Moonen",
+            "given": "Chrit T. W."
+          },
+          {
+            "family": "Viergever",
+            "given": "Max A."
+          },
+          {
+            "family": "Bos",
+            "given": "Clemens"
+          }
+        ],
+        "authors": [
+          "Beatrice Lena",
+          "Lambertus W. Bartels",
+          "Cyril J. Ferrer",
+          "Chrit T. W. Moonen",
+          "Max A. Viergever",
+          "Clemens Bos"
+        ],
+        "container_title": "Magnetic Resonance in Medicine",
+        "number": "5",
+        "pages": "2647-2655",
+        "title": "Interleaved water and fat MR thermometry for monitoring high intensity focused ultrasound ablation of bone lesions",
+        "type": "journal-article",
+        "url": "https://doi.org/10.1002/mrm.28877",
+        "verified": true,
+        "volume": "86",
+        "year": "2021"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.1002/mrm.28877",
+      "key": "lena2021interleaved",
+      "number": "5",
+      "pages": "2647--2655",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.1002/mrm.28877",
+      "title": "Interleaved water and fat {MR} thermometry for monitoring high intensity focused ultrasound ablation of bone lesions",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": "86",
+      "year": "2021"
+    },
+    {
+      "cited_in_report": true,
+      "claim_support_review_status": "pending_human_reading",
+      "crossref": {
+        "author_parts": [
+          {
+            "family": "Chen",
+            "given": "Catherine"
+          },
+          {
+            "family": "Shen",
+            "given": "Zejiang"
+          },
+          {
+            "family": "Klein",
+            "given": "Dan"
+          },
+          {
+            "family": "Stanovsky",
+            "given": "Gabriel"
+          },
+          {
+            "family": "Downey",
+            "given": "Doug"
+          },
+          {
+            "family": "Lo",
+            "given": "Kyle"
+          }
+        ],
+        "authors": [
+          "Catherine Chen",
+          "Zejiang Shen",
+          "Dan Klein",
+          "Gabriel Stanovsky",
+          "Doug Downey",
+          "Kyle Lo"
+        ],
+        "container_title": "Findings of the Association for Computational Linguistics: ACL 2023",
+        "number": "",
+        "pages": "13345-13360",
+        "title": "Are Layout-Infused Language Models Robust to Layout Distribution Shifts? A Case Study with Scientific Documents",
+        "type": "proceedings-article",
+        "url": "https://doi.org/10.18653/v1/2023.findings-acl.844",
+        "verified": true,
+        "volume": "",
+        "year": "2023"
+      },
+      "decision_note": "DOI, title, publication year and ordered author names matched the registry record.",
+      "discrepancies": [],
+      "doi": "10.18653/v1/2023.findings-acl.844",
+      "key": "chen2023layout",
+      "number": null,
+      "pages": "13345--13360",
+      "source_http_status": null,
+      "source_url": "https://doi.org/10.18653/v1/2023.findings-acl.844",
+      "title": "Are layout-infused language models robust to layout distribution shifts? A case study with scientific documents",
+      "title_similarity_to_crossref": 1.0,
+      "verified": true,
+      "verifier": "Crossref DOI registry",
+      "volume": null,
+      "year": "2023"
+    }
+  ],
+  "summary": {
+    "bibliography_count": 25,
+    "cited_key_count": 25,
+    "metadata_scope": "Automated verification confirms bibliographic identity and metadata, not whether each cited sentence is semantically supported.",
+    "missing_bibliography_keys": [],
+    "uncited_bibliography_keys": [],
+    "unverified_count": 0,
+    "verified_count": 25
+  }
+}

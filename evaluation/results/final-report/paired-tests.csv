@@ -1,0 +1,57 @@
+comparison,left_mode,right_mode,metric,mean_difference,p_value,resamples,sample_size,interpretation
+Hybrid RRF versus lexical,st_hybrid_rrf,fts_bm25,mrr,0.0344,0.51017,50000,50,not_detected_at_0.05
+Hybrid RRF versus lexical,st_hybrid_rrf,fts_bm25,recall_at_5,0.06,0.547029,50000,50,not_detected_at_0.05
+Hybrid RRF versus lexical,st_hybrid_rrf,fts_bm25,ndcg_at_10,0.0336,0.442671,50000,50,not_detected_at_0.05
+Hybrid RRF versus dense,st_hybrid_rrf,st_dense,mrr,0.0904,6e-05,50000,50,statistically_detectable
+Hybrid RRF versus dense,st_hybrid_rrf,st_dense,recall_at_5,0.1,0.062459,50000,50,not_detected_at_0.05
+Hybrid RRF versus dense,st_hybrid_rrf,st_dense,ndcg_at_10,0.0841,0.00014,50000,50,statistically_detectable
+Hybrid reranking versus Hybrid RRF,rerank_hybrid_rrf_top30,st_hybrid_rrf,mrr,0.0613,0.179556,50000,50,not_detected_at_0.05
+Hybrid reranking versus Hybrid RRF,rerank_hybrid_rrf_top30,st_hybrid_rrf,recall_at_5,0.04,0.687566,50000,50,not_detected_at_0.05
+Hybrid reranking versus Hybrid RRF,rerank_hybrid_rrf_top30,st_hybrid_rrf,ndcg_at_10,0.0533,0.157597,50000,50,not_detected_at_0.05
+Lexical reranking versus lexical,rerank_fts_top30,fts_bm25,mrr,0.1166,0.031959,50000,50,statistically_detectable
+Lexical reranking versus lexical,rerank_fts_top30,fts_bm25,recall_at_5,0.08,0.287294,50000,50,not_detected_at_0.05
+Lexical reranking versus lexical,rerank_fts_top30,fts_bm25,ndcg_at_10,0.0961,0.034299,50000,50,statistically_detectable
+Dense RAG versus LLM only,dense_rag,llm_only,correctness,0.3,0.108138,50000,30,not_detected_at_0.05
+Dense RAG versus LLM only,dense_rag,llm_only,faithfulness,0.2333,0.196716,50000,30,not_detected_at_0.05
+Dense RAG versus LLM only,dense_rag,llm_only,completeness,0.4333,0.02156,50000,30,statistically_detectable
+Hybrid reranked RAG versus dense RAG,hybrid_reranked_rag,dense_rag,correctness,0.1,0.568189,50000,30,not_detected_at_0.05
+Hybrid reranked RAG versus dense RAG,hybrid_reranked_rag,dense_rag,faithfulness,0.0,1.0,50000,30,not_detected_at_0.05
+Hybrid reranked RAG versus dense RAG,hybrid_reranked_rag,dense_rag,completeness,0.1,0.50095,50000,30,not_detected_at_0.05
+Hybrid reranked RAG versus LLM only,hybrid_reranked_rag,llm_only,correctness,0.4,0.01002,50000,30,statistically_detectable
+Hybrid reranked RAG versus LLM only,hybrid_reranked_rag,llm_only,faithfulness,0.2333,0.216676,50000,30,not_detected_at_0.05
+Hybrid reranked RAG versus LLM only,hybrid_reranked_rag,llm_only,completeness,0.5333,0.00012,50000,30,statistically_detectable
+Vision summary versus text only,vision_summary,text_only,caption_coverage,0.1667,0.751205,50000,12,not_detected_at_0.05
+Vision summary versus text only,vision_summary,text_only,citation_quality,0.0833,1.0,50000,12,not_detected_at_0.05
+Vision summary versus text only,vision_summary,text_only,response_structure,0.0833,1.0,50000,12,not_detected_at_0.05
+Vision summary versus text only,vision_summary,text_only,source_recall_at_5,0.0,1.0,50000,12,not_detected_at_0.05
+Vision summary versus basic metadata,vision_summary,basic_metadata,caption_coverage,0.0,1.0,50000,12,not_detected_at_0.05
+Vision summary versus basic metadata,vision_summary,basic_metadata,citation_quality,0.0833,1.0,50000,12,not_detected_at_0.05
+Vision summary versus basic metadata,vision_summary,basic_metadata,response_structure,0.0,1.0,50000,12,not_detected_at_0.05
+Vision summary versus basic metadata,vision_summary,basic_metadata,source_recall_at_5,0.0,1.0,50000,12,not_detected_at_0.05
+Production metadata versus text-only hybrid,title_section_text:hybrid_rrf,text_only:hybrid_rrf,mrr,-0.006,0.869243,50000,50,not_detected_at_0.05
+Production metadata versus text-only hybrid,title_section_text:hybrid_rrf,text_only:hybrid_rrf,recall_at_5,-0.02,1.0,50000,50,not_detected_at_0.05
+Production metadata versus text-only hybrid,title_section_text:hybrid_rrf,text_only:hybrid_rrf,ndcg_at_10,-0.0084,0.686326,50000,50,not_detected_at_0.05
+Production metadata versus text-only dense,title_section_text:dense,text_only:dense,mrr,-0.0372,0.169097,50000,50,not_detected_at_0.05
+Production metadata versus text-only dense,title_section_text:dense,text_only:dense,recall_at_5,0.0,1.0,50000,50,not_detected_at_0.05
+Production metadata versus text-only dense,title_section_text:dense,text_only:dense,ndcg_at_10,-0.0228,0.350873,50000,50,not_detected_at_0.05
+Title and section versus title-only hybrid,title_section_text:hybrid_rrf,title_text:hybrid_rrf,mrr,0.0175,0.105938,50000,50,not_detected_at_0.05
+Title and section versus title-only hybrid,title_section_text:hybrid_rrf,title_text:hybrid_rrf,recall_at_5,-0.02,1.0,50000,50,not_detected_at_0.05
+Title and section versus title-only hybrid,title_section_text:hybrid_rrf,title_text:hybrid_rrf,ndcg_at_10,0.0143,0.063619,50000,50,not_detected_at_0.05
+Top-20 versus top-10 candidate pool,top_20,top_10,mrr,0.0063,0.847363,50000,50,not_detected_at_0.05
+Top-20 versus top-10 candidate pool,top_20,top_10,recall_at_5,0.02,1.0,50000,50,not_detected_at_0.05
+Top-20 versus top-10 candidate pool,top_20,top_10,ndcg_at_10,0.0085,0.813284,50000,50,not_detected_at_0.05
+Top-30 versus top-20 candidate pool,top_30,top_20,mrr,-0.0128,0.250375,50000,50,not_detected_at_0.05
+Top-30 versus top-20 candidate pool,top_30,top_20,recall_at_5,-0.04,0.49705,50000,50,not_detected_at_0.05
+Top-30 versus top-20 candidate pool,top_30,top_20,ndcg_at_10,-0.0099,0.253435,50000,50,not_detected_at_0.05
+Top-50 versus top-20 candidate pool,top_50,top_20,mrr,-0.0208,0.091838,50000,50,not_detected_at_0.05
+Top-50 versus top-20 candidate pool,top_50,top_20,recall_at_5,-0.04,0.49763,50000,50,not_detected_at_0.05
+Top-50 versus top-20 candidate pool,top_50,top_20,ndcg_at_10,-0.017,0.250935,50000,50,not_detected_at_0.05
+350/50 versus production 650/90,w350_o50,w650_o90,mrr,0.0506,0.043599,50000,50,statistically_detectable
+350/50 versus production 650/90,w350_o50,w650_o90,recall_at_5,0.12,0.031219,50000,50,statistically_detectable
+350/50 versus production 650/90,w350_o50,w650_o90,ndcg_at_10,0.0545,0.0199,50000,50,statistically_detectable
+No overlap versus production 650/90,w650_o0,w650_o90,mrr,-0.0005,0.98662,50000,50,not_detected_at_0.05
+No overlap versus production 650/90,w650_o0,w650_o90,recall_at_5,0.0,1.0,50000,50,not_detected_at_0.05
+No overlap versus production 650/90,w650_o0,w650_o90,ndcg_at_10,-0.0024,0.934461,50000,50,not_detected_at_0.05
+900/150 versus production 650/90,w900_o150,w650_o90,mrr,-0.0172,0.531229,50000,50,not_detected_at_0.05
+900/150 versus production 650/90,w900_o150,w650_o90,recall_at_5,-0.04,0.50487,50000,50,not_detected_at_0.05
+900/150 versus production 650/90,w900_o150,w650_o90,ndcg_at_10,-0.03,0.212676,50000,50,not_detected_at_0.05

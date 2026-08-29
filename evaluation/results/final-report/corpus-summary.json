@@ -1,0 +1,36 @@
+{
+  "chunk_count": 4243,
+  "chunk_word_count": {
+    "max": 829,
+    "mean": 522.9,
+    "min": 48
+  },
+  "document_count": 272,
+  "empty_or_low_text_documents": 0,
+  "extracted_document_count": 272,
+  "git_sha": "e416772e84d9eaffa2ab46e8dd03e4780cdc072c",
+  "metadata_coverage": {
+    "chunk_id": 1.0,
+    "doc_id": 1.0,
+    "doi": 0.8294,
+    "page_end": 1.0,
+    "page_start": 1.0,
+    "section": 1.0,
+    "year": 1.0
+  },
+  "missing_pdf_count": 0,
+  "notes": [
+    "The 30-document sample is a deterministic technical audit, not a clinical review.",
+    "Repeated boundary lines are candidates for inspection, not confirmed parser errors."
+  ],
+  "page_record_count": 3904,
+  "repeated_boundary_line_candidates": 339,
+  "replacement_character_count": 0,
+  "replacement_character_rate": 0.0,
+  "sample_size": 30,
+  "seed": 3035412,
+  "short_chunk_count_below_120_words": 16,
+  "task": "corpus_audit",
+  "unknown_section_chunk_count": 224,
+  "unknown_section_chunk_rate": 0.0528
+}

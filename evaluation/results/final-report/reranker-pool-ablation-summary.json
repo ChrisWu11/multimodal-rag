@@ -1,0 +1,70 @@
+{
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "eval_label": "AI-assisted reviewed silver; non-expert",
+  "eval_path": "<redacted-local-path>",
+  "git_sha": "e416772e84d9eaffa2ab46e8dd03e4780cdc072c",
+  "pool_sizes": [
+    10,
+    20,
+    30,
+    50
+  ],
+  "question_count": 50,
+  "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "seed": 3035412,
+  "summaries": [
+    {
+      "judged_count": 50,
+      "mean_latency_ms": 157.9,
+      "median_latency_ms": 148.96,
+      "mrr": 0.5907,
+      "ndcg_at_10": 0.618,
+      "ndcg_at_20": 0.618,
+      "ndcg_at_5": 0.6108,
+      "pool_size": 10,
+      "recall_at_10": 0.7,
+      "recall_at_20": 0.7,
+      "recall_at_5": 0.68
+    },
+    {
+      "judged_count": 50,
+      "mean_latency_ms": 265.64,
+      "median_latency_ms": 257.42,
+      "mrr": 0.597,
+      "ndcg_at_10": 0.6265,
+      "ndcg_at_20": 0.631,
+      "ndcg_at_5": 0.6207,
+      "pool_size": 20,
+      "recall_at_10": 0.72,
+      "recall_at_20": 0.74,
+      "recall_at_5": 0.7
+    },
+    {
+      "judged_count": 50,
+      "mean_latency_ms": 349.82,
+      "median_latency_ms": 337.06,
+      "mrr": 0.5842,
+      "ndcg_at_10": 0.6165,
+      "ndcg_at_20": 0.6211,
+      "ndcg_at_5": 0.5969,
+      "pool_size": 30,
+      "recall_at_10": 0.72,
+      "recall_at_20": 0.74,
+      "recall_at_5": 0.66
+    },
+    {
+      "judged_count": 50,
+      "mean_latency_ms": 571.24,
+      "median_latency_ms": 533.67,
+      "mrr": 0.5762,
+      "ndcg_at_10": 0.6095,
+      "ndcg_at_20": 0.6149,
+      "ndcg_at_5": 0.5908,
+      "pool_size": 50,
+      "recall_at_10": 0.72,
+      "recall_at_20": 0.74,
+      "recall_at_5": 0.66
+    }
+  ],
+  "task": "reranker_candidate_pool_ablation"
+}

@@ -1,0 +1,22 @@
+{
+  "decision_counts": {
+    "approved": 5,
+    "approved_with_minor_issues": 21,
+    "needs_rebuild": 4
+  },
+  "document_count": 30,
+  "documents_with_formula_or_table_limitations": 6,
+  "documents_with_image_only_pages": 0,
+  "documents_with_multi_section_pages": 15,
+  "documents_with_post_reference_sections": 2,
+  "documents_with_reference_tail": 25,
+  "documents_with_section_metadata_limitations": 22,
+  "documents_with_tables": 8,
+  "documents_with_two_columns": 29,
+  "material_body_truncations": 2,
+  "pdf_page_count": 524,
+  "reviewer_type": "AI-assisted technical audit",
+  "stored_extracted_page_count": 352,
+  "visual_inspection_method": "all physical pages inspected in rendered contact sheets; flagged pages re-rendered at high resolution",
+  "visual_review_status": "complete"
+}

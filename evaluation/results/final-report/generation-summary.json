@@ -1,0 +1,50 @@
+{
+  "answerable_count": 30,
+  "git_sha": "e416772e84d9eaffa2ab46e8dd03e4780cdc072c",
+  "judge_models": [
+    "gemini-3.6-flash"
+  ],
+  "judge_repeats": 2,
+  "label_warning": "Answerable references are AI-assisted silver labels, not expert gold.",
+  "model": "gemini-3.5-flash-lite",
+  "summaries": [
+    {
+      "abstention_accuracy": 0.7,
+      "answer_count": 40,
+      "citation_precision": 0.0,
+      "invalid_citation_count": 0,
+      "mean_completeness_0_2": 1.425,
+      "mean_correctness_0_2": 1.475,
+      "mean_faithfulness_0_2": 1.6,
+      "mean_generation_latency_ms": 946.95,
+      "mode": "llm_only",
+      "unsupported_claim_rate": 0.269
+    },
+    {
+      "abstention_accuracy": 1.0,
+      "answer_count": 40,
+      "citation_precision": 0.983,
+      "invalid_citation_count": 0,
+      "mean_completeness_0_2": 1.875,
+      "mean_correctness_0_2": 1.825,
+      "mean_faithfulness_0_2": 1.9,
+      "mean_generation_latency_ms": 976.78,
+      "mode": "dense_rag",
+      "unsupported_claim_rate": 0.02
+    },
+    {
+      "abstention_accuracy": 1.0,
+      "answer_count": 40,
+      "citation_precision": 0.978,
+      "invalid_citation_count": 0,
+      "mean_completeness_0_2": 1.95,
+      "mean_correctness_0_2": 1.9,
+      "mean_faithfulness_0_2": 1.9,
+      "mean_generation_latency_ms": 1001.72,
+      "mode": "hybrid_reranked_rag",
+      "unsupported_claim_rate": 0.02
+    }
+  ],
+  "task": "generation_and_citation",
+  "unanswerable_count": 10
+}

@@ -1,0 +1,275 @@
+{
+  "articles": {
+    "10.1080/02656736.2025.2606701": {
+      "cc_by_4_verified": true,
+      "licence_urls": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "publisher": "Informa UK Limited",
+      "registry_verified": true,
+      "resource_url": "https://doi.org/10.1080/02656736.2025.2606701",
+      "title": "Integrating temperature-dependent tissue properties into focused ultrasound computational models for enhanced treatment planning"
+    },
+    "10.1109/jmw.2025.3612329": {
+      "cc_by_4_verified": true,
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/legalcode"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "registry_verified": true,
+      "resource_url": "https://doi.org/10.1109/jmw.2025.3612329",
+      "title": "Microwave Ablation Monitoring Using Thermoacoustic and Ultrasound Tomography"
+    },
+    "10.1371/journal.pone.0310899": {
+      "cc_by_4_verified": true,
+      "licence_urls": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "publisher": "Public Library of Science (PLoS)",
+      "registry_verified": true,
+      "resource_url": "https://doi.org/10.1371/journal.pone.0310899",
+      "title": "A comprehensive numerical procedure for high-intensity focused ultrasound ablation of breast tumour on an anatomically realistic breast phantom"
+    },
+    "10.1371/journal.pone.0324801": {
+      "cc_by_4_verified": true,
+      "licence_urls": [
+        "http://creativecommons.org/licenses/by/4.0/"
+      ],
+      "publisher": "Public Library of Science (PLoS)",
+      "registry_verified": true,
+      "resource_url": "https://doi.org/10.1371/journal.pone.0324801",
+      "title": "Monitoring high-intensity focused ultrasound thermal therapy by ultrasound doppler imaging using twinkling artifact"
+    },
+    "10.21203/rs.3.rs-8143174/v1": {
+      "cc_by_4_verified": true,
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "publisher": "Springer Science and Business Media LLC",
+      "registry_verified": true,
+      "resource_url": "https://doi.org/10.21203/rs.3.rs-8143174/v1",
+      "title": "A multiphysics computational model of focused ultrasound-enhanced drug delivery using temperature-sensitive liposomes"
+    },
+    "10.3390/cancers17030515": {
+      "cc_by_4_verified": true,
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "publisher": "MDPI AG",
+      "registry_verified": true,
+      "resource_url": "https://doi.org/10.3390/cancers17030515",
+      "title": "Using the Tissue Impulse Response Function to Streamline Fractionated MRgFUS-Induced Hyperthermia"
+    },
+    "10.3390/s25020385": {
+      "cc_by_4_verified": true,
+      "licence_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "publisher": "MDPI AG",
+      "registry_verified": true,
+      "resource_url": "https://doi.org/10.3390/s25020385",
+      "title": "A Novel Ultrasound Thermometry Method Based on Thermal Strain and Short and Constant Acoustic Bursts: Preliminary Study in Phantoms"
+    }
+  },
+  "figures": [
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Figure 7, A Novel Ultrasound Thermometry Method Based on Thermal Strain and Short and Constant Acoustic Bursts: Preliminary Study in Phantoms. (2025), DOI 10.3390/s25020385, CC BY 4.0.",
+      "candidate_id": "doc_0009_781c46b648e3_p010_f02",
+      "category": "ultrasound",
+      "cc_by_4_verified": true,
+      "doi": "10.3390/s25020385",
+      "figure_number": "Figure 7",
+      "image_sha256": "3cd10fcefb8f456783f8a109cfa6370d3d62c126c69d6a7af929fb78a8c0437a",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "page": 10,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "A Novel Ultrasound Thermometry Method Based on Thermal Strain and Short and Constant Acoustic Bursts: Preliminary Study in Phantoms."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Fig 5, Monitoring high-intensity focused ultrasound thermal therapy by ultrasound doppler imaging using twinkling artifact. (2025), DOI 10.1371/journal.pone.0324801, CC BY 4.0.",
+      "candidate_id": "doc_0150_4731780ae890_p009_f01",
+      "category": "ultrasound",
+      "cc_by_4_verified": true,
+      "doi": "10.1371/journal.pone.0324801",
+      "figure_number": "Fig 5",
+      "image_sha256": "b7475a4a38ac9c872bf35edb146a70590e97f8a9bab7025b325f99abed9d395e",
+      "licence_url": "http://creativecommons.org/licenses/by/4.0/",
+      "page": 9,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "Monitoring high-intensity focused ultrasound thermal therapy by ultrasound doppler imaging using twinkling artifact."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "FIGURE 6, Microwave Ablation Monitoring Using Thermoacoustic and Ultrasound Tomography. (2026), DOI 10.1109/jmw.2025.3612329, CC BY 4.0.",
+      "candidate_id": "doc_0116_be106c5827df_p018_f01",
+      "category": "ultrasound",
+      "cc_by_4_verified": true,
+      "doi": "10.1109/jmw.2025.3612329",
+      "figure_number": "FIGURE 6",
+      "image_sha256": "f47cc0ca4e0d374435c14c8ecb5b728e6e0b7c163bcd80068533aa0d5bf1e0d2",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "page": 18,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "Microwave Ablation Monitoring Using Thermoacoustic and Ultrasound Tomography."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Fig 7, Monitoring high-intensity focused ultrasound thermal therapy by ultrasound doppler imaging using twinkling artifact. (2025), DOI 10.1371/journal.pone.0324801, CC BY 4.0.",
+      "candidate_id": "doc_0150_4731780ae890_p011_f01",
+      "category": "ultrasound",
+      "cc_by_4_verified": true,
+      "doi": "10.1371/journal.pone.0324801",
+      "figure_number": "Fig 7",
+      "image_sha256": "b65a058d875ecfbad315b2a05e0fcf39e9106866f3e40a5b12ea2ac468b37889",
+      "licence_url": "http://creativecommons.org/licenses/by/4.0/",
+      "page": 11,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "Monitoring high-intensity focused ultrasound thermal therapy by ultrasound doppler imaging using twinkling artifact."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Figure 4, Using the Tissue Impulse Response Function to Streamline Fractionated MRgFUS-Induced Hyperthermia. (2025), DOI 10.3390/cancers17030515, CC BY 4.0.",
+      "candidate_id": "doc_0156_5f9a68461daf_p010_f01",
+      "category": "thermal",
+      "cc_by_4_verified": true,
+      "doi": "10.3390/cancers17030515",
+      "figure_number": "Figure 4",
+      "image_sha256": "6170ff56df670e89a79577121afe82c7f88cbcdec460f2c1232041484f49164f",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "page": 10,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "Using the Tissue Impulse Response Function to Streamline Fractionated MRgFUS-Induced Hyperthermia."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Figure 3, Integrating temperature-dependent tissue properties into focused ultrasound computational models for enhanced treatment planning. (2026), DOI 10.1080/02656736.2025.2606701, CC BY 4.0.",
+      "candidate_id": "doc_0115_03129e2fda6b_p024_f01",
+      "category": "thermal",
+      "cc_by_4_verified": true,
+      "doi": "10.1080/02656736.2025.2606701",
+      "figure_number": "Figure 3",
+      "image_sha256": "f8d81c576b2c0349f703d75eae66fc77fef0614b4db49a6fac2ee9c1ebc42fb0",
+      "licence_url": "http://creativecommons.org/licenses/by/4.0/",
+      "page": 24,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "Integrating temperature-dependent tissue properties into focused ultrasound computational models for enhanced treatment planning."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Figure 5, Integrating temperature-dependent tissue properties into focused ultrasound computational models for enhanced treatment planning. (2026), DOI 10.1080/02656736.2025.2606701, CC BY 4.0.",
+      "candidate_id": "doc_0115_03129e2fda6b_p026_f01",
+      "category": "thermal",
+      "cc_by_4_verified": true,
+      "doi": "10.1080/02656736.2025.2606701",
+      "figure_number": "Figure 5",
+      "image_sha256": "2ee32df5e2e856eedd608ab331952becad86467a21908aa4b8a59d27922bf1f0",
+      "licence_url": "http://creativecommons.org/licenses/by/4.0/",
+      "page": 26,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "Integrating temperature-dependent tissue properties into focused ultrasound computational models for enhanced treatment planning."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Figure 6, Integrating temperature-dependent tissue properties into focused ultrasound computational models for enhanced treatment planning. (2026), DOI 10.1080/02656736.2025.2606701, CC BY 4.0.",
+      "candidate_id": "doc_0115_03129e2fda6b_p027_f01",
+      "category": "thermal",
+      "cc_by_4_verified": true,
+      "doi": "10.1080/02656736.2025.2606701",
+      "figure_number": "Figure 6",
+      "image_sha256": "f857cf7e393245c7e512141ba89310955a748bd595ca2ea25d46190b15388d2e",
+      "licence_url": "http://creativecommons.org/licenses/by/4.0/",
+      "page": 27,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "Integrating temperature-dependent tissue properties into focused ultrasound computational models for enhanced treatment planning."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Fig 1, A comprehensive numerical procedure for high-intensity focused ultrasound ablation of breast tumour on an anatomically realistic breast phantom. (2024), DOI 10.1371/journal.pone.0310899, CC BY 4.0.",
+      "candidate_id": "doc_0161_6080a6bc3d5b_p006_f01",
+      "category": "setup_or_plot",
+      "cc_by_4_verified": true,
+      "doi": "10.1371/journal.pone.0310899",
+      "figure_number": "Fig 1",
+      "image_sha256": "c671c975a6233ab7927e4d41d95a1e3fa5cf5252db36bc9eaaf332c35a666609",
+      "licence_url": "http://creativecommons.org/licenses/by/4.0/",
+      "page": 6,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "A comprehensive numerical procedure for high-intensity focused ultrasound ablation of breast tumour on an anatomically realistic breast phantom."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "FIGURE 3, Microwave Ablation Monitoring Using Thermoacoustic and Ultrasound Tomography. (2026), DOI 10.1109/jmw.2025.3612329, CC BY 4.0.",
+      "candidate_id": "doc_0116_be106c5827df_p015_f01",
+      "category": "setup_or_plot",
+      "cc_by_4_verified": true,
+      "doi": "10.1109/jmw.2025.3612329",
+      "figure_number": "FIGURE 3",
+      "image_sha256": "e52ff22cab2c4065a8526de610bc087df2ac30446340aa5d9d8f7469f1de5bc3",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "page": 15,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "Microwave Ablation Monitoring Using Thermoacoustic and Ultrasound Tomography."
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Fig. 1, A multiphysics computational model of focused ultrasound-enhanced drug delivery using temperature-sensitive liposomes (2025), DOI 10.21203/rs.3.rs-8143174/v1, CC BY 4.0.",
+      "candidate_id": "doc_0010_12273d2ffc1c_p007_f01",
+      "category": "setup_or_plot",
+      "cc_by_4_verified": true,
+      "doi": "10.21203/rs.3.rs-8143174/v1",
+      "figure_number": "Fig. 1",
+      "image_sha256": "d92276612e9aa9adcb107049df256c0ec29b6f0b677c8f4f446a1b19dcacc313",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+      "page": 7,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "A multiphysics computational model of focused ultrasound-enhanced drug delivery using temperature-sensitive liposomes"
+    },
+    {
+      "article_licence": "CC BY 4.0",
+      "attribution": "Figure 9, Integrating temperature-dependent tissue properties into focused ultrasound computational models for enhanced treatment planning. (2026), DOI 10.1080/02656736.2025.2606701, CC BY 4.0.",
+      "candidate_id": "doc_0115_03129e2fda6b_p030_f01",
+      "category": "setup_or_plot",
+      "cc_by_4_verified": true,
+      "doi": "10.1080/02656736.2025.2606701",
+      "figure_number": "Figure 9",
+      "image_sha256": "acaa79fb800f24c99837081af414ff7e5078b1afb9482f037739b6bc69dbb493",
+      "licence_url": "http://creativecommons.org/licenses/by/4.0/",
+      "page": 30,
+      "registry_verified": true,
+      "third_party_caption_signal": false,
+      "third_party_material_review": "no_automated_caption_signal",
+      "title": "Integrating temperature-dependent tissue properties into focused ultrasound computational models for enhanced treatment planning."
+    }
+  ],
+  "summary": {
+    "cc_by_4_verified_count": 12,
+    "scope_note": "Crossref confirms the version-of-record article licence. Automated caption screening cannot exclude an unlabelled third-party element inside a figure.",
+    "selected_figure_count": 12,
+    "third_party_caption_signal_count": 0,
+    "unique_article_count": 7
+  }
+}

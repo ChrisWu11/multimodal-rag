@@ -1,0 +1,13 @@
+mode,metric,pair_count,exact_agreement,quadratic_weighted_kappa
+dense_rag,correctness,40,1.0,1.0
+dense_rag,faithfulness,40,1.0,1.0
+dense_rag,completeness,40,1.0,1.0
+dense_rag,abstention,10,1.0,1.0
+hybrid_reranked_rag,correctness,40,1.0,1.0
+hybrid_reranked_rag,faithfulness,40,1.0,1.0
+hybrid_reranked_rag,completeness,40,1.0,1.0
+hybrid_reranked_rag,abstention,10,1.0,1.0
+llm_only,correctness,40,1.0,1.0
+llm_only,faithfulness,40,1.0,1.0
+llm_only,completeness,40,1.0,1.0
+llm_only,abstention,10,1.0,1.0
