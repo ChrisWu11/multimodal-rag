@@ -129,7 +129,7 @@ Project Title & \textbf{Development and Evaluation of an Evidence-Grounded Multi
 
 \section*{Abstract}
 
-Scientific answers need traceable evidence, especially when relevant full texts require institutional access. This project evaluated a multimodal retrieval-augmented generation (RAG) system over a locally managed private corpus covering ultrasound, thermal ablation, thermometry and thermal imaging. It combined provenance-preserving PDF ingestion, lexical and dense retrieval, rank fusion, CrossEncoder reranking, Gemini generation and image summaries. The corpus contained 272 papers, 3,904 page records and 4,243 chunks; DOI metadata was present for 82.94\% of chunks and 5.28\% had an unknown section. The author checked 50 question--evidence labels against primary sources and online records, then used Codex for a consistency check; 32 were approved and 18 corrected. Without medical-specialist review, they remain non-expert silver labels. Hybrid Recall@5 was 0.62, compared with 0.56 for lexical and 0.52 for dense retrieval. Lexical-pool reranking produced the highest mean reciprocal rank (MRR), 0.605, at 341 ms mean local latency. A 350-word/50-overlap ablation achieved Recall@5 of 0.74 but created 6,997 chunks, 64.9\% more than production 650/90. Across 30 answerable and ten evidence-insufficient questions, grounded hybrid RAG scored 1.867/2 for correctness and faithfulness, with 97.6\% citation precision, correct abstention on all ten evidence-insufficient cases and a 2.0\% unsupported-claim rate, down from 26.9\% without evidence. On 12 figures from seven Creative Commons Attribution 4.0 articles, vision summaries did not improve source Recall@5 beyond 0.917. Citation quality was 1.917 rather than 1.833, and unsupported visual inferences were zero rather than three, but no condition difference was detected. Corpus quality, retrieval and evidence constraints should therefore be improved before generator fine-tuning. The multimodal results are exploratory and do not constitute clinical validation.
+Scientific answers need traceable evidence, especially when relevant full texts require institutional access. This project evaluated a multimodal retrieval-augmented generation (RAG) system over a locally managed corpus covering ultrasound, thermal ablation, thermometry and thermal imaging. It combined provenance-preserving PDF ingestion, lexical and dense retrieval, rank fusion, CrossEncoder reranking, Gemini generation and image summaries. The corpus contained 272 papers, 3,904 page records and 4,243 chunks; DOI metadata was present for 82.94\% of chunks and 5.28\% had an unknown section. A fixed 50-question development/evaluation set assigned one source chunk to each question. The author checked every label against its source and online record before a Codex consistency check; 32 were approved and 18 corrected. Because the set informed configuration comparison and lacked medical-specialist review, it remains non-expert silver data rather than an independent test benchmark. Hybrid source-paper Recall@5 was 0.62, compared with 0.56 for lexical and 0.52 for dense retrieval; lexical-pool reranking produced the highest mean reciprocal rank (MRR), 0.605. A 350-word/50-overlap ablation achieved source-paper Recall@5 of 0.74 but created 64.9\% more chunks than production 650/90. Across 30 answerable and ten evidence-insufficient questions, a fixed Gemini judge scored grounded hybrid RAG at 1.867/2 for correctness and faithfulness, with 97.6\% citation precision, complete abstention and a 2.0\% unsupported-claim rate, down from 26.9\% without evidence. These are LLM-judged estimates, not expert clinical scores. The multimodal extension converted images into Gemini Vision observations and retrieval terms before the existing text retriever; it did not use a joint image--text index. On 12 figures, vision summaries did not improve source Recall@5 beyond 0.917 or produce a detectable quality difference. The multimodal findings remain exploratory and do not constitute clinical validation.
 
 \noindent\textbf{Keywords:} retrieval-augmented generation; multimodal learning; scientific literature; information retrieval; evidence grounding
 
@@ -197,11 +197,9 @@ Recall@k records whether labelled evidence appears in the first k results; MRR e
 \subsection{Multimodal scientific retrieval}
 \label{sec:multimodal-scientific-retrieval}
 
-Contrastive Language--Image Pre-training (CLIP) demonstrated transferable image--text alignment at scale \cite{radford2021clip}, while Bootstrapping Language--Image Pre-training (BLIP) improved both understanding and generation with filtered caption data \cite{li2022blip}. The Scientific Multi-Modal Information Retrieval (SciMMIR) benchmark nevertheless identifies a domain gap: scientific captions tend to describe results or principles rather than the activities and scenery common in generic images \cite{wu2024scimmir}. For this reason, the first implementation uses Gemini Vision to produce question-aware observations and retrieval terms. These terms extend the audited text retriever instead of forming a separate vision index.
+CLIP established transferable image--text alignment, and BLIP improved visual understanding and caption generation \cite{radford2021clip,li2022blip}. SciMMIR nevertheless reports a scientific-domain gap because figure captions commonly express results or principles rather than generic scenes \cite{wu2024scimmir}. The implementation therefore uses Gemini Vision to produce question-aware observations and retrieval terms for the audited text retriever; it does not build a separate visual index.
 
-The multimodal path separates visual observations from literature evidence. Pixel intensity is not treated as calibrated temperature without radiometric metadata. The source articles carry CC BY licences, but figure-level credits are checked separately; source images are not redistributed. Questions use captions and surrounding text rather than diagnosis. This is exploratory literature retrieval, not medical-device or clinical-performance evaluation.
-
-MR thermometry supports real-time monitoring during focused-ultrasound procedures, but performance depends on acquisition, tissue composition and motion \cite{mattay2024mr,lena2021interleaved}. Ultrasound backscattered-energy thermometry has measured liver heating through the ablative range, but remains tissue- and method-dependent \cite{rohfritsch2024ultrasound}. Infrared thermography is non-contact and maps surface temperature; standardisation and environmental control remain important \cite{ring2012infrared,lahiri2012medical,stanley2024acute}. The assistant must therefore separate visible features, experimental measurements and clinically established conclusions.
+The extension distinguishes visual observations from literature evidence and does not infer calibrated temperature from pixels without radiometric metadata. Questions use captions and context rather than diagnosis; source images are not redistributed, and figure credits are checked separately. MR, ultrasound and infrared thermometry also remain acquisition-, tissue- or protocol-dependent \cite{mattay2024mr,lena2021interleaved,rohfritsch2024ultrasound,ring2012infrared,lahiri2012medical,stanley2024acute}. The evaluation is therefore exploratory literature retrieval, not clinical validation.
 
 \FloatBarrier
 \section{Methodology and System Design}
@@ -219,9 +217,9 @@ Figure~\ref{fig:architecture} summarises the frozen architecture evaluated in th
   \label{fig:architecture}
 \end{figure}
 
-The study used artefact development followed by controlled comparative evaluation. The application was frozen at commit \code{e416772}, tag \code{image-qa-v1-2026-06-23}; public FastAPI interfaces and tested parameters were not changed in response to results. Every experiment created an immutable timestamped directory with commit, seed, models, parameters, per-case output, summary and latency.
+Artefact development was followed by controlled comparative evaluation. The application was frozen at commit \code{e416772}, tag \code{image-qa-v1-2026-06-23}; interfaces and tested parameters were not changed in response to results. Each run recorded the commit, seed, models, parameters, per-case output, summary and latency in an immutable directory.
 
-The system comprises a FastAPI backend, Vite/React client, SQLite persistence and modular ingestion, retrieval, generation and image services. The interface displays research chat, evidence cards, DOI links and model status, but evaluation concerns the underlying evidence pipeline rather than UI appearance. Corpus files and embeddings remain local; query-time Gemini calls transmit only the selected evidence excerpts or the evaluation image required for the requested operation. The prototype is therefore locally managed but not fully on-premises.
+The system comprises FastAPI, Vite/React, SQLite and modular ingestion, retrieval, generation and image services. Evaluation concerns the evidence pipeline rather than UI appearance. Corpus files and embeddings remain local; query-time Gemini calls transmit selected evidence excerpts or the requested image, so the prototype is locally managed but not fully on-premises.
 
 Figure~\ref{fig:demo-interface} shows the final demonstration interface and its evidence cards.
 
@@ -260,12 +258,14 @@ The source snapshot was collected on 28 May 2026 through OpenAlex, Europe PMC, a
 
 Records retained source, access and extraction metadata. PyMuPDF extracted text, coordinates and images; chunks preserved page, section and stable IDs. Corpus chunks used 650-word maximum, 120-word minimum and 90-word overlap. The separate 900/150-character upload splitter was not evaluated.
 
-The audit checked file presence, extraction, metadata, empty text, replacement characters, short chunks and \code{Unknown} sections. Boundary lines repeated at least three times were flagged as possible headers/footers, not declared errors. For the deterministic sample stratified by age and length, all 524 physical pages from 30 PDFs were rendered and inspected; flagged pages were re-rendered at high resolution. Stored records were checked for page coverage, reading order, section metadata, table/equation linearisation and false reference boundaries. This author-led technical audit used automated flags and Codex to cross-check anomalies; it was not clinical or independent expert review.
+The audit checked extraction, metadata, empty text, replacement characters, short chunks and \code{Unknown} sections; repeated boundary lines were flagged as possible headers or footers. In a deterministic sample stratified by age and length, all 524 physical pages from 30 PDFs were rendered and inspected for page coverage, reading order, section metadata, table/equation linearisation and false reference boundaries. This author-led technical audit used automated flags and Codex anomaly cross-checks; it was neither clinical nor independent expert review.
 
 \subsection{Retrieval configurations}
 \label{sec:retrieval-configurations}
 
-All retrieval experiments used 50 manually reviewed silver questions, subsequently cross-checked with Codex, in a fixed order with seed 3035412. The author checked each label against its source passage and online publication record before a Codex consistency check. Thirty-two were approved and 18 corrected by narrowing scope, completing an answer or replacing weak evidence; none was deleted. Crossref or repository records confirmed bibliographic identity. Without medical-specialist review, this improves traceability but not expert validity.
+The 50-question set was constructed after corpus indexing from a fixed, Codex-assisted list of topic specifications covering applications, methods, mechanisms, risks, parameters, comparisons and facts. Each specification defined required or optional terms and preferred sections. A deterministic script scored the 4,243 chunks, discouraged repeated use of one document, selected the highest-scoring unused chunk and extracted up to two supporting sentences. All questions were answerable; each had exactly one nominated chunk and source paper, and together they covered 40 documents. Alternative valid passages or papers were not exhaustively labelled.
+
+The author checked every question, answer and passage against local primary-source text and an online publication record before a Codex consistency check. Thirty-two labels were approved and 18 corrected by narrowing scope, completing an answer or replacing weak evidence; none was deleted. The same fixed set was then used to compare retrieval, reranking, metadata and chunk configurations and to inspect errors. It is therefore a development/evaluation set, not an untouched hold-out. It did not train or fine-tune SentenceTransformers, the CrossEncoder or Gemini. All comparisons retained the same order and seed 3035412. Without medical-specialist review, the process improves traceability but not expert validity.
 
 Full-text search in SQLite FTS supplied the lexical/BM25-style baseline. Dense retrieval used \path{sentence-transformers/all-MiniLM-L6-v2}; 384-dimensional corpus embeddings were precomputed and cosine similarity was evaluated locally. The model is compact enough for a laptop and requires no inference API key.
 
@@ -275,9 +275,9 @@ Two fusion methods were compared. RRF combined lexical and dense ranks using Equ
 \operatorname{RRF}(d)=\sum_{r\in\{\mathrm{lex},\mathrm{dense}\}}
 \frac{1}{60+\operatorname{rank}_{r}(d)} .
 \end{equation}
-Weighted fusion was also tested at lexical weights 0.50 and 0.75. Candidate pools contained up to 80 passages. CrossEncoder experiments used \path{cross-encoder/ms-marco-MiniLM-L-6-v2}, maximum sequence length 384, batches of 16 and the first 900 characters per candidate. Lexical, dense and RRF pools were reranked separately. Secondary sensitivity tests compared reranker pools of 10, 20, 30 and 50, and compared dense/hybrid indexes containing text only, title plus text, or title plus section plus text.
+Weighted fusion was tested at lexical weights 0.50 and 0.75. Candidate pools contained up to 80 passages. CrossEncoder experiments used \path{cross-encoder/ms-marco-MiniLM-L-6-v2}, sequence length 384, batches of 16 and the first 900 characters per candidate. Lexical, dense and RRF pools were reranked separately; sensitivity tests varied reranker-pool size and indexed metadata.
 
-Metrics were Recall@5, @10 and @20, mean reciprocal rank (MRR), normalised discounted cumulative gain (nDCG) at 5 and 10, and end-to-end query latency. A hit required the document ID, normalised DOI or labelled chunk to match a silver source. MRR averaged \(1/r_i\) for the first relevant rank \(r_i\), with zero for a miss; nDCG discounted relevant evidence by rank. Per-question ranks were retained for paired error analysis.
+Metrics were Recall@5, @10 and @20, mean reciprocal rank (MRR), normalised discounted cumulative gain (nDCG) at 5 and 10, and end-to-end query latency. Every label supplied one chunk ID, document ID and DOI where available. Matching used an OR rule: an exact chunk match or any returned chunk with the same document ID or normalised DOI counted as a hit. The reported Recall, MRR and nDCG are therefore source-paper metrics, not strict supporting-passage metrics. A correct paper can still expose the wrong passage to the generator, while other valid passages or papers may be unlabelled. MRR used \(1/r_i\) for the first source-paper hit, with zero for a miss; nDCG discounted that hit by rank. Per-question ranks were retained for paired error analysis.
 
 \subsection{Chunk ablation}
 \label{sec:chunk-ablation}
@@ -295,9 +295,11 @@ Thirty answerable reviewed-silver questions were selected proportionally by type
 
 \textbf{Condition C (hybrid grounded RAG):} RRF hybrid retrieval, CrossEncoder reranking and a grounded prompt with the top five passages.
 
+Condition C represented the intended production architecture. It was retained because RRF combined lexical and semantic signals and had broader first-stage source-paper Recall@5 than lexical retrieval (0.62 versus 0.56). Lexical-pool reranking achieved the highest MRR, so hybrid plus reranking is not claimed to be the empirically optimal ranker. The choice reflects an engineering trade-off informed by the same development/evaluation set, not independent held-out validation.
+
 The grounded prompt required direct answer, evidence, limitations, \code{Sources used}, a \code{[n]} marker for literature claims and abstention when evidence was insufficient. Because no sources were supplied to the no-retrieval baseline, citation precision was not applicable to that condition.
 
-Programmatic checks validated citation indices against supplied evidence. A fixed-schema Gemini judge scored answerable-case correctness, faithfulness and completeness (0--2), and counted claims, unsupported claims, citation support and abstention. Two temperature-zero judgements were retained for each answer. Unsupported-claim rate used all cases; citation precision used answerable grounded cases; abstention accuracy used only evidence-insufficient cases. Model judgement is not expert truth.
+Programmatic checks validated only citation syntax and index range. A fixed-schema Gemini judge scored answerable-case correctness, faithfulness and completeness (0--2), and assessed claims, semantic citation support, unsupported claims and abstention. Two temperature-zero judgements were retained for each answer. Unsupported-claim rate used all cases; citation precision used answerable grounded cases; abstention accuracy used only evidence-insufficient cases. These semantic metrics are LLM-judged estimates, not independent expert truth.
 
 \subsection{Exploratory image question answering}
 \label{sec:exploratory-image-question-answering}
@@ -312,7 +314,7 @@ Three conditions used the same question for each image.
 
 \textbf{Condition C (vision summary):} the question plus a Gemini Vision summary constrained to observable features, uncertainty and retrieval terms.
 
-Each resulting query entered the same hybrid/CrossEncoder pipeline. Source Recall@5 tested paper retrieval; caption coverage, citation quality, structure, unsupported visual inference and contradiction assessed answers. Stage latency was stored separately. Captions can omit visible details and are not independent clinical labels.
+Gemini Vision first converted each image into textual observations and retrieval terms; those terms extended the question sent to the same text-based hybrid/CrossEncoder pipeline. No joint image--text embedding or direct image-index retrieval was used. Source Recall@5 tested paper retrieval; caption coverage, citation quality, structure, unsupported visual inference and contradiction assessed answers. Captions can omit visible details and are not independent clinical labels.
 
 \subsection{Software verification and analysis}
 \label{sec:software-verification-and-analysis}
@@ -326,9 +328,9 @@ Evaluation used an Apple M1 MacBook Air (8 GB), macOS 15.2 and Python 3.10.6; th
 \subsection{Corpus and parsing quality}
 \label{sec:corpus-and-parsing-quality}
 
-The automated audit found 272 PDFs, 3,904 page records and 4,243 chunks. DOI coverage was 82.94\%; provenance fields were complete. There were 224 \code{Unknown}-section chunks (5.28\%), 16 below 120 words, no replacement characters and 339 possible repeated boundary lines. Chunk length was 48--829 words (mean 522.9).
+The automated audit found 272 PDFs, 3,904 page records and 4,243 chunks. DOI coverage was 82.94\%; provenance fields were complete. It found 224 \code{Unknown}-section chunks (5.28\%), 16 short chunks, no replacement characters and 339 possible repeated boundary lines.
 
-The screen classified 5 documents as approved, 21 with minor/local issues and 4 for rebuild. Two false reference boundaries omitted body text; two papers had unreliable formula/table extraction. Fifteen documents had a retained multi-section page and six had formula/table limitations. Field completeness did not establish semantic correctness; this sample identifies failures, not a corpus-wide rate.
+The screen found 5 approved, 21 minor, and 4 rebuild cases. False reference boundaries omitted body text in two papers, while two had unreliable formula/table extraction. The sample identifies failure types, not a corpus-wide error rate.
 
 \subsection{Retrieval and reranking}
 \label{sec:retrieval-and-reranking}
@@ -388,7 +390,7 @@ Figure~\ref{fig:retrieval-results} compares retrieval and reranking performance.
       \legend{MRR,Recall@5,nDCG@10}
     \end{axis}
   \end{tikzpicture}
-  \caption{Retrieval and reranking performance by configuration; error bars show 95\% bootstrap confidence intervals.}
+  \caption{Source-paper retrieval and reranking performance; error bars show 95\% bootstrap confidence intervals.}
   \label{fig:retrieval-results}
 \end{figure}
 
@@ -396,7 +398,7 @@ Lexical MRR and Recall@5 were 0.489 and 0.56; dense retrieval reached 0.433 and 
 
 Lexical reranking raised MRR to 0.605 (unadjusted \(p=0.031959\)) and nDCG@10 to 0.626 (unadjusted \(p=0.034299\)); both changes were nominally detectable. RRF reranking gave MRR 0.584 and nDCG@10 0.617, but neither change was nominally detectable. Reranking therefore reordered supplied candidates but could not recover first-stage omissions.
 
-Mean latency was 25.3 ms for lexical, 36.4 ms for dense, 62.0 ms for RRF and 321--341 ms with CrossEncoder. A top-20 reranker pool gave MRR 0.597 at 266 ms; no pool-size difference was nominally detectable. Both text-only and title-only hybrid retrieval achieved Recall@5 of 0.64, compared with 0.62 for title plus section, and no metadata difference was nominally detectable.
+Mean latency was 25.3 ms for lexical, 36.4 ms for dense, 62.0 ms for RRF and 321--341 ms with CrossEncoder. Pool-size and indexed-metadata sensitivity tests produced no nominally detectable difference.
 
 Table~\ref{tab:retrieval-errors} converts per-question ranks into an automated screening taxonomy. It identifies where to inspect, rather than proving a root cause.
 
@@ -435,7 +437,7 @@ Figure~\ref{fig:chunk-ablation} shows the early-recall and index-size trade-off.
       ymin=0.50,
       ymax=0.78,
       xlabel={Number of indexed chunks},
-      ylabel={Recall@5},
+      ylabel={Source-paper Recall@5},
       grid=major,
       grid style={gray!20}
     ]
@@ -449,20 +451,20 @@ Figure~\ref{fig:chunk-ablation} shows the early-recall and index-size trade-off.
       \node[anchor=south west,font=\scriptsize] at (axis cs:3336,0.585) {900/150};
     \end{axis}
   \end{tikzpicture}
-  \caption{Recall@5 and index-size trade-off across chunk configurations.}
+  \caption{Source-paper Recall@5 and index-size trade-off across chunk configurations.}
   \label{fig:chunk-ablation}
 \end{figure}
 
-The 350/50 condition created 6,997 chunks and achieved the best MRR (0.574), Recall@5 (0.74) and nDCG@10 (0.618). Production 650/90 created 4,243 chunks and reached 0.523, 0.62 and 0.563. The 350/50 differences from production were nominally detectable for MRR (unadjusted \(p=0.043599\)), Recall@5 (unadjusted \(p=0.031219\)) and nDCG@10 (unadjusted \(p=0.019900\)). Removing overlap produced 3,745 chunks, Recall@5 0.62 and Recall@20 0.78; 900/150 created 3,336 chunks and Recall@5 0.58. Thus 350/50 improved early recall by 12 points but enlarged the index by 64.9\%. Production remains a resource compromise rather than the retrieval optimum observed in this sample.
+The 350/50 condition created 6,997 chunks and achieved the best MRR (0.574), Recall@5 (0.74) and nDCG@10 (0.618). Production 650/90 created 4,243 chunks and reached 0.523, 0.62 and 0.563. Its differences from 350/50 were nominally detectable for all three metrics (unadjusted \(p=0.043599\), 0.031219 and 0.019900). The smaller chunks improved early recall by 12 points but enlarged the index by 64.9\%; production is a resource compromise, not the observed retrieval optimum.
 
 \subsection{Generation and citation}
 \label{sec:generation-and-citation}
 
-Generation, faithfulness and abstention results are summarised in Table~\ref{tab:generation-results} and Figure~\ref{fig:generation-results}.
+Gemini-judged generation, faithfulness and abstention results are summarised in Table~\ref{tab:generation-results} and Figure~\ref{fig:generation-results}.
 
 \begin{table}[tbp]
   \centering
-  \caption{Generation quality on 30 answerable cases, unsupported-claim rate on all 40 cases, and abstention on ten evidence-insufficient cases.}
+  \caption{Gemini-judged generation quality on 30 answerable cases, unsupported-claim rate on all 40 cases, and abstention on ten evidence-insufficient cases.}
   \label{tab:generation-results}
   \small
   \begin{tabular}{@{}lccccc@{}}
@@ -485,7 +487,7 @@ Generation, faithfulness and abstention results are summarised in Table~\ref{tab
       height=6.7cm,
       ymin=0,
       ymax=2.2,
-      ylabel={Mean judge score (0--2)},
+      ylabel={Mean Gemini-judge score (0--2)},
       xtick={0,1,2},
       xticklabels={LLM only,Dense RAG,Hybrid reranked RAG},
       x tick label style={font=\small,align=center},
@@ -520,13 +522,13 @@ Generation, faithfulness and abstention results are summarised in Table~\ref{tab
       \legend{Correctness,Faithfulness,Completeness}
     \end{axis}
   \end{tikzpicture}
-  \caption{Mean generation scores under the three evidence conditions; error bars show 95\% bootstrap confidence intervals.}
+  \caption{Mean Gemini-judged generation scores under the three evidence conditions; error bars show 95\% bootstrap confidence intervals.}
   \label{fig:generation-results}
 \end{figure}
 
-The no-retrieval baseline achieved mean correctness 1.467/2, faithfulness 1.633 and completeness 1.400 on answerable questions. Its unsupported-claim rate was 26.9\% across all cases (95\% CI 10.9--43.8\%), and it abstained on 70\% of ten evidence-insufficient questions. No out-of-range citation marker was detected.
+The Gemini judge scored the no-retrieval baseline at mean correctness 1.467/2, faithfulness 1.633 and completeness 1.400 on answerable questions. Its judged unsupported-claim rate was 26.9\% across all cases (95\% CI 10.9--43.8\%), and judged abstention was correct on 70\% of ten evidence-insufficient questions. No out-of-range citation marker was detected.
 
-Dense RAG scored 1.767 for correctness, 1.867 for faithfulness and 1.833 for completeness; unsupported claims fell to 2.0\% (0.5--4.0\%), citation precision was 98.2\% (96.0--100\%) and correct abstention on the ten evidence-insufficient cases was 100\%. Hybrid reranked RAG scored 1.867, 1.867 and 1.933; unsupported claims were 2.0\% (0.5--4.1\%), citation precision 97.6\% (95.2--99.4\%) and correct abstention was 100\%. Relative to no retrieval, dense RAG had nominally higher completeness (unadjusted \(p=0.021560\)); hybrid RAG had nominally higher correctness (unadjusted \(p=0.010020\)) and completeness (unadjusted \(p=0.000120\)). Faithfulness differences and all hybrid--dense differences were not nominally detectable.
+The judge scored dense RAG at 1.767 for correctness, 1.867 for faithfulness and 1.833 for completeness; judged unsupported claims fell to 2.0\% (0.5--4.0\%), semantic citation precision was 98.2\% (96.0--100\%) and abstention accuracy was 100\%. Hybrid reranked RAG scored 1.867, 1.867 and 1.933; the corresponding values were 2.0\% (0.5--4.1\%), 97.6\% (95.2--99.4\%) and 100\%. Relative to no retrieval, dense RAG had nominally higher judged completeness (unadjusted \(p=0.021560\)); hybrid RAG had nominally higher judged correctness (unadjusted \(p=0.010020\)) and completeness (unadjusted \(p=0.000120\)). Faithfulness differences and all hybrid--dense differences were not nominally detectable.
 
 The answer model was \code{gemini-3.5-flash-lite}. All 120 answers received two temperature-zero structured judgements from the fixed \code{gemini-3.6-flash} judge, producing 240 judgements. Exact repeat agreement and quadratic weighted kappa were 1.0 for every mode and metric, demonstrating deterministic reproducibility rather than independent validity. Amortised batched generation latency was approximately 0.95--1.00 s per answer and is not equivalent to single-user UI latency.
 
@@ -537,7 +539,7 @@ Table~\ref{tab:image-qa-results} and Figure~\ref{fig:image-qa-results} report th
 
 \begin{table}[tbp]
   \centering
-  \caption{Exploratory image-QA results on 12 figures from seven CC BY 4.0 articles.}
+  \caption{Gemini-judged exploratory image-QA results on 12 figures from seven CC BY 4.0 articles.}
   \label{tab:image-qa-results}
   \small
   \begin{tabular}{@{}lccccc@{}}
@@ -554,13 +556,13 @@ Table~\ref{tab:image-qa-results} and Figure~\ref{fig:image-qa-results} report th
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=0.94\linewidth]{figure-5-image-qa.png}
-  \caption{Image-QA quality under text, metadata and vision-summary conditions; error bars show 95\% bootstrap confidence intervals.}
+  \caption{Gemini-judged image-QA quality; error bars show 95\% bootstrap confidence intervals.}
   \label{fig:image-qa-results}
 \end{figure}
 
-Source Recall@5 was 0.917 (95\% CI 0.75--1.00) in all conditions. Text-only caption coverage was 1.583/2 (1.167--1.917); vision summary reached 1.750 (1.333--2.000) and citation quality 1.917 (1.750--2.000). No vision comparison was nominally detectable, consistent with 12 cases and caption-derived queries.
+Source Recall@5 was 0.917 (95\% CI 0.75--1.00) in all conditions. The Gemini judge scored text-only caption coverage at 1.583/2 and vision summary at 1.750, with vision citation quality 1.917. No vision comparison was nominally detectable.
 
-The judge counted three unsupported visual inferences for text-only answers, one with basic metadata and none with the vision summary; no contradiction or invalid citation index occurred. The zero count is a sample result, not proof of zero risk. Mean retrieval latency ranged from 543 to 635 ms, answer latency from 655 to 658 ms, and vision summarisation added 5.41 s per image.
+The judge counted three unsupported visual inferences for text-only answers, one with basic metadata and none with the vision summary; no contradiction or invalid citation index occurred. These are sample findings, not proof of zero risk. Vision summarisation added 5.41 s per image.
 
 \FloatBarrier
 \section{Discussion}
@@ -571,7 +573,7 @@ The judge counted three unsupported visual inferences for text-only answers, one
 
 RRF increased Recall@5 by 0.06 over lexical and 0.10 over dense search, supporting the literature distinction between exact term matching and semantic representation \cite{robertson2009bm25,karpukhin2020dpr,reimers2019sbert}. Its MRR and nDCG@10 gains over dense retrieval were nominally detectable with very small unadjusted \(p\)-values, whereas no RRF--lexical difference was detected. The result supports rank fusion for this corpus \cite{cormack2009rrf}, not a universal claim that hybrid retrieval is superior.
 
-CrossEncoder reranking produced nominal lexical-pool gains in MRR and nDCG@10 while Recall@20 changed little, consistent with reordering within a fixed candidate pool. Candidate omission remained the largest failure category. Top-20 had a slightly higher point estimate and lower latency than top-30, but no detectable difference.
+CrossEncoder reranking produced nominal lexical-pool gains in MRR and nDCG@10 while Recall@20 changed little, consistent with reordering within a fixed candidate pool. Candidate omission remained the largest failure category. The final hybrid/CrossEncoder path retained wider first-stage source-paper coverage and both retrieval signals, whereas lexical-pool reranking maximised MRR. This is an engineering trade-off, not evidence that the final path was optimal.
 
 The 350/50 index produced nominal gains in MRR, Recall@5 and nDCG@10 but expanded storage by 65\%. The literature identifies two related risks: splitting can remove document context, while longer input does not guarantee evidence use \cite{liu2021dense,liu2024lost}. Metadata did not uniformly improve dense retrieval, so future work should test section weighting and neighbouring-chunk expansion rather than assume prefixes are beneficial.
 
@@ -592,11 +594,11 @@ Separating observations from literature claims is useful, but summary errors can
 \subsection{Threats to validity}
 \label{sec:threats-to-validity}
 
-The 50 questions are manually reviewed silver labels subsequently cross-checked with Codex, not exhaustive relevance judgements or expert gold labels. The author checked online primary sources and publication records before this secondary check. Without medical expertise, this cannot establish clinical validity or replace qualified expert judgement. A valid unlisted paper may still be counted wrong, while source-level matching can reward a document whose retrieved chunk lacks the required sentence.
+The 50 questions were constructed from the indexed corpus and reused for configuration comparison and error analysis, so the reported performance is not an independent held-out estimate. Each question has one nominated chunk rather than exhaustive relevance judgements; a valid unlisted paper may be counted wrong, while source-paper matching can reward a returned chunk that lacks the required sentence. Author review and Codex cross-checking do not make these expert gold labels or establish clinical validity.
 
-Thirty answerable cases and 12 images support comparison, not general biomedical claims. Designed unanswerable questions may make abstention easier. Gemini-family judging introduces rubric and family bias; repeated temperature-zero outputs measure reproducibility, not independent human agreement. The unadjusted exploratory tests cover multiple metrics and configurations, increasing false-positive risk for marginal \(p\)-values; effect sizes and confidence intervals are therefore more informative than a binary threshold.
+Thirty answerable cases and 12 images support comparison, not biomedical generalisation. Designed unanswerable questions may make abstention easier. Gemini-family judging introduces rubric and family bias; repeated temperature-zero outputs measure reproducibility, not human agreement. Multiple unadjusted exploratory tests increase false-positive risk, so effect sizes and confidence intervals take priority.
 
-Audit metrics are proxies: complete fields need not be correct, and repeated boundary lines need not be harmful. The author-led 524-page screen, supported by automated flags and Codex cross-checking, exposed false reference stops, coarse page-level sections and damaged table/equation structure, but a 30-document purposive sample cannot establish the error rate of the full corpus. Scientific PDFs remain vulnerable to publisher-specific layout errors \cite{shen2022vila,chen2023layout}. The rights check cannot replace independent confirmation of third-party panels, and institution-accessible material requires authorised use.
+Audit metrics are proxies: complete fields need not be correct. The author-led 524-page screen, with automated flags and Codex cross-checking, exposed false reference stops, coarse sections and damaged table/equation structure, but 30 documents cannot establish a corpus-wide error rate. Scientific PDFs remain vulnerable to layout errors \cite{shen2022vila,chen2023layout}; rights and institutional-access conditions also require continuing review.
 
 Latency was measured on one Apple computer after loading, not under multi-user load. API latency and quotas remain provider- and network-dependent.
 
@@ -628,25 +630,25 @@ Table~\ref{tab:objective-traceability} shows how each objective is evidenced rat
 \section{Impact Statement}
 \label{sec:impact-statement}
 
-The immediate benefit is a more auditable way for students and researchers to explore a specialised scientific collection. Instead of accepting an uncited answer from a general model, a user can inspect the retrieved passage, paper title, DOI, page and chunk identifier. This can reduce the time spent locating initial evidence and makes disagreements easier to investigate. Institution-accessible papers can also extend the knowledge base beyond publicly indexed full text without incorporating their contents into model parameters.
+The project offers students and researchers an auditable way to explore specialised literature. Users can inspect each passage, title, DOI, page and chunk identifier rather than accept an uncited answer. This may reduce initial evidence-finding time and include authorised institution-accessible papers without incorporating them into model parameters.
 
-The primary stakeholders are postgraduate researchers, supervisors and research groups working with ultrasound or thermal-imaging literature. Librarians and institutional IT teams are relevant to lawful access, retention and deployment. Authors and publishers are affected by how full text and figures are stored and displayed. Patients are not direct users of this prototype, but could be indirectly affected if unvalidated research summaries were mistaken for clinical advice.
+Stakeholders include postgraduate researchers, supervisors, research groups, librarians, IT teams, authors and publishers; patients could be harmed by unvalidated clinical use.
 
-Implementation should therefore remain research-oriented. A university deployment would require authenticated access, encrypted storage, document-level licence rules, audit logging, deletion processes and periodic corpus review. Its benefits should be measured through evidence-finding time, retrieval coverage and citation support, not through unsupported claims of better clinical decisions. Local embeddings reduce repeated transmission of complete documents, but selected excerpts and evaluation images are still sent to Gemini. API prompts should contain only the minimum required evidence, and the prototype should not be described as fully on-premises.
+Deployment should remain research-oriented and require authentication, encrypted storage, document-level licence rules, audit logs, deletion procedures and corpus review. Benefits should be measured through evidence-finding time, retrieval coverage and citation support, not clinical outcomes. Although embeddings are local, selected excerpts and images reach Gemini; prompts should therefore contain only necessary evidence.
 
-The likely economic benefit is researcher time saved when locating and checking papers. The design could also support controlled institutional or industrial knowledge management, but this prototype is neither commercial nor clinical. Deployment would add storage, API, maintenance and rights-management costs. Environmental effects were not measured: local inference may reduce network transfer, while model computation and document storage still consume energy.
+Potential economic value lies in research time saved, while deployment adds storage, API, maintenance and rights-management costs. Environmental effects were not measured; local inference reduces some transfer, but model computation and storage still consume energy.
 
-The major risks are copyright misuse, confidential-data ingestion, automation bias, biased or incomplete literature, false citations and visual over-interpretation. Controls include authorised corpus acquisition, CC BY images for evaluation, no patient identifiers, explicit uncertainty, evidence cards, citation validation and a prohibition on diagnosis or treatment recommendations. The system can support literature navigation, but accountability for scientific interpretation remains with the researcher.
+Risks include copyright misuse, confidential data, automation bias, incomplete literature, false citations and visual over-interpretation. Controls include authorised acquisition, open-licence evaluation images, no patient identifiers, explicit uncertainty, evidence cards, citation checks and no diagnosis or treatment recommendations. Scientific accountability remains with the researcher.
 
 \FloatBarrier
 \section{Conclusions}
 \label{sec:conclusions}
 
-This project produced an auditable multimodal RAG demonstrator over 272 papers and 4,243 provenance-preserving chunks. For RQ1, no configuration dominated every criterion. RRF offered the strongest pre-reranking trade-off at 62 ms (Recall@5 0.62), while lexical-pool CrossEncoder reranking achieved the highest MRR, 0.605, at 341 ms. RRF's MRR and nDCG@10 advantages over dense retrieval were nominally detectable, but its differences from lexical retrieval were not.
+This project produced an auditable multimodal RAG demonstrator over 272 papers and 4,243 provenance-preserving chunks. For RQ1, no configuration dominated every criterion. RRF offered the strongest pre-reranking source-paper trade-off at 62 ms (Recall@5 0.62), while lexical-pool CrossEncoder reranking achieved the highest MRR, 0.605, at 341 ms. The final hybrid/CrossEncoder path retained broader first-stage source coverage and both retrieval signals; it is not claimed as the MRR optimum.
 
 For RQ2, 350/50 produced the highest Recall@5, 0.74, but 65\% more chunks than production; its MRR, Recall@5 and nDCG@10 gains were nominally detectable. The selected 650/90 configuration is therefore a resource compromise rather than an optimum.
 
-For RQ3, grounding reduced unsupported claims from 26.9\% to approximately 2.0\%, correctly abstained on all ten evidence-insufficient cases and achieved 97.6--98.2\% citation precision. Hybrid RAG produced nominal correctness and completeness gains, but no faithfulness or hybrid--dense difference. For RQ4, vision summaries did not improve Recall@5 beyond 0.917 or produce a detectable quality difference. The feature remains exploratory. Future work should prioritise corpus, retrieval and evidence quality; expert labels and figure-specific rights checks remain necessary.
+For RQ3, the Gemini judge estimated that grounding reduced unsupported claims from 26.9\% to approximately 2.0\%, abstained correctly on all ten evidence-insufficient cases and achieved 97.6--98.2\% citation precision. It found nominal correctness and completeness gains, but no faithfulness or hybrid--dense difference; these are not expert clinical scores. For RQ4, the vision-to-text extension did not improve source Recall@5 beyond 0.917 or produce a detectable quality difference. It remains an exploratory query-expansion method, not a direct joint image--text retriever. Future work should prioritise corpus, passage-level retrieval and expert evaluation.
 
 \FloatBarrier
 \section*{Acknowledgements}
@@ -661,57 +663,37 @@ The author thanks Dr Jiaqi Ye for project supervision and feedback. Codex suppor
 \section{Abbreviations and Symbols}
 \label{sec:abbreviations}
 
-\textbf{API:} application programming interface.
-
-\textbf{BM25:} Best Matching 25 probabilistic lexical ranking function.
-
-\textbf{BLIP:} Bootstrapping Language--Image Pre-training.
-
-\textbf{CC BY:} Creative Commons Attribution licence.
-
-\textbf{CI:} confidence interval.
-
-\textbf{CLIP:} Contrastive Language--Image Pre-training.
-
-\textbf{DOI:} digital object identifier.
-
-\textbf{FTS:} full-text search.
-
-\textbf{HIFU:} high-intensity focused ultrasound.
-
-\textbf{IRT:} infrared thermography.
-
-\textbf{LLM:} large language model.
-
-\textbf{MR/MRI:} magnetic resonance/magnetic resonance imaging.
-
-\textbf{MRR:} mean reciprocal rank.
-
-\textbf{nDCG:} normalised discounted cumulative gain.
-
-\textbf{PDF:} Portable Document Format.
-
-\textbf{PRFS:} proton resonance frequency shift.
-
-\textbf{QA:} question answering.
-
-\textbf{RAG:} retrieval-augmented generation.
-
-\textbf{RQ:} research question.
-
-\textbf{RRF:} reciprocal rank fusion.
-
-\textbf{SBERT:} Sentence-BERT.
-
-\textbf{SciMMIR:} Scientific Multi-Modal Information Retrieval.
-
-\textbf{TA:} thermoacoustic.
-
-\textbf{UST:} ultrasound tomography.
-
-\textbf{Recall@k:} proportion of questions with labelled evidence in the first \emph{k} results.
-
-\textbf{top-k:} the first \emph{k} ranked retrieval results.
+\small
+\renewcommand{\arraystretch}{1.06}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{0.16\linewidth}Y@{}}
+API & application programming interface. \\
+BM25 & Best Matching 25 probabilistic lexical ranking function. \\
+BLIP & Bootstrapping Language--Image Pre-training. \\
+CC BY & Creative Commons Attribution licence. \\
+CI & confidence interval. \\
+CLIP & Contrastive Language--Image Pre-training. \\
+DOI & digital object identifier. \\
+FTS & full-text search. \\
+HIFU & high-intensity focused ultrasound. \\
+IRT & infrared thermography. \\
+LLM & large language model. \\
+MR/MRI & magnetic resonance/magnetic resonance imaging. \\
+MRR & mean reciprocal rank. \\
+nDCG & normalised discounted cumulative gain. \\
+PDF & Portable Document Format. \\
+PRFS & proton resonance frequency shift. \\
+QA & question answering. \\
+RAG & retrieval-augmented generation. \\
+RQ & research question. \\
+RRF & reciprocal rank fusion. \\
+SBERT & Sentence-BERT. \\
+SciMMIR & Scientific Multi-Modal Information Retrieval. \\
+TA & thermoacoustic. \\
+UST & ultrasound tomography. \\
+Recall@k & proportion of questions with labelled evidence in the first \emph{k} results. \\
+top-k & the first \emph{k} ranked retrieval results. \\
+\end{tabularx}
+\normalsize
 
 \section{Reproducibility and Review Boundary}
 \label{sec:reproducibility-review}
